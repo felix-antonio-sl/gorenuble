@@ -1,0 +1,25 @@
+# Staging (work in progress)
+staging/*
+!staging/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+*.pyc
+__pycache__/
+.venv/
+venv/
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+
+# Temp files
+*.tmp
+*.bak
