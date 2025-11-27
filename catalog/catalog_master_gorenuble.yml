@@ -25,13 +25,25 @@ Catalog:
   Schemas: []
     # Add your schemas here
 
-  Domains: []
+  Domains:
+    - urn: "urn:knowledge:gorenuble:gn:intro-gores-nuble:1.0.0"
+      title: "Guía Integral del Gobierno Regional de Ñuble"
+      file: "knowledge/domains/gn/kb_gn_000_intro_gores_nuble_koda.yml"
+      status: published
+    - urn: "urn:knowledge:gorenuble:gn:selector-ipr:1.0.0"
+      title: "Selector de Vías de Financiamiento para IPR"
+      file: "knowledge/domains/gn/kb_gn_011_selector_ipr_koda.yml"
+      status: published
+    - urn: "urn:knowledge:gorenuble:gn:gestion-ipr-sts:1.0.0"
+      title: "Gestión Operacional de Intervenciones Públicas Regionales (IPR)"
+      file: "knowledge/domains/gn/kb_gn_019_gestion_ipr_sts_koda.yml"
+      status: draft
     # Add domain-specific knowledge here
 
 Statistics:
-  total_artifacts: 0
+  total_artifacts: 3
   core_guides: 0
   agents: 0
   schemas: 0
-  domains: 0
-  last_updated: "2025-11-25"
+  domains: 3
+  last_updated: "2025-11-27"
