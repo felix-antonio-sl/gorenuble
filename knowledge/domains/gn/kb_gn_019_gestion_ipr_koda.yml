@@ -1,8 +1,8 @@
 # Artefacto KODA/Spec – Gestión Operacional de Intervenciones Públicas Regionales (IPR)
-# Fuente: kb_gn_019_gestion_ipr_sts.md
+# Fuente: kb_gn_019_gestion_ipr.md
 
 _manifest:
-  urn: "urn:knowledge:gorenuble:gn:gestion-ipr-sts:1.0.0"
+  urn: "urn:knowledge:gorenuble:gn:gestion-ipr:1.0.0"
   federation:
     visibility: internal
     license: "Institutional Use"
@@ -10,7 +10,7 @@ _manifest:
     min_consumer_version: "1.0.0"
     breaking_changes_from: null
   resolution:
-    canonical_url: "file://knowledge/domains/gn/kb_gn_019_gestion_ipr_sts_koda.yml"
+    canonical_url: "file://knowledge/domains/gn/kb_gn_019_gestion_ipr_koda.yml"
     mirrors: []
   dependencies:
     requires:

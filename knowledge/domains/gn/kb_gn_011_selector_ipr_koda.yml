@@ -1,5 +1,5 @@
 # KODA Artifact: Selector de Vías de Financiamiento para IPR
-# Transformación desde: kb_gn_011_selector_ipr_sts.md
+# Transformación desde: kb_gn_011_selector_ipr.md
 # Estado: COMPLETO
 ---
 ID: KB-GN-011-SELECTOR-IPR-KODA
@@ -13,7 +13,7 @@ AI-Remediator: KODA-TRANSFORMER
 Creation-Date: 2025-11-25
 Modification-Date: 2025-11-26
 Ctx: Selector de Vías de Financiamiento GORE
-Primary-Source: kb_gn_011_selector_ipr_sts.md
+Primary-Source: kb_gn_011_selector_ipr.md
 
 LLM_Parsing_Instructions:
   ID: KODA-LLM-PARSER-01
@@ -180,7 +180,7 @@ Catalogo_Mecanismos:
       Proceso_Evaluacion_Primario: DEF-SNI # Ref
       Plataforma_Primaria: DEF-BIP # Ref
 
-    Ctx: kb_gn_024_guia_idi_sni_sts.md
+    Ctx: kb_gn_024_guia_idi_sni.md
 
     Mecanismo_SNI_General:
       ID: MEC-SNI-GENERAL
@@ -192,7 +192,7 @@ Catalogo_Mecanismos:
       Warn_Principio_Proporcionalidad:
         ID: WARN-SNI-PROPORCIONALIDAD
         Def: SNI NO es proceso único. Rigor se adapta según magnitud proyecto
-        Ctx: kb_gn_024_guia_idi_sni_sts.md#KB-GN-024-SNI-PROPORCIONALIDAD-01
+        Ctx: kb_gn_024_guia_idi_sni.md#KB-GN-024-SNI-PROPORCIONALIDAD-01
 
       Proceso_Maduracion_Preinversional:
         ID: PROC-MADURACION-SNI
@@ -202,7 +202,7 @@ Catalogo_Mecanismos:
       Niveles_Profundidad_Evaluacion:
         ID: PROC-NIVELES-EVAL-SNI
         Def: SNI aplica distintos niveles análisis. Proyectos simples tienen requisitos reducidos, complejos exigen mayor rigor
-        Ctx: kb_gn_024_guia_idi_sni_sts.md#KB-GN-024-SNI-PROPORCIONALIDAD-01
+        Ctx: kb_gn_024_guia_idi_sni.md#KB-GN-024-SNI-PROPORCIONALIDAD-01
 
       Req_Evaluacion:
         ID: REQ-EVAL-MDSF
@@ -226,7 +226,7 @@ Catalogo_Mecanismos:
 
       Fnd: DL 1.263 Art.19bis
       Ref_NIP: DEF-NIP
-      Ctx: kb_gn_024_guia_idi_sni_sts.md
+      Ctx: kb_gn_024_guia_idi_sni.md
 
     Mecanismo_FRIL:
       ID: MEC-FRIL
@@ -240,6 +240,9 @@ Catalogo_Mecanismos:
           Def: Proyectos costo total <5.000 UTM # Ref: DEF-UTM
           Tope_Regional_Nuble: 4.545 UTM # Ref: DEF-UTM
           Monto_Minimo: $100.000.000 CLP # Ref: DEF-CLP
+          Ref:
+            - DEF-UTM
+            - DEF-CLP
 
         Exencion_RS:
           ID: FRIL-EXENCION-RS
@@ -272,7 +275,7 @@ Catalogo_Mecanismos:
         Def: Registro en SNI para fines control
 
       Fnd: Ley Presupuestos Glosa 12
-      Ctx: kb_gn_026_guia-fril_sts.md
+      Ctx: kb_gn_026_guia-fril.md
 
     Mecanismo_Circular33:
       ID: MEC-C33
@@ -327,7 +330,7 @@ Catalogo_Mecanismos:
 
       Fnd: Circular N°33/2009 MINHAC, Ley Presupuestos vigente
       Ref_NIP: DEF-NIP
-      Ctx: kb_gn_029_guia-circ33_sts.md
+      Ctx: kb_gn_029_guia-circ33.md
 
   IPR_Programa:
     ID: CAT-IPR-PROGRAMA
@@ -395,7 +398,7 @@ Catalogo_Mecanismos:
 
       Fnd: Ley Presupuestos Glosa 06, Oficio Circular N°22
       Ref_DIPRES: DEF-DIPRES
-      Ctx: kb_gn_025_guia-programas_sts.md
+      Ctx: kb_gn_025_guia-programas.md
 
     Mecanismo_Transferencia_Publico:
       ID: MEC-TRANSFER-PUB
@@ -447,7 +450,7 @@ Catalogo_Mecanismos:
           Def: Para municipalidades, transferencia directa fondos (no consolidable)
           Warn: NO exime riguroso proceso evaluación interno GORE que reemplaza evaluación central
 
-      Ctx: kb_gn_001_guia-transferencia-programas_sts.md
+      Ctx: kb_gn_001_guia-transferencia-programas.md
 
     Mecanismo_Subvencion_8pct:
       ID: MEC-SUBV8
@@ -482,7 +485,7 @@ Catalogo_Mecanismos:
         Def: Exento evaluación SNI y evaluación ex-ante programas DIPRES/SES
 
       Fnd: Ley Presupuestos Glosa 07
-      Ctx: kb_gn_028_instructivo-subvencion-8_sts.md
+      Ctx: kb_gn_028_instructivo-subvencion-8.md
 
   IPR_Productivo:
     ID: CAT-IPR-PRODUCTIVO
@@ -535,7 +538,7 @@ Catalogo_Mecanismos:
           Req: "Ganar concurso previo es solo PREREQUISITO obtener derecho iniciar proceso evaluación estándar completo (Vía Ref: MEC-SNI-GENERAL si proyecto capital, Vía Programas si servicios)"
 
       Fnd: Ley N°21.591 (Royalty Minero), Ley Presupuestos Glosa 13, Res.Ex. N°33 SUBCTCI
-      Ctx: kb_gn_027_guia-frpd_sts.md
+      Ctx: kb_gn_027_guia-frpd.md
 
 Marco_Regulatorio:
   ID: REG-MARCO-GENERAL
@@ -636,7 +639,7 @@ Marco_Regulatorio:
         ID: REG-FND-GUIA-GORE-TRANSFER
         Src: Documento normativo interno
         Ref_GORE: DEF-GORE
-        Ctx: kb_gn_001_guia-transferencia-programas_sts.md
+        Ctx: kb_gn_001_guia-transferencia-programas.md
         Req: Establece procedimiento postulación, admisibilidad, evaluación técnica/financiera interna reemplaza evaluación Circular 22
 
   Base_FRIL:
@@ -715,11 +718,12 @@ Procesos_Evaluacion:
       Objetivo:
         ID: EVAL-SNI-OBJ
         Def: Analizar rentabilidad socioeconómica iniciativa inversión
-
       Resultado:
         ID: EVAL-SNI-RES
         Def: Recomendación Satisfactoria (RS) o Admisibilidad (AD), "pase" obtener financiamiento
-
+        Ref:
+          - RATE-RS
+          - RATE-AD
       Metodologias:
         ID: EVAL-SNI-METOD
         Def: Metodologías específicas SNI (ej. VAN, CAE)
@@ -811,13 +815,14 @@ Procesos_Evaluacion:
       Metodologia:
         ID: EVAL-TRANSFER-METOD
         Def: Marco Lógico y criterios definidos guía GORE
-
+        Ref_MML: DEF-MML
+      
       Plataforma:
         ID: EVAL-TRANSFER-PLAT
         Def: Plataforma postulación GORE (ej. GESDOC)
 
       Fuente:
-        Ctx: kb_gn_001_guia-transferencia-programas_sts.md
+        Ctx: kb_gn_001_guia-transferencia-programas.md
 
   Evaluacion_Especial_Exenta:
     ID: EVAL-ESPECIAL-EXENTA

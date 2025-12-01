@@ -12,14 +12,22 @@ _manifest:
     created_at: "2025-11-25"
 
 Catalog:
-  Core_Guides: []
+  Core_Guides:
+    - urn: "urn:knowledge:gorenuble:core:estructura-estado-chile:1.0.0"
+      title: "Estructura del Estado de Chile"
+      file: "knowledge/core/kb_core_007_estructura_estado_chile_koda.yml"
+      status: published
     # Add your core guides here
     # - urn: "urn:knowledge:gorenuble:core:example:1.0.0"
     #   title: "Example Guide"
     #   file: "knowledge/core/guide_core_001_example_gorenuble.yml"
     #   status: draft
 
-  Agents: []
+  Agents:
+    - urn: "urn:knowledge:gorenuble:agents:goreologo:1.0.0"
+      title: "Goreólogo - Consultor Experto en GORE"
+      file: "agents/agent_goreologo.yaml"
+      status: published
     # Add your agents here
 
   Schemas: []
@@ -34,16 +42,120 @@ Catalog:
       title: "Selector de Vías de Financiamiento para IPR"
       file: "knowledge/domains/gn/kb_gn_011_selector_ipr_koda.yml"
       status: published
-    - urn: "urn:knowledge:gorenuble:gn:gestion-ipr-sts:1.0.0"
+    - urn: "urn:knowledge:gorenuble:gn:gestion-ipr:1.0.0"
       title: "Gestión Operacional de Intervenciones Públicas Regionales (IPR)"
-      file: "knowledge/domains/gn/kb_gn_019_gestion_ipr_sts_koda.yml"
+      file: "knowledge/domains/gn/kb_gn_019_gestion_ipr_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:gestion-rendiciones:1.0.0"
+      title: "Gestión de Rendiciones de Cuentas en el GORE Ñuble"
+      file: "knowledge/domains/gn/kb_gn_020_gestion_rendiciones_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:estrategia-gestion:1.0.0"
+      title: "Estrategia y Gestión del GORE en Chile"
+      file: "knowledge/domains/gn/kb_gn_035_estrategia_gestion_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:loc-gore:1.0.0"
+      title: "LOC Gobierno y Administración Regional (DFL 1-19.175)"
+      file: "knowledge/domains/gn/kb_gn_031_loc_gore_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:gestion-prpto:1.0.0"
+      title: "Gestión Financiera y Operativa del Presupuesto Regional"
+      file: "knowledge/domains/gn/kb_gn_018_gestion_prpto_koda.yml"
+      status: published
+    - urn: "urn:knowledge:gorenuble:gn:marco-legal-gores:1.0.0"
+      title: "Compendio Jurídico para Gobiernos Regionales"
+      file: "knowledge/domains/gn/kb_gn_200_marco_legal_gores_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:cies-sitia:1.0.0"
+      title: "Centro Integrado de Emergencia y Seguridad (CIES) de Ñuble con integración SITIA"
+      file: "knowledge/domains/gn/kb_gn_080_cies_sitia_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:gore-ideal:1.0.0"
+      title: "GORE Ñuble Ideal y GORE 4.0"
+      file: "knowledge/domains/gn/kb_gn_900_gore_ideal_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:bpmn-c4:1.0.0"
+      title: "Modelamiento de Procesos (BPMN) y Arquitectura C4 del GORE Ñuble"
+      file: "knowledge/domains/gn/kb_gn_054_bpmn_c4_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:gestion-info-geoespacial:1.0.0"
+      title: "Gestión de Información Geoespacial en GORE Ñuble (Marco Integrado)"
+      file: "knowledge/domains/gn/kb_gn_090_gestion_informacion_geoespacial_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:intro-tde:1.0.0"
+      title: "Guía Maestra de Transformación Digital del Estado (TDE)"
+      file: "knowledge/domains/gn/kb_gn_016_intro_tde_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:transferencia-ppr:1.0.0"
+      title: "Transferencia de Programas Públicos Regionales (PPR) a Entidades Públicas"
+      file: "knowledge/domains/gn/kb_gn_001_transferencia_ppr_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:ris-index:1.0.0"
+      title: "Índice de Requisitos de Información Sectorial (RIS) SNI"
+      file: "knowledge/domains/gn/kb_gn_010_ris_index_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:ris-proyinv:1.0.0"
+      title: "RIS Genéricas para Proyectos de Inversión (SNI 2023)"
+      file: "knowledge/domains/gn/kb_gn_010_ris_proyinv_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:ris-proginv:1.0.0"
+      title: "RIS Genéricas para Programas de Inversión (SNI 2025)"
+      file: "knowledge/domains/gn/kb_gn_010_ris_proginv_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:ris-empub:1.0.0"
+      title: "RIS para Estudios y Proyectos de Empresas del Estado (SNI 2024)"
+      file: "knowledge/domains/gn/kb_gn_010_ris_empub_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:ris-pmdt:1.0.0"
+      title: "RIS para Estudio Básico PMDT (SNI 2024)"
+      file: "knowledge/domains/gn/kb_gn_010_ris_pmdt_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:ris-edpub:1.0.0"
+      title: "RIS para Proyectos de Edificación Pública (SNI 2024)"
+      file: "knowledge/domains/gn/kb_gn_010_ris_edpub_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:ris-artcult:1.0.0"
+      title: "RIS para Proyectos de Arte y Cultura (SNI 2024)"
+      file: "knowledge/domains/gn/kb_gn_010_ris_artcult_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:ris-patrimonio:1.0.0"
+      title: "RIS para Proyectos Patrimoniales (SNI 2024)"
+      file: "knowledge/domains/gn/kb_gn_010_ris_patrimonio_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:ris-deportes:1.0.0"
+      title: "RIS para Proyectos de Infraestructura Deportiva (SNI 2024)"
+      file: "knowledge/domains/gn/kb_gn_010_ris_deportes_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:guia-idi-sni-sts:1.0.0"
+      title: "Guía Formulación Iniciativas de Inversión (IDI) en SNI para GOREs"
+      file: "knowledge/domains/gn/kb_gn_024_guia_idi_sni_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:guia-programas-directos-gore:1.0.0"
+      title: "Guía de Formulación de Programas Públicos Regionales (PPR) de Ejecución Directa GORE"
+      file: "knowledge/domains/gn/kb_gn_025_guia_programas_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:guia-fril-2025-sts:1.0.0"
+      title: "Instructivo FRIL 2025 GORE Ñuble"
+      file: "knowledge/domains/gn/kb_gn_026_guia_fril_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:guia-frpd-nuble:1.0.0"
+      title: "Guía Operativa FRPD Ñuble 2025"
+      file: "knowledge/domains/gn/kb_gn_027_guia_frpd_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:instructivo-subvencion-8-2025-sts:1.0.0"
+      title: "Instructivo Concurso Vinculación con la Comunidad 8% 2025"
+      file: "knowledge/domains/gn/kb_gn_028_instructivo_subvencion_8_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:guia-circular-33-sts:1.0.0"
+      title: "Guía Operativa para Formulación y Evaluación de Iniciativas Circular 33"
+      file: "knowledge/domains/gn/kb_gn_029_guia_circ33_koda.yml"
       status: draft
     # Add domain-specific knowledge here
 
 Statistics:
-  total_artifacts: 3
-  core_guides: 0
-  agents: 0
+  total_artifacts: 31
+  core_guides: 1
+  agents: 1
   schemas: 0
-  domains: 3
-  last_updated: "2025-11-27"
+  domains: 29
+  last_updated: "2025-11-29"
