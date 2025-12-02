@@ -24,7 +24,7 @@ namespaces:
   koda:
     type: upstream
     base_path: "../koda/"
-    fallback: "https://raw.githubusercontent.com/koda-framework/koda/main/"
+    fallback: "https://raw.githubusercontent.com/felix-antonio-sl/koda/main/"
     required: true
     description: "KODA Framework - upstream dependency"
 
