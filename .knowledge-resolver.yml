@@ -10,8 +10,8 @@ _meta:
 
 self:
   namespace: "gorenuble"
-  repository: "github.com/GORE Ñuble/gorenuble"
-  visibility: public
+  repository: "github.com/felix-antonio-sl/gorenuble"
+  visibility: private
   maintainer: "maintainer@example.com"
 
 namespaces:
