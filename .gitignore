@@ -23,3 +23,6 @@ venv/
 # Temp files
 *.tmp
 *.bak
+
+# Local resolver override (not versioned)
+.knowledge-resolver.local.yml
