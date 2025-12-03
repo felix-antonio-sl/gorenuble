@@ -1,6 +1,6 @@
 # gorenuble
 
-[![KODA Compliant](https://img.shields.io/badge/KODA-Compliant-blue)](https://github.com/felix-antonio-sl/koda)
+[![KODA Compliant](https://img.shields.io/badge/KODA-Compliant-blue)](https://github.com/felix-antonio-sl/koda_)
 
 > Gobierno Regional de Ñuble - Knowledge base escalable a otros GOREs
 
@@ -32,8 +32,8 @@ Example URN: `urn:knowledge:gorenuble:core:example:1.0.0`
 
 ## Federation
 
-This repository is part of the [KODA Federation](https://github.com/felix-antonio-sl/koda).
+This repository is part of the [KODA Federation](https://github.com/felix-antonio-sl/koda_).
 
 ---
 
-*Built with [KODA Framework](https://github.com/felix-antonio-sl/koda) — Knowledge-Oriented Design Architecture*
+*Built with [KODA Framework](https://github.com/felix-antonio-sl/koda_) — Knowledge-Oriented Design Architecture*
