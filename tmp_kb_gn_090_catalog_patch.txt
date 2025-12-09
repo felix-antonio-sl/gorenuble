@@ -1,4 +1,0 @@
-- urn: "urn:knowledge:gorenuble:gn:gestion-info-geoespacial-sts:1.0.0"
-  title: "Gestión de Información Geoespacial del GORE Ñuble (STS)"
-  file: "knowledge/domains/gn/kb_gn_090_gestion_informacion_geoespacial_sts_koda.yml"
-  status: draft
