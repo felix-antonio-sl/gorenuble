@@ -176,12 +176,67 @@ Catalog:
       file: "knowledge/domains/gn/guias/kb_gn_029_guia_circ33_koda.yml"
       status: draft
 
+    - urn: "urn:knowledge:gorenuble:gn:indicadores-nuble:1.0.0"
+      title: "Indicadores regionales y comunales - Región de Ñuble (BCN junio 2025)"
+      file: "knowledge/domains/gn/estadisticas/kb_gn_005_indicadores_nuble_koda.yml"
+      status: draft
+
+    - urn: "urn:knowledge:gorenuble:gn:comunicaciones-oc:1.0.0"
+      title: "Comunicaciones Oscar Crisóstomo (compilado)"
+      file: "knowledge/domains/gn/comunicaciones/kb_gn_008_comunicaciones_oc_koda.yml"
+      status: draft
+
+    - urn: "urn:knowledge:gorenuble:gn:cuentas-publicas-2021-2024:1.0.0"
+      title: "Cuentas Públicas GORE Ñuble 2021-2024 (STS)"
+      file: "knowledge/domains/gn/gestion/kb_gn_009_cuentas_publicas_2021_2024_koda.yml"
+      status: draft
+
+    - urn: "urn:knowledge:gorenuble:gn:glosario-gore-nuble:1.0.0"
+      title: "Glosario Unificado Jurídico-Administrativo GORE Ñuble (STS)"
+      file: "knowledge/domains/gn/gestion/kb_gn_014_glosario_gore_nuble_koda.yml"
+      status: draft
+
+    - urn: "urn:knowledge:gorenuble:gn:guia-comunicaciones:1.0.0"
+      title: "Guía Integral de Comunicaciones GORE Ñuble (STS)"
+      file: "knowledge/domains/gn/comunicaciones/kb_gn_030_guia_comunicaciones_koda.yml"
+      status: draft
+
+    - urn: "urn:knowledge:gorenuble:gn:nuble-250:1.0.0"
+      title: "Agenda Estratégica \"Ñuble 250\" (STS)"
+      file: "knowledge/domains/gn/estrategia/kb_gn_056_nuble250_koda.yml"
+      status: draft
+
+    - urn: "urn:knowledge:gorenuble:gn:problemas-sociales-cl:1.0.0"
+      title: "Catálogo de Problemas Sociales de Chile (STS)"
+      file: "knowledge/domains/gn/social/kb_gn_004_problemas_sociales_cl_koda.yml"
+      status: draft
+
+    - urn: "urn:knowledge:gorenuble:gn:modelos-actos-juridicos:1.0.0"
+      title: "Modelos de Actos Jurídicos GORE Ñuble (SFD/STS)"
+      file: "knowledge/domains/gn/juridico/kb_gn_100_modelos_actos_juridicos_koda.yml"
+      status: draft
+
+    - urn: "urn:knowledge:gorenuble:gn:informe-estado-inicial-gore-pre-td:1.0.0"
+      title: "Informe Estado Inicial GORE Ñuble Pre-Transformación Digital (STS)"
+      file: "knowledge/domains/gn/tde/kb_gn_710_informe_estado_inicial_gore_pre_td_koda.yml"
+      status: draft
+
+    - urn: "urn:knowledge:gorenuble:gn:estrategia-td-ia:1.0.0"
+      title: "Estrategia de Transformación Digital e IA GORE Ñuble (STS)"
+      file: "knowledge/domains/gn/tde/kb_gn_720_estrategia_td_ia_koda.yml"
+      status: draft
+
+    - urn: "urn:knowledge:gorenuble:gn:estado-inicio-tics:1.0.0"
+      title: "Estado Inicial TICs GORE Ñuble (STS)"
+      file: "knowledge/domains/gn/tde/kb_gn_730_estado_inicio_tics_koda.yml"
+      status: draft
+
 Statistics:
-  total_artifacts: 38
+  total_artifacts: 49
   core_guides: 1
   agents: 2
   schemas: 0
-  domains: 36
+  domains: 47
   last_updated: "2025-12-15"
   federation_status: "registered_in_koda"
   notes: "Saneado: corregidas rutas RIS, agregados erd_nuble y aceleracion_regional, registrado agente gestor_ipr_360"
