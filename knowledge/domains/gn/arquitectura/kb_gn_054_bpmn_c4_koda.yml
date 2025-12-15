@@ -1,0 +1,1839 @@
+# KODA/Spec Artifact for BPMN + C4 Model of GORE Ñuble
+# Transformación KODA/Spec desde: kb_gn_054_bpmn_c4.md
+# Estado: BORRADOR INICIAL
+---
+
+_manifest:
+  urn: "urn:knowledge:gorenuble:gn:bpmn-c4:1.0.0"
+  federation:
+    visibility: internal
+    license: "Institutional Use"
+  compatibility:
+    min_consumer_version: "1.0.0"
+    breaking_changes_from: null
+  resolution:
+    canonical_url: "file://knowledge/domains/gn/arquitectura/kb_gn_054_bpmn_c4_koda.yml"
+    mirrors: []
+  dependencies:
+    requires:
+      - urn: "urn:knowledge:koda:core:spec:1.0.0"
+        reason: "KODA/Spec format compliance"
+      - urn: "urn:knowledge:koda:core:transform:1.0.0"
+        reason: "Transformation methodology reference"
+      - urn: "urn:knowledge:gorenuble:gn:intro-gores-nuble:1.0.0"
+        reason: "Contexto institucional GORE Ñuble"
+      - urn: "urn:knowledge:gorenuble:core:estructura-estado-chile:1.0.0"
+        reason: "Marco general del Estado de Chile"
+      - urn: "urn:knowledge:gorenuble:gn:marco-legal-gores:1.0.0"
+        reason: "Marco legal de referencia para procesos, arquitectura C4 y control externo"
+  provenance:
+    created_by: "FS"
+    created_at: "2025-11-27"
+    last_modified_at: "2025-12-15"
+    model_collaborators: ["Cascade", "KODA-TRANSFORMER"]
+
+ID: KB-GN-054-BPMN-C4-GORE-NUBLE-KODA
+Version: 1.0.0
+Status: Draft
+Format: KODA/Spec
+Human-Creator: FS
+Human-Editor: FS
+Model-Collaborator:
+  - Cascade
+AI-Remediator: KODA-TRANSFORMER
+Creation-Date: 2025-11-27
+Modification-Date: 2025-12-15
+Ctx: "Especificación STS de procesos BPMN y modelo C4 de alto nivel para el Gobierno Regional de Ñuble."
+Source:
+  Ctx_Required:
+    - "staging/gn/kodeados/kb_gn_054_bpmn_c4_sts.md"
+  Ctx_Optional:
+    - "knowledge/domains/gn/intro/kb_gn_000_intro_gores_nuble_koda.yml"
+    - "knowledge/domains/gn/legal/kb_gn_200_marco_legal_gores_koda.yml"
+  Primary-Source: "kb_gn_054_bpmn_c4_sts.md"
+
+LLM_Parsing_Instructions:
+  ID: KODA-LLM-PARSER-01
+  Req: Mandatory block following Metadata.
+  Prohib: Using for artifact creation or translation.
+  Content: |
+    BEGIN_LLM_INSTRUCTIONS
+    You are an AI agent consuming a KODA artifact. Parse with absolute fidelity.
+
+    FIDELITY: Preserve meat (essential information) and skeleton (structure: headers, IDs, lists, tables) with zero loss. Ignore fat (filler words, rhetoric, stylistic prose).
+
+    LEXICON (expand before processing): Act->Action, Cond->Condition, Ctx->Context, Ctx_Required->Required External Reference, Ctx_Optional->Optional External Reference, Def->Definition, Ex->Example, Mssn->Mission, Obj->Objective, Proc->Process, Purp->Purpose, Ref->Reference, XRef->Cross-Artifact Reference, XRef_Required->Mandatory Cross-Artifact Reference, Req->Requirement, Res->Result, Src->Source, Prohib->Prohibition, Warn->Warning, Just->Justification, Rec->Recommendation
+
+    REFERENCE POLICY: Ref: is internal only—must point to existing ID within THIS document. XRef/XRef_Required: are external only—must point to a URN (optionally with #ID fragment) in another artifact. External documents without specific ID use Ctx:, Ctx_Required:, or Ctx_Optional:.
+
+    LANGUAGE POLICY: Keywords in English, content in original language. Never translate content.
+    END_LLM_INSTRUCTIONS
+
+Purp: "Concentrar en un artefacto KODA/Spec el modelamiento de procesos (BPMN) y el modelo C4 de alto nivel del GORE Ñuble, manteniendo el estilo STS." 
+
+Parte_I_Procesos_BPMN_STS:
+  ID: GN-GORE-BPMN-PARTE-I-01
+  Ctx: "Especificación de procesos clave del GORE Ñuble en notación BPMN, resaltando actores, actividades, flujos de decisión, documentos y controles."
+  Ref: GN-BPMN-MODEL-01
+
+BPMN_Model:
+  ID: GN-BPMN-MODEL-01
+  Fnd: "Documentación oficial del GORE Ñuble."
+  Ctx: "Modelamiento de procesos del GORE Ñuble en notación BPMN, resaltando actores, actividades, flujos de decisión, documentos y controles."
+  Processes_Covered:
+    - "Tramitación de actos administrativos."
+    - "Ciclo presupuestario."
+    - "Gestión de iniciativas de inversión."
+    - "Rendición de cuentas."
+  Tramitacion_y_Aprobacion_Actos_Administrativos:
+    ID: BPMN-GN-ACTOS-ADMIN-01
+    Mech: "Pasos secuenciales y roles específicos para asegurar control interno y toma de razón por Contraloría General de la República (CGR)."
+    Act_Types:
+      - "Resoluciones."
+      - "Decretos."
+      - "Convenios."
+    Flujo_General_Resoluciones_Exentas:
+      ID: BPMN-GN-RES-EXENTAS-FLUJO-01
+      Phases:
+        - ID: BPMN-GN-RES-EXENTAS-FASE-INICIACION-01
+          Cpt: "Fase de Iniciación."
+          Resp:
+            Ref: ROLE-AREA-REQUIRENTE
+          Act:
+            - "Elaborar proyecto de resolución con antecedentes."
+            - "Remitir a Unidad Jurídica (UJ)."
+        - ID: BPMN-GN-RES-EXENTAS-FASE-REVISION-JURIDICA-01
+          Cpt: "Fase de Revisión Jurídica."
+          Resp:
+            Ref: ROLE-JURIDICA
+          Act:
+            - "Realizar revisión jurídica."
+          Req:
+            - "Asegurar cumplimiento de requisitos legales."
+        - ID: BPMN-GN-RES-EXENTAS-FASE-GESTION-01
+          Cpt: "Fase de Gestión."
+          Resp:
+            Ref: ROLE-CENTRO-GESTION
+          Act:
+            - "Controlar formalidades."
+            - "Foliar documentos."
+        - ID: BPMN-GN-RES-EXENTAS-FASE-CONTROL-01
+          Cpt: "Fase de Control."
+          Resp:
+            Ref: ROLE-UNIDAD-CONTROL
+          Act:
+            - "Visar por autoridad competente."
+          Req:
+            - "Verificar legalidad y disponibilidad presupuestaria."
+        - ID: BPMN-GN-RES-EXENTAS-FASE-FIRMA-NOTIFICACION-01
+          Cpt: "Fase de Firma y Notificación."
+          Resp:
+            Ref: ROLE-SECRETARIA
+          Act:
+            - "Firmar la resolución."
+            - "Notificar a interesados."
+          Control_Externo_CGR:
+            Act:
+              - "Enviar a CGR para toma de razón."
+            Cond:
+              - "Cuando corresponda."
+      BPMN_Model:
+        Pool:
+          - "GORE Ñuble"
+        Lanes:
+          - Ref: ROLE-AREA-REQUIRENTE
+          - Ref: ROLE-JURIDICA
+          - Ref: ROLE-CENTRO-GESTION
+          - Ref: ROLE-UNIDAD-CONTROL
+          - Ref: ROLE-SECRETARIA
+        User_Tasks:
+          - "Elaborar borrador"
+          - "Revisar legalidad"
+          - "Control de formalidades"
+          - "Revisar y visar"
+          - "Firmar"
+        Flow:
+          - "Eventos intermedios para espera de revisión o firma."
+          - Gateway:
+              ID: BPMN-GN-RES-EXENTAS-GW-TOMA-RAZON-01
+              Type: "Exclusivo"
+              Purp: "Determinar si requiere toma de razón."
+              Cond:
+                - "Si requiere toma de razón."
+                - "Si no requiere toma de razón."
+              Proc:
+                - "Si requiere toma de razón: Se envía a CGR para control externo."
+                - "Si no requiere toma de razón: Se notifica directamente."
+    Aprobacion_Transferencias_y_Convenios_Financiamiento:
+      ID: PROC-GORE-BPMN-TRAMITACION-CONVENIOS-01
+      Ctx: "Para transferencias a terceros."
+      Proc:
+        - ID: BPMN-GN-CONVENIOS-PASO-01
+          Cpt: "Emisión de acto administrativo."
+          Act_Types:
+            - "Decreto"
+            - "Resolución"
+        - ID: BPMN-GN-CONVENIOS-PASO-02
+          Cpt: "Elaboración de proyecto de convenio."
+          Resp:
+            Ref: ROLE-AREA-RESPONSABLE
+          Agreement_Background:
+            - "Propósito."
+            - "Monto."
+            - "Plazos."
+        - ID: BPMN-GN-CONVENIOS-PASO-03
+          Cpt: "Revisión jurídica."
+          Resp:
+            Ref: ROLE-JURIDICA
+          Act:
+            - "Revisar texto del convenio."
+        - ID: BPMN-GN-CONVENIOS-PASO-04
+          Cpt: "Firma de documentos."
+          Resp:
+            Ref: ROLE-AUTORIDAD
+          Act:
+            - "Firmar convenio."
+            - "Firmar decreto de aprobación."
+        - ID: BPMN-GN-CONVENIOS-PASO-05
+          Cpt: "Envío a CGR para toma de razón."
+        - ID: BPMN-GN-CONVENIOS-PASO-06
+          Cpt: "Firma con entidad beneficiaria."
+          Cond:
+            - "Tras aprobación de CGR."
+        - ID: BPMN-GN-CONVENIOS-PASO-07
+          Cpt: "Publicación."
+          Dest:
+            Ref: SYS-TRANSPARENCIA
+      Req:
+        - "Tramitación de dos documentos paralelos (proyecto de convenio y decreto)."
+      BPMN_Model:
+        Data_Artifacts:
+          - "Artefactos de datos para representar documentos."
+        Subprocesses:
+          - "Subproceso para la tramitación en CGR."
+        Gateways:
+          - ID: BPMN-GN-CONVENIOS-GW-PARALLEL-01
+            Type: "Paralelo"
+            Purp: "Sincronizar aprobación de convenio y decreto antes de la firma externa."
+
+  Ciclo_Presupuestario_Regional:
+    ID: BPMN-GN-CICLO-PRESUPUESTARIO-01
+    Phases:
+      - "Formulación."
+      - "Aprobación."
+      - "Ejecución."
+      - "Modificación."
+      - "Control/Cierre."
+    Actors_Involved:
+      - Ref: ROLE-DIPIR
+      - Ref: ROLE-DAF
+      - Ref: ROLE-GOBERNADOR
+      - Ref: ORG-CORE
+      - Ref: ORG-DIPRES
+      - Ref: ORG-CGR
+    Formulacion_Del_Presupuesto:
+      ID: BPMN-GN-PRESUPUESTO-FORMULACION-01
+      Proc:
+        - ID: BPMN-GN-PRESUPUESTO-FORMULACION-STEP-01
+          Cpt: "Elaboración de insumos."
+          Responsibilities:
+            - Ref: ROLE-DIPIR
+              Act:
+                - "Elaborar Anteproyecto Regional de Inversiones (ARI)."
+                - "Elaborar Programa Regional de Inversiones (PROPIR)."
+              Src:
+                - "Iniciativas de divisiones, municipios y servicios públicos."
+            - Ref: ROLE-DAF
+              Act:
+                - "Estimar ingresos y egresos corrientes."
+        - ID: BPMN-GN-PRESUPUESTO-FORMULACION-STEP-02
+          Cpt: "Consolidación y envío."
+          Act:
+            - "Consolidar insumos en el Anteproyecto Regional."
+            - "Enviar al Gobernador."
+        - ID: BPMN-GN-PRESUPUESTO-FORMULACION-STEP-03
+          Cpt: "Aprobación por Consejo Regional (CORE)."
+          Act:
+            - "Celebrar sesión del CORE para aprobar el proyecto."
+          Cond:
+            - "Si existen observaciones: Se incorpora una ronda de ajuste."
+      Roles_Y_Responsabilidades_Detalle:
+        DIPIR:
+          Ref: ROLE-DIPIR
+          Act:
+            - "Liderar elaboración del proyecto de presupuesto del GORE (foco inversión regional y oferta programática)."
+            - "Coordinar ARI (Anteproyecto Regional de Inversiones) y PROPIR (Programa Público de Inversión en la Región)."
+            - "Asegurar alineación con la Estrategia Regional de Desarrollo (ERD) y coordinación con DIPLADE."
+            - "Preparar antecedentes de programas Glosa 06 para evaluación ex ante (DIPRES/SES), cuando aplique."
+        DAF:
+          Ref: ROLE-DAF
+          Act:
+            - "Proyectar gastos de funcionamiento (Subtítulos 21 y 22) con base en dotación vigente y gastos recurrentes."
+            - "Verificar correcta aplicación del clasificador presupuestario (Subtítulo, Ítem, Asignación; especialmente transferencias Subt. 24 y 33)."
+            - "Verificar restricciones legales y glosas aplicables (personal, viáticos, etc.)."
+        Coordinacion_DIPIR_DAF:
+          Act:
+            - "Identificar glosas aplicables y restricciones de uso (límites y prohibiciones)."
+            - "Crear provisiones específicas (p.ej. FRPD en ítem 33.03; provisiones FRIL y 8% FNDR)."
+            - "Justificar inversiones propuestas y verificar vigencia técnica (RS u otros resultados) para inclusión en presupuesto."
+      BPMN_Model:
+        Lanes:
+          - Ref: ROLE-DIPIR
+          - Ref: ROLE-DAF
+        Gateways:
+          - ID: BPMN-GN-PRESUPUESTO-FORMULACION-GW-PARALLEL-01
+            Type: "Paralelo"
+            Purp: "Juntar ARI y PROPIR."
+          - ID: BPMN-GN-PRESUPUESTO-FORMULACION-GW-CORE-01
+            Type: "Exclusivo"
+            Purp: "Decisión del CORE."
+            Cond:
+              - "No aprueba: Retorna a DIPIR/DAF para ajustes."
+              - "Aprueba: Pasa a fase de aprobación formal."
+    Aprobacion_Del_Presupuesto:
+      ID: BPMN-GN-PRESUPUESTO-APROBACION-01
+      Proc:
+        - ID: BPMN-GN-PRESUPUESTO-APROBACION-STEP-01
+          Cpt: "Remisión al CORE."
+          Cond:
+            - "Una vez consolidado el proyecto."
+          Resp:
+            Ref: ROLE-GOBERNADOR
+          Dln: "10 días hábiles."
+        - ID: BPMN-GN-PRESUPUESTO-APROBACION-STEP-02
+          Cpt: "Dictamen del CORE."
+          Dln: "10 días para dictaminar."
+          Cond:
+            - "Si no responde: Se entiende aprobado."
+        - ID: BPMN-GN-PRESUPUESTO-APROBACION-STEP-03
+          Cpt: "Envío a entidades externas."
+          Dest:
+            - Ref: ORG-DIPRES
+            - Ref: ORG-CGR
+          Purp: "Toma de razón y publicación."
+      Procedimiento_Legal_Y_Plazos_Detalle:
+        Proc:
+          - ID: BPMN-GN-PRESUPUESTO-LEGAL-STEP-01
+            Cpt: "Propuesta del Gobernador."
+            Dln: "10 días desde publicación de la Ley de Presupuestos."
+          - ID: BPMN-GN-PRESUPUESTO-LEGAL-STEP-02
+            Cpt: "Pronunciamiento del CORE."
+            Dln: "10 días desde recepción."
+          - ID: BPMN-GN-PRESUPUESTO-LEGAL-STEP-03
+            Cpt: "Remisión a DIPRES."
+            Dln: "5 días desde aprobación CORE."
+            Resp:
+              Ref: ROLE-DAF
+            Act:
+              - "Prepara oficio conductor y antecedentes."
+          - ID: BPMN-GN-PRESUPUESTO-LEGAL-STEP-04
+            Cpt: "Elaboración de resoluciones por DIPRES."
+            Dln: "10 días."
+          - ID: BPMN-GN-PRESUPUESTO-LEGAL-STEP-05
+            Cpt: "Toma de Razón CGR."
+            Dln: "15 días desde recepción (prorrogable por 15)."
+      Contenido_Y_Requisitos_Control_Calidad:
+        Req:
+          - "Desagregación según clasificador presupuestario a nivel de Subtítulo e Ítem."
+          - "Transferencias desagregadas a nivel de Asignación (Subt. 24 y 33)."
+          - "Coherencia entre propuesta Gobernador, acuerdo CORE y resoluciones DIPRES."
+          - "Para presupuesto de inversión: mantener código BIP y arrastres conservando asignación."
+      BPMN_Model:
+        Timers:
+          - "Evento temporizador de 10 días en el Gobernador."
+          - "Evento temporizador de 10 días en el CORE."
+        Gateways:
+          - ID: BPMN-GN-PRESUPUESTO-APROBACION-GW-RESULTADO-01
+            Type: "Exclusivo"
+            Purp: "Controlar resultado."
+            Cond:
+              - "CORE aprueba: Flujo continúa."
+              - "CORE no aprueba: Se realizan correcciones."
+              - "CORE no se pronuncia: Flujo avanza por default."
+    Ejecucion_Presupuestaria:
+      ID: BPMN-GN-PRESUPUESTO-EJECUCION-01
+      Activities_DAF:
+        Ref: ROLE-DAF
+        Act:
+          - "Registrar presupuesto en SIGFE."
+          - "Realizar ajustes mensuales de caja."
+          - "Ejecutar pagos según ley de compras."
+      Activities_DIPIR:
+        Ref: ROLE-DIPIR
+        Act:
+          - "Monitorear la ejecución física de los proyectos."
+          - "Revisar avances en el BIP."
+          - "Actualizar mensualmente la información a DIPRES."
+      Devengo_De_Compromisos:
+        Cond:
+          - If: "Convenios con municipalidades."
+            Ctx: "Se devenga al momento de la transferencia."
+          - If: "Convenios de ejecución."
+            Ctx: "Se devenga al devengar la transferencia."
+      Programacion_Ejecucion_Y_Caja:
+        DIPRES:
+          Ref: ORG-DIPRES
+          Act:
+            - "Elabora programa de ejecución inicial mensualizado."
+        GORE:
+          Ref: ORG-GORE-NUBLE
+          Act:
+            - "Remite actualizaciones mensuales (orientativo: día 15), detallando aporte fiscal y fuentes."
+        Programa_De_Caja_Mensual:
+          Def: "Se basa en ejecución programada menos saldos disponibles para calcular necesidades de aporte fiscal."
+      Regla_Devengo_Diferenciada_Detalle:
+        - ID: BPMN-GN-DEVENGO-EXTRAPRESUP-01
+          Ctx: "Transferencias extrapresupuestarias (Subt. 24-03, 33-03) a instituciones de la Ley de Presupuestos."
+          Def: "Devengo del gasto al aprobarse la rendición (no al transferir)."
+        - ID: BPMN-GN-DEVENGO-MUNICIPIOS-01
+          Ctx: "Transferencias a municipalidades (Subt. 24-02, 33-02; 24-03, 33-03)."
+          Def: "Regla general: devengo cuando la obligación es exigible (acto o convenio tramitado)."
+        - ID: BPMN-GN-DEVENGO-PRIVADOS-01
+          Ctx: "Transferencias a entidades privadas (Subt. 24-01, 33-01)."
+          Def: "Devengo cuando la obligación es exigible conforme al convenio/acto."
+      Coordinacion_DAF_DIPIR:
+        Act:
+          - "DIPIR informa a DAF proyectos retrasados para evaluar modificaciones presupuestarias."
+          - "DAF alerta a DIPIR sobre partidas en agotamiento o riesgo de sobregiro."
+      BPMN_Model:
+        Subprocesses:
+          - "Subproceso de ciclo para procesos recurrentes mensuales."
+        Tasks_DAF:
+          - "Registrar devengos"
+          - "Ejecutar pagos"
+          - "Actualizar SIGFE"
+        Tasks_DIPIR:
+          - "Monitorear avances"
+          - "Validar rendiciones"
+        Gateways:
+          - ID: BPMN-GN-PRESUPUESTO-EJECUCION-GW-DESVIACIONES-01
+            Type: "Exclusivo"
+            Purp: "Decidir cumplimiento de programación."
+            Cond:
+              - "Existen desviaciones: Se genera un proceso de modificación."
+    Modificacion_Presupuestaria:
+      ID: BPMN-GN-PRESUPUESTO-MODIFICACION-01
+      Types:
+        - "Suplementos."
+        - "Reasignaciones."
+        - "Traspasos entre subtítulos."
+        - "Fondos de emergencia."
+      Req:
+        - "Cada tipo requiere actos distintos."
+      Cond:
+        - "Aprobación por decreto (firmado por gobernador, visado por DAF)."
+        - "Requiere acuerdo del CORE y toma de razón por CGR."
+      Proc:
+        - "Solicitud de la división."
+        - "Revisión de pertinencia en DAF/DIPIR."
+        - "Emisión del acto respectivo."
+        - "Obtención de aprobación del CORE (si corresponde)."
+        - "Registro en SIGFE."
+      Motivaciones_Y_Plazos:
+        Just:
+          - "Reubicar recursos."
+          - "Incorporar nuevos ingresos."
+          - "Ajustar costos."
+          - "Financiar imprevistos."
+        Dln: "Solicitudes a DIPRES (orientativo) hasta 31 de octubre del año, según instructivo de ejecución."
+      Tipos_Y_Acto_Requerido_Ejemplos:
+        - ID: BPMN-GN-MODIF-REASIGNACION-INTERNA-01
+          Def: "Reasignación presupuestaria interna: movimientos entre subtítulos dentro del presupuesto GORE."
+          Res: "Solo Resolución GORE."
+        - ID: BPMN-GN-MODIF-SUPLEMENTO-INGRESOS-01
+          Def: "Suplemento presupuestario / incorporación de ingresos ley: aumenta presupuesto por mayor aporte fiscal o distribución de fondos."
+          Res: "Decreto Supremo (DIPRES) y Resolución GORE."
+        - ID: BPMN-GN-MODIF-TRANSFERENCIAS-OTROS-01
+          Def: "Transferencias a otros organismos (consolidable): reasignación desde FNDR en beneficio de un ministerio."
+          Res: "Decreto Supremo (DIPRES) y Resolución GORE."
+      Tramite_Externo_Control_Previo:
+        Proc:
+          - "Visación DIPRES → Toma de Razón CGR → Ajuste en SIGFE."
+        Warn:
+          - "Incluso modificaciones exentas de acuerdo CORE pueden requerir visación DIPRES y Toma de Razón CGR."
+      Documentos_Requeridos_Control_Admisibilidad:
+        Req:
+          - "Certificado de acuerdo CORE cuando aplica."
+          - "Minuta explicativa (justificación, origen/destino fondos, glosa habilitante)."
+          - "Informes favorables cuando aplique (MDSF/DIPRES u otros)."
+      Limites_Y_Prohibiciones_Ejemplos:
+        Prohib:
+          - "Reasignar recursos de inversión hacia Subtítulo 22 (según glosa aplicable)."
+      BPMN_Model:
+        Gateways:
+          - ID: BPMN-GN-PRESUPUESTO-MODIF-GW-TIPO-01
+            Type: "Exclusivo"
+            Purp: "Determinar el tipo de modificación."
+        Subprocesses:
+          - "Subproceso de aprobación para cada variante con firmas y visaciones necesarias."
+        Messages:
+          - "Eventos de mensaje para remisión al CORE y CGR."
+    Control_Y_Cierre:
+      ID: BPMN-GN-PRESUPUESTO-CIERRE-01
+      Control_Interno:
+        Resp:
+          - Ref: ROLE-UNIDAD-CONTROL
+          - Ref: ROLE-DAF
+          - Ref: ROLE-DIPIR
+        Act:
+          - "Verificar la legalidad de gastos y el cumplimiento de fines."
+      Control_Externo:
+        Resp:
+          - Ref: ORG-DIPRES
+          - Ref: ORG-CGR
+      Cierre_De_Ejercicio:
+        DAF:
+          Ref: ROLE-DAF
+          Act:
+            - "Consolidar la información."
+            - "Cerrar las cuentas en SIGFE."
+            - "Regularizar la deuda flotante."
+            - "Elaborar un informe de cierre."
+        DIPIR:
+          Ref: ROLE-DIPIR
+          Act:
+            - "Evaluar los resultados físicos y financieros."
+            - "Generar un informe de evaluación ex post."
+      Deuda_Flotante_Detalle:
+        Def: "Obligaciones devengadas en el año pero pendientes de pago al 31 de diciembre."
+        Resp:
+          Ref: ROLE-DAF
+        Act:
+          - "Calcula, registra y tramita su incorporación en el presupuesto del año siguiente."
+      Transparencia_Y_Control_Social_Obligaciones:
+        Req:
+          - "Publicar mensualmente cartera de proyectos financiados."
+          - "Publicar acuerdos del CORE dentro de plazos acotados."
+          - "Publicar información en formato digital legible y procesable."
+      BPMN_Model:
+        Events:
+          - "Evento de fin de tipo mensaje que envía informe de cierre a DIPRES y CGR."
+        Subprocesses:
+          - "Subprocesos de auditoría y evaluación."
+
+  Gestion_Iniciativas_Inversion_IPR:
+    ID: BPMN-GN-IPR-01
+    Phases:
+      - ID: BPMN-GN-IPR-FASE-01
+        Cpt: "Fase 1: Ingreso, pertinencia y admisibilidad."
+      - ID: BPMN-GN-IPR-FASE-02
+        Cpt: "Fase 2: Evaluación técnico-económica."
+      - ID: BPMN-GN-IPR-FASE-03
+        Cpt: "Fase 3: Obtención de financiamiento."
+      - ID: BPMN-GN-IPR-FASE-04
+        Cpt: "Fase 4: Formalización."
+      - ID: BPMN-GN-IPR-FASE-05
+        Cpt: "Fase 5: Ejecución y supervisión."
+      - ID: BPMN-GN-IPR-FASE-06
+        Cpt: "Fase 6: Modificaciones en ejecución."
+      - ID: BPMN-GN-IPR-FASE-07
+        Cpt: "Fase 7: Cierre técnico-financiero y evaluación ex post."
+
+    Fase_1_Ingreso_Pertinencia_Admisibilidad:
+      ID: BPMN-GN-IPR-FASE1-01
+      Subprocesses:
+        Recepcion_Y_Registro_Ingreso_Formal:
+          ID: BPMN-GN-IPR-FASE1-RECEPCION-REGISTRO-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE1-STEP-01
+              Cpt: "Presentación de postulación."
+              Resp: "Unidad Formuladora (Externa)."
+              Act:
+                - "Preparar y presentar IPR según guías del mecanismo."
+              Req:
+                - "Ingresar oficio conductor firmado por máxima autoridad de la entidad postulante."
+              Res:
+                - "Oficio y antecedentes completos presentados al GORE."
+            - ID: BPMN-GN-IPR-FASE1-STEP-02
+              Cpt: "Recepción y registro."
+              Resp:
+                Ref: ROLE-OFICINA-PARTES
+              Act:
+                - "Recepcionar oficio y documentación (física/digital)."
+                - "Asignar número de ingreso único en sistema de gestión documental (ej. SGDOC)."
+                - "Derivar antecedentes completos a Jefatura DIPIR."
+              Res:
+                - "Postulación registrada y derivada formalmente a DIPIR."
+            - ID: BPMN-GN-IPR-FASE1-STEP-03
+              Cpt: "Registro interno y puesta en cartera."
+              Resp: "Jefatura DIPIR."
+              Act:
+                - "Registrar datos básicos de la IPR en sistema de seguimiento interno."
+                - "Poner la postulación a disposición del Comité Directivo Regional (CDR)."
+              Res:
+                - "Postulación disponible para revisión del CDR."
+          BPMN_Model:
+            Events:
+              - "Evento de inicio de mensaje (Postulación ingresada)."
+            Data_Artifacts:
+              - "Oficio conductor."
+              - "Carpeta de antecedentes."
+            Tasks:
+              - "Recepcionar"
+              - "Registrar ingreso"
+              - "Derivar a DIPIR"
+
+        Analisis_Pertinencia_Estrategica_Filtro_Politico_Tecnico:
+          ID: BPMN-GN-IPR-FASE1-PERTINENCIA-CDR-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE1-CDR-STEP-01
+              Cpt: "Convocatoria."
+              Resp: "Jefatura DIPLADE."
+              Act:
+                - "Recibir listado de postulaciones ingresadas."
+                - "Convocar a sesión del CDR como presidente de la instancia."
+              Composition:
+                - "Jefaturas de División."
+                - "Jefatura de Rezago."
+                - "Administrador/a Regional."
+              Res:
+                - "CDR convocado con cartera de IPR a revisar."
+            - ID: BPMN-GN-IPR-FASE1-CDR-STEP-02
+              Cpt: "Revisión y categorización."
+              Resp:
+                Ref: ROLE-CDR
+              Act:
+                - "Analizar cada IPR desde perspectiva técnico-política."
+                - "Evaluar coherencia con ERD y prioridades estratégicas del GORE."
+                - "Evaluar viabilidad preliminar y pertinencia."
+                - "Generar acta de sesión con categorización y observaciones por IPR."
+              Res:
+                - "`PRE-ADMISIBLE CDR`"
+                - "`NO PRE-ADMISIBLE CDR`"
+            - ID: BPMN-GN-IPR-FASE1-CDR-STEP-03
+              Cpt: "Priorización para revisión técnica."
+              Resp: "Jefatura DIPIR."
+              Act:
+                - "Recibir acta del CDR."
+                - "Para IPR PRE-ADMISIBLES, evaluar marco presupuestario disponible y cartera de inversiones vigente."
+                - "Priorizar IPR para revisión técnica según relevancia y factibilidad de financiamiento."
+              Res:
+                - "`PARA REVISIÓN TÉCNICA`"
+                - "`EN CARTERA PRE-ADMISIBLE`"
+          BPMN_Model:
+            Subprocesses:
+              - "Subproceso (CDR) con salida a dos rutas (gateway exclusivo): PRE-ADMISIBLE / NO PRE-ADMISIBLE."
+            Data_Artifacts:
+              - "Acta CDR."
+
+        Revision_Admisibilidad_Formal_Filtro_Documental:
+          ID: BPMN-GN-IPR-FASE1-ADMISIBILIDAD-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE1-ADM-STEP-01
+              Cpt: "Asignación a analista."
+              Resp: "Jefatura de Preinversión (DIPIR)."
+              Act:
+                - "Recibir instrucción de Jefatura DIPIR para iniciar revisión."
+                - "Asignar la IPR a analista competente según tipología."
+                - "Formalizar apoyos interdivisionales si se requieren."
+              Res:
+                - "IPR derivada formalmente a analista."
+            - ID: BPMN-GN-IPR-FASE1-ADM-STEP-02
+              Cpt: "Revisión documental."
+              Resp: "Analista de Preinversión (DIPIR)."
+              Act:
+                - "Realizar revisión documental exhaustiva."
+                - "Verificar cumplimiento de requisitos de la guía operativa del mecanismo."
+                - "Comprobar correcta carga en Carpeta Digital del BIP cuando aplique."
+              Res:
+                - "`ADMISIBLE`"
+                - "`ADMISIBLE CON OBSERVACIONES`"
+                - "`INADMISIBLE`"
+            - ID: BPMN-GN-IPR-FASE1-ADM-STEP-03
+              Cpt: "Subsanación (si corresponde)."
+              Resp: "Unidad Formuladora (Externa)."
+              Cond:
+                - "Solo si estado = ADMISIBLE CON OBSERVACIONES."
+              Act:
+                - "Corregir antecedentes dentro del plazo definido por el GORE."
+              Warn:
+                - "No subsanar en plazo puede derivar en estado INADMISIBLE."
+              Res:
+                - "Documentación subsanada."
+            - ID: BPMN-GN-IPR-FASE1-ADM-STEP-04
+              Cpt: "Declaración de estado final."
+              Resp: "Jefatura de Preinversión (DIPIR)."
+              Act:
+                - "Si estado final es INADMISIBLE, elaborar y despachar oficio de inadmisibilidad."
+                - "Si es ADMISIBLE o subsanada, declarar estado PARA EVALUACIÓN TÉCNICA."
+              Res:
+                - "`INADMISIBLE INFORMADO`"
+                - "`LISTA PARA FASE 2`"
+          BPMN_Model:
+            Gateways:
+              - "Gateway exclusivo para ADMISIBLE / OBSERVACIONES / INADMISIBLE."
+            Timers:
+              - "Evento temporizador para plazo de subsanación."
+
+    Fase_2_Evaluacion_Tecnico_Economica:
+      ID: BPMN-GN-IPR-FASE2-01
+      Tracks:
+        Track_A_SNI_RS_via_MDSF:
+          ID: BPMN-GN-IPR-FASE2-TRACK-A-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE2-A-STEP-01
+              Cpt: "Revisión interna de fondo."
+              Resp: "Analista GORE (DIPIR)."
+              Act:
+                - "Revisión de fondo considerando antecedentes de Fase 1."
+                - "Verificar cumplimiento de RIS y metodologías SNI aplicables."
+                - "Asegurar calidad de estudios preinversionales (Perfil, Prefactibilidad, etc.)."
+                - "Elaborar Acta de Admisibilidad interna GORE."
+              Res:
+                - "`ADMISIBLE PARA ENVÍO A MDSF`"
+                - "`INADMISIBLE`"
+            - ID: BPMN-GN-IPR-FASE2-A-STEP-02
+              Cpt: "Oficio de envío a evaluación ex ante."
+              Resp: "Jefatura DIPIR / Gobernador/a."
+              Act:
+                - "Elaborar y visar oficio solicitando evaluación ex ante al SEREMI MDSF."
+                - "Gestionar cadena de V°B° interno y firma del Gobernador/a."
+              Res:
+                - "Oficio despachado a MDSF."
+            - ID: BPMN-GN-IPR-FASE2-A-STEP-03
+              Cpt: "Registro formal en BIP."
+              Resp: "Jefatura de Preinversión (DIPIR)."
+              Act:
+                - "Registrar formalmente la 'Informar Postulación' en el BIP."
+              Res:
+                - "Iniciativa `ENVIADO A MDSF` en BIP."
+            - ID: BPMN-GN-IPR-FASE2-A-STEP-04
+              Cpt: "Evaluación MDSF."
+              Resp: "Analista MDSF."
+              Act:
+                - "Realizar evaluación de admisibilidad (plazo orientativo: 5 días)."
+                - "Realizar análisis técnico-económico (ATE) (plazo orientativo: 10 días)."
+              Res:
+                - "RATE: `RS`, `FI`, u `OT`."
+            - ID: BPMN-GN-IPR-FASE2-A-STEP-05
+              Cpt: "Gestión del resultado."
+              Resp: "Unidad Formuladora / Analista GORE."
+              Act:
+                - "Si RS: registrar aprobación técnica y preparar paso a financiamiento."
+                - "Si FI u OT: apoyar a la Unidad Formuladora en subsanar observaciones (plazo máx. 60 días hábiles)."
+              Res:
+                - "`APROBADO TÉCNICAMENTE (RS)`"
+                - "`OBSERVACIONES SUBSANADAS`"
+            - ID: BPMN-GN-IPR-FASE2-A-STEP-06
+              Cpt: "Consolidación cartera."
+              Resp: "Jefatura de Preinversión (DIPIR)."
+              Act:
+                - "Monitorear BIP para obtener resultado de MDSF."
+                - "Informar cartera con RS a Jefatura DIPIR para preparación de presentación al Gobernador/a."
+              Res:
+                - "Cartera RS disponible para priorización."
+        Track_B_Programas_Publicos_Regionales_Glosa_06:
+          ID: BPMN-GN-IPR-FASE2-TRACK-B-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE2-B-STEP-01
+              Cpt: "Perfil."
+              Resp: "División Proponente GORE / DIPIR."
+              Act:
+                - "Elaborar Formulario de Perfil de Programa Público GORE."
+              Req:
+                - "Definir contraparte única GORE frente a DIPRES/SES."
+              Res:
+                - "Formulario de Perfil enviado a DIPRES/SES."
+            - ID: BPMN-GN-IPR-FASE2-B-STEP-02
+              Cpt: "Evaluación de pertinencia."
+              Resp: "DIPRES / SES."
+              Act:
+                - "Evaluar si iniciativa corresponde a programa y si es pertinente."
+              Res:
+                - "Aprobado: solicitud formal a GORE para elaborar Diseño."
+                - "Rechazado: proceso se detiene."
+            - ID: BPMN-GN-IPR-FASE2-B-STEP-03
+              Cpt: "Diseño."
+              Resp: "División Proponente GORE / DIPIR."
+              Cond:
+                - "Solo si DIPRES/SES solicita Diseño."
+              Act:
+                - "Elaborar Formulario de Diseño con Metodología de Marco Lógico."
+              Res:
+                - "Formulario de Diseño enviado."
+            - ID: BPMN-GN-IPR-FASE2-B-STEP-04
+              Cpt: "Revisión iterativa."
+              Resp: "DIPRES / SES."
+              Act:
+                - "Revisión iterativa de diseño."
+                - "Emisión de observaciones y recepción de subsanaciones."
+              Res:
+                - "Calificación final: `RF`, `OT` o `FI`."
+            - ID: BPMN-GN-IPR-FASE2-B-STEP-05
+              Cpt: "Subsanación hasta aprobación."
+              Resp: "División Proponente GORE / DIPIR."
+              Act:
+                - "Subsanar observaciones hasta lograr RF."
+              Warn:
+                - "Solo RF habilita programa para solicitar financiamiento."
+              Res:
+                - "`APROBADO TÉCNICAMENTE (RF)`"
+        Track_C_Vias_Simplificadas_Y_Procedimientos_Especiales:
+          ID: BPMN-GN-IPR-FASE2-TRACK-C-01
+          Proyectos_Menores_5000_UTM_Exencion_RS:
+            ID: BPMN-GN-IPR-FASE2-C-5000UTM-01
+            Proc:
+              - ID: BPMN-GN-IPR-FASE2-C-5000UTM-STEP-01
+                Cpt: "Postular en BIP."
+                Resp: "Unidad Formuladora."
+                Act:
+                  - "Postular proyecto en BIP a etapa Ejecución o Diseño."
+                Req:
+                  - "Usar descriptor 'Proyecto menor a 5.000 UTM'."
+                  - "Verificar que no existan causales de exclusión (fraccionamiento, EIA/CMN, problemas de terreno, etc.)."
+                Res:
+                  - "IDI postulada con descriptor específico."
+              - ID: BPMN-GN-IPR-FASE2-C-5000UTM-STEP-02
+                Cpt: "Completar carpeta digital."
+                Resp: "Unidad Formuladora."
+                Act:
+                  - "Cargar en BIP estudio preinversional simplificado y demás antecedentes exigidos."
+                Res:
+                  - "Carpeta digital completa."
+              - ID: BPMN-GN-IPR-FASE2-C-5000UTM-STEP-03
+                Cpt: "Carta de responsabilidad."
+                Resp: "Institución Financiera (GORE)."
+                Act:
+                  - "Enviar carta de responsabilidad a MDSF declarando ausencia de impedimentos y fraccionamiento."
+                Res:
+                  - "Carta enviada a MDSF."
+              - ID: BPMN-GN-IPR-FASE2-C-5000UTM-STEP-04
+                Cpt: "Aprobación técnica GORE."
+                Resp: "DIPIR GORE."
+                Act:
+                  - "Verificar cumplimiento del procedimiento y antecedentes."
+                Ctx:
+                  - "La aprobación técnica la otorga el propio GORE."
+                Res:
+                  - "`APROBADO TÉCNICAMENTE (Exento RS)`"
+          Proyectos_Conservacion:
+            ID: BPMN-GN-IPR-FASE2-C-CONSERVACION-01
+            Proc:
+              - ID: BPMN-GN-IPR-FASE2-C-CONS-STEP-01
+                Cpt: "Postulación en BIP."
+                Resp: "Unidad Formuladora."
+                Act:
+                  - "Postular IDI en BIP con proceso 'Conservación'."
+                  - "Cargar antecedentes: Memoria, Certificado de Conservación, etc."
+                Req:
+                  - "Costo total <= 30% del costo de reposición del activo."
+                Res:
+                  - "IDI postulada correctamente."
+              - ID: BPMN-GN-IPR-FASE2-C-CONS-STEP-02
+                Cpt: "Revisión GORE."
+                Resp: "Analista GORE (DIPIR)."
+                Act:
+                  - "Revisar coherencia de postulación con instructivo de conservación."
+                Res:
+                  - "V°B° para envío a MDSF."
+              - ID: BPMN-GN-IPR-FASE2-C-CONS-STEP-03
+                Cpt: "Envío a MDSF."
+                Resp: "Jefatura DIPIR / GORE."
+                Act:
+                  - "Enviar oficio a MDSF solicitando evaluación de admisibilidad."
+                Res:
+                  - "IDI `ENVIADA A MDSF` en BIP."
+              - ID: BPMN-GN-IPR-FASE2-C-CONS-STEP-04
+                Cpt: "Resultado MDSF."
+                Resp: "Analista MDSF."
+                Act:
+                  - "Verificar que IDI clasifique como conservación."
+                  - "Emitir RATE AD."
+                Res:
+                  - "`APROBADO TÉCNICAMENTE (AD)`"
+          Mecanismos_FRIL_8_FNDR_FRPD_Circular_33:
+            ID: BPMN-GN-IPR-FASE2-C-MECANISMOS-01
+            Ctx:
+              - "Mecanismos con lógicas de evaluación propias detalladas en sus guías específicas."
+            Common_Elements:
+              Req:
+                - "Definir requisitos documentales, pautas de evaluación, y reglas de rendición desde el inicio."
+                - "Asegurar coherencia entre evaluación, financiamiento, convenio y rendición."
+          BPMN_Model:
+            Gateways:
+              - "Gateway inclusivo por track: SNI / Programas / Especiales."
+            Subprocesses:
+              - "Subprocesos por track, con eventos de mensaje para interacción con MDSF/DIPRES."
+
+    Fase_3_Obtencion_Financiamiento:
+      ID: BPMN-GN-IPR-FASE3-01
+      Routes:
+        Ruta_A_Sin_Acuerdo_Obligatorio_CORE:
+          ID: BPMN-GN-IPR-FASE3-RUTA-A-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE3-A-STEP-01
+              Cpt: "Solicitud de CDP."
+              Resp: "Jefatura DIPIR."
+              Act:
+                - "Analizar cartera de IPR con aprobación técnica."
+                - "Solicitar al Depto. Presupuesto la emisión del CDP."
+              Res:
+                - "Solicitud de CDP enviada."
+            - ID: BPMN-GN-IPR-FASE3-A-STEP-02
+              Cpt: "Emisión de CDP."
+              Resp: "Jefatura Depto. Presupuesto (DAF)."
+              Act:
+                - "Verificar disponibilidad de fondos."
+                - "Elaborar y enviar CDP a unidad solicitante."
+              Res:
+                - "CDP emitido."
+            - ID: BPMN-GN-IPR-FASE3-A-STEP-03
+              Cpt: "Instrucción de tramitación de modificación."
+              Resp: "Jefatura de Preinversión / Unidad Patrocinante."
+              Act:
+                - "Recibir CDP."
+                - "Enviar memo al Depto. Presupuesto instruyendo iniciar tramitación de modificación presupuestaria."
+              Res:
+                - "`ENVIADO A FINANCIAMIENTO`"
+        Ruta_B_Con_Aprobacion_Obligatoria_DEL_CORE:
+          ID: BPMN-GN-IPR-FASE3-RUTA-B-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE3-B-STEP-01
+              Cpt: "Instrucción de preparación."
+              Resp: "Jefatura DIPIR."
+              Act:
+                - "Analizar cartera de IPR con aprobación técnica."
+                - "Solicitar preparación de documentación para CORE."
+              Res:
+                - "`INSTRUCCIÓN PARA PREPARAR ENVÍO A CORE`"
+            - ID: BPMN-GN-IPR-FASE3-B-STEP-02
+              Cpt: "Preparación carpeta CORE."
+              Resp: "Jefatura de Preinversión (DIPIR)."
+              Act:
+                - "Elaborar carpeta CORE (oficios, fichas IDI, antecedentes de respaldo)."
+              Res:
+                - "`CARTERA DISPONIBLE PARA ENVÍO A CORE`"
+            - ID: BPMN-GN-IPR-FASE3-B-STEP-03
+              Cpt: "Envío formal."
+              Resp: "Jefatura DIPIR / Gobernador/a."
+              Act:
+                - "Presentar cartera al Gobernador/a para V°B° final."
+                - "Firmar oficio y enviar formalmente cartera al CORE."
+              Res:
+                - "`CARTERA ENVIADA A CORE`"
+            - ID: BPMN-GN-IPR-FASE3-B-STEP-04
+              Cpt: "Pronunciamiento CORE."
+              Resp:
+                Ref: ORG-CORE
+              Act:
+                - "Analizar cartera en comisiones y sesión plenaria."
+                - "Votar aprobación o rechazo del financiamiento."
+              Res:
+                - "`IPR APROBADAS/RECHAZADAS`"
+            - ID: BPMN-GN-IPR-FASE3-B-STEP-05
+              Cpt: "Certificación."
+              Resp: "Secretario/a Ejecutivo CORE."
+              Act:
+                - "Comunicar resultados y emitir Certificado de Acuerdo CORE."
+              Req:
+                - "Usar formato estandarizado de certificado indicado por DIPRES para el año presupuestario vigente."
+              Res:
+                - "`CERTIFICADO CORE OK`"
+            - ID: BPMN-GN-IPR-FASE3-B-STEP-06
+              Cpt: "Solicitud creación presupuestaria."
+              Resp: "Jefatura DIPIR / Jefatura Preinversión."
+              Act:
+                - "Con certificado CORE, solicitar al Depto. Presupuesto la creación de asignación presupuestaria."
+              Res:
+                - "`ENVIADA A CREACIÓN PPT.`"
+          BPMN_Model:
+            Gateways:
+              - "Gateway exclusivo para determinar Ruta A (sin CORE) / Ruta B (con CORE)."
+            Data_Artifacts:
+              - "CDP"
+              - "Carpeta CORE"
+              - "Certificado de Acuerdo CORE"
+
+    Fase_4_Formalizacion:
+      ID: PROC-GORE-BPMN-IPR-FASE4-01
+      Cond:
+        - "Aprobado el financiamiento."
+      Subprocesses:
+        Tramitacion_Actos_Administrativos:
+          ID: BPMN-GN-IPR-FASE4-ACTOS-01
+          Ctx:
+            - "Tipo de acto según si modificación afecta solo presupuesto interno o Partida 31 nacional."
+          Proc:
+            - ID: BPMN-GN-IPR-FASE4-ACTOS-STEP-01
+              Cpt: "Elaboración de borrador."
+              Resp: "Profesional Depto. Presupuesto."
+              Act:
+                - "Elaborar borrador de Resolución (modificación interna) o solicitud a DIPRES para Decreto (afecta Partida 31)."
+              Res:
+                - "Borrador de Resolución / Solicitud de Decreto."
+            - ID: BPMN-GN-IPR-FASE4-ACTOS-STEP-02
+              Cpt: "Visaciones internas."
+              Resp:
+                - Ref: ROLE-DAF
+                - Ref: ROLE-DIPIR
+                - Ref: ROLE-UNIDAD-CONTROL
+              Req:
+                - "Acto debe obtener V°B° internos (Jurídico, Jefatura Presupuesto, Jefatura DIPIR, Administrador/a Regional)."
+              Res:
+                - "Acto visado internamente."
+            - ID: BPMN-GN-IPR-FASE4-ACTOS-STEP-03
+              Cpt: "Firma."
+              Resp:
+                Ref: ROLE-GOBERNADOR
+              Act:
+                - "Firmar resolución interna o oficio a DIPRES para tramitación del Decreto."
+              Res:
+                - "Acto firmado."
+            - ID: BPMN-GN-IPR-FASE4-ACTOS-STEP-04
+              Cpt: "Controles externos."
+              Resp:
+                - Ref: ORG-DIPRES
+                - Ref: ORG-CGR
+              Act:
+                - "Si Resolución GORE: enviar a DIPRES para visación y a CGR para Toma de Razón."
+                - "Si Decreto DIPRES: DIPRES elabora, envía a CGR para Toma de Razón y publica."
+              Res:
+                - "`RESOLUCIÓN/DECRETO CON TOMA DE RAZÓN`"
+        Elaboracion_Y_Firma_Convenio_Transferencia:
+          ID: BPMN-GN-IPR-FASE4-CONVENIO-01
+          Warn:
+            - "La transferencia de recursos solo puede materializarse después de la total tramitación del convenio."
+          Proc:
+            - ID: BPMN-GN-IPR-FASE4-CONVENIO-STEP-01
+              Cpt: "Borrador de convenio."
+              Resp: "Profesional Depto. Presupuesto."
+              Act:
+                - "Con asignación presupuestaria asegurada, elaborar borrador de Convenio de Transferencia."
+              Req:
+                - "Contenido mínimo: partes, objeto, monto, plazos, productos, obligaciones, rendición de cuentas, restitución."
+                - "Cuando la transferencia corresponda a institución privada: verificar régimen de concurso y convenio, y condiciones de asignación directa excepcional, según normas vigentes."
+                - "Incluir cláusulas de rendición vía SISREC CGR, restitución y prohibiciones de gasto según glosa aplicable."
+              Res:
+                - "Borrador de Convenio."
+            - ID: BPMN-GN-IPR-FASE4-CONVENIO-STEP-02
+              Cpt: "Revisión y visaciones."
+              Resp:
+                - Ref: ROLE-DIPIR
+                - Ref: ROLE-JURIDICA
+              Act:
+                - "Revisar y visar borrador del convenio."
+              Res:
+                - "Convenio visado internamente."
+            - ID: BPMN-GN-IPR-FASE4-CONVENIO-STEP-03
+              Cpt: "Coordinación y firma."
+              Resp:
+                - "Gabinete"
+                - Ref: ROLE-OFICINA-PARTES
+              Act:
+                - "Coordinar firma de convenio entre Gobernador/a y representante legal de entidad receptora."
+              Res:
+                - "`CONVENIO FIRMADO`"
+        Formalizacion_Final_Y_Devengo_Presupuestario:
+          ID: BPMN-GN-IPR-FASE4-DEVENGO-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE4-DEVENGO-STEP-01
+              Cpt: "Resolución aprobatoria del convenio."
+              Resp: "Profesional Depto. Presupuesto."
+              Act:
+                - "Elaborar Resolución que aprueba convenio y lo deja formalmente vigente."
+              Res:
+                - "Borrador de Resolución de aprobación."
+            - ID: BPMN-GN-IPR-FASE4-DEVENGO-STEP-02
+              Cpt: "Firma y Toma de Razón (si aplica)."
+              Resp:
+                - Ref: ORG-CGR
+              Act:
+                - "Firmar resolución."
+                - "Si corresponde según normativa CGR aplicable, enviar a CGR para Toma de Razón."
+              Res:
+                - "`CONVENIO FORMALIZADO (TRAMITADO)`"
+            - ID: BPMN-GN-IPR-FASE4-DEVENGO-STEP-03
+              Cpt: "Programación de transferencias y regla de devengo."
+              Resp: "Profesional DAF / DIPIR."
+              Ctx:
+                - "Con convenio tramitado, obligación se vuelve exigible."
+              Act:
+                - "Programar transferencias según convenio."
+              Devengo_Detalle:
+                - ID: BPMN-GN-IPR-FASE4-DEVENGO-DET-PRIVADOS-MUNICIPIOS-01
+                  Def: "Transferencias a privados y municipios: devengo cuando obligación es exigible (convenio tramitado)."
+                - ID: BPMN-GN-IPR-FASE4-DEVENGO-DET-SERVICIOS-PUBLICOS-01
+                  Def: "Transferencias a otros servicios públicos no consolidables: devengo cuando se aprueba la rendición de cuentas."
+              Res:
+                - "`TRANSFERENCIA PROGRAMADA`"
+          BPMN_Model:
+            Ref:
+              - PROC-GORE-BPMN-TRAMITACION-CONVENIOS-01
+            Messages:
+              - "Eventos de mensaje para visación DIPRES y Toma de Razón CGR."
+            Gateways:
+              - "Gateway exclusivo para distinguir Resolución interna vs. Decreto DIPRES."
+
+    Fase_5_Ejecucion_Y_Supervision:
+      ID: BPMN-GN-IPR-FASE5-01
+      Subprocesses:
+        Inicio_Y_Reuniones_Coordinacion:
+          ID: BPMN-GN-IPR-FASE5-INICIO-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE5-INICIO-STEP-01
+              Cpt: "Chequeo de documentación técnica."
+              Resp: "División Patrocinante / Depto. Inversiones."
+              Act:
+                - "Antes del inicio, chequear documentación técnica aprobada (EE.TT., planos, etc.)."
+              Res:
+                - "Revisión conforme de antecedentes."
+            - ID: BPMN-GN-IPR-FASE5-INICIO-STEP-02
+              Cpt: "Reunión formal de coordinación."
+              Resp: "División Patrocinante / Depto. Presupuesto / Unidad Técnica Receptora."
+              Act:
+                - "Convocar reunión formal GORE–UT receptora."
+                - "Aclarar roles, responsabilidades, plazos, hitos de control y procedimientos de rendición."
+              Res:
+                - "Acta de reunión con acuerdos."
+            - ID: BPMN-GN-IPR-FASE5-INICIO-STEP-03
+              Cpt: "Habilitación de carpeta de seguimiento."
+              Resp: "Supervisor/a del Proyecto (GORE)."
+              Act:
+                - "Crear carpeta de seguimiento (digital/física) con todos los antecedentes del proyecto."
+              Res:
+                - "Carpeta de seguimiento creada."
+        Licitacion_Y_Adjudicacion_Cuando_Aplica:
+          ID: BPMN-GN-IPR-FASE5-LICITACION-01
+          Ctx:
+            - "Cuando corresponda, aplicar exigencias de licitación pública obligatoria y sus excepciones según normativa vigente."
+          Req:
+            - "Proyectos y programas de inversión: licitación pública obligatoria cuando el monto sea superior a 1.000 UTM, salvo excepciones por emergencia según normativa aplicable."
+            - "Estudios básicos: licitación pública obligatoria cuando el monto sea superior a 500 UTM, salvo excepciones por emergencia según normativa aplicable."
+          Proc:
+            - ID: BPMN-GN-IPR-FASE5-LIC-STEP-01
+              Cpt: "Bases y publicación."
+              Resp: "Unidad Técnica Receptora."
+              Act:
+                - "Elaborar bases de licitación y publicar en Mercado Público."
+                - "Gestionar proceso de licitación para contratar ejecución."
+              Res:
+                - "Licitación adjudicada."
+            - ID: BPMN-GN-IPR-FASE5-LIC-STEP-02
+              Cpt: "Contrato."
+              Resp: "Unidad Técnica Receptora."
+              Act:
+                - "Firmar contrato con adjudicatario."
+              Res:
+                - "Contrato firmado."
+            - ID: BPMN-GN-IPR-FASE5-LIC-STEP-03
+              Cpt: "Inicio físico."
+              Resp: "Unidad Técnica Receptora."
+              Act:
+                - "Formalizar inicio de ejecución física (Entrega de Terreno u Orden de Inicio)."
+              Res:
+                - "Acta de Entrega de Terreno u Orden de Inicio."
+        Seguimiento_Y_Supervision:
+          ID: BPMN-GN-IPR-FASE5-SEGUIMIENTO-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE5-SEG-STEP-01
+              Cpt: "Supervisión técnica y avance físico."
+              Resp: "Supervisor/a del Proyecto (GORE)."
+              Act:
+                - "Realizar visitas a terreno periódicas."
+                - "Revisar informes de avance de la UT."
+                - "Gestionar Estados de Pago cuando aplique."
+                - "Actualizar BIP con % de avance físico."
+              Res:
+                - "Informes de visita y supervisión, avance en BIP."
+            - ID: BPMN-GN-IPR-FASE5-SEG-STEP-02
+              Cpt: "Monitoreo financiero y rendiciones."
+              Resp: "Analista Financiero (DAF/DIPIR)."
+              Act:
+                - "Monitorear ejecución presupuestaria en SIGFE."
+                - "Revisar rendiciones de cuentas en SISREC."
+                - "Alertar sobre sub-ejecución o desviaciones."
+              Res:
+                - "Informes de ejecución financiera."
+            - ID: BPMN-GN-IPR-FASE5-SEG-STEP-03
+              Cpt: "Comité de seguimiento (si aplica)."
+              Resp: "Comité de Seguimiento (si aplica)."
+              Act:
+                - "Realizar reuniones periódicas GORE–UT para revisar estado integral de la IPR."
+              Res:
+                - "Actas de reunión con acuerdos y planes de acción."
+          Milestones:
+            - "Inicio de obra"
+            - "Entrega de avance"
+            - "Recepción provisoria"
+          BPMN_Model:
+            Subprocesses:
+              - "Subproceso de ejecución con bucles de control de avance."
+            Gateways:
+              - "Gateway exclusivo para determinar si el avance es conforme: si no es conforme se genera una orden de cambio o se suspende el proyecto."
+            Messages:
+              - "Eventos de mensaje para solicitar subsanaciones técnicas/financieras."
+
+    Fase_6_Modificaciones_En_Ejecucion:
+      ID: BPMN-GN-IPR-FASE6-01
+      Subprocesses:
+        Solicitud_De_Modificacion:
+          ID: BPMN-GN-IPR-FASE6-SOLICITUD-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE6-SOL-STEP-01
+              Cpt: "Preparación de solicitud."
+              Resp: "Unidad Técnica Receptora."
+              Act:
+                - "Detectar necesidad de modificación (sobrecosto, obra adicional, imprevisto, etc.)."
+                - "Preparar informe técnico y financiero que justifique la modificación."
+              Res:
+                - "Informe de solicitud de modificación."
+            - ID: BPMN-GN-IPR-FASE6-SOL-STEP-02
+              Cpt: "Ingreso formal."
+              Resp: "Unidad Técnica Receptora."
+              Act:
+                - "Enviar oficio al Gobernador/a solicitando formalmente la modificación, adjuntando informe y antecedentes (nuevos presupuestos, planos, etc.)."
+              Res:
+                - "Solicitud formal ingresada al GORE."
+        Evaluacion_De_La_Modificacion_Reevaluacion:
+          ID: BPMN-GN-IPR-FASE6-EVAL-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE6-EVAL-STEP-01
+              Cpt: "Informe técnico GORE."
+              Resp: "Supervisor/a GORE / Analista DIPIR."
+              Act:
+                - "Analizar pertinencia y justificación técnica de la modificación."
+                - "Verificar que no altere sustancialmente el objetivo del proyecto."
+              Res:
+                - "Informe técnico GORE sobre modificación."
+            - ID: BPMN-GN-IPR-FASE6-EVAL-STEP-02
+              Cpt: "Evaluación de impactos y umbrales."
+              Resp: "DIPIR / DIPLADE."
+              Act:
+                - "Si cambio es significativo, reevaluar conveniencia de la IPR."
+                - "Verificar si nuevo costo total supera umbrales que exigen nuevo pronunciamiento CORE o SNI."
+              Res:
+                - "Pronunciamiento técnico sobre viabilidad de modificación."
+            - ID: BPMN-GN-IPR-FASE6-EVAL-STEP-03
+              Cpt: "Decisión."
+              Resp: "Jefatura DIPIR / GORE."
+              Act:
+                - "Con base en informes técnicos, aprobar o rechazar la modificación."
+              Res:
+                - "Decisión formal sobre modificación."
+        Tramitacion_De_La_Modificacion:
+          ID: BPMN-GN-IPR-FASE6-TRAMITACION-01
+          Ctx:
+            - "Proceso similar a Fases 3 y 4, aplicado a una modificación."
+          Proc:
+            - ID: BPMN-GN-IPR-FASE6-TRAM-STEP-01
+              Cpt: "Financiamiento adicional (si aplica)."
+              Resp: "DIPIR / CORE."
+              Cond:
+                - "Solo si modificación implica aumento de presupuesto."
+              Act:
+                - "Repetir proceso de solicitud de financiamiento y, si aplica, paso por CORE."
+              Res:
+                - "Fondos adicionales aprobados."
+            - ID: BPMN-GN-IPR-FASE6-TRAM-STEP-02
+              Cpt: "Actos y convenio modificatorio."
+              Resp: "DAF / Depto. Presupuesto."
+              Act:
+                - "Tramitar modificación presupuestaria (Resolución/Decreto)."
+                - "Modificar convenio de transferencia según corresponda."
+              Res:
+                - "Convenio y presupuesto modificados y tramitados."
+          BPMN_Model:
+            Ref:
+              - PROC-GORE-BPMN-IPR-FASE4-01
+            Gateways:
+              - "Gateway exclusivo que decide la aprobación del CORE."
+
+    Fase_7_Cierre_Tecnico_Financiero_Y_Evaluacion_Ex_Post:
+      ID: BPMN-GN-IPR-FASE7-01
+      Subprocesses:
+        Cierre_Tecnico:
+          ID: BPMN-GN-IPR-FASE7-CIERRE-TECNICO-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE7-TEC-STEP-01
+              Cpt: "Recepción de obras."
+              Resp: "Unidad Técnica Receptora."
+              Act:
+                - "Realizar recepción provisoria y definitiva de obras al contratista."
+                - "Tras período de garantía, formalizar recepción definitiva."
+              Res:
+                - "Acta de Recepción Definitiva de Obras."
+            - ID: BPMN-GN-IPR-FASE7-TEC-STEP-02
+              Cpt: "Informe final técnico."
+              Resp: "Unidad Técnica / Supervisor GORE."
+              Act:
+                - "Elaborar informe final de ejecución (productos, metas, resultados)."
+                - "Validar informe por parte del Supervisor GORE."
+              Res:
+                - "Informe final técnico aprobado."
+        Cierre_Financiero_Y_Administrativo:
+          ID: BPMN-GN-IPR-FASE7-CIERRE-FIN-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE7-FIN-STEP-01
+              Cpt: "Rendición final."
+              Resp: "Unidad Técnica Receptora."
+              Act:
+                - "Presentar rendición final de cuentas en SISREC CGR, sin saldos por rendir."
+              Res:
+                - "Rendición final presentada."
+            - ID: BPMN-GN-IPR-FASE7-FIN-STEP-02
+              Cpt: "Revisión y pronunciamiento."
+              Resp: "Analista Financiero GORE (DAF)."
+              Act:
+                - "Revisar y aprobar rendición final según guía específica."
+                - "Solicitar reintegro de saldos no utilizados o gastos rechazados."
+                - "Pronunciarse de manera fundada sobre la rendición dentro del plazo máximo aplicable, salvo que el convenio establezca un plazo diferente."
+              Res:
+                - "Rendición final aprobada y saldos reintegrados."
+            - ID: BPMN-GN-IPR-FASE7-FIN-STEP-03
+              Cpt: "Resolución de cierre."
+              Resp: "Profesional Depto. Presupuesto."
+              Act:
+                - "Elaborar resolución que aprueba la rendición de cuentas y declara cierre del convenio."
+              Res:
+                - "Resolución de Cierre de Convenio."
+            - ID: BPMN-GN-IPR-FASE7-FIN-STEP-04
+              Cpt: "Devolución de garantías."
+              Resp: "DAF / Entidad Receptora."
+              Act:
+                - "Una vez cerrado el convenio, gestionar devolución de garantías."
+              Res:
+                - "Garantías devueltas."
+        Evaluacion_Ex_Post:
+          ID: BPMN-GN-IPR-FASE7-EXPOST-01
+          Proc:
+            - ID: BPMN-GN-IPR-FASE7-EXPOST-STEP-01
+              Cpt: "Selección de muestra."
+              Resp: "MDSF / GORE."
+              Act:
+                - "Seleccionar IPR relevantes para evaluación ex-post."
+              Res:
+                - "Muestra de IPR a evaluar."
+            - ID: BPMN-GN-IPR-FASE7-EXPOST-STEP-02
+              Cpt: "Estudio evaluativo."
+              Resp: "Equipo Evaluador Externo/Interno."
+              Act:
+                - "Realizar estudio comparando situación 'con proyecto' vs. 'sin proyecto'."
+              Res:
+                - "Informe de Evaluación Ex-Post."
+            - ID: BPMN-GN-IPR-FASE7-EXPOST-STEP-03
+              Cpt: "Retroalimentación al ciclo."
+              Resp: "GORE / SNI."
+              Act:
+                - "Utilizar conclusiones y lecciones aprendidas para mejorar formulación y evaluación de futuras IPR."
+              Res:
+                - "Lecciones aprendidas incorporadas al ciclo de inversión."
+      BPMN_Model:
+        Events:
+          - "Eventos de fin múltiple (cierre financiero, cierre técnico)."
+        Tasks:
+          - "Tarea manual para representar la recepción de obras."
+          - "Tarea de usuario para representar la revisión de rendiciones."
+
+  Gestion_Rendiciones_De_Cuentas:
+    ID: BPMN-GN-RENDICIONES-01
+    Modalities:
+      - "Tradicional (sin SISREC)."
+      - "Actual (usando SISREC)."
+    Proceso_Tradicional_Sin_SISREC:
+      ID: BPMN-GN-RENDICIONES-TRADICIONAL-01
+      Proc:
+        - ID: BPMN-GN-REND-TRAD-STEP-01
+          Cpt: "Presentación de rendición."
+          Resp:
+            Ref: ORG-ENTIDAD-EJECUTORA
+          Act:
+            - "Preparar y presentar rendición en papel/digital a Oficina de Partes (OP) del GORE."
+          Dln: "15 días hábiles del mes siguiente."
+        - ID: BPMN-GN-REND-TRAD-STEP-02
+          Cpt: "Recepción, registro y derivación."
+          Resp:
+            Ref: ROLE-OFICINA-PARTES
+          Act:
+            - "Recepciona, registra y deriva a U.C.R./DAF."
+          Dln: "2 días hábiles (GORE)."
+        - ID: BPMN-GN-REND-TRAD-STEP-03
+          Cpt: "Registro y asignación a revisor."
+          Resp:
+            Ref: ROLE-UCR-DAF
+          Act:
+            - "Registra en base de datos interna y deriva a RTF."
+          Dln: "2 días hábiles (GORE)."
+        - ID: BPMN-GN-REND-TRAD-STEP-04
+          Cpt: "Revisión técnica y financiera."
+          Resp:
+            Ref: ROLE-RTF
+          Act:
+            - "Revisa técnica y financieramente la rendición."
+          Dln: "7 días hábiles (GORE)."
+          Cond:
+            - "Si OK: Emite certificado de aprobación y devuelve a U.C.R./DAF."
+            - "Si observa: Comunica a EE para subsanación; EE reingresa correcciones."
+        - ID: BPMN-GN-REND-TRAD-STEP-05
+          Cpt: "Control final (checklist)."
+          Resp:
+            Ref: ROLE-UCR-DAF
+          Act:
+            - "Recibe rendición aprobada por RTF y realiza control final mediante checklist."
+          Dln: "4 días hábiles (GORE)."
+        - ID: BPMN-GN-REND-TRAD-STEP-06
+          Cpt: "Contabilización."
+          Resp:
+            Ref: ROLE-UCR-DAF
+          Act:
+            - "Contabiliza en SIGFE."
+          Dln: "2 días hábiles (GORE)."
+        - ID: BPMN-GN-REND-TRAD-STEP-07
+          Cpt: "Archivo."
+          Resp:
+            Ref: ROLE-UCR-DAF
+          Act:
+            - "Archiva expediente."
+          Dln: "1 día hábil (GORE)."
+      BPMN_Model:
+        Pools:
+          - "Entidad Ejecutora"
+          - "GORE Ñuble"
+        Lanes:
+          - Ref: ROLE-OFICINA-PARTES
+          - Ref: ROLE-UCR-DAF
+          - Ref: ROLE-RTF
+        Timers:
+          - "15/2/2/7/4/2/1 días hábiles."
+        Gateways:
+          - "Gateway exclusivo para OK / Observa."
+
+    Proceso_SISREC_Plataforma_Digital:
+      ID: BPMN-GN-REND-SISREC-01
+      Flujo_Entidad_Otorgante_GORE:
+        ID: BPMN-GN-REND-SISREC-OTORGANTE-01
+        Proc:
+          - ID: BPMN-GN-REND-SISREC-GORE-STEP-01
+            Cpt: "Registro y recepción en SISREC."
+            Resp: "Analista Otorgante (RTF)."
+            Act:
+              - "Crea Programa/Proyecto en SISREC."
+              - "Registra y envía transferencia a Ejecutor."
+              - "Recibe y revisa rendición del Ejecutor."
+            Dln: "7 días hábiles (GORE)."
+            Res:
+              - "Aprueba/Observa cada transacción y envía a Encargado Otorgante."
+          - ID: BPMN-GN-REND-SISREC-GORE-STEP-02
+            Cpt: "Firma de informe (aprobación u observación)."
+            Resp:
+              Ref: ROLE-JEFE-DAF
+            Cond:
+              - "Si observa: Devuelve rendición al Ejecutor con FEA (1 día hábil GORE para devolver)."
+              - "Si aprueba: Firma Informe de Aprobación (total/parcial) con FEA."
+          - ID: BPMN-GN-REND-SISREC-GORE-STEP-03
+            Cpt: "Derivación para contabilización."
+            Resp: "Analista Otorgante (RTF)."
+            Act:
+              - "Descarga Informe de Aprobación firmado."
+              - "Deriva a U.C.R./DAF para contabilización."
+          - ID: BPMN-GN-REND-SISREC-GORE-STEP-04
+            Cpt: "Contabilización y archivo."
+            Resp:
+              Ref: ROLE-UCR-DAF
+            Act:
+              - "Contabiliza en SIGFE."
+              - "Archiva registro."
+            Dln:
+              - "2 días hábiles (GORE) para contabilizar."
+              - "2 días hábiles (GORE) para archivar."
+
+      Flujo_Entidad_Ejecutora:
+        ID: BPMN-GN-REND-SISREC-EJECUTOR-01
+        Proc:
+          - ID: BPMN-GN-REND-SISREC-EE-STEP-01
+            Cpt: "Preparación de rendición."
+            Resp:
+              Ref: ROLE-ANALISTA-EJECUTOR
+            Act:
+              - "Recibe y acepta transferencia del GORE en SISREC."
+              - "Crea informe de rendición (mensual, regularización, sin movimiento)."
+              - "Ingresa transacciones y adjunta documentos de respaldo digitalizados."
+              - "Envía a Ministro de Fe."
+            Dln: "15 días hábiles del mes siguiente."
+          - ID: BPMN-GN-REND-SISREC-EE-STEP-02
+            Cpt: "Revisión de autenticidad documental."
+            Resp:
+              Ref: ROLE-MINISTRO-DE-FE
+            Cond:
+              - "Si OK: Aprueba/certifica y pasa a Encargado Ejecutor."
+              - "Si observa: Devuelve a Analista Ejecutor."
+          - ID: BPMN-GN-REND-SISREC-EE-STEP-03
+            Cpt: "Revisión y firma."
+            Resp:
+              Ref: ROLE-ENCARGADO-EJECUTOR
+            Cond:
+              - "Si OK: Firma Informe de Rendición con FEA y envía al GORE."
+              - "Si observa: Devuelve a Analista Ejecutor."
+          - ID: BPMN-GN-REND-SISREC-EE-STEP-04
+            Cpt: "Regularización (si hay devolución del GORE)."
+            Resp:
+              Ref: ROLE-ANALISTA-EJECUTOR
+            Act:
+              - "Recibe rendición observada."
+              - "Crea informe de 'Regularización'."
+              - "Corrige transacciones observadas y reenvía por el mismo flujo."
+
+      BPMN_Model:
+        Pools:
+          - "Entidad Ejecutora"
+          - "GORE Ñuble (Otorgante)"
+        Lanes_GORE:
+          - "RTF (Analista Otorgante)"
+          - "Encargado Otorgante (Jefe DAF)"
+          - "U.C.R./DAF"
+        Lanes_EE:
+          - Ref: ROLE-ANALISTA-EJECUTOR
+          - Ref: ROLE-MINISTRO-DE-FE
+          - Ref: ROLE-ENCARGADO-EJECUTOR
+        Gateways:
+          - "Gateways exclusivos por aprobación/observación y bucle de regularización."
+
+    Rendicion_Por_Tipologia_De_Fondos:
+      ID: BPMN-GN-REND-TIPOLOGIA-01
+      Tipos:
+        - ID: BPMN-GN-REND-TIPO-FNDR-S31-01
+          Cpt: "FNDR – Iniciativas de Inversión (Subtítulo 31, Ejecución Directa GORE)."
+          Ctx: "Obras, adquisición de activos y estudios ejecutados directamente por el GORE."
+          Req:
+            - "Imputación por código BIP en SIGFE y actualización de avance físico-financiero en BIP."
+            - "Completar carpeta digital Ex Post en BIP al finalizar el proyecto."
+        - ID: BPMN-GN-REND-TIPO-FNDR-S33-01
+          Cpt: "FNDR – Transferencias de Capital (Subtítulo 33, Ejecución por terceros)."
+          Req:
+            - "Rendición obligatoria vía SISREC (Subt. 24/33) según reglas CGR."
+          Proc:
+            - "RTF revisa coherencia técnica-financiera; U.C.R./DAF revisa legalidad/documentación."
+        - ID: BPMN-GN-REND-TIPO-FRIL-01
+          Cpt: "FRIL."
+          Req:
+            - "Rendición vía SISREC acreditando gastos y avance de obras."
+            - "Considerar exigencia de informe favorable MDSF, salvo excepción <5.000 UTM; mantener registro SNI cuando aplique."
+        - ID: BPMN-GN-REND-TIPO-FRPD-01
+          Cpt: "FRPD."
+          Req:
+            - "Rendición vía SISREC, acreditando gasto y cumplimiento de hitos/productos."
+          Proc:
+            - "Seguimiento de metas por divisiones técnicas."
+        - ID: BPMN-GN-REND-TIPO-8FNDR-01
+          Cpt: "Subvenciones 8% FNDR."
+          Req:
+            - "Rendición vía SISREC; fiscalizar coherencia del gasto con lo adjudicado y bases del concurso."
+            - "Medios de verificación (listas de asistencia, fotos, difusión) y control de gastos prohibidos."
+        - ID: BPMN-GN-REND-TIPO-PROGRAMAS-FNDR-S24-01
+          Cpt: "Programas FNDR (Subtítulo 24 Inversión – ejecución directa GORE)."
+          Req:
+            - "Control del tope de gastos de administración (hasta 5% según regla aplicable)."
+          Proc:
+            - "Rendición de cumplimiento de componentes/metas coherente con diseño aprobado ex ante."
+        - ID: BPMN-GN-REND-TIPO-CIRCULAR33-01
+          Cpt: "Conservación de Infraestructura (Circular 33)."
+          Req:
+            - "Usar BIP para obtener RATE correspondiente y rendir como proyecto de inversión, acreditando partidas de conservación."
+          Prohib:
+            - "Costo de reparación > 30% del costo de reposición del activo."
+
+    Procedimientos_Contables_Clave_SIGFE:
+      ID: BPMN-GN-REND-CONTABLE-SIGFE-01
+      F07_Transferencias_Condicionadas_Sector_Privado:
+        ID: BPMN-GN-REND-F07-01
+        Ctx: "Aplicación típica en subvenciones 8% FNDR y programas con ONGs."
+        Fases:
+          - ID: BPMN-GN-REND-F07-FASE1-01
+            Cpt: "Fase 1 – Entrega de fondos."
+            Proc:
+              - "Devengo de obligación y pago."
+          - ID: BPMN-GN-REND-F07-FASE2-01
+            Cpt: "Fase 2 – Aprobación rendición."
+            Proc:
+              - "Reconocimiento del gasto."
+          - ID: BPMN-GN-REND-F07-FASE3-01
+            Cpt: "Fase 3 – Reintegro."
+            Proc:
+              - "Devengo del cobro y recepción del pago."
+      F08_Transferencias_Condicionadas_Sector_Publico:
+        ID: BPMN-GN-REND-F08-01
+        Ctx: "Aplicación típica en FNDR a municipalidades (FRIL, proyectos) y transferencias a otros servicios públicos."
+        Warn:
+          - "Para transferencias a otros servicios públicos (no municipalidades), el devengo del gasto se realiza al aprobar la rendición."
+        Fases:
+          - ID: BPMN-GN-REND-F08-FASE1-01
+            Cpt: "Fase 1 – Entrega de fondos."
+            Proc:
+              - "Devengo de obligación y pago."
+          - ID: BPMN-GN-REND-F08-FASE2-01
+            Cpt: "Fase 2 – Aprobación rendición."
+            Proc:
+              - "Reconocimiento del gasto."
+          - ID: BPMN-GN-REND-F08-FASE3-01
+            Cpt: "Fase 3 – Reintegro."
+            Proc:
+              - "Devengo del cobro y recepción del pago."
+
+  Conclusion_y_Recomendaciones_BPMN:
+    ID: BPMN-GN-CONCLUSION-REC-01
+    Characteristics:
+      - "Secuencias claras."
+      - "Múltiples actores."
+      - "Controles normativos."
+    Recommendations:
+      - "Definir pools para cada organismo (GORE Ñuble, Entidad Ejecutora, Contraloría, CORE)."
+      - "Definir lanes para unidades internas (DIPIR, DAF, UJ, Oficina de Partes)."
+      - "Utilizar subprocesos para etapas repetitivas (revisión de convenios, evaluaciones)."
+      - "Utilizar gateways para decisiones (aprobado/no aprobado, requiere CORE, etc.)."
+      - "Incorporar eventos temporizadores para respetar plazos legales."
+      - "Representar artefactos de datos (convenios, resoluciones, informes) para trazar la documentación."
+    Res:
+      - "Esta especificación sirve de base para diseñar diagramas BPMN que reflejen la complejidad administrativa y permitan identificar mejoras."
+
+Definitions:
+  ID: GN-BPMN-C4-DEFINITIONS-01
+  Purp: "Definiciones normalizadas para deduplicación vía Ref."
+  Organizations:
+    - ID: ORG-GORE-NUBLE
+      Def: "Gobierno Regional de Ñuble."
+    - ID: ORG-CORE
+      Def: "Consejo Regional (CORE)."
+    - ID: ORG-CGR
+      Def: "Contraloría General de la República (CGR)."
+    - ID: ORG-DIPRES
+      Def: "Dirección de Presupuestos (DIPRES)."
+    - ID: ORG-MDSF
+      Def: "Ministerio de Desarrollo Social y Familia (MDSF) / SEREMI."
+    - ID: ORG-CHILECOMPRA
+      Def: "ChileCompra / Mercado Público."
+    - ID: ORG-ENTIDAD-EJECUTORA
+      Def: "Entidad Ejecutora (EE)."
+  Units_And_Roles:
+    - ID: ROLE-GOBERNADOR
+      Def: "Gobernador/a Regional."
+    - ID: ROLE-ADMINISTRADOR-REGIONAL
+      Def: "Administrador/a Regional."
+    - ID: ROLE-AREA-REQUIRENTE
+      Def: "Área requirente."
+    - ID: ROLE-AREA-RESPONSABLE
+      Def: "Área responsable."
+    - ID: ROLE-CENTRO-GESTION
+      Def: "Centro de Gestión (secretaría)."
+    - ID: ROLE-SECRETARIA
+      Def: "Secretaria o Secretario Regional Ministerial."
+    - ID: ROLE-AUTORIDAD
+      Def: "Autoridad."
+    - ID: ROLE-DAF
+      Def: "División de Administración y Finanzas (DAF)."
+    - ID: ROLE-DIPIR
+      Def: "División de Presupuesto e Inversión Regional (DIPIR)."
+    - ID: ROLE-DIPLADE
+      Def: "División de Planificación y Desarrollo Regional (DIPLADE)."
+    - ID: ROLE-OFICINA-PARTES
+      Def: "Oficina de Partes."
+    - ID: ROLE-JURIDICA
+      Def: "Unidad Jurídica (UJ) / Asesoría Jurídica."
+    - ID: ROLE-UNIDAD-CONTROL
+      Def: "Unidad de Control."
+    - ID: ROLE-CDR
+      Def: "Comité Directivo Regional (CDR)."
+    - ID: ROLE-RTF
+      Def: "Referente Técnico-Financiero (RTF)."
+    - ID: ROLE-UCR-DAF
+      Def: "Unidad de Contabilidad y Rendiciones (UCR) / DAF."
+    - ID: ROLE-JEFE-DAF
+      Def: "Jefe/a DAF (Encargado Otorgante)."
+    - ID: ROLE-BENEFICIARIO
+      Def: "Beneficiario."
+    - ID: ROLE-ANALISTA-EJECUTOR
+      Def: "Analista Ejecutor."
+    - ID: ROLE-MINISTRO-DE-FE
+      Def: "Ministro de Fe del Ejecutor."
+    - ID: ROLE-ENCARGADO-EJECUTOR
+      Def: "Encargado Ejecutor."
+  External_Systems:
+    - ID: SYS-SIGFE
+      Def: "Sistema de Información para la Gestión Financiera del Estado (SIGFE)."
+    - ID: SYS-BIP-SNI
+      Def: "Banco Integrado de Proyectos / Sistema Nacional de Inversiones (BIP/SNI)."
+    - ID: SYS-SISREC
+      Def: "Sistema de Rendición Electrónica (SISREC) de CGR."
+    - ID: SYS-SGDOC
+      Def: "Sistema de gestión documental (p.ej. SGDOC)."
+    - ID: SYS-TRANSPARENCIA
+      Def: "Sistema de Transparencia (publicación)."
+    - ID: SYS-DOCDIGITAL
+      Def: "DocDigital / Notificador (expediente y comunicaciones)."
+    - ID: SYS-RED-INTEROP
+      Def: "Red de Interoperabilidad del Estado."
+    - ID: SYS-CLAVEUNICA
+      Def: "ClaveÚnica."
+  Funds_And_Terms:
+    - ID: TERM-IPR
+      Def: "Intervención Pública Regional (proyecto, programa, estudio)."
+    - ID: TERM-IDI
+      Def: "IDI / Proyecto SNI."
+      Ctx: "Iniciativa de inversión evaluada por MDSF, con resultado RATE/RS."
+    - ID: TERM-PPR
+      Def: "PPR / Programa (Glosa 06)."
+      Ctx: "Oferta programática del GORE con evaluación ex ante DIPRES."
+    - ID: TERM-FEA
+      Def: "Firma Electrónica Avanzada (FEA)."
+    - ID: TERM-FNDR
+      Def: "Fondo Nacional de Desarrollo Regional (FNDR)."
+    - ID: TERM-FRIL
+      Def: "Fondo Regional de Iniciativa Local (FRIL)."
+    - ID: TERM-FRPD
+      Def: "Fondo Regional para la Productividad y el Desarrollo (FRPD)."
+
+C4_Model:
+  ID: GN-C4-MODEL-01
+  Obj: "Fijar límites, actores, sistemas externos y relaciones clave que condicionan la arquitectura."
+  System_In_Focus:
+    ID: GN-C4-SYS-IN-FOCUS-01
+    Cpt: "Plataforma de Gestión del GORE Ñuble"
+    Def: "Sistema institucional que soporta el ciclo presupuestario regional, la gestión de IPR, la tramitación y firma de actos administrativos en expediente electrónico y la rendición de cuentas."
+    Integrations:
+      - Ref: SYS-SIGFE
+      - Ref: SYS-BIP-SNI
+      - Ref: SYS-SISREC
+      - Ref: SYS-DOCDIGITAL
+      - Ref: SYS-RED-INTEROP
+      - Ref: SYS-CLAVEUNICA
+      - Ref: ORG-CHILECOMPRA
+    External_Supervision:
+      - Ref: ORG-DIPRES
+      - Ref: ORG-CGR
+      - Ref: ORG-MDSF
+    Scope:
+      Def: "El GORE es la administración superior de la región con misión de desarrollo regional."
+      Prohib: "El gobierno interior (orden público/seguridad) no forma parte del alcance del sistema en foco."
+      Ctx: "El rol de gobierno interior recae en el Delegado Presidencial; es una relación de coordinación."
+  People:
+    Internal_Users:
+      - Ref: ROLE-GOBERNADOR
+      - Ref: ORG-CORE
+      - Ref: ROLE-ADMINISTRADOR-REGIONAL
+      - Ref: ROLE-DAF
+      - Ref: ROLE-DIPIR
+      - Ref: ROLE-DIPLADE
+      - Ref: ROLE-JURIDICA
+      - Ref: ROLE-UNIDAD-CONTROL
+      - Ref: ROLE-OFICINA-PARTES
+      - Ref: ROLE-CDR
+      - Ref: ROLE-RTF
+    External_Actors:
+      - Ref: ORG-CGR
+      - Ref: ORG-DIPRES
+      - Ref: ORG-MDSF
+      - Ref: ORG-CHILECOMPRA
+      - ID: ACTOR-EJECUTORES-EXTERNOS
+        Def: "Municipalidades, servicios públicos y entidades privadas (ejecutores y rendidores)."
+      - ID: ACTOR-SEGURIDAD-PUBLICA
+        Def: "SEREMI de Seguridad Pública / Consejos Regionales de Seguridad."
+        Ctx: "Coordinación para iniciativas de prevención; no subordinación al GORE."
+  External_Systems:
+    - Ref: SYS-SIGFE
+      Purp: "Sistema contable–presupuestario transaccional."
+      Mech: "DAF registra preafectación, compromiso, devengo, pago y reporta a DIPRES."
+    - Ref: SYS-BIP-SNI
+      Purp: "Registro y seguimiento de proyectos de inversión."
+      Req: "Requisito para evaluación MDSF y obtención de RS."
+    - Ref: SYS-SISREC
+      Purp: "Plataforma obligatoria de rendición electrónica para transferencias subtítulos 24 y 33."
+      Mech: "Flujo con firma electrónica avanzada y posterior contabilización en SIGFE."
+    - Ref: SYS-DOCDIGITAL
+      Purp: "Soporta comunicaciones y expediente electrónico."
+      Fnd: "Conforme Ley 21.180 y sus normas técnicas."
+    - Ref: SYS-RED-INTEROP
+      Req: "Exigida por DS Nº12 (Interoperabilidad) para intercambio de datos entre OAE."
+    - Ref: SYS-CLAVEUNICA
+      Purp: "Autenticación unificada para personas."
+      Fnd: "Alineamiento con DS Nº9 (Autenticación)."
+    - Ref: ORG-CHILECOMPRA
+      Purp: "Mercado Público para compras y contrataciones."
+    - ID: C4-LIMIT-NOTE-01
+      Warn: "Límite: SIGFE, BIP, SISREC, DocDigital, Red de Interoperabilidad y ChileCompra no son componentes internos del GORE; son sistemas externos con los que el sistema en foco se integra obligatoriamente."
+  Key_Relations:
+    - ID: C4-REL-DAF-SIGFE-01
+      Actors:
+        - Ref: ROLE-DAF
+        - Ref: SYS-SIGFE
+      Purp: "Registrar ejecución financiera; programar caja; emitir reportes a DIPRES; cerrar y devengar."
+    - ID: C4-REL-DIPIR-BIP-MDSF-01
+      Actors:
+        - Ref: ROLE-DIPIR
+        - Ref: SYS-BIP-SNI
+        - Ref: ORG-MDSF
+      Purp: "Carga y seguimiento de proyectos; obtención de RS/AD; conciliación con ejecución financiera en SIGFE."
+    - ID: C4-REL-RTF-SISREC-EJECUTORES-01
+      Actors:
+        - Ref: ROLE-RTF
+        - Ref: ROLE-DAF
+        - Ref: SYS-SISREC
+        - Ref: ACTOR-EJECUTORES-EXTERNOS
+      Purp: "Recepción, revisión, observación y aprobación de rendiciones; informe firmado con FEA; contabilización en SIGFE."
+    - ID: C4-REL-ACTOS-DOCDIGITAL-FEA-01
+      Actors:
+        - Ref: ROLE-GOBERNADOR
+        - Ref: ROLE-ADMINISTRADOR-REGIONAL
+        - Ref: ROLE-JURIDICA
+        - Ref: SYS-DOCDIGITAL
+        - Ref: TERM-FEA
+      Purp: "Tramitación y firma de resoluciones/decretos en expediente electrónico único."
+    - ID: C4-REL-GORE-DIPRES-CGR-01
+      Actors:
+        - Ref: ORG-GORE-NUBLE
+        - Ref: ORG-DIPRES
+        - Ref: ORG-CGR
+      Purp: "Visación y toma de razón de actos presupuestarios; control y fiscalización externa continua."
+    - ID: C4-REL-GORE-CHILECOMPRA-01
+      Actors:
+        - Ref: ORG-GORE-NUBLE
+        - Ref: ORG-CHILECOMPRA
+      Purp: "Contratación pública para adquisiciones y servicios."
+    - ID: C4-REL-INTEROP-AUTH-NOTIF-01
+      Actors:
+        - Ref: ORG-GORE-NUBLE
+        - Ref: SYS-RED-INTEROP
+        - Ref: SYS-CLAVEUNICA
+        - Ref: SYS-DOCDIGITAL
+      Purp: "Intercambio de datos, autenticación y notificaciones electrónicas conforme Normas Técnicas TDE."
+  High_Level_Business_Flows:
+    - ID: C4-FLOW-CICLO-PRESUPUESTARIO-01
+      Def: "Ciclo presupuestario anual."
+      Proc: "Formulación (DIPIR/DAF) → Aprobación/Distribución (propuesta Gobernador, aprobación CORE; visación DIPRES; toma de razón CGR) → Ejecución (DAF en SIGFE; DIPIR en BIP) → Modificaciones (aprobación CORE, controles DIPRES/CGR) → Cierre."
+    - ID: C4-FLOW-GESTION-IPR-01
+      Def: "Gestión de IPR (proyectos/programas)."
+      Proc: "Fase 1 Ingreso/pertinencia/admisibilidad (Oficina de Partes, CDR, DIPIR) → Fase 2 Evaluación técnica (SNI para proyectos; ex ante DIPRES para programas) → Aprobación CORE/actos administrativos → Ejecución y seguimiento → Cierre."
+    - ID: C4-FLOW-RENDICIONES-01
+      Def: "Rendición de cuentas (transferencias subtítulos 24/33)."
+      Proc: "Ejecutor carga en SISREC → RTF revisa → Jefatura DAF firma informe (FEA) → DAF contabiliza en SIGFE."
+      Warn: "CGR es órgano rector y puede iniciar juicio de cuentas."
+      Prohib: "No se entregan nuevos fondos si hay rendiciones exigibles pendientes."
+  Non_Functional_Requirements:
+    - ID: C4-NFR-EXPEDIENTE-FEA-01
+      Req: "Escrituración y expediente electrónicos; FEA (Ley 21.180; DS 4/2020; NT de documentos/expedientes)."
+    - ID: C4-NFR-AUTH-INTEROP-01
+      Req: "Autenticación e interoperabilidad (ClaveÚnica y Red de Interoperabilidad; DS 9 y DS 12)."
+    - ID: C4-NFR-NOTIF-01
+      Req: "Notificaciones electrónicas (DS 8)."
+    - ID: C4-NFR-GOBERNANZA-01
+      Req: "Probidad, transparencia, legalidad y control (principios y jerarquía normativa de la Administración)."
+    - ID: C4-NFR-DATOS-01
+      Req: "Protección de datos personales (principios de licitud, finalidad, proporcionalidad y seguridad)."
+  Inclusions_And_Exclusions:
+    Includes:
+      - Ref: TERM-IPR
+      - ID: C4-INCL-PRESUPUESTO-01
+        Def: "Gestión presupuestaria regional."
+      - ID: C4-INCL-EXPEDIENTES-01
+        Def: "Expedientes y firma electrónica."
+      - ID: C4-INCL-RENDICIONES-01
+        Def: "Rendiciones SISREC."
+      - ID: C4-INCL-INTEGRACIONES-01
+        Def: "Integración con SIGFE, BIP, DocDigital, Red de Interoperabilidad, ChileCompra."
+    Excludes:
+      - ID: C4-EXCL-GOBIERNO-INTERIOR-01
+        Def: "Gobierno interior/seguridad pública (rol del DPR y SEREMI de Seguridad)."
+      - ID: C4-EXCL-SISTEMAS-TERCEROS-01
+        Def: "Operación orgánica de SIGFE/BIP/SISREC/ChileCompra (son sistemas de terceros)."
+  Recommendations_For_Next_Layer:
+    - ID: C4-REC-N2-SEPARACION-01
+      Rec: "En C4-N2 (Contenedores) convendrá separar: Gestión Presupuestaria (SIGFE), Portafolio IPR (BIP), Rendiciones (SISREC), Gestión de Actos y Expedientes (DocDigital/FEA), Interoperabilidad/Notificaciones/Autenticación (DS 12/8/9), Contratación (ChileCompra)."
+    - ID: C4-REC-VETO-POINTS-01
+      Rec: "Mantener los puntos de control de DIPRES y CGR como relaciones externas con veto points."
