@@ -11,7 +11,7 @@ _manifest:
   provenance:
     created_by: "GORE Ñuble"
     created_at: "2025-11-25"
-    last_modified_at: "2025-12-09"
+    last_modified_at: "2025-12-14"
 
 Catalog:
   Core_Guides:
@@ -44,6 +44,18 @@ Catalog:
       title: "Selector de Vías de Financiamiento para IPR"
       file: "knowledge/domains/gn/kb_gn_011_selector_ipr_koda.yml"
       status: published
+    - urn: "urn:knowledge:gorenuble:gn:vision-desarrollo-nuble:1.0.0"
+      title: "Visión de Desarrollo GORE Ñuble"
+      file: "knowledge/domains/gn/kb_gn_013_vision_desarrollo_nuble_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:flujos-aprobacion-documentos:1.0.0"
+      title: "Catálogo de Flujos de Aprobación de Documentos para el GORE Ñuble"
+      file: "knowledge/domains/gn/kb_gn_015_aprobaciones_koda.yml"
+      status: published
+    - urn: "urn:knowledge:gorenuble:gn:manual-induccion-gore-nuble-2025:1.0.0"
+      title: "Manual de Inducción del Gobierno Regional de Ñuble 2025"
+      file: "knowledge/domains/gn/kb_gn_017_manual_induccion_gore_nuble_2025_koda.yml"
+      status: draft
     - urn: "urn:knowledge:gorenuble:gn:gestion-ipr:1.0.0"
       title: "Gestión Operacional de Intervenciones Públicas Regionales (IPR)"
       file: "knowledge/domains/gn/kb_gn_019_gestion_ipr_koda.yml"
@@ -67,6 +79,14 @@ Catalog:
     - urn: "urn:knowledge:gorenuble:gn:marco-legal-gores:1.0.0"
       title: "Compendio Jurídico para Gobiernos Regionales"
       file: "knowledge/domains/gn/kb_gn_200_marco_legal_gores_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:ley-presupuestos-2026-partida-31:1.0.0"
+      title: "Ley de Presupuestos 2026 - Partida 31: Financiamiento Gobiernos Regionales"
+      file: "knowledge/domains/gn/kb_gn_210_ley_presupuestos_2026_partida_31_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:ley-presupuestos-2026-normas-generales:1.0.0"
+      title: "Ley de Presupuestos 2026 - Normas Generales (Ley 21.796)"
+      file: "knowledge/domains/gn/kb_gn_211_ley_presupuestos_2026_normas_generales_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:cies-sitia:1.0.0"
       title: "Centro Integrado de Emergencia y Seguridad (CIES) de Ñuble con integración SITIA"
@@ -155,10 +175,10 @@ Catalog:
     # Add domain-specific knowledge here
 
 Statistics:
-  total_artifacts: 31
+  total_artifacts: 36
   core_guides: 1
   agents: 1
   schemas: 0
-  domains: 29
-  last_updated: "2025-12-09"
+  domains: 34
+  last_updated: "2025-12-14"
   federation_status: "registered_in_koda"
