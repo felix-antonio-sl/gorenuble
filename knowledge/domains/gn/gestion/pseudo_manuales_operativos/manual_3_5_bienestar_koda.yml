@@ -8,7 +8,7 @@ _manifest:
     min_consumer_version: "1.0.0"
     breaking_changes_from: null
   resolution:
-    canonical_url: "file://staging/brow_speculativo/manual_3_5_bienestar_koda.yml"
+    canonical_url: "file://knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_3_5_bienestar_koda.yml"
     mirrors: []
   dependencies:
     requires:
@@ -140,3 +140,10 @@ Manual_3_5_Bienestar_y_Calidad_de_Vida:
   Nota_de_Cierre:
     ID: GN-MANUAL-BIENESTAR-NOTA-01
     Ctx: "Este manual se rige por el Reglamento General de Servicios de Bienestar y el Reglamento Interno Específico del GORE Ñuble. Los procesos aquí descritos se gestionan operativamente a través del sistema SIGPER."
+
+Referencias_Cruzadas:
+  ID: GN-MANUAL-BIENESTAR-XREF-01
+  Ctx_Optional:
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_3_2_remuneraciones.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_3_1_ciclo_vida_koda.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_3_4_desarrollo_organizacional.yml"

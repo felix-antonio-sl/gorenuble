@@ -31,6 +31,41 @@ Catalog:
       file: "agents/agent_gestor_ipr_360.yaml"
       status: published
 
+    - urn: "urn:knowledge:gorenuble:agents:crm-ipr:1.0.0"
+      title: "CRM-IPR - Asistente CRM 360° Inversión Pública Regional"
+      file: "agents/agent_crm_ipr.yaml"
+      status: published
+
+    - urn: "urn:knowledge:gorenuble:agents:eacs:1.0.0"
+      title: "EACS - Enterprise Administrative & Compliance System"
+      file: "agents/agent_eacs.yaml"
+      status: published
+
+    - urn: "urn:knowledge:gorenuble:agents:erp-gore:1.0.0"
+      title: "ERP-GORE - Enterprise Resource Planning Regional"
+      file: "agents/agent_erp_gore.yaml"
+      status: published
+
+    - urn: "urn:knowledge:gorenuble:agents:banca-inversion:1.0.0"
+      title: "Banca de Inversión Regional - Inversión Estratégica"
+      file: "agents/agent_banca_inversion.yaml"
+      status: published
+
+    - urn: "urn:knowledge:gorenuble:agents:ar-virtual:1.0.0"
+      title: "AR Virtual - Administrador Regional Virtual"
+      file: "agents/agent_ar_virtual.yaml"
+      status: published
+
+    - urn: "urn:knowledge:gorenuble:agents:digitrans-gore:1.0.0"
+      title: "DIGITRANS-GORE - Oficial de Cumplimiento TDE Integral"
+      file: "agents/agent_digitrans_gore.yaml"
+      status: published
+
+    - urn: "urn:knowledge:gorenuble:agents:gobernador-virtual:1.0.0"
+      title: "Gobernador Virtual - Gobernador Regional Virtual"
+      file: "agents/agent_gobernador_virtual.yaml"
+      status: published
+
   Schemas: []
     # Add your schemas here
 
@@ -214,7 +249,7 @@ Catalog:
       status: draft
 
     - urn: "urn:knowledge:gorenuble:gn:nuble-250:1.0.0"
-      title: "Agenda Estratégica \"Ñuble 250\" (STS)"
+      title: 'Agenda Estratégica "Ñuble 250" (STS)'
       file: "knowledge/domains/gn/estrategia/kb_gn_056_nuble250_koda.yml"
       status: draft
 
@@ -246,9 +281,9 @@ Catalog:
 Statistics:
   total_artifacts: 52
   core_guides: 1
-  agents: 2
+  agents: 9
   schemas: 0
   domains: 50
   last_updated: "2025-12-16"
   federation_status: "registered_in_koda"
-  notes: "Saneado: corregidas rutas RIS, agregados erd_nuble y aceleracion_regional, registrado agente gestor_ipr_360"
+  notes: "Agregado Gobernador Virtual (agents: 8→9)"

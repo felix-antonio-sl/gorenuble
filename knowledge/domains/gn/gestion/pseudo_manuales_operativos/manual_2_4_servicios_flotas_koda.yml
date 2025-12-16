@@ -8,7 +8,7 @@ _manifest:
     min_consumer_version: "1.0.0"
     breaking_changes_from: null
   resolution:
-    canonical_url: "file://staging/brow_speculativo/manual_2_4_servicios_flotas_koda.yml"
+    canonical_url: "file://knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_2_4_servicios_flotas_koda.yml"
     mirrors: []
   dependencies:
     requires:
@@ -418,3 +418,10 @@ Manual_2_4_Servicios_Generales_y_Gestion_de_Flotas:
   Nota_de_Cierre:
     ID: GN-MANUAL-SERV-FLOTAS-CIERRE-01
     Def: "Este manual establece los procedimientos para mantener la operatividad de los servicios de soporte institucional y la flota vehicular del GORE."
+
+Referencias_Cruzadas:
+  ID: GN-MANUAL-SERV-FLOTAS-XREF-01
+  Ctx_Optional:
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_2_3_activo_fijo.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_2_1_compras_koda.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_1_2_contabilidad.yml"

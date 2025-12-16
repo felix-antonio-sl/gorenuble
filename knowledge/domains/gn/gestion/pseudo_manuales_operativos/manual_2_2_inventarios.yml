@@ -7,7 +7,7 @@ _manifest:
     min_consumer_version: "1.0.0"
     breaking_changes_from: null
   resolution:
-    canonical_url: "file://staging/brow_speculativo/manual_2_2_inventarios.yml"
+    canonical_url: "file://knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_2_2_inventarios.yml"
     mirrors: []
   dependencies:
     requires:
@@ -389,3 +389,11 @@ Manual_2_2_Gestion_de_Inventarios_y_Bodegas:
     Ctx_Optional:
       - "Manual 2.1: Compras Públicas (./manual_2_1_compras.md)."
       - "Manual 2.3: Activo Fijo (./manual_2_3_activo_fijo.md)."
+
+Referencias_Cruzadas:
+  ID: GN-MANUAL-INVENTARIOS-XREF-01
+  Ctx_Optional:
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_2_1_compras_koda.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_2_3_activo_fijo.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_1_2_contabilidad.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_1_1_presupuesto.yml"

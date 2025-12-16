@@ -7,7 +7,7 @@ _manifest:
     min_consumer_version: "1.0.0"
     breaking_changes_from: null
   resolution:
-    canonical_url: "file://staging/brow_speculativo/manual_1_1_presupuesto.yml"
+    canonical_url: "file://knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_1_1_presupuesto.yml"
     mirrors: []
   dependencies:
     requires:
@@ -362,5 +362,10 @@ Manual_1_1_Formulacion_y_Ejecucion_Presupuestaria:
       - "urn:knowledge:gorenuble:gn:ley-presupuestos-2026-partida-31:1.0.0"
       - "urn:knowledge:gorenuble:gn:ley-presupuestos-2026-normas-generales:1.0.0"
       - "urn:knowledge:gorenuble:gn:gestion-prpto:1.0.0"
+    Ctx_Optional:
+      - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_1_2_contabilidad.yml"
+      - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_1_3_tesoreria_koda.yml"
+      - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_2_1_compras_koda.yml"
+      - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_3_2_remuneraciones.yml"
 
 Just: "Manual orientado a disciplina fiscal y cumplimiento de metas de ejecución del Gobierno Regional."

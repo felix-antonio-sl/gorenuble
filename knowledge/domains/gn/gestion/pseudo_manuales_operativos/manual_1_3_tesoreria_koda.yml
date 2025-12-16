@@ -8,7 +8,7 @@ _manifest:
     min_consumer_version: "1.0.0"
     breaking_changes_from: null
   resolution:
-    canonical_url: "file://staging/brow_speculativo/manual_1_3_tesoreria_koda.yml"
+    canonical_url: "file://knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_1_3_tesoreria_koda.yml"
     mirrors: []
   dependencies:
     requires:
@@ -257,3 +257,11 @@ Manual_1_3_Tesoreria_y_Gestion_de_Ingresos:
 
   Nota_Final:
     Ctx: "Este manual complementa las disposiciones del Manual de Contabilidad, enfocándose en el manejo de flujos efectivos y valores."
+
+Referencias_Cruzadas:
+  ID: GN-MANUAL-TESORERIA-XREF-01
+  Ctx_Optional:
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_1_1_presupuesto.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_1_2_contabilidad.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_2_1_compras_koda.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_3_2_remuneraciones.yml"

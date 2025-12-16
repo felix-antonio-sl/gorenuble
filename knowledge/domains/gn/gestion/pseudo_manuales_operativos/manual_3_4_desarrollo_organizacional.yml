@@ -8,7 +8,7 @@ _manifest:
     min_consumer_version: "1.0.0"
     breaking_changes_from: null
   resolution:
-    canonical_url: "file://staging/brow_speculativo/manual_3_4_desarrollo_organizacional.yml"
+    canonical_url: "file://knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_3_4_desarrollo_organizacional.yml"
     mirrors: []
   dependencies:
     requires:
@@ -156,3 +156,11 @@ Manual_3_4_Desarrollo_Organizacional_y_Capacitacion:
   Nota_Final:
     ID: MANUAL-DESARROLLO-ORG-NOTA-01
     Ctx: "Este manual fomenta la carrera funcionaria y la profesionalización del capital humano regional. Los procesos aquí descritos se gestionan operativamente a través del sistema SIGPER."
+
+Referencias_Cruzadas:
+  ID: GN-MANUAL-DESARROLLO-ORG-XREF-01
+  Ctx_Optional:
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_3_1_ciclo_vida_koda.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_3_2_remuneraciones.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_3_3_tiempo_ausentismo_koda.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_3_5_bienestar_koda.yml"

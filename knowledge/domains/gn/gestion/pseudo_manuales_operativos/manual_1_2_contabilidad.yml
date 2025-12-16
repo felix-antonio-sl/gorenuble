@@ -7,7 +7,7 @@ _manifest:
     min_consumer_version: "1.0.0"
     breaking_changes_from: null
   resolution:
-    canonical_url: "file://staging/brow_speculativo/manual_1_2_contabilidad.yml"
+    canonical_url: "file://knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_1_2_contabilidad.yml"
     mirrors: []
   dependencies:
     requires:
@@ -453,3 +453,12 @@ Manual_1_2_Contabilidad_Gubernamental_y_Cierre_Financiero:
     Ref:
       - DEF-NICSP
       - DEF-CGR
+
+Referencias_Cruzadas:
+  ID: GN-MANUAL-CONTAB-XREF-01
+  Ctx_Optional:
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_1_1_presupuesto.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_1_3_tesoreria_koda.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_2_2_inventarios.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_2_3_activo_fijo.yml"
+    - "knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_3_2_remuneraciones.yml"
