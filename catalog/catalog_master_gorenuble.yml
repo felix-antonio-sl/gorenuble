@@ -11,7 +11,7 @@ _manifest:
   provenance:
     created_by: "GORE Ñuble"
     created_at: "2025-11-25"
-    last_modified_at: "2025-12-15"
+    last_modified_at: "2025-12-16"
 
 Catalog:
   Core_Guides:
@@ -54,6 +54,18 @@ Catalog:
     - urn: "urn:knowledge:gorenuble:gn:manual-induccion-gore-nuble-2026:1.0.0"
       title: "Manual de Inducción del Gobierno Regional de Ñuble 2026"
       file: "knowledge/domains/gn/gestion/kb_gn_017_manual_induccion_gore_nuble_2025_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:manual-inventarios-bodegas:1.0.0"
+      title: "Manual 2.2: Gestión de Inventarios y Bodegas"
+      file: "knowledge/domains/gn/gestion/kb_gn_040_manual_inventarios_bodegas_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:manual-activo-fijo:1.0.0"
+      title: "Manual 2.3: Gestión del Ciclo de Vida del Activo Fijo"
+      file: "knowledge/domains/gn/gestion/kb_gn_041_manual_activo_fijo_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:manual-desarrollo-organizacional:1.0.0"
+      title: "Manual 3.4: Desarrollo Organizacional y Capacitación"
+      file: "knowledge/domains/gn/gestion/kb_gn_042_manual_desarrollo_organizacional_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:gestion-ipr:1.0.0"
       title: "Gestión Operacional de Intervenciones Públicas Regionales (IPR)"
@@ -232,11 +244,11 @@ Catalog:
       status: draft
 
 Statistics:
-  total_artifacts: 49
+  total_artifacts: 52
   core_guides: 1
   agents: 2
   schemas: 0
-  domains: 47
-  last_updated: "2025-12-15"
+  domains: 50
+  last_updated: "2025-12-16"
   federation_status: "registered_in_koda"
   notes: "Saneado: corregidas rutas RIS, agregados erd_nuble y aceleracion_regional, registrado agente gestor_ipr_360"

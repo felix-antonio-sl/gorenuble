@@ -1,0 +1,179 @@
+_manifest:
+  urn: "urn:knowledge:gorenuble:gn:manual-tiempo-ausentismo:1.0.0"
+  title: "Manual 3.3: Gestión del Tiempo y Ausentismo"
+  federation:
+    visibility: internal
+    license: "Institutional Use"
+  compatibility:
+    min_consumer_version: "1.0.0"
+    breaking_changes_from: null
+  resolution:
+    canonical_url: "file://staging/brow_speculativo/manual_3_3_tiempo_ausentismo_koda.yml"
+    mirrors: []
+  dependencies:
+    requires:
+      - urn: "urn:knowledge:koda:core:spec:1.0.0"
+        reason: "KODA/Spec format compliance"
+      - urn: "urn:knowledge:koda:core:transform:1.0.0"
+        reason: "Transformation methodology reference"
+  provenance:
+    created_by: "KODA-TRANSFORMER"
+    created_at: "2025-12-16"
+    last_modified_at: "2025-12-16"
+    signature: null
+
+ID: GN-MANUAL-TIEMPO-AUSENTISMO-KODA-01
+Version: 1.0.0
+Status: Draft
+Format: KODA/Spec
+Human-Creator: "GORE Ñuble"
+Human-Editor: "FS"
+Model-Collaborator: "IA-CASCADE"
+AI-Remediator: "KODA-TRANSFORMER"
+Creation-Date: "2025-12-14"
+Modification-Date: "2025-12-16"
+Source_ID: MANUAL-TIEMPO-AUSENTISMO-01
+Primary-Source: staging/brow_speculativo/manual_3_3_tiempo_ausentismo.md
+Ctx: "Manual: Gestión del Tiempo y Ausentismo (GORE Ñuble)."
+
+LLM_Parsing_Instructions:
+  ID: KODA-LLM-PARSER-01
+  Req: Mandatory block following Metadata.
+  Prohib: Using for artifact creation or translation.
+  Content: |
+    BEGIN_LLM_INSTRUCTIONS
+    You are an AI agent consuming a KODA artifact. Parse with absolute fidelity.
+
+    FIDELITY: Preserve meat (essential information) and skeleton (structure: headers, IDs, lists, tables) with zero loss. Ignore fat (filler words, rhetoric, stylistic prose).
+
+    LEXICON (expand before processing): Act->Action, Cond->Condition, Cpt->Concept, Ctx->Context, Ctx_Required->Required External Reference, Ctx_Optional->Optional External Reference, Def->Definition, Dln->Deadline, Ex->Example, ID->ID, Just->Justification, Mssn->Mission, Obj->Objective, Proc->Process, Prohib->Prohibition, Purp->Purpose, Rec->Recommendation, Ref->Reference, Req->Requirement, Res->Result, Src->Source, Warn->Warning, XRef->Cross-Artifact Reference, XRef_Required->Mandatory Cross-Artifact Reference.
+
+    REFERENCE POLICY: Ref: internal only—must point to existing ID within THIS document. XRef/XRef_Required: external only—must point to a URN (optionally with #ID fragment) in another artifact. Other external mentions use Ctx:, Ctx_Required:, Ctx_Optional:, or Src:.
+
+    LANGUAGE POLICY: Keywords in English (and abbreviated forms as listed), content in original language (Spanish). Never translate content.
+    END_LLM_INSTRUCTIONS
+
+Manual_3_3_Gestion_del_Tiempo_y_Ausentismo:
+  ID: MANUAL-TIEMPO-AUSENTISMO-CONTENT-01
+
+  Obj: "Regular el control de asistencia, el cumplimiento de la jornada laboral y la gestión de permisos y licencias del personal, garantizando la continuidad operativa del GORE."
+
+  Seccion_I_Jornada_y_Asistencia:
+    ID: MANUAL-TIEMPO-SEC-I-01
+
+    1_Jornada_Laboral:
+      ID: MANUAL-TIEMPO-SEC-I-JORNADA-01
+      Src: "Estatuto Administrativo (Ley 18.834)"
+      Componentes:
+        - Jornada_Ordinaria: "44 horas semanales, distribuidas de lunes a viernes."
+        - Horarios: "Fijos o flexibles (según reglamento interno), garantizando presencia en horario núcleo (ej. 09:30 - 16:00)."
+        - Colacion: "Mínimo 30 minutos, no imputables a la jornada de trabajo."
+
+    2_Control_de_Asistencia:
+      ID: MANUAL-TIEMPO-SEC-I-ASISTENCIA-01
+
+      Sistema:
+        Ctx: "Registro biométrico (huella/facial) o tarjeta magnética."
+
+      Obligatoriedad:
+        Req: "Todo funcionario debe registrar entrada y salida."
+
+      Excepciones:
+        Ctx: "Cargos directivos y Jefes de División (art. 22 del Código del Trabajo por analogía/exención de marcar)."
+
+      Atrasos:
+        Tolerancia:
+          Ctx: "Tolerancia (ej. 15 mins/mes) según reglamento."
+        Descuento_de_Remuneraciones:
+          Req: "Descuento de remuneraciones por tiempos no trabajados (informe mensual a Remuneraciones - Manual 3.2)."
+
+  Seccion_II_Gestion_de_Derechos_Estatutarios_Ausencias_Planificadas:
+    ID: MANUAL-TIEMPO-SEC-II-01
+
+    3_Feriado_Legal_Vacaciones:
+      ID: MANUAL-TIEMPO-SEC-II-FERIADO-01
+
+      Derecho:
+        Ctx: "15 días hábiles con goce de sueldo tras 1 año de servicio (aumenta a 20 y 25 días según antigüedad)."
+
+      Solicitud:
+        Proc:
+          - Act: "Vía sistema interno (workflow)."
+          - Req: "Aprobada por Jefatura Directa."
+
+      Acumulacion:
+        Req:
+          - "Posible acumular hasta 2 períodos."
+        Warn: "El exceso caduca."
+
+    4_Permisos_Administrativos:
+      ID: MANUAL-TIEMPO-SEC-II-PERMISOS-01
+
+      Dias_Administrativos:
+        Ctx: "6 días anuales con goce de sueldo para fines particulares."
+
+      Fraccionamiento:
+        Req: "Pueden tomarse por días o medios días."
+
+    5_Compensacion_de_Horas:
+      ID: MANUAL-TIEMPO-SEC-II-COMPENSACION-01
+      Ctx: "Devolución de tiempo por trabajos extraordinarios (en lugar de pago), autorizada previamente."
+
+  Seccion_III_Licencias_Medicas_Ausencias_No_Planificadas:
+    ID: MANUAL-TIEMPO-SEC-III-01
+
+    6_Tramitacion_de_Licencias:
+      ID: MANUAL-TIEMPO-SEC-III-TRAMITACION-01
+
+      1_Presentacion:
+        ID: MANUAL-TIEMPO-SEC-III-PRESENTACION-01
+        Canales:
+          - Licencia_Electronica_I_MED:
+              Ctx: "Llega automáticamente al portal de RRHH."
+          - Licencia_Manual_Papel:
+              Dln: "2 o 3 días hábiles"
+              Req: "Funcionario tiene plazo de 2 o 3 días hábiles para presentarla desde inicio del reposo."
+
+      2_Procesamiento_Interno:
+        ID: MANUAL-TIEMPO-SEC-III-PROC-INTERNO-01
+        Proc:
+          - Act: "Registro en sistema de asistencia."
+          - Act: "Cálculo de fechas de vigencia."
+
+      3_Tramitacion_Externa:
+        ID: MANUAL-TIEMPO-SEC-III-TRAM-EXTERNA-01
+        Proc:
+          - Act: "Envío a COMPIN (FONASA) o Caja de Compensación / Isapre en plazo legal (3 días)."
+
+    7_Impacto_en_Remuneraciones:
+      ID: MANUAL-TIEMPO-SEC-III-REMUNERACIONES-01
+
+      Subsidio:
+        Proc:
+          - Act: "El GORE paga la remuneración completa (mantención de ingresos)."
+          - Act: "Recupera el subsidio del ente asegurador (SIL)."
+
+      Rechazo_Reduccion:
+        Cond: "Si la licencia es rechazada por COMPIN/Isapre"
+        Proc:
+          - Act: "El GORE debe descontar los días pagados indebidamente o solicitar reintegro al funcionario."
+
+  Seccion_IV_Responsabilidades:
+    ID: MANUAL-TIEMPO-SEC-IV-01
+
+    Funcionario:
+      Req: "Cuidar su asistencia, registrar marcas, solicitar permisos a tiempo y justificar ausencias."
+
+    Jefatura_Directa:
+      Req:
+        - "Autorizar permisos garantizando cobertura del servicio."
+        - "Validar horas extras."
+
+    Gestion_de_Personas:
+      Req:
+        - "Administrar sistema."
+        - "Reportar descuentos a Remuneraciones."
+        - "Tramitar licencias."
+
+  Nota_Final:
+    Ctx: "Este manual se complementa con el Reglamento Interno de Orden, Higiene y Seguridad del GORE Ñuble. Los procesos aquí descritos se gestionan operativamente a través del sistema SIGPER."
