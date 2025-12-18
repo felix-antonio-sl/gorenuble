@@ -82,18 +82,19 @@ Manual_2_1_Compras_Publicas_y_Contrataciones:
         - Src: "Directivas ChileCompra."
         - Src: "Ley 21.180 (Transformación Digital)."
 
-    Nuevos_Umbrales_y_Modalidades (Decreto 661):
+    Nuevos_Umbrales_y_Modalidades (Decreto 661/2024):
       ID: MANUAL-COMPRAS-SEC-I-UMBRALES-01
       Tabla_Maestra:
-        - Rango: "0 a 10 UTM"
-          Modalidad: "Trato Directo (Causal Menor Cuantía) o Compra Ágil."
-        - Rango: "10 a 100 UTM"
-          Modalidad: "Compra Ágil (Obligatoria si hay oferta en tienda)."
+        - Rango: "< 3 UTM"
+          Modalidad: "Fondos Globales (Caja Chica) o Portal Mercado Público."
+        - Rango: "3 a 100 UTM"
+          Modalidad: "Compra Ágil (Preferente). Mínimo 3 cotizaciones en el sistema."
         - Rango: "100 a 1.000 UTM"
-          Modalidad: "Licitación Pública (Normas Simplificadas L1)."
+          Modalidad: "Licitación Pública (Normas Simplificadas). Contrato opcional (puede formalizarse con OC)."
         - Rango: "> 1.000 UTM"
-          Modalidad: "Licitación Pública (Normas Generales)."
-        - Excepcion: "Convenio Marco (sin límite de monto, salvo restricción específica del CM)."
+          Modalidad: "Licitación Pública (Normas Generales). Contrato obligatorio y Garantía de Fiel Cumplimiento."
+        - Rango: "> 5.000 UTM"
+          Req: "Garantía de Seriedad de la Oferta obligatoria (máximo 3% del monto)."
 
     2_Principios_Rectores:
       ID: MANUAL-COMPRAS-SEC-I-PRINCIPIOS-01

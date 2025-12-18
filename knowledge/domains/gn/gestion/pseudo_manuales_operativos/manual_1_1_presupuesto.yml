@@ -220,18 +220,35 @@ Manual_1_1_Formulacion_y_Ejecucion_Presupuestaria:
         - "Desagregar montos globales en asignaciones específicas e Iniciativas de Inversión (códigos BIP)."
       Ref: DEF-BIP
 
-    Niveles_de_Ejecucion_Cadena_Presupuestaria:
+    Niveles_de_Ejecucion_y_Grados_de_Afectacion:
       ID: GN-MANUAL-PPTO-S3-F8-01
-      Req: "Todo gasto debe seguir estrictamente cadena de afectación en SIGFE."
-      Cadena:
+      Req: "Todo gasto debe seguir estrictamente la cadena de afectación en SIGFE para asegurar trazabilidad y control financiero."
+      Cadena_Estandar:
+        - Etapa: "0. Pre-afectación"
+          Def: "Reserva preventiva de recursos al iniciar un proceso de compra o solicitud de gasto (interno)."
         - Etapa: "1. CDP"
           Ref: DEF-CDP
+          Act: "Emisión del certificado que bloquea el saldo presupuestario."
         - Etapa: "2. Compromiso"
           Ref: DEF-COMPROMISO
+          Act: "Registro del acto administrativo (OC, Contrato, Resolución) que formaliza la obligación con un tercero."
         - Etapa: "3. Devengo"
           Ref: DEF-DEVENGO
+          Act: "Reconocimiento de la obligación exigible tras recepción conforme o cumplimiento de hito."
         - Etapa: "4. Pago"
           Ref: DEF-PAGO
+          Act: "Extinción de la obligación mediante transferencia electrónica."
+
+    Reglas_Especificas_de_Devengo_para_Transferencias:
+      ID: GN-MANUAL-PPTO-S3-F8-REGLAS-01
+      Src: "Minuta CGR-AGORECHI-DIPRES marzo 2025; Dictamen CGR N°E583841/2024."
+      Casos:
+        - Caso: "Transferencias Extrapresupuestarias (Subt. 24.03, 33.03) a Instituciones Ley Ppto"
+          Regla: "El devengo ocurre al aprobarse técnicamente la rendición de cuentas, no al momento de la transferencia."
+        - Caso: "Transferencias a Municipios y Otros Servicios (Consolidables)"
+          Regla: "El devengo ocurre cuando la obligación es exigible según el acto administrativo o convenio tramitado."
+        - Caso: "Transferencias a Entidades Privadas (Subt. 24.01, 33.01)"
+          Regla: "El devengo ocurre al cumplirse las condiciones de exigibilidad pactadas en el convenio formal."
       Ref: DEF-SIGFE
 
     Modificaciones_Presupuestarias:

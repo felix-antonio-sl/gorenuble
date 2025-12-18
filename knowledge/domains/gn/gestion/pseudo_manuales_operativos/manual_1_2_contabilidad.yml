@@ -309,13 +309,23 @@ Manual_1_2_Contabilidad_Gubernamental_y_Cierre_Financiero:
         ID: GN-MANUAL-CONTAB-S3-DEUDA-ANT-01
         Req: "Control estricto de Fondos por Rendir y viáticos."
         Prohib: "Nuevos anticipos a funcionarios/proveedores con rendiciones pendientes."
-      Rendiciones_Externas_SISREC:
+      Rendiciones_Cuentas_Externas_SISREC:
         ID: GN-MANUAL-CONTAB-S3-DEUDA-SISREC-01
-        Req: "Transferencias a terceros (Subtítulos 24 y 33) deben rendirse obligatoriamente vía SISREC (CGR)."
-        Src: "Res. Ex. N° 1.858/2023."
+        Req: "Transferencias a terceros (Subtítulos 24 y 33) deben rendirse obligatoriamente vía SISREC (CGR) conforme a Res. Ex. N° 1.858/2023."
+        Proc_Contable_GORE:
+          - Paso: "1. Recepción y Derivación"
+            Act: "La UCR (Unidad de Control de Rendiciones) centraliza la recepción y deriva al Referente Técnico-Financiero (RTF)."
+          - Paso: "2. Revisión Técnica (Analista Otorgante)"
+            Act: "Revisión física y financiera en SISREC. Aprobación o devolución por observaciones."
+          - Paso: "3. Firma y Aprobación (Encargado Otorgante)"
+            Act: "Firma del Informe de Aprobación por Jefatura DAF mediante Firma Electrónica Avanzada (FEA)."
+          - Paso: "4. Contabilización SIGFE"
+            Act: "Descarga del informe aprobado y ejecución del asiento de rendición en SIGFE (Reverso de Anticipos / Reconocimiento de Gasto)."
+            Dln: "2 días hábiles tras aprobación técnica."
         Ref:
           - DEF-SISREC
           - DEF-CGR
+          - DEF-SIGFE
 
   Seccion_IV_Integracion_Bancaria_y_Conciliacion_Contable:
     ID: GN-MANUAL-CONTAB-S4-01

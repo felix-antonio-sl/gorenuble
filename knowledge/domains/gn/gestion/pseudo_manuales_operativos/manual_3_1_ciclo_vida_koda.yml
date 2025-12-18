@@ -125,6 +125,8 @@ Manual_3_1_Ciclo_de_Vida_del_Funcionario:
           Req: "Debe especificar labores, productos, monto y vigencia."
         - Elemento: "Declaraciones Juradas"
           Req: "Intereses, Patrimonio, Inhabilidades e Incompatibilidades (Art. 12 Ley 19.653)."
+        - Elemento: "Obligación de Informar (Art. 14 Ley Presupuestos 2026)"
+          Req: "Informar trimestralmente a la CEMP y BCN la nómina de contrataciones (nombre, cargo, título)."
 
   Seccion_II_Induccion_e_Integracion:
     ID: GN-MANUAL-CICLO-VIDA-SEC-II-01
@@ -140,12 +142,15 @@ Manual_3_1_Ciclo_de_Vida_del_Funcionario:
         - "Fase 3: Inducción Específica (Mes 1): Acompañamiento en el puesto (Mentoring) por jefatura o par."
       Plazo: "Primer mes de ejercicio. Evaluación de inducción obligatoria al día 30."
 
-      Protocolos_Prevencion_Violencia_y_Acoso_Art_14_Ley_18_575:
+      Protocolos_Ley_Karin_Art_14_Ley_18_575:
         ID: GN-MANUAL-CICLO-VIDA-SEC-II-PROTOCOLOS-01
         Req: |
-          Protocolos de Prevención de Violencia y Acoso (Ley Karin / Art. 14 Ley 18.575)
-          Como parte de la inducción, se difundirán los protocolos institucionales de prevención de violencia en el trabajo, acoso laboral y acoso sexual.
-          El funcionario debe firmar acuso de recibo de estos protocolos y del Reglamento Interno de Higiene y Seguridad.
+          Prevención de Violencia y Acoso (Ley Karin)
+          Como parte de la inducción, se deben cumplir los siguientes hitos:
+          1. Difusión de Protocolos: Entrega de los protocolos institucionales de prevención de violencia en el trabajo, acoso laboral y acoso sexual.
+          2. Capacitación Preventiva: Módulo obligatorio sobre conductas prohibidas y canales de denuncia.
+          3. Acuse de Recibo: El funcionario debe firmar la recepción de los protocolos y del Reglamento Interno de Higiene y Seguridad.
+          4. Registro: Archivo de la firma en la carpeta personal del funcionario.
 
   Seccion_III_Movilidad_y_Desarrollo:
     ID: GN-MANUAL-CICLO-VIDA-SEC-III-01
@@ -218,10 +223,12 @@ Manual_3_1_Ciclo_de_Vida_del_Funcionario:
           Act: "Emisión de relación de servicios para fines previsionales."
         - Paso: "4. Liquidación Final"
           Act: "Pago de haberes pendientes y feriado proporcional (si corresponde)."
+        - Paso: "5. Reporte de Desvinculación (Art. 14 Ley Presupuestos 2026)"
+          Act: "Informar trimestralmente a la CEMP y BCN la nómina de funcionarios que cesan funciones (nombre, cargo, antigüedad, fecha y causal)."
 
   Nota_de_Cierre:
     ID: GN-MANUAL-CICLO-VIDA-NOTA-01
-    Ctx: "Este manual se complementa con el Estatuto Administrativo (Ley 18.834) y las instrucciones anuales de la Ley de Presupuestos. Los procesos aquí descritos se gestionan operativamente a través del sistema SIGPER."
+    Ctx: "Este manual se complementa con el Estatuto Administrativo (Ley 18.834), las instrucciones anuales de la Ley de Presupuestos y los protocolos de la Ley Karin (Ley 21.643). Los procesos aquí descritos se gestionan operativamente a través del sistema SIGPER."
 
 Referencias_Cruzadas:
   ID: GN-MANUAL-CICLO-VIDA-XREF-01

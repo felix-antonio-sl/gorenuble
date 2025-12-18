@@ -94,104 +94,92 @@ Manual_3_3_Gestion_del_Tiempo_y_Ausentismo:
       Excepciones:
         Ctx: "Cargos directivos y Jefes de División (art. 22 del Código del Trabajo por analogía/exención de marcar)."
 
-      Atrasos:
-        Tolerancia:
-          Ctx: "Máximo 30 minutos acumulados semanales (o lo que defina el Reglamento Interno vigente)."
-        Sancion:
-          Req: "Atrasos reiterados sin justificación darán origen a anotación de demérito y descuento de tiempo no trabajado."
-        Descuento_de_Remuneraciones:
-          Req: "GDP reporta mensualmente atrasos e inasistencias para descuento (Manual 3.2)."
+      Atrasos_y_Tiempos_Menores:
+        ID: MANUAL-TIEMPO-SEC-I-ATRASOS-01
+        Regla:
+          Cond: "Suma de atrasos y tiempos menores de jornada en el periodo mensual."
+          Req: "Si el total acumulado supera los 59 minutos, genera descuento proporcional en las remuneraciones del funcionario (PR-DAF-0004)."
 
   Seccion_II_Gestion_de_Derechos_Estatutarios_Ausencias_Planificadas:
     ID: MANUAL-TIEMPO-SEC-II-01
+    Title: "Sección II: Gestión de Derechos Estatutarios"
 
     3_Feriado_Legal_Vacaciones:
       ID: MANUAL-TIEMPO-SEC-II-FERIADO-01
-
       Derecho:
         Ctx: "15 días hábiles con goce de sueldo tras 1 año de servicio (aumenta a 20 y 25 días según antigüedad)."
-
       Solicitud:
         Proc:
-          - Act: "Vía sistema interno (workflow)."
+          - Act: "Vía sistema interno (workflow SIGPER)."
           - Req: "Aprobada por Jefatura Directa."
-
       Acumulacion:
         Req:
-          - "Posible acumular hasta 2 períodos."
-        Warn: "El exceso caduca."
+          - "Posible acumular hasta 2 períodos (requiere resolución fundada)."
+        Warn: "Días no utilizados fuera de los períodos autorizados caducan automáticamente."
 
     4_Permisos_Administrativos:
       ID: MANUAL-TIEMPO-SEC-II-PERMISOS-01
-
       Dias_Administrativos:
         Ctx: "6 días anuales con goce de sueldo para fines particulares."
-
       Fraccionamiento:
-        Req: "Pueden tomarse por días o medios días."
+        Req: "Pueden tomarse por días completos o medios días (mañana/tarde)."
 
     5_Compensacion_de_Horas:
       ID: MANUAL-TIEMPO-SEC-II-COMPENSACION-01
-      Ctx: "Devolución de tiempo por trabajos extraordinarios (en lugar de pago), autorizada previamente."
+      Ctx: "Devolución de tiempo por trabajos extraordinarios realizados en horario nocturno, festivo o fines de semana, autorizada previamente por Resolución."
 
   Seccion_III_Licencias_Medicas_Ausencias_No_Planificadas:
     ID: MANUAL-TIEMPO-SEC-III-01
+    Title: "Sección III: Gestión de Licencias Médicas (LME)"
 
-    6_Tramitacion_de_Licencias:
-      ID: MANUAL-TIEMPO-SEC-III-TRAMITACION-01
+    6_Flujo_de_Tramitacion_LME:
+      ID: MANUAL-TIEMPO-SEC-III-LME-01
+      Proc:
+        - Paso: "1. Recepción y Validación"
+          Act: "El funcionario presenta LME (electrónica vía portal I-MED o manual en papel)."
+          Dln: "Max 3 días hábiles desde inicio del reposo."
+        - Paso: "2. Registro y Certificación"
+          Act: "GDP registra en SIGPER y emite Certificado de Remuneraciones (últimos 3 meses)."
+        - Paso: "3. Tramitación Externa"
+          Proc:
+            - Cond: "Afiliado FONASA con Caja Compensación (CCAF)."
+              Act: "Envío a CCAF dentro de 3 días hábiles."
+            - Cond: "Afiliado FONASA sin CCAF."
+              Act: "Envío a COMPIN dentro de 3 días hábiles."
+            - Cond: "Afiliado ISAPRE."
+              Act: "Envío a la Isapre respectiva dentro de 3 días hábiles."
+        - Paso: "4. Resolución y Ajuste"
+          Proc:
+            - "Recepción de Resolución (Aprobad/Rechazada/Reducida)."
+            - "Cálculo de SIL (Subsidio por Incapacidad Laboral) para recuperación."
+            - "En caso de Rechazo/Reducción: Generar descuento o reintegro inmediato tras notificación (Manual 3.2)."
 
-      1_Presentacion:
-        ID: MANUAL-TIEMPO-SEC-III-PRESENTACION-01
-        Canales:
-          - Licencia_Electronica_I_MED:
-              Ctx: "Llega automáticamente al portal de RRHH."
-          - Licencia_Manual_Papel:
-              Dln: "2 o 3 días hábiles"
-              Req: "Funcionario tiene plazo de 2 o 3 días hábiles para presentarla desde inicio del reposo."
-
-      2_Procesamiento_Interno:
-        ID: MANUAL-TIEMPO-SEC-III-PROC-INTERNO-01
-        Proc:
-          - Act: "Registro en sistema de asistencia."
-          - Act: "Cálculo de fechas de vigencia."
-
-      3_Tramitacion_Externa:
-        ID: MANUAL-TIEMPO-SEC-III-TRAM-EXTERNA-01
-        Proc:
-          - Act: "Envío a COMPIN (FONASA) o Caja de Compensación / Isapre en plazo legal (3 días)."
-
-    7_Impacto_en_Remuneraciones:
+    7_Mantencion_de_Ingresos:
       ID: MANUAL-TIEMPO-SEC-III-REMUNERACIONES-01
-
-      Subsidio:
-        Proc:
-          - Act: "El GORE paga la remuneración completa (mantención de ingresos)."
-          - Act: "Recupera el subsidio del ente asegurador (SIL)."
-
-      Rechazo_Reduccion:
-        Cond: "Si la licencia es rechazada por COMPIN/Isapre"
-        Proc:
-          - Act: "El GORE debe descontar los días pagados indebidamente o solicitar reintegro al funcionario."
+      Req: "El GORE garantiza el pago íntegro de la remuneración líquida mientras el funcionario mantenga el vínculo."
+      Recuperacion: "GDP tramita ante el ente pagador (Caja/Compin/Isapre) la devolución del subsidio correspondiente al empleador."
 
   Seccion_IV_Responsabilidades:
     ID: MANUAL-TIEMPO-SEC-IV-01
+    Title: "Sección IV: Responsabilidades"
 
     Funcionario:
-      Req: "Cuidar su asistencia, registrar marcas, solicitar permisos a tiempo y justificar ausencias."
+      Req: "Cuidar su asistencia, registrar marcas biométricas, solicitar permisos a tiempo y justificar ausencias en plataforma de control."
 
     Jefatura_Directa:
       Req:
-        - "Autorizar permisos garantizando cobertura del servicio."
-        - "Validar horas extras."
+        - "Autorizar permisos garantizando cobertura de funciones críticas del servicio."
+        - "Validar cumplimiento de turnos y evitar acumulación excesiva de compensatorios."
 
-    Gestion_de_Personas:
+    Gestion_de_Personas (GDP):
       Req:
-        - "Administrar sistema."
-        - "Reportar descuentos a Remuneraciones."
-        - "Tramitar licencias."
+        - "Administración técnica del sistema de control y SIGPER."
+        - "Reportar semanalmente atrasos a Remuneraciones para corte mensual."
+        - "Liderar la recuperación de subsidios por licencias médicas."
 
-  Nota_Final:
-    Ctx: "Este manual se complementa con el Reglamento Interno de Orden, Higiene y Seguridad del GORE Ñuble. Los procesos aquí descritos se gestionan operativamente a través del sistema SIGPER."
+  Nota_de_Cierre:
+    ID: GN-MANUAL-TIEMPO-NOTA-01
+    Ctx: "Este manual se complementa con el Reglamento Interno de Higiene y Seguridad del GORE Ñuble. Los procesos de LME se rigen por el D.S. N° 3 de 1984 del Minsal."
 
 Referencias_Cruzadas:
   ID: GN-MANUAL-TIEMPO-XREF-01
