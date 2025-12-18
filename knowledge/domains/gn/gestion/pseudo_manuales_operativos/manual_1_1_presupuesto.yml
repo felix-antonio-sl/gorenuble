@@ -33,6 +33,18 @@ Creation-Date: "2025-12-14"
 Modification-Date: "2025-12-16"
 Ctx: "Estandarizar ciclo de vida de recursos financieros regionales: planificación -> formulación -> aprobación -> ejecución -> control -> cierre; cumplimiento Ley de Presupuestos y SAF del Estado."
 Primary-Source: "staging/brow_speculativo/manual_1_1_presupuesto.md"
+Authoritative-Source:
+  Path: "staging/temp/brutos ordenados/02_finanzas_control/OF CIRCULAR 11 (038FF)_30.01_INSTRUCCIONES APLICACIÓN GLOSAS GORES.koda.yml"
+  Priority: 1
+  Type: "Official-Circular-DIPRES"
+  Last-Validated: "2025-12-18"
+Source-Hierarchy:
+  - Level: 1
+    Description: "Fuentes Brutas Ordenadas (staging/temp/brutos ordenados/*)"
+  - Level: 2
+    Description: "Pseudo-manuales KB (knowledge/domains/gn/gestion/pseudo_manuales_operativos/*)"
+  - Level: 3
+    Description: "Fuentes Especulativas (staging/brow_speculativo/*)"
 
 LLM_Parsing_Instructions:
   ID: KODA-LLM-PARSER-01
@@ -239,6 +251,16 @@ Manual_1_1_Formulacion_y_Ejecucion_Presupuestaria:
             - "Transferencias entre programas."
             - "Creación de asignaciones."
           Req: "Trámite en DIPRES."
+      Excepciones_Sin_Acuerdo_CORE_Glosa_01:
+        ID: GN-MANUAL-PPTO-S3-F9-EXCEP-01
+        Ctx: "Modificaciones que el Gobernador puede autorizar vía Resolución sin acuerdo CORE (Glosa 01, Circular 11)."
+        Casos:
+          - "Incorporación de Mayores Ingresos Propios percibidos."
+          - "Distribución de Saldos Iniciales de Caja (SIC) para Deuda Flotante."
+          - "Reasignaciones por aplicación de leyes de Reajuste."
+          - "Cumplimiento de sentencias ejecutoriadas."
+          - "Desagregación de recursos para Transferencias Consolidadas."
+          - "Distribución de Provisiones de la Partida Tesoro Público."
       Rol_CORE:
         ID: GN-MANUAL-PPTO-S3-F9-CORE-01
         Src: "Ley 19.175."
@@ -297,6 +319,19 @@ Manual_1_1_Formulacion_y_Ejecucion_Presupuestaria:
         Ref:
           - DEF-FNDR
           - DEF-FRPD
+
+    Restricciones_Glosas_2025:
+      ID: GN-MANUAL-PPTO-S4-GLOSAS-01
+      Src: "Circular 11 DIPRES - Instrucciones Glosas GORES."
+      Normas:
+        - Glosa: "03 (Gastos en Personal)"
+          Prohib: "No se puede imputar a inversión (Subtítulo 31) gastos en personal (Subtítulo 21), salvo contratación de inspección técnica de obras."
+        - Glosa: "06 (Programas GORE)"
+          Req: "Ejecución directa requiere unidad técnica interna competente y resolución fundada."
+        - Glosa: "07 (Subvenciones 8%)"
+          Req: "Máximo 8% del presupuesto inversional. Asignación directa solo a entidades públicas o privadas sin fines de lucro, con justificación fundada."
+        - Glosa: "12 (FRIL)"
+          Req: "Proyectos menores a 5.000 UTM exentos de evaluación MDSyF (solo requieren elegibilidad técnica regional)."
 
     Programacion_Financiera:
       ID: GN-MANUAL-PPTO-S4-F13-01

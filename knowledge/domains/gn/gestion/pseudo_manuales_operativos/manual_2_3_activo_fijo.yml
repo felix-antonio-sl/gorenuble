@@ -32,6 +32,18 @@ AI-Remediator: "KODA-TRANSFORMER"
 Creation-Date: "2025-12-14"
 Modification-Date: "2025-12-16"
 Primary-Source: "staging/brow_speculativo/manual_2_3_activo_fijo.md"
+Authoritative-Source:
+  Path: "staging/temp/brutos ordenados/04_adquisiciones_activos/RES. EXTA N°1123 APRUEBA POLÍTICA CSEU V.2 (CON PCSEU).md"
+  Priority: 1
+  Type: "Official-Policy"
+  Last-Validated: "2025-12-18"
+Source-Hierarchy:
+  - Level: 1
+    Description: "Fuentes Brutas Ordenadas (staging/temp/brutos ordenados/*)"
+  - Level: 2
+    Description: "Pseudo-manuales KB (knowledge/domains/gn/gestion/pseudo_manuales_operativos/*)"
+  - Level: 3
+    Description: "Fuentes Especulativas (staging/brow_speculativo/*)"
 Ctx: "Manual 2.3: Gestión del Ciclo de Vida del Activo Fijo."
 
 LLM_Parsing_Instructions:
@@ -101,7 +113,7 @@ Manual_2_3_Gestion_del_Ciclo_de_Vida_del_Activo_Fijo:
     Umbral_de_Capitalizacion:
       ID: GN-MANUAL-ACTIVO-FIJO-S01-03
       Items:
-        - "El GORE define un umbral monetario (típicamente 3 UTM) bajo el cual los bienes se consideran \"gasto\" y no se capitalizan."
+        - 'El GORE define un umbral monetario (típicamente 3 UTM) bajo el cual los bienes se consideran "gasto" y no se capitalizan.'
         - "Bienes bajo el umbral pueden registrarse en inventario administrativo para control físico sin impacto patrimonial."
 
   Seccion_II_Alta_de_Bienes:
@@ -274,7 +286,7 @@ Manual_2_3_Gestion_del_Ciclo_de_Vida_del_Activo_Fijo:
           Req:
             - "Requiere resolución fundada."
             - "Contrato de comodato con plazo y obligaciones."
-            - "Registro del bien como \"En Comodato\" sin baja patrimonial."
+            - 'Registro del bien como "En Comodato" sin baja patrimonial.'
             - "Seguimiento de fecha de devolución."
 
     Mantencion_Mayor:
@@ -327,7 +339,7 @@ Manual_2_3_Gestion_del_Ciclo_de_Vida_del_Activo_Fijo:
           Def: "Acto administrativo firmado por autoridad competente."
         - Paso: 3
           Act: "Registro en Sistema"
-          Def: "Cambio de estado a \"Dado de Baja\", fecha y causal."
+          Def: 'Cambio de estado a "Dado de Baja", fecha y causal.'
         - Paso: 4
           Act: "Contabilización"
           Def: "Reverso del valor libro (Activo y Depreciación Acumulada) y reconocimiento de pérdida/utilidad si aplica."

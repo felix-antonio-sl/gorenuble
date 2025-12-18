@@ -34,6 +34,18 @@ Creation-Date: 2025-12-14
 Modification-Date: 2025-12-16
 Primary-Source: staging/brow_speculativo/manual_2_1_compras.md
 Ctx: "Manual: Compras Públicas y Contrataciones (GORE Ñuble)."
+Authoritative-Source:
+  Path: "staging/temp/brutos ordenados/04_adquisiciones_activos/Manual-de-Adquisiciones-GORE_Ñuble_3R.md"
+  Priority: 1
+  Type: "Official-Manual-DAF"
+  Last-Validated: "2025-12-18"
+Source-Hierarchy:
+  - Level: 1
+    Description: "Fuentes Brutas Ordenadas (staging/temp/brutos ordenados/*)"
+  - Level: 2
+    Description: "Pseudo-manuales KB (knowledge/domains/gn/gestion/pseudo_manuales_operativos/*)"
+  - Level: 3
+    Description: "Fuentes Especulativas (staging/brow_speculativo/*)"
 
 LLM_Parsing_Instructions:
   ID: KODA-LLM-PARSER-01
@@ -64,11 +76,24 @@ Manual_2_1_Compras_Publicas_y_Contrataciones:
       ID: MANUAL-COMPRAS-SEC-I-FUND-01
       Ctx: "La gestión de compras del GORE se rige por:"
       Fuentes:
-        - Src: "Ley N° 19.886 (2003): Ley de Bases sobre Contratos Administrativos de Suministro y Prestación de Servicios."
-        - Src: "Decreto N° 250 (2004): Reglamento de la Ley N° 19.886."
-        - Src: "Ley de Presupuestos (Partida 31): Glosas específicas sobre adquisiciones TIC, licitaciones obligatorias y restricciones de trato directo."
-        - Src: "Directivas ChileCompra: Instrucciones técnicas sobre convenios marco, licitaciones y buenas prácticas."
-        - Src: "Ley 21.180 (Transformación Digital): Expediente electrónico obligatorio para procesos de compra."
+        - Src: "Ley N° 19.886 y Modificación Ley 21.634 (Compras 2.0): Moderniza la gestión de compras públicas."
+        - Src: "Decreto N° 661 (2024): Nuevo Reglamento de la Ley de Compras (vigencia 12/2024)."
+        - Src: "Ley de Presupuestos (Partida 31)."
+        - Src: "Directivas ChileCompra."
+        - Src: "Ley 21.180 (Transformación Digital)."
+
+    Nuevos_Umbrales_y_Modalidades (Decreto 661):
+      ID: MANUAL-COMPRAS-SEC-I-UMBRALES-01
+      Tabla_Maestra:
+        - Rango: "0 a 10 UTM"
+          Modalidad: "Trato Directo (Causal Menor Cuantía) o Compra Ágil."
+        - Rango: "10 a 100 UTM"
+          Modalidad: "Compra Ágil (Obligatoria si hay oferta en tienda)."
+        - Rango: "100 a 1.000 UTM"
+          Modalidad: "Licitación Pública (Normas Simplificadas L1)."
+        - Rango: "> 1.000 UTM"
+          Modalidad: "Licitación Pública (Normas Generales)."
+        - Excepcion: "Convenio Marco (sin límite de monto, salvo restricción específica del CM)."
 
     2_Principios_Rectores:
       ID: MANUAL-COMPRAS-SEC-I-PRINCIPIOS-01

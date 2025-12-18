@@ -66,6 +66,11 @@ Catalog:
       file: "agents/agent_gobernador_virtual.yaml"
       status: published
 
+    - urn: "urn:knowledge:gorenuble:agents:ingeniero-goreos:1.0.0"
+      title: "Ingeniero GORE_OS - Desarrollador Principal del Proyecto GORE_OS"
+      file: "agents/agent_ingeniero_goreos.yaml"
+      status: published
+
   Schemas: []
     # Add your schemas here
 

@@ -34,6 +34,19 @@ Creation-Date: "2025-12-14"
 Modification-Date: "2025-12-16"
 Source_ID: MANUAL-TIEMPO-AUSENTISMO-01
 Primary-Source: staging/brow_speculativo/manual_3_3_tiempo_ausentismo.md
+Authoritative-Source:
+  Path: "staging/temp/brutos ordenados/01_gestion_personas/MANUAL GENERAL DE PROCEDIMIENTOS INTERNOS DE GDP.md"
+  Priority: 1
+  Type: "Official-Manual-GDP"
+  Section: "Autorización Trabajo Extraordinario, Descanso Compensatorio"
+  Last-Validated: "2025-12-18"
+Source-Hierarchy:
+  - Level: 1
+    Description: "Fuentes Brutas Ordenadas (staging/temp/brutos ordenados/*)"
+  - Level: 2
+    Description: "Pseudo-manuales KB (knowledge/domains/gn/gestion/pseudo_manuales_operativos/*)"
+  - Level: 3
+    Description: "Fuentes Especulativas (staging/brow_speculativo/*)"
 Ctx: "Manual: Gestión del Tiempo y Ausentismo (GORE Ñuble)."
 
 LLM_Parsing_Instructions:
@@ -83,9 +96,11 @@ Manual_3_3_Gestion_del_Tiempo_y_Ausentismo:
 
       Atrasos:
         Tolerancia:
-          Ctx: "Tolerancia (ej. 15 mins/mes) según reglamento."
+          Ctx: "Máximo 30 minutos acumulados semanales (o lo que defina el Reglamento Interno vigente)."
+        Sancion:
+          Req: "Atrasos reiterados sin justificación darán origen a anotación de demérito y descuento de tiempo no trabajado."
         Descuento_de_Remuneraciones:
-          Req: "Descuento de remuneraciones por tiempos no trabajados (informe mensual a Remuneraciones - Manual 3.2)."
+          Req: "GDP reporta mensualmente atrasos e inasistencias para descuento (Manual 3.2)."
 
   Seccion_II_Gestion_de_Derechos_Estatutarios_Ausencias_Planificadas:
     ID: MANUAL-TIEMPO-SEC-II-01

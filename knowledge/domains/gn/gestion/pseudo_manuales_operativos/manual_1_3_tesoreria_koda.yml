@@ -34,6 +34,18 @@ Creation-Date: "2025-12-14"
 Modification-Date: "2025-12-16"
 Primary-Source: "staging/brow_speculativo/manual_1_3_tesoreria.md"
 Ctx: "Manual: Tesorería y Gestión de Ingresos (GORE Ñuble)."
+Authoritative-Source:
+  Path: "staging/temp/brutos ordenados/02_finanzas_control/Procedimiento de Uso de Fondos Globales para Gasto menor.koda.yml"
+  Priority: 1
+  Type: "Official-Procedure-DAF"
+  Last-Validated: "2025-12-18"
+Source-Hierarchy:
+  - Level: 1
+    Description: "Fuentes Brutas Ordenadas (staging/temp/brutos ordenados/*)"
+  - Level: 2
+    Description: "Pseudo-manuales KB (knowledge/domains/gn/gestion/pseudo_manuales_operativos/*)"
+  - Level: 3
+    Description: "Fuentes Especulativas (staging/brow_speculativo/*)"
 
 LLM_Parsing_Instructions:
   ID: KODA-LLM-PARSER-01
@@ -140,12 +152,28 @@ Manual_1_3_Tesoreria_y_Gestion_de_Ingresos:
       Saldo_Final_de_Caja:
         Req: "Al 31 de diciembre, el saldo no ejecutado (salvo deuda flotante y anticipos autorizados) debe reintegrarse a Rentas Generales de la Nación, salvo norma expresa en contrario en la Ley de Presupuestos."
 
+    6_Fondos_Globales_Menores_Caja_Chica:
+      ID: MANUAL-TESORERIA-SEC-II-FONDO-GLOBAL-01
+      Src: "Procedimiento de Uso de Fondos Globales para Gasto Menor (PR-DAF-0080) / Resolución 153/2012."
+      Def: "Anticipo de fondos a un funcionario responsable para gastos menores y urgentes de funcionamiento."
+      Parametros_Gasto:
+        - Tope_Fondo: "15 UTM Mensuales (Monto máximo habilitado)."
+        - Tope_Gasto_Individual: "3 UTM (Máximo por boleta/factura para ser aceptado)."
+      Prohibiciones:
+        - "No fraccionar compras para evadir tope."
+        - "No comprar activos inventariables."
+        - "No pagar viáticos ni remuneraciones."
+        - "No pagar servicios básicos domiciliarios."
+      Rendicion:
+        Plazos: "Mensual, dentro de los 5 primeros días hábiles del mes siguiente."
+        Req: "Comprobantes originales, visados por Jefatura y ordenados correlativamente."
+
   Seccion_III_Proceso_de_Egresos_Pagos:
     ID: MANUAL-TESORERIA-SEC-III-01
 
     6_Ciclo_de_Pago_a_Proveedores:
       ID: MANUAL-TESORERIA-SEC-III-CICLO-PAGO-01
-      Req: "El pago solo procede tras la validación estricta de la \"Obligación de Pago\" (Devengo)."
+      Req: 'El pago solo procede tras la validación estricta de la "Obligación de Pago" (Devengo).'
 
       Requisitos_Previos:
         1_Recepcion_Conforme:
@@ -196,7 +224,7 @@ Manual_1_3_Tesoreria_y_Gestion_de_Ingresos:
         Req: "La nómina de remuneraciones viaja encriptada o por canal seguro al banco."
 
       Centralizacion:
-        Req: "El pago masivo debe cuadrar al peso con el \"Libro de Remuneraciones\"."
+        Req: 'El pago masivo debe cuadrar al peso con el "Libro de Remuneraciones".'
 
       Pago_de_Cotizaciones:
         Req: "Se realiza exclusivamente vía portal PREVIRED, según calendario de cada AFP/AFC (generalmente hasta el día 10 del mes siguiente para pagos sin intereses)."
@@ -222,14 +250,14 @@ Manual_1_3_Tesoreria_y_Gestion_de_Ingresos:
         - Paso: "Recepción"
           Ctx: "Tesorería recibe el documento físico o el certificado digital de la garantía (Boleta Bancaria, Póliza de Seguro, Certificado de Fianza)."
         - Paso: "Registro y Custodia"
-          Ctx: "Se ingresa al \"Registro de Garantías\" (Excel/Sistema) controlando: N° documento, monto, banco/aseguradora, vencimiento, toma de razón asociada."
+          Ctx: 'Se ingresa al "Registro de Garantías" (Excel/Sistema) controlando: N° documento, monto, banco/aseguradora, vencimiento, toma de razón asociada.'
         - Paso: "Control de Vencimientos"
           Req: "Tesorería debe alertar a las Unidades Técnicas (Adquisiciones, Obras) con 30 y 15 días de anticipación al vencimiento de una garantía para gestionar su renovación o devolución."
         - Paso: "Cobro/Ejecución"
           Cond: "Ante incumplimiento certificado por la Unidad Técnica y ordenado por Resolución"
           Act: "El Tesorero procede al cobro inmediato en la institución financiera."
         - Paso: "Devolución"
-          Req: "Solo contra \"Acta de Recepción Conforme Final\" o cumplimiento del hito garantizado."
+          Req: 'Solo contra "Acta de Recepción Conforme Final" o cumplimiento del hito garantizado.'
 
   Seccion_V_Control_Financiero_Diario:
     ID: MANUAL-TESORERIA-SEC-V-01
@@ -240,7 +268,7 @@ Manual_1_3_Tesoreria_y_Gestion_de_Ingresos:
       Req: "El Tesorero/Cajero debe cuadrar los movimientos del día (Ingresos vs. Egresos) con el saldo en banco."
       Req_Diferencias:
         - Req: "Cualquier diferencia debe ser aclarada en el día."
-        - Prohib: "No se permite \"pasar\" diferencias al día siguiente."
+        - Prohib: 'No se permite "pasar" diferencias al día siguiente.'
 
     12_Cierre_de_Tesoreria:
       ID: MANUAL-TESORERIA-SEC-V-CIERRE-01

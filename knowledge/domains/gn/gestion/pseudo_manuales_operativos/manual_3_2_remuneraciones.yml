@@ -33,6 +33,18 @@ Creation-Date: "2025-12-14"
 Modification-Date: "2025-12-16"
 Ctx: "Manual 3.2: Remuneraciones y Compensaciones."
 Primary-Source: "staging/brow_speculativo/manual_3_2_remuneraciones.md"
+Authoritative-Source:
+  Path: "staging/temp/brutos ordenados/01_gestion_personas/PROCEDIMIENTO DE SOLICITUD, CÁLCULO Y PAGO DE REMUNERACIONES.md"
+  Priority: 1
+  Type: "Official-Procedure-GDP"
+  Last-Validated: "2025-12-18"
+Source-Hierarchy:
+  - Level: 1
+    Description: "Fuentes Brutas Ordenadas (staging/temp/brutos ordenados/*)"
+  - Level: 2
+    Description: "Pseudo-manuales KB (knowledge/domains/gn/gestion/pseudo_manuales_operativos/*)"
+  - Level: 3
+    Description: "Fuentes Especulativas (staging/brow_speculativo/*)"
 
 LLM_Parsing_Instructions:
   ID: KODA-LLM-PARSER-01
@@ -91,33 +103,31 @@ Manual_3_2_Remuneraciones_y_Compensaciones:
     Ciclo_Mensual_de_Remuneraciones:
       ID: GN-MANUAL-REM-S2-CICLO-01
       Proc:
-        - Paso: "1. Apertura del Mes"
-          Act: "Carga de novedades (contratos nuevos, renuncias, licencias médicas, horas extras)."
-          Input:
-            - "Decretos tramitados desde Gestión de Personas (Manual 3.1)."
-        - Paso: "2. Cálculo (Pre-Cierre)"
-          Act: "Procesamiento en sistema de remuneraciones."
-        - Paso: "3. Validación"
-          Proc:
-            - "Revisión de liquidaciones de prueba."
-            - "Verificación de descuentos (Previsión, Salud, Bienestar, Cooperativas)."
-        - Paso: "4. Cierre y Generación de Archivos"
-          Outputs:
-            - "Archivo de banco para transferencias (integración Manual 1.3 Tesorería)."
-            - "Archivo PREVIRED para cotizaciones."
-        - Paso: "5. Pago"
-          Req:
-            - "Fecha legal máxima: Día 24 del mes (o hábil anterior)."
-            - "Mandato: Pago exclusivamente electrónico (integración SIGFE)."
+        - Paso: "1. Recopilación y Apertura (Días 01 - 14)"
+          Act: "Cierre de recepción de novedades (licencias, horas extra visadas, nuevos contratos)."
+          Input: "Formularios GDP firmados y Decretos tramitados."
+        - Paso: "2. Proceso y Cálculo (Días 15 - 17)"
+          Act: "Ingreso al sistema, cálculo de brutos, descuentos y líquidos."
+        - Paso: "3. Validación y VB (Día 18)"
+          Act: "Revisión de nóminas preliminares por Jefatura GDP y Control."
+        - Paso: "4. Pago (Fecha Legal)"
+          Req: "Día 19 del mes (o hábil anterior). Transferencia efectiva a cuentas funcionarios."
+        - Paso: "5. Reliquidaciones y Planilla Suplementaria (Días 19 - 25)"
+          Act: "Pagos rechazados o ajustes de última hora."
+        - Paso: "6. Pago Cotizaciones (Día 20-30)"
+          Act: "Declaración y pago PREVIRED."
 
     Horas_Extraordinarias_y_Viaticos:
       ID: GN-MANUAL-REM-S2-HEV-01
       Horas_Extras:
         ID: GN-MANUAL-REM-S2-HE-01
+        Topes_Institucionales_Ref_PR_DAF_0005:
+          - "Diurnas: Máximo 20 horas mensuales."
+          - "Nocturnas/Festivas: Máximo 16 horas mensuales."
+          - "Total Máximo: 40 horas (solo casos criticos excepcionales autorizados por Gobernador)."
         Req:
-          - "Resolución previa de autorización."
-          - "Pago con recargo 25% o 50% según horario."
-          - "Límite legal de horas diurnas/nocturnas."
+          - "Resolución previa."
+          - "Sistema de control horario biométrico debe respaldar la solicitud."
       Viaticos:
         ID: GN-MANUAL-REM-S2-VIAT-01
         Cond:
