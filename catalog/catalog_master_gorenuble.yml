@@ -21,8 +21,8 @@ Catalog:
       status: published
 
   Agents:
-    - urn: "urn:knowledge:gorenuble:agents:goreologo:1.0.0"
-      title: "Goreólogo - Consultor Experto en GORE"
+    - urn: "urn:knowledge:gorenuble:agents:goreologo:2.1.0"
+      title: "Goreólogo - Experto Integral en Dominio GORE Ñuble"
       file: "agents/agent_goreologo.yaml"
       status: published
 
