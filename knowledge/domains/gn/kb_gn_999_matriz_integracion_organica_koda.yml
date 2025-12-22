@@ -544,62 +544,81 @@ Indice_Artefactos:
       Artefactos:
         - id: D01
           titulo: "Actos Administrativos"
-          urn: "urn:knowledge:gorenuble:gn:bpmn-actos-administrativos:1.0.0"
+          urn: "urn:knowledge:gorenuble:gn:bpmn-d01-actos-administrativos:1.0.0"
           path: "../../../sources/gn/arquitectura/bpmn/D01_actos_administrativos.md"
+          koda_path: "arquitectura/bpmn/D01_actos_administrativos_koda.yml"
           tipo: BPMN
           resumen: "Proceso de emisión de actos administrativos."
 
         - id: D02
           titulo: "Ciclo Presupuestario"
+          urn: "urn:knowledge:gorenuble:gn:bpmn-d02-ciclo-presupuestario:1.0.0"
           path: "arquitectura/bpmn/D02_ciclo_presupuestario.md"
+          koda_path: "arquitectura/bpmn/D02_ciclo_presupuestario_koda.yml"
           tipo: BPMN
           resumen: "Proceso del ciclo presupuestario anual."
 
         - id: D03
           titulo: "Gestión IPR"
+          urn: "urn:knowledge:gorenuble:gn:bpmn-d03-gestion-ipr:1.0.0"
           path: "arquitectura/bpmn/D03_gestion_ipr.md"
+          koda_path: "arquitectura/bpmn/D03_gestion_ipr_koda.yml"
           tipo: BPMN
           resumen: "Proceso de gestión de inversión pública regional."
 
         - id: D04
           titulo: "Compras y Contrataciones"
+          urn: "urn:knowledge:gorenuble:gn:bpmn-d04-compras-contrataciones:1.0.0"
           path: "arquitectura/bpmn/D04_compras_contrataciones.md"
+          koda_path: "arquitectura/bpmn/D04_compras_contrataciones_koda.yml"
           tipo: BPMN
           resumen: "Proceso de compras y contrataciones."
 
         - id: D05
           titulo: "Inventarios y Activo Fijo"
+          urn: "urn:knowledge:gorenuble:gn:bpmn-d05-inventarios-activo-fijo:1.0.0"
           path: "arquitectura/bpmn/D05_inventarios_activo_fijo.md"
+          koda_path: "arquitectura/bpmn/D05_inventarios_activo_fijo_koda.yml"
           tipo: BPMN
           resumen: "Proceso de control de inventarios."
 
         - id: D06
           titulo: "Flota Vehicular"
+          urn: "urn:knowledge:gorenuble:gn:bpmn-d06-flota-vehicular:1.0.0"
           path: "arquitectura/bpmn/D06_flota_vehicular.md"
+          koda_path: "arquitectura/bpmn/D06_flota_vehicular_koda.yml"
           tipo: BPMN
           resumen: "Proceso de gestión de flota."
 
         - id: D07
           titulo: "Recursos Humanos"
+          urn: "urn:knowledge:gorenuble:gn:bpmn-d07-rrhh:1.0.0"
           path: "arquitectura/bpmn/D07_rrhh.md"
+          koda_path: "arquitectura/bpmn/D07_rrhh_koda.yml"
           tipo: BPMN
           resumen: "Procesos de gestión de RRHH."
 
         - id: D08
           titulo: "Rendiciones"
+          urn: "urn:knowledge:gorenuble:gn:bpmn-d08-rendiciones:1.0.0"
           path: "arquitectura/bpmn/D08_rendiciones.md"
+          koda_path: "arquitectura/bpmn/D08_rendiciones_koda.yml"
           tipo: BPMN
           resumen: "Proceso de rendición de cuentas."
 
         - id: D09
           titulo: "CIES/SITIA"
+          urn: "urn:knowledge:gorenuble:gn:bpmn-d09-cies-sitia:1.0.0"
           path: "arquitectura/bpmn/D09_cies_sitia.md"
+          koda_path: "arquitectura/bpmn/D09_cies_sitia_koda.yml"
           tipo: BPMN
           resumen: "Procesos de inteligencia territorial."
 
         - id: D10
           titulo: "Geoespacial/IDE"
+          urn: "urn:knowledge:gorenuble:gn:bpmn-d10-geoespacial-ide:1.0.0"
           path: "arquitectura/bpmn/D10_geoespacial_ide.md"
+          koda_path: "arquitectura/bpmn/D10_geoespacial_ide_koda.yml"
           tipo: BPMN
           resumen: "Proceso de gestión geoespacial."
 

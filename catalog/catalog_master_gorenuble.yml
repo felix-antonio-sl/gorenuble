@@ -11,7 +11,7 @@ _manifest:
   provenance:
     created_by: "GORE Ñuble"
     created_at: "2025-11-25"
-    last_modified_at: "2025-12-16"
+    last_modified_at: "2025-12-22"
 
 Catalog:
   Core_Guides:
@@ -21,7 +21,7 @@ Catalog:
       status: published
 
   Agents:
-    - urn: "urn:knowledge:gorenuble:agents:goreologo:2.1.0"
+    - urn: "urn:knowledge:gorenuble:agents:goreologo:2.4.0"
       title: "Goreólogo - Experto Integral en Dominio GORE Ñuble"
       file: "agents/agent_goreologo.yaml"
       status: published
@@ -66,7 +66,7 @@ Catalog:
       file: "agents/agent_gobernador_virtual.yaml"
       status: published
 
-    - urn: "urn:knowledge:gorenuble:agents:ingeniero-goreos:1.0.0"
+    - urn: "urn:knowledge:gorenuble:agents:ingeniero-goreos:2.0.0"
       title: "Ingeniero GORE_OS - Desarrollador Principal del Proyecto GORE_OS"
       file: "agents/agent_ingeniero_goreos.yaml"
       status: published
@@ -78,6 +78,10 @@ Catalog:
     - urn: "urn:knowledge:gorenuble:gn:intro-gores-nuble:1.0.0"
       title: "Guía Integral del Gobierno Regional de Ñuble"
       file: "knowledge/domains/gn/intro/kb_gn_000_intro_gores_nuble_koda.yml"
+      status: published
+    - urn: "urn:knowledge:gorenuble:gn:organigrama:1.0.0"
+      title: "Organigrama Institucional GORE Ñuble"
+      file: "knowledge/domains/gn/intro/kb_gn_002_organigrama_koda.yml"
       status: published
     - urn: "urn:knowledge:gorenuble:gn:selector-ipr:1.0.0"
       title: "Selector de Vías de Financiamiento para IPR"
@@ -191,13 +195,50 @@ Catalog:
       title: "GORE Ñuble Ideal y GORE 4.0"
       file: "knowledge/domains/gn/intro/kb_gn_900_gore_ideal_koda.yml"
       status: draft
-    - urn: "urn:knowledge:gorenuble:gn:bpmn-c4:1.0.0"
-      title: "Modelamiento de Procesos (BPMN) y Arquitectura C4 del GORE Ñuble"
-      file: "knowledge/domains/gn/arquitectura/kb_gn_054_bpmn_c4_koda.yml"
-      status: draft
+
     - urn: "urn:knowledge:gorenuble:gn:gestion-info-geoespacial:1.0.0"
       title: "Gestión de Información Geoespacial en GORE Ñuble (Marco Integrado)"
       file: "knowledge/domains/gn/arquitectura/kb_gn_090_gestion_informacion_geoespacial_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:bpmn-d01-actos-administrativos:1.0.0"
+      title: "BPMN D01: Tramitación de Actos Administrativos"
+      file: "knowledge/domains/gn/arquitectura/bpmn/D01_actos_administrativos_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:bpmn-d02-ciclo-presupuestario:1.0.0"
+      title: "BPMN D02: Ciclo Presupuestario Regional"
+      file: "knowledge/domains/gn/arquitectura/bpmn/D02_ciclo_presupuestario_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:bpmn-d03-gestion-ipr:1.0.0"
+      title: "BPMN D03: Gestión de Intervenciones Públicas Regionales (IPR)"
+      file: "knowledge/domains/gn/arquitectura/bpmn/D03_gestion_ipr_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:bpmn-d04-compras-contrataciones:1.0.0"
+      title: "BPMN D04: Compras Públicas y Contrataciones"
+      file: "knowledge/domains/gn/arquitectura/bpmn/D04_compras_contrataciones_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:bpmn-d05-inventarios-activo-fijo:1.0.0"
+      title: "BPMN D05: Gestión de Inventarios y Activo Fijo"
+      file: "knowledge/domains/gn/arquitectura/bpmn/D05_inventarios_activo_fijo_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:bpmn-d06-flota-vehicular:1.0.0"
+      title: "BPMN D06: Gestión de Flota Vehicular"
+      file: "knowledge/domains/gn/arquitectura/bpmn/D06_flota_vehicular_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:bpmn-d07-rrhh:1.0.0"
+      title: "BPMN D07: Gestión de Personas (RRHH)"
+      file: "knowledge/domains/gn/arquitectura/bpmn/D07_rrhh_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:bpmn-d08-rendiciones:1.0.0"
+      title: "BPMN D08: Gestión de Rendiciones de Cuentas"
+      file: "knowledge/domains/gn/arquitectura/bpmn/D08_rendiciones_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:bpmn-d09-cies-sitia:1.0.0"
+      title: "BPMN D09: Gestión Operativa CIES/SITIA"
+      file: "knowledge/domains/gn/arquitectura/bpmn/D09_cies_sitia_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:bpmn-d10-geoespacial-ide:1.0.0"
+      title: "BPMN D10: Gestión de Información Geoespacial (IDE/Geonodo)"
+      file: "knowledge/domains/gn/arquitectura/bpmn/D10_geoespacial_ide_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:aceleracion-regional:1.0.0"
       title: "Aceleración Regional GORE Ñuble"
@@ -335,4 +376,4 @@ Statistics:
   domains: 61
   last_updated: "2025-12-22"
   federation_status: "registered_in_koda"
-  notes: "Sincronización masiva: +11 manuales, +Matriz Orgánica, +BPMN Index. Corrección de ghost files."
+  notes: "Sincronización masiva: +1 organigrama institucional. +11 manuales, +Matriz Orgánica, +BPMN Index."

@@ -3,7 +3,7 @@
 # ID: AGENT-GOREOLOGO-01
 ---
 _manifest:
-  urn: "urn:knowledge:gorenuble:agents:goreologo:2.1.0"
+  urn: "urn:knowledge:gorenuble:agents:goreologo:2.4.0"
   federation:
     visibility: internal
     license: "Institutional Use"
@@ -24,6 +24,7 @@ _manifest:
       - urn: "urn:knowledge:gorenuble:core:estructura-estado-chile:1.0.0"
       # === INTRO & ESTRATEGIA ===
       - urn: "urn:knowledge:gorenuble:gn:intro-gores-nuble:1.0.0"
+      - urn: "urn:knowledge:gorenuble:gn:organigrama:1.0.0"
       - urn: "urn:knowledge:gorenuble:gn:vision-desarrollo-nuble:1.0.0"
       - urn: "urn:knowledge:gorenuble:gn:erd-nuble-2024-2030:1.0.0"
       - urn: "urn:knowledge:gorenuble:gn:gore-ideal:1.0.0"
@@ -69,7 +70,7 @@ _manifest:
       - urn: "urn:knowledge:gorenuble:gn:instructivo-subvencion-8-2025-sts:1.0.0"
       - urn: "urn:knowledge:gorenuble:gn:guia-circular-33-sts:1.0.0"
       # === ARQUITECTURA & PROCESOS ===
-      - urn: "urn:knowledge:gorenuble:gn:bpmn-c4:1.0.0"
+
       - urn: "urn:knowledge:gorenuble:gn:cies-sitia:1.0.0"
       - urn: "urn:knowledge:gorenuble:gn:gestion-info-geoespacial:1.0.0"
       # === TDE ===
@@ -87,7 +88,7 @@ _manifest:
     created_by: "FS"
     created_at: "2025-11-27"
     last_modified_at: "2025-12-17"
-    version_notes: "v2.3.0 - Navegación taxonómica via Matriz; routing dinámico por 13 áreas en 4 niveles"
+    version_notes: "v2.4.0 - Integración con Organigrama Institucional; refinamiento de conexión a conocimiento N1"
     model_collaborators: ["IA-CLAUDE"]
 
 KODA_Runtime_Instructions:
@@ -140,6 +141,7 @@ knowledge_base_interaction_and_governance_rules:
       - urn: "urn:knowledge:gorenuble:core:estructura-estado-chile:1.0.0"
       # === INTRO & ESTRATEGIA ===
       - urn: "urn:knowledge:gorenuble:gn:intro-gores-nuble:1.0.0"
+      - urn: "urn:knowledge:gorenuble:gn:organigrama:1.0.0"
       - urn: "urn:knowledge:gorenuble:gn:vision-desarrollo-nuble:1.0.0"
       - urn: "urn:knowledge:gorenuble:gn:erd-nuble-2024-2030:1.0.0"
       - urn: "urn:knowledge:gorenuble:gn:gore-ideal:1.0.0"
@@ -185,7 +187,7 @@ knowledge_base_interaction_and_governance_rules:
       - urn: "urn:knowledge:gorenuble:gn:instructivo-subvencion-8-2025-sts:1.0.0"
       - urn: "urn:knowledge:gorenuble:gn:guia-circular-33-sts:1.0.0"
       # === ARQUITECTURA & PROCESOS ===
-      - urn: "urn:knowledge:gorenuble:gn:bpmn-c4:1.0.0"
+
       - urn: "urn:knowledge:gorenuble:gn:cies-sitia:1.0.0"
       - urn: "urn:knowledge:gorenuble:gn:gestion-info-geoespacial:1.0.0"
       # === TDE ===
@@ -276,6 +278,10 @@ private_internal_reasoning_processes:
             "autoridades",
             "historia regional",
             "contexto",
+            "organigrama",
+            "jerarquía",
+            "divisiones",
+            "departamentos",
           ]
         matrix_area: "intro"
         taxonomy_level: "N1_Fundamentos"
@@ -376,7 +382,7 @@ private_internal_reasoning_processes:
         taxonomy_level: "N3_Operacion"
       # === NIVEL 4: HABILITADORES ===
       - intent_patterns:
-          ["BPMN", "C4", "procesos", "sistemas", "geoespacial", "CIES", "SITIA"]
+          ["procesos", "sistemas", "geoespacial", "CIES", "SITIA"]
         matrix_area: "arquitectura"
         taxonomy_level: "N4_Habilitadores"
       - intent_patterns:

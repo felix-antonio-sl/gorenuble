@@ -1,0 +1,78 @@
+_manifest:
+  urn: "urn:knowledge:gorenuble:gn:organigrama:1.0.0"
+  federation:
+    visibility: public
+    license: "CC-BY-4.0"
+    federated_to_koda: true
+  provenance:
+    created_by: "GORE Ñuble"
+    created_at: "2025-12-22"
+    last_modified_at: "2025-12-22"
+    source_artifact: "organigrama.jpg"
+
+titulo: ORGANIGRAMA INSTITUCIONAL
+subtitulo: Gobierno Regional de Ñuble
+organigrama:
+  - nodo: GOBERNADOR REGIÓN DE ÑUBLE
+    dependencias_directas:
+      - Comunicaciones
+      - Gabinete Gobernador
+      - Centro Integral de Emergencia y Seguridad (CIES)
+    organos_asesores_consultivos:
+      - Comité de Ciencia, Tecnología, Conocimiento e Innovación
+      - COSOC
+    dependencia_jerarquica:
+      - nodo: ADMINISTRADORA REGIONAL
+        staff_apoyo:
+          - Corporación
+          - Auditoría
+          - Jurídica
+          - Unidad de Calidad y Gestión Institucional
+          - Oficina de Partes
+        divisiones:
+          - nodo: Jefe División de Planificación y Desarrollo
+            departamentos_unidades:
+              - Comité Pertenencia y Vinculación Estratégica
+              - Departamento Planificación Estratégica y Ordenamiento Territorial
+              - Departamento Desarrollo Proyectos Estratégicos
+              - Departamento Desarrollo Urbano
+          - nodo: Jefe División de Presupuesto e Inversión Regional
+            departamentos_unidades:
+              - Departamento de Análisis y Evaluación
+              - Departamento de Presupuesto
+              - Departamento de Inversión
+          - nodo: Jefe División de Desarrollo Social y Humano
+            departamentos_unidades:
+              - Departamento Fondos Concursables y Programas Sociales
+              - Unidad Subvenciones
+              - Unidad Programas Sociales
+              - Departamento Análisis y Gestión Territorial
+              - Unidad Participación Ciudadana
+              - Unidad Territorial Provincial
+              - Unidad Seguimiento de Políticas, Planes y Programas Sociales
+          - nodo: Jefe División de Fomento e Industria
+            departamentos_unidades:
+              - Departamento Zonas en Desarrollo
+              - Departamento Desarrollo Económico Local
+              - Departamento Ciencia, Tecnología e Innovación para la Competitividad
+              - Departamento Desarrollo Empresarial y Atracción de Inversiones
+              - Departamento de Riego y Medioambiente
+          - nodo: Jefe División de Infraestructura y Transporte
+            departamentos_unidades:
+              - Departamento Infraestructura y Equipamiento Regional
+              - Unidad Saneamiento Básico
+              - Departamento Gestión en Transportes y Telecomunicaciones
+              - Unidad Conectividad
+          - nodo: Jefe División de Administración y Finanzas
+            departamentos_unidades:
+              - Departamento de Gestión y Desarrollo de Personas
+              - Unidad Gestión de Personas
+              - Unidad Desarrollo de Personas
+              - Departamento de Finanzas
+              - Unidad Gestión Operativa Interna
+              - Unidad Abastecimiento
+              - Unidad TIC
+  - nodo: CONSEJO REGIÓN DE ÑUBLE
+    dependencias:
+      - Secretaria Ejecutiva CORE
+      - Unidad Control
