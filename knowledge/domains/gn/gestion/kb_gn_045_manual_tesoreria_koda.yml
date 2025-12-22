@@ -1,13 +1,14 @@
 _manifest:
-  urn: "urn:knowledge:gorenuble:gn:manual-tesoreria-ingresos:1.0.0"
+  urn: "urn:knowledge:gorenuble:gn:manual-tesoreria:1.0.0"
   title: "Manual 1.3: Tesorería y Gestión de Ingresos"
   federation:
     visibility: internal
     license: "Institutional Use"
   compatibility:
     min_consumer_version: "1.0.0"
+    breaking_changes_from: null
   resolution:
-    canonical_url: "file://knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_1_3_tesoreria_koda.yml"
+    canonical_url: "file://knowledge/domains/gn/gestion/kb_gn_045_manual_tesoreria_koda.yml"
   dependencies:
     requires:
       - urn: "urn:knowledge:koda:core:spec:1.0.0"

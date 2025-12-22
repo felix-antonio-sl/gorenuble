@@ -1,0 +1,202 @@
+# KODA Artifact
+Metadata:
+  ID: kb_gn_208_d09_cies_sitia_koda
+  URN: urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d09-cies-sitia:1.0.0
+  Title: D09 Gestión Operativa CIES/SITIA (Seguridad Pública)
+  Domain: GORE Ñuble
+  Subdomain: Arquitectura BPMN
+  Type: Proceso
+  Version: 1.0.0
+  Status: Active
+  Created: 2025-12-22
+  Modified: 2025-12-22
+  Authors:
+    - KODA-TRANSFORMER
+  Tags:
+    - CIES
+    - SITIA
+    - seguridad
+    - monitoreo
+    - evidencias
+  Language: es-CL
+  Summary: Gestión operativa del Centro CIES-Ñuble e integración con plataforma SITIA
+  Sources:
+    - /Users/felixsanhueza/Developer/gorenuble/sources/gn/arquitectura/bpmn/D09_cies_sitia.md
+  Related:
+    - urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d01-actos-administrativos:1.0.0
+
+LLM_Parsing_Instructions:
+  - Preservar estructura jerárquica del documento
+  - Mantener IDs y referencias exactas
+  - No inferir ni resumir contenido
+  - Conservar diagramas mermaid como texto
+  - Mantener tablas y listas exactas
+  - Preservar metadatos y fechas
+
+Content:
+  Dominio:
+    ID: DOM-CIES
+    Criticidad: Alta
+    Dueño: Supervisor CIES
+    Procesos: 3
+    Subprocesos: ~8
+    Ref_Fuente: kb_gn_054_bpmn_c4_koda.yml L.4142-4306
+
+  Mapa_General:
+    Centro_CIES_Ñuble:
+      P1: Monitoreo Detección
+      P2: Coordinación Interinstitucional
+      P3: Gestión Evidencias
+    Integración_SITIA:
+      S1: SITIA-Patentes
+      S2: SITIA-Armas
+      S3: SITIA-Evidencia
+      S4: SITIA-Unificación
+    Conexiones: P1 --> P2, P1 --> P3, P1 <--> S1&S2&S4, P3 <--> S3
+
+  Contexto_Operativo:
+    Cobertura: 16 horas (08:00-00:00), proyección 24/7
+    Ubicación: Sala monitoreo GORE Ñuble
+    Coordinación: Policías, emergencias, 21 municipios
+    Marco_legal: Ley 21.427, Ley 20.965, Ley 20.502
+
+  P1_Monitoreo_Detección_Escalamiento:
+    ID: BPMN-GN-CIES-SITIA-MONITOREO-01
+    Sistema: HikCentral VMS
+    
+    Flujo:
+      Monitoreo_Continuo:
+        - Operador CIES monitorea cámaras
+        - Sistemas SITIA detectan automáticamente: Patentes alertadas, Armas visibles
+      Detección:
+        - Identificar evento/incidente
+        - Clasificar prioridad
+          - Alta: Alarma inmediata
+          - Media: Registro seguimiento
+          - Baja: Solo registro
+      Escalamiento:
+        - Supervisor CIES evalúa
+        - Activar protocolo tipo
+        - Coordinar con: Carabineros, PDI, Bomberos, SAMU
+
+    Clasificación_Incidentes:
+      Alta: Delito curso, emergencia vital - Activación inmediata
+      Media: Sospecha, situación anómala - Seguimiento evaluación
+      Baja: Evento menor, registro - Solo documentar
+
+  P2_Coordinación_Interinstitucional:
+    ID: BPMN-GN-CIES-SITIA-COORD-01
+    Entidades: Carabineros, PDI, Bomberos, SAMU, Municipios
+    
+    Flujo:
+      - Incidente clasificado
+      - Enlace CIES activa canal
+      - Decisión tipo emergencia:
+        - Seguridad: Carabineros 133
+        - Investigación: PDI 134
+        - Incendio: Bomberos 132
+        - Salud: SAMU 131
+      - Confirmar recepción unidades
+      - Seguimiento tiempo real
+      - Registro respuesta
+      - Cierre incidente
+
+    Protocolos_Comunicación:
+      Radio_VHF: Comunicación directa policías
+      Líneas_directas: Centrales emergencia
+      WhatsApp_institucional: Coordinación municipal
+      Plataforma_SITIA: Integración nacional
+
+  P3_Gestión_Evidencias_Digitales:
+    ID: BPMN-GN-CIES-SITIA-EVIDENCIA-01
+    Plataforma: SITIA-Evidencia (Genetec Clearance)
+    
+    Flujo:
+      Solicitud:
+        - Fiscalía/Tribunal solicita evidencia
+        - Recepción oficio GORE
+        - Verificar: Orden judicial, Requerimiento MP
+      Extracción:
+        - Supervisor CIES autoriza
+        - Localizar grabación HikCentral
+        - Exportar clip seguro
+        - Subir SITIA-Evidencia
+      Entrega:
+        - Generar cadena custodia
+        - Entrega medio controlado
+        - Acta entrega
+        - Registro trazabilidad
+
+    Cadena_Custodia_Digital:
+      Hash_archivo: Integridad
+      Metadatos: Fecha/hora/cámara
+      Log_accesos: Quién manipuló
+      Firma_digital: Autenticidad
+
+  Capacidades_SITIA:
+    SITIA-Patentes:
+      Flujo:
+        - Red pórticos públicos/privados
+        - Lectura automática placas
+        - Contraste tiempo real
+        - Decisión: Encargo búsqueda/No encargo
+          - Sí: Alerta CIES policías
+          - No: Registro histórico
+    SITIA-Armas:
+      Flujo:
+        - Cámaras CIES
+        - Modelo IA (YOLOv11)
+        - Decisión: Arma detectada/No detectada
+          - Sí: Alerta automática
+          - No: Continuar monitoreo
+        - Operador verifica
+        - Escalar si confirma
+
+  Gestión_Privacidad_Retención:
+    Política_Retención:
+      Retención_normal: 30 días
+      Eliminación: Segura irreversible
+      Cautela_ciudadana: Hasta 6 meses (víctima/testigo)
+
+    Cumplimiento_Normativo:
+      Flujo:
+        - Grabación generada
+        - Almacenar 30 días
+        - Decisión: Solicitud cautela/No solicitud
+          - Sí: Extender retención hasta 6 meses
+          - No: Eliminar automáticamente
+        - Revisar vencimiento
+        - Eliminar
+      Nota: Ley 19.628 - Tratamiento datos personales respeta licitud, finalidad, proporcionalidad
+
+  Sostenibilidad_Operativa:
+    Modelo_Financiamiento:
+      Personal_CIES: Presupuesto anual GORE
+      Mantención_equipos: Garantía 22 meses + presupuesto
+      Servicios_SITIA: Convenio marco SPD
+
+    Mantención:
+      Flujo:
+        - Mantención preventiva
+        - Revisión equipos (trimestral)
+        - Actualizaciones software
+        - Reporte estado
+
+  Sistemas_Involucrados:
+    SYS-HIKCENTRAL: VMS gestión cámaras
+    SYS-SITIA: Plataforma nacional
+    SYS-SITIA-EVIDENCIA: Gestión evidencias
+    SYS-SITIA-PATENTES: Lectura placas
+    SYS-SITIA-ARMAS: Detección IA
+
+  Normativa_Aplicable:
+    Ley_21427: Sistema Nacional Seguridad
+    Ley_20965: Cámaras vigilancia
+    Ley_20502: ONEMI/funcionamiento
+    Ley_19628: Protección vida privada
+    Ley_21719: Datos personales
+
+  Referencias_Cruzadas:
+    D01_Actos_Administrativos: Convenios entidades
+
+  Actualización: 2025-12-16

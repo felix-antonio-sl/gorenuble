@@ -1,5 +1,5 @@
 _manifest:
-  urn: "urn:knowledge:gorenuble:gn:manual-contabilidad-cierre:1.0.0"
+  urn: "urn:knowledge:gorenuble:gn:manual-contabilidad:1.0.0"
   federation:
     visibility: internal
     license: "Institutional Use"
@@ -7,7 +7,7 @@ _manifest:
     min_consumer_version: "1.0.0"
     breaking_changes_from: null
   resolution:
-    canonical_url: "file://knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_1_2_contabilidad.yml"
+    canonical_url: "file://knowledge/domains/gn/gestion/kb_gn_044_manual_contabilidad_koda.yml"
     mirrors: []
   dependencies:
     requires:

@@ -18,6 +18,8 @@ _manifest:
       file: "catalog/catalog_master_gorenuble.yml"
       role: SOURCE_OF_TRUTH
     requires:
+      # === MATRIZ DE INTEGRACIÓN ===
+      - urn: "urn:knowledge:gorenuble:gn:matriz-integracion-organica:1.0.0"
       # === CORE ===
       - urn: "urn:knowledge:gorenuble:core:estructura-estado-chile:1.0.0"
       # === INTRO & ESTRATEGIA ===
@@ -85,7 +87,7 @@ _manifest:
     created_by: "FS"
     created_at: "2025-11-27"
     last_modified_at: "2025-12-17"
-    version_notes: "v2.1.0 - Experto integral gorenuble: 52 artefactos KB (guías, RIS, TDE, estadísticas, comunicaciones, jurídico)"
+    version_notes: "v2.3.0 - Navegación taxonómica via Matriz; routing dinámico por 13 áreas en 4 niveles"
     model_collaborators: ["IA-CLAUDE"]
 
 KODA_Runtime_Instructions:
@@ -132,6 +134,8 @@ knowledge_base_interaction_and_governance_rules:
   usage_policy_and_source_management:
     policy: EXCLUSIVE_USE
     source_artifacts:
+      # === MATRIZ DE INTEGRACIÓN ===
+      - urn: "urn:knowledge:gorenuble:gn:matriz-integracion-organica:1.0.0"
       # === CORE ===
       - urn: "urn:knowledge:gorenuble:core:estructura-estado-chile:1.0.0"
       # === INTRO & ESTRATEGIA ===
@@ -255,123 +259,141 @@ private_internal_reasoning_processes:
   CM-KB-GUIDANCE:
     _meta: { expose: false }
     dimensions:
-      - "1. Invocar CM-CATALOG-RESOLVER"
-      - "2. Si catálogo tiene URN -> usar file path"
-      - "3. Si no -> usar routing_map"
-    routing_map:
-      # === CORE & ESTRUCTURA ===
-      - query_category: "Estructura Estado, rol GOREs, sistema político, descentralización"
-        route_to: "urn:knowledge:gorenuble:core:estructura-estado-chile:1.0.0"
-      # === INTRO & CONTEXTO ÑUBLE ===
-      - query_category: "Introducción GOREs, contexto Ñuble, autoridades, divisiones, historia regional"
-        route_to: "urn:knowledge:gorenuble:gn:intro-gores-nuble:1.0.0"
-      - query_category: "Glosario, términos, definiciones, vocabulario institucional"
-        route_to: "urn:knowledge:gorenuble:gn:glosario-gore-nuble:1.0.0"
-      - query_category: "Indicadores regionales, estadísticas comunales, datos demográficos, BCN"
-        route_to: "urn:knowledge:gorenuble:gn:indicadores-nuble:1.0.0"
-      - query_category: "Cuentas públicas, gestión 2021-2024, logros, rendición ciudadana"
-        route_to: "urn:knowledge:gorenuble:gn:cuentas-publicas-2021-2024:1.0.0"
-      # === ESTRATEGIA & VISIÓN ===
-      - query_category: "ERD, Estrategia Regional de Desarrollo, ejes estratégicos, visión 2030"
-        route_to: "urn:knowledge:gorenuble:gn:erd-nuble-2024-2030:1.0.0"
-      - query_category: "Ñuble 250, agenda estratégica, hitos bicentenario"
-        route_to: "urn:knowledge:gorenuble:gn:nuble-250:1.0.0"
-      - query_category: "Visión desarrollo, planificación largo plazo, desarrollo territorial"
-        route_to: "urn:knowledge:gorenuble:gn:vision-desarrollo-nuble:1.0.0"
-      - query_category: "GORE ideal, GORE 4.0, visión futuro, potencial, límites"
-        route_to: "urn:knowledge:gorenuble:gn:gore-ideal:1.0.0"
-      - query_category: "Aceleración regional, modernización, innovación institucional"
-        route_to: "urn:knowledge:gorenuble:gn:aceleracion-regional:1.0.0"
-      - query_category: "Gestión estratégica, modernización, PROT, estrategia general"
-        route_to: "urn:knowledge:gorenuble:gn:estrategia-gestion:1.0.0"
-      # === LEGAL & JURÍDICO ===
-      - query_category: "LOC 19.175, competencias, atribuciones, artículos orgánicos"
-        route_to: "urn:knowledge:gorenuble:gn:loc-gore:1.0.0"
-      - query_category: "Compendio jurídico, reformas, Ley 21.074, Ley 21.730, Ley 21.719, protección datos"
-        route_to: "urn:knowledge:gorenuble:gn:marco-legal-gores:1.0.0"
-      - query_category: "Modelos actos jurídicos, resoluciones tipo, decretos modelo, convenios"
-        route_to: "urn:knowledge:gorenuble:gn:modelos-actos-juridicos:1.0.0"
-      - query_category: "Flujos aprobación, resoluciones, convenios, firmas, decretos, toma de razón"
-        route_to: "urn:knowledge:gorenuble:gn:flujos-aprobacion-documentos:1.0.0"
-      # === GESTIÓN & OPERACIONES ===
-      - query_category: "Manual inducción, bienvenida funcionarios, orientación inicial"
-        route_to: "urn:knowledge:gorenuble:gn:manual-induccion-gore-nuble-2026:1.0.0"
-      - query_category: "Inventarios, bodegas, gestión materiales, suministros"
-        route_to: "urn:knowledge:gorenuble:gn:manual-inventarios-bodegas:1.0.0"
-      - query_category: "Activo fijo, bienes, altas, bajas, depreciación"
-        route_to: "urn:knowledge:gorenuble:gn:manual-activo-fijo:1.0.0"
-      - query_category: "Desarrollo organizacional, capacitación, RRHH, formación"
-        route_to: "urn:knowledge:gorenuble:gn:manual-desarrollo-organizacional:1.0.0"
-      - query_category: "Rendiciones, SISREC, control, auditorías, CGR"
-        route_to: "urn:knowledge:gorenuble:gn:gestion-rendiciones:1.0.0"
-      # === PRESUPUESTO ===
-      - query_category: "Presupuesto, FNDR, FRPD, finanzas, SIGFE, subtítulos 24/31/33"
-        route_to: "urn:knowledge:gorenuble:gn:gestion-prpto:1.0.0"
-      - query_category: "Ley presupuestos 2026, partida 31, asignaciones regionales"
-        route_to: "urn:knowledge:gorenuble:gn:ley-presupuestos-2026-partida-31:1.0.0"
-      - query_category: "Normas presupuesto, Ley 21.796, disposiciones generales"
-        route_to: "urn:knowledge:gorenuble:gn:ley-presupuestos-2026-normas-generales:1.0.0"
-      # === IPR & INVERSIÓN ===
-      - query_category: "IPR, IDI, PPR, ciclo de proyectos, BIP, inversión pública"
-        route_to: "urn:knowledge:gorenuble:gn:gestion-ipr:1.0.0"
-      - query_category: "Selector FNDR/FRPD/FRIL, qué fondo usar, comparar instrumentos"
-        route_to: "urn:knowledge:gorenuble:gn:selector-ipr:1.0.0"
-      - query_category: "Transferencia PPR, programas públicos regionales, entidades ejecutoras"
-        route_to: "urn:knowledge:gorenuble:gn:transferencia-ppr:1.0.0"
-      # === RIS SECTORIALES ===
-      - query_category: "RIS índice, mapa de requisitos de información sectorial SNI"
-        route_to: "urn:knowledge:gorenuble:gn:ris-index:1.0.0"
-      - query_category: "RIS proyectos inversión, requisitos preinversión/inversión SNI"
-        route_to: "urn:knowledge:gorenuble:gn:ris-proyinv:1.0.0"
-      - query_category: "RIS programas inversión, requisitos programas SNI"
-        route_to: "urn:knowledge:gorenuble:gn:ris-proginv:1.0.0"
-      - query_category: "RIS empresas Estado, empresas públicas, requisitos EMPUB"
-        route_to: "urn:knowledge:gorenuble:gn:ris-empub:1.0.0"
-      - query_category: "RIS PMDT, estudio básico, planes maestros"
-        route_to: "urn:knowledge:gorenuble:gn:ris-pmdt:1.0.0"
-      - query_category: "RIS edificación pública, infraestructura edificios, EDPUB"
-        route_to: "urn:knowledge:gorenuble:gn:ris-edpub:1.0.0"
-      - query_category: "RIS arte cultura, proyectos culturales, ARTCULT"
-        route_to: "urn:knowledge:gorenuble:gn:ris-artcult:1.0.0"
-      - query_category: "RIS patrimonio, proyectos patrimoniales, conservación"
-        route_to: "urn:knowledge:gorenuble:gn:ris-patrimonio:1.0.0"
-      - query_category: "RIS deportes, infraestructura deportiva, recintos"
-        route_to: "urn:knowledge:gorenuble:gn:ris-deportes:1.0.0"
-      # === GUÍAS OPERATIVAS ===
-      - query_category: "Guía IDI SNI, formulación iniciativas, ficha BIP"
-        route_to: "urn:knowledge:gorenuble:gn:guia-idi-sni-sts:1.0.0"
-      - query_category: "Guía programas directos, PPR ejecución directa GORE"
-        route_to: "urn:knowledge:gorenuble:gn:guia-programas-directos-gore:1.0.0"
-      - query_category: "FRIL, instructivo FRIL 2025, municipios, proyectos locales"
-        route_to: "urn:knowledge:gorenuble:gn:guia-fril-2025-sts:1.0.0"
-      - query_category: "FRPD, guía operativa, productividad desarrollo"
-        route_to: "urn:knowledge:gorenuble:gn:guia-frpd-nuble:1.0.0"
-      - query_category: "Subvención 8%, concurso vinculación comunidad, organizaciones sociales"
-        route_to: "urn:knowledge:gorenuble:gn:instructivo-subvencion-8-2025-sts:1.0.0"
-      - query_category: "Circular 33, formulación evaluación, guía operativa"
-        route_to: "urn:knowledge:gorenuble:gn:guia-circular-33-sts:1.0.0"
-      # === ARQUITECTURA & PROCESOS ===
-      - query_category: "BPMN, C4, procesos, flujos de trabajo, modelamiento, diagramas"
-        route_to: "urn:knowledge:gorenuble:gn:bpmn-c4:1.0.0"
-      - query_category: "CIES, SITIA, seguridad pública, emergencias, videovigilancia, SINAPRED"
-        route_to: "urn:knowledge:gorenuble:gn:cies-sitia:1.0.0"
-      - query_category: "Geonodo, IDE Chile, geoespacial, planificación territorial, metadatos, WMS/WFS"
-        route_to: "urn:knowledge:gorenuble:gn:gestion-info-geoespacial:1.0.0"
-      # === TDE ===
-      - query_category: "TDE, Ley 21.180, ClaveÚnica, interoperabilidad, ciberseguridad, firma electrónica"
-        route_to: "urn:knowledge:gorenuble:gn:estrategia-td-ia:1.0.0"
-      - query_category: "Estado inicial TDE, diagnóstico pre-transformación digital"
-        route_to: "urn:knowledge:gorenuble:gn:informe-estado-inicial-gore-pre-td:1.0.0"
-      - query_category: "TICs, estado inicial tecnología, infraestructura digital"
-        route_to: "urn:knowledge:gorenuble:gn:estado-inicio-tics:1.0.0"
-      # === COMUNICACIONES ===
-      - query_category: "Comunicaciones, guía comunicacional, prensa, redes sociales, difusión"
-        route_to: "urn:knowledge:gorenuble:gn:guia-comunicaciones:1.0.0"
-      - query_category: "Comunicaciones OC, compilado mensajes, comunicación interna"
-        route_to: "urn:knowledge:gorenuble:gn:comunicaciones-oc:1.0.0"
-      # === SOCIAL ===
-      - query_category: "Problemas sociales Chile, diagnóstico social, brechas, vulnerabilidad"
-        route_to: "urn:knowledge:gorenuble:gn:problemas-sociales-cl:1.0.0"
+      - "1. Clasificar intent del usuario → área taxonómica via taxonomic_routing"
+      - "2. Consultar Matriz (kb_gn_999) → Indice_Artefactos.{área}"
+      - "3. Seleccionar artefacto(s) más relevante(s) del área"
+      - "4. Resolver URN via CM-CATALOG-RESOLVER"
+    primary_index:
+      urn: "urn:knowledge:gorenuble:gn:matriz-integracion-organica:1.0.0"
+      navigation: "Taxonomia_Conocimiento → Indice_Artefactos → {área} → Artefactos"
+    taxonomic_routing:
+      # === NIVEL 1: FUNDAMENTOS ===
+      - intent_patterns:
+          [
+            "introducción",
+            "GOREs",
+            "Ñuble",
+            "autoridades",
+            "historia regional",
+            "contexto",
+          ]
+        matrix_area: "intro"
+        taxonomy_level: "N1_Fundamentos"
+      - intent_patterns:
+          [
+            "LOC",
+            "ley",
+            "normativa",
+            "jurídico",
+            "competencias",
+            "marco legal",
+            "reforma",
+          ]
+        matrix_area: "legal"
+        taxonomy_level: "N1_Fundamentos"
+      - intent_patterns:
+          [
+            "Estado Chile",
+            "poderes",
+            "estructura nacional",
+            "descentralización",
+          ]
+        matrix_area: "estadocl"
+        taxonomy_level: "N1_Fundamentos"
+      # === NIVEL 2: ESTRATEGIA ===
+      - intent_patterns:
+          [
+            "ERD",
+            "visión",
+            "desarrollo",
+            "planificación",
+            "Ñuble250",
+            "estrategia",
+            "GORE ideal",
+          ]
+        matrix_area: "estrategia"
+        taxonomy_level: "N2_Estrategia"
+      - intent_patterns:
+          [
+            "problemas sociales",
+            "diagnóstico social",
+            "brechas",
+            "vulnerabilidad",
+          ]
+        matrix_area: "social"
+        taxonomy_level: "N2_Estrategia"
+      - intent_patterns:
+          ["indicadores", "estadísticas", "datos", "demografía", "BCN"]
+        matrix_area: "estadisticas"
+        taxonomy_level: "N2_Estrategia"
+      # === NIVEL 3: OPERACIÓN ===
+      - intent_patterns:
+          [
+            "manual",
+            "inducción",
+            "glosario",
+            "rendiciones",
+            "SISREC",
+            "cuentas públicas",
+          ]
+        matrix_area: "gestion"
+        taxonomy_level: "N3_Operacion"
+      - intent_patterns:
+          [
+            "presupuesto",
+            "FNDR",
+            "SIGFE",
+            "finanzas",
+            "partida 31",
+            "subtítulo",
+          ]
+        matrix_area: "presupuesto"
+        taxonomy_level: "N3_Operacion"
+      - intent_patterns:
+          [
+            "IPR",
+            "inversión",
+            "proyectos",
+            "circular 33",
+            "RIS",
+            "IDI",
+            "BIP",
+            "FRIL",
+            "FRPD",
+            "PPR",
+          ]
+        matrix_area: "ipr"
+        taxonomy_level: "N3_Operacion"
+      - intent_patterns:
+          [
+            "actos jurídicos",
+            "resoluciones",
+            "decretos",
+            "convenios",
+            "flujos aprobación",
+          ]
+        matrix_area: "juridico"
+        taxonomy_level: "N3_Operacion"
+      # === NIVEL 4: HABILITADORES ===
+      - intent_patterns:
+          ["BPMN", "C4", "procesos", "sistemas", "geoespacial", "CIES", "SITIA"]
+        matrix_area: "arquitectura"
+        taxonomy_level: "N4_Habilitadores"
+      - intent_patterns:
+          ["comunicaciones", "prensa", "difusión", "redes sociales"]
+        matrix_area: "comunicaciones"
+        taxonomy_level: "N4_Habilitadores"
+      - intent_patterns:
+          [
+            "TDE",
+            "Ley 21.180",
+            "ClaveÚnica",
+            "digital",
+            "transformación",
+            "ciberseguridad",
+          ]
+        matrix_area: "tde"
+        taxonomy_level: "N4_Habilitadores"
 
   CM-INTAKE:
     _meta: { expose: false }

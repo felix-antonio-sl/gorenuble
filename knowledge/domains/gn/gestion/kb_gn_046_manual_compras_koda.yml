@@ -1,5 +1,5 @@
 _manifest:
-  urn: "urn:knowledge:gorenuble:gn:manual-compras-contrataciones:1.0.0"
+  urn: "urn:knowledge:gorenuble:gn:manual-compras:1.0.0"
   title: "Manual 2.1: Compras Públicas y Contrataciones"
   federation:
     visibility: internal
@@ -8,7 +8,7 @@ _manifest:
     min_consumer_version: "1.0.0"
     breaking_changes_from: null
   resolution:
-    canonical_url: "file://knowledge/domains/gn/gestion/pseudo_manuales_operativos/manual_2_1_compras_koda.yml"
+    canonical_url: "file://knowledge/domains/gn/gestion/kb_gn_046_manual_compras_koda.yml"
     mirrors: []
   dependencies:
     requires:

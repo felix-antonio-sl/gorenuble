@@ -1,0 +1,256 @@
+# KODA Artifact
+Metadata:
+  ID: kb_gn_206_d07_rrhh_koda
+  URN: urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d07-rrhh:1.0.0
+  Title: D07 Gestión de Personas (RRHH)
+  Domain: GORE Ñuble
+  Subdomain: Arquitectura BPMN
+  Type: Proceso
+  Version: 1.0.0
+  Status: Active
+  Created: 2025-12-22
+  Modified: 2025-12-22
+  Authors:
+    - KODA-TRANSFORMER
+  Tags:
+    - rrhh
+    - personal
+    - SIGPER
+    - SIAPER
+    - remuneraciones
+  Language: es-CL
+  Summary: Gestión completa de personas desde ingreso hasta egreso del GORE Ñuble
+  Sources:
+    - /Users/felixsanhueza/Developer/gorenuble/sources/gn/arquitectura/bpmn/D07_rrhh.md
+  Related:
+    - urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d02-ciclo-presupuestario:1.0.0
+    - urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d01-actos-administrativos:1.0.0
+
+LLM_Parsing_Instructions:
+  - Preservar estructura jerárquica del documento
+  - Mantener IDs y referencias exactas
+  - No inferir ni resumir contenido
+  - Conservar diagramas mermaid como texto
+  - Mantener tablas y listas exactas
+  - Preservar metadatos y fechas
+
+Content:
+  Dominio:
+    ID: DOM-RRHH
+    Criticidad: Alta
+    Dueño: Área Gestión Personas
+    Procesos: 7
+    Subprocesos: ~20
+    Ref_Fuente: kb_gn_054_bpmn_c4_koda.yml L.1410-1880
+
+  Mapa_General:
+    Ciclo_Vida_Funcionario:
+      P1: Ingreso y Contratación
+      P2: Inducción
+      P3: Remuneraciones
+      P4: Tiempo y Ausentismo
+      P5: Desarrollo y Capacitación
+      P6: Bienestar
+      P7: Egreso
+    Flujo: P1 --> P2 --> P3
+    Conexiones: P3 --> P4, P3 --> P5, P3 --> P6, P4&P5&P6 --> P7
+
+  P1_Ingreso_Contratación:
+    ID: BPMN-GN-RRHH-INGRESO-01
+    Sistemas: SIGPER, SIAPER
+    
+    Flujo:
+      Reclutamiento:
+        - Identificar vacante
+        - Elaborar perfil cargo
+        - Publicar llamado: Empleo Público, GORE web
+        - Recepción postulaciones
+      Selección:
+        - Filtro curricular
+        - Evaluación técnica/psicológica
+        - Entrevista Comisión
+        - Propuesta terna
+        - Gobernador/a decide
+      Contratación:
+        - Oferta formal
+        - Aceptación candidato
+        - Resolución nombramiento
+        - Alta SIGPER y SIAPER
+        - Firma contrato/decreto
+
+    Tipos_Contrato:
+      Planta: Cargo titular, carrera funcionaria
+      Contrata: Transitorio, renovación anual
+      Honorarios: Servicios específicos, sin vínculo laboral
+
+  P2_Inducción_Integración:
+    ID: BPMN-GN-RRHH-INDUCCION-01
+    Fases: 11
+    
+    Flujo:
+      - Alta funcionario
+      - Bienvenida institucional
+      - Entrega credencial y accesos
+      - Presentación división/área
+      - Asignar mentor/agente inductor
+      - Recorrido instalaciones
+      - Capacitación: Misión/visión, Organigrama, Sistemas, Normativa
+      - Entrega documentos clave
+      - Configuración puesto trabajo
+      - Seguimiento 30-60-90 días
+      - Evaluación período prueba
+
+  P3_Remuneraciones_Compensaciones:
+    ID: BPMN-GN-RRHH-REMUNERACIONES-01
+    Sistemas: SIGPER, PREVIRED, SIGFE
+    Base: Escala Única de Sueldos (EUS)
+    
+    Flujo_Mensual:
+      - Inicio mes
+      - Recopilar novedades: Licencias, Horas extra, Descuentos
+      - Calcular remuneración bruta
+      - Aplicar descuentos: Previsión, Salud, Impuestos, Otros
+      - Generar liquidación
+      - Revisión validación
+      - Autorización pago
+      - Pagar PREVIRED (cotizaciones)
+      - Transferir cuentas funcionarios
+      - Contabilizar SIGFE
+      - Archivar liquidaciones
+
+    Componentes_Remuneración:
+      Sueldo_base: Según grado EUS
+      Asignaciones: Zona, antigüedad, profesional
+      Bonos: PMG, productividad, otros
+      Horas_extra: Según normativa
+
+  P4_Tiempo_Asistencia_Ausentismo:
+    ID: BPMN-GN-RRHH-TIEMPO-AUSENTISMO-01
+    
+    Flujo:
+      Registro:
+        - Funcionario marca entrada/salida
+        - Sistema registra reloj control
+        - Generar reporte diario
+      Permisos:
+        - Solicitar permiso: Administrativo, Particular
+        - Jefatura aprueba/rechaza
+        - Registrar sistema
+      Licencias:
+        - Funcionario presenta licencia médica
+        - RRHH recepciona valida
+        - Enviar Isapre/COMPIN
+        - Resolución: Aprobada, Rechazada
+        - Ajustar remuneración
+      Feriados:
+        - Solicitar feriado legal/progresivo
+        - Verificar saldo disponible
+        - Jefatura autoriza
+        - Descontar días
+
+  P5_Desarrollo_Organizacional_Capacitación:
+    ID: BPMN-GN-RRHH-DESARROLLO-ORG-01
+    
+    Flujo:
+      Detección_Necesidades:
+        - Aplicar encuesta DNC
+        - Análisis brechas
+        - Priorizar necesidades
+      Plan_Capacitación:
+        - Elaborar PAC anual
+        - Comité Bipartito aprueba
+        - Asignar presupuesto
+      Ejecución:
+        - Convocar funcionarios
+        - Ejecutar capacitaciones
+        - Evaluar aprendizaje
+        - Certificar
+      Seguimiento:
+        - Medir transferencia puesto
+        - Evaluar impacto
+        - Retroalimentar próximo ciclo
+
+    Calificaciones:
+      Flujo:
+        - Período calificatorio (sep-ago)
+        - Precalificación jefatura
+        - Notificación funcionario
+        - Decisión: Apelación/No apelación
+          - Sí: Junta resuelve apelación
+          - No: Junta define nota final
+        - Listas: 1-2-3-4 o Eliminación
+        - Registrar hoja vida
+
+  P6_Bienestar_Calidad_Vida:
+    ID: BPMN-GN-RRHH-BIENESTAR-01
+    
+    Flujo:
+      Afiliación:
+        - Funcionario ingresa
+        - Invitar Servicio Bienestar
+        - Aceptar afiliar
+        - Descuento mensual planilla
+      Prestaciones:
+        - Solicitar beneficio: Médico, Económico, Préstamo, Convenio
+        - Unidad Bienestar evalúa
+        - Consejo Administrativo aprueba si requiere
+        - Otorgar beneficio
+      Actividades:
+        - Planificar eventos: Deportivos, Recreativos, Culturales
+        - Ejecutar actividad
+        - Evaluar satisfacción
+
+    Prevención_Riesgos:
+      Flujo:
+        - Identificar riesgos laborales
+        - Elaborar matriz riesgos
+        - Medidas preventivas
+        - CPHS monitorea
+        - Decisión: Accidente/No accidente
+          - Sí: DIAT/DIEP
+          - No: Seguir monitoreando
+        - Mutual investiga
+        - Medidas correctivas
+
+  P7_Egreso_Desvinculación:
+    ID: BPMN-GN-RRHH-EGRESO-01
+    
+    Causales_Egreso:
+      Flujo:
+        - Egreso funcionario
+        - Decisión causal:
+          - Voluntario: Renuncia voluntaria
+          - Jubilación: Retiro pensión
+          - Término contrata: No renovación 31/12
+          - Calificación: Eliminación nota
+          - Disciplinario: Destitución
+          - Salud: Incompatibilidad salud
+        - Procedimiento cierre
+
+    Procedimiento_Cierre:
+      Flujo:
+        - Resolución cese
+        - Entrega cargo
+        - Devolución: Credencial, Equipos, Documentos
+        - Cierre accesos: TI, Edificio
+        - Certificado servicios
+        - Liquidación final: Feriados pendientes, Bonos proporcionales
+        - Baja SIGPER y SIAPER
+
+  Sistemas_Involucrados:
+    SYS-SIGPER: Gestión personas, remuneraciones
+    SYS-SIAPER: Control personal Estado
+    SYS-PREVIRED: Cotizaciones previsionales
+    SYS-SIGFE: Contabilización
+
+  Normativa_Aplicable:
+    Ley_18834: Estatuto Administrativo
+    Ley_18575: Bases Administración Estado
+    Ley_20880: Probidad, declaraciones
+    Código_Trabajo: Honorarios
+
+  Referencias_Cruzadas:
+    D02_Ciclo_Presupuestario: Subtítulo 21, Remuneraciones
+    D01_Actos_Administrativos: Resoluciones nombramiento
+
+  Actualización: 2025-12-16

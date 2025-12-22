@@ -1,0 +1,242 @@
+# KODA Artifact
+Metadata:
+  ID: kb_gn_207_d08_rendiciones_koda
+  URN: urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d08-rendiciones:1.0.0
+  Title: D08 Gestión de Rendiciones de Cuentas
+  Domain: GORE Ñuble
+  Subdomain: Arquitectura BPMN
+  Type: Proceso
+  Version: 1.0.0
+  Status: Active
+  Created: 2025-12-22
+  Modified: 2025-12-22
+  Authors:
+    - KODA-TRANSFORMER
+  Tags:
+    - rendiciones
+    - SISREC
+    - CGR
+    - SIGFE
+    - transferencias
+  Language: es-CL
+  Summary: Gestión de rendiciones de cuentas tradicional y vía SISREC del GORE Ñuble
+  Sources:
+    - /Users/felixsanhueza/Developer/gorenuble/sources/gn/arquitectura/bpmn/D08_rendiciones.md
+  Related:
+    - urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d03-gestion-ipr:1.0.0
+    - urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d02-ciclo-presupuestario:1.0.0
+
+LLM_Parsing_Instructions:
+  - Preservar estructura jerárquica del documento
+  - Mantener IDs y referencias exactas
+  - No inferir ni resumir contenido
+  - Conservar diagramas mermaid como texto
+  - Mantener tablas y listas exactas
+  - Preservar metadatos y fechas
+
+Content:
+  Dominio:
+    ID: DOM-RENDICIONES
+    Criticidad: Crítica
+    Dueño: UCR/DAF
+    Procesos: 3
+    Subprocesos: ~10
+    Ref_Fuente: kb_gn_054_bpmn_c4_koda.yml L.3735-4140
+
+  Mapa_General:
+    Procesos_Rendición:
+      P1: Rendición Tradicional
+      P2: Rendición vía SISREC
+      P3: Rendición por Tipología Fondos
+    Soporte:
+      - Marco Normativo
+      - Expediente Documentación
+      - Control Transparencia
+    Conexiones: P1/P2/P3 --> Soporte
+
+  P1_Rendición_Tradicional:
+    ID: BPMN-GN-RENDICIONES-TRADICIONAL-01
+    SLA: 18 días hábiles GORE + 15 días EE
+    Estado: En transición a SISREC
+    
+    Flujo:
+      Entidad_Ejecutora:
+        - Preparar rendición papel/digital
+      GORE_Ñuble:
+        - OP recepciona (2 días)
+        - UCR registra asigna (2 días)
+        - RTF revisión técnico-financiera (7 días)
+        - Decisión: OK/Observar
+          - OK: Certificado aprobación
+          - Observar: Observar
+        - UCR control final (4 días)
+        - Contabilizar SIGFE (2 días)
+        - Archivar (1 día)
+      Tiempos: 15 días mes siguiente + 2+2+7+4+2+1 días GORE
+
+    Plazos_Etapa:
+      Presentación: 15 días hábiles mes siguiente - Entidad Ejecutora
+      Recepción_registro: 2 días hábiles - Oficina Partes
+      Asignación_revisor: 2 días hábiles - UCR/DAF
+      Revisión_técnico_financiera: 7 días hábiles - RTF
+      Control_final: 4 días hábiles - UCR/DAF
+      Contabilización: 2 días hábiles - UCR/DAF
+      Archivo: 1 día hábil - UCR/DAF
+
+  P2_Rendición_SISREC:
+    ID: BPMN-GN-REND-SISREC-01
+    Plataforma: SISREC CGR
+    Obligatorio: Sí (Res. 1858/2023 CGR)
+    
+    Visión_General:
+      GORE_Otorgante:
+        - Crear programa
+        - Registrar transferencia
+        - Revisar rendición
+        - Aprobar/Observar
+        - Contabilizar
+      Entidad_Ejecutora:
+        - Aceptar transferencia
+        - Crear informe
+        - Ingresar transacciones
+        - Ministro Fe certifica
+        - Firmar enviar
+
+    Flujo_Entidad_Otorgante_GORE:
+      RTF_Analista_Otorgante:
+        - Crear Programa SISREC
+        - Registrar enviar transferencia
+        - Recibir informe rendición
+        - Revisar transacciones
+        - Decisión: Correcto/Incorrecto
+          - Correcto: Aprobar
+          - Incorrecto: Observar
+        - Enviar Jefe DAF
+      Jefe_DAF:
+        - Decisión: Conforme/Devolver (1 día)
+          - Conforme: Firmar FEA
+          - Devolver: Devolver
+      UCR_DAF:
+        - Descargar informe aprobación
+        - Contabilizar SIGFE (2 días)
+        - Archivar (2 días)
+
+    Flujo_Entidad_Ejecutora:
+      Analista_Ejecutor:
+        - Recibir transferencia SISREC
+        - Aceptar transferencia
+        - Crear informe rendición: Mensual, Regularización, Sin movimiento
+        - Ingresar transacciones
+        - Adjuntar respaldos digitalizados
+        - Enviar Ministro Fe
+      Ministro_Fe:
+        - Revisar autenticidad
+        - Decisión: Auténtico/Devolver
+          - Auténtico: Certificar
+          - Devolver: Devolver
+      Encargado_Ejecutor:
+        - Revisar informe
+        - Decisión: Conforme/Devolver
+          - Conforme: Firmar FEA enviar GORE
+          - Devolver: Devolver
+
+    Tipos_Informe:
+      Mensual: Rendición regular con transacciones
+      Regularización: Corrección observaciones
+      Sin_movimiento: Período sin gastos
+
+  P3_Rendición_Tipología_Fondos:
+    ID: BPMN-GN-REND-TIPOLOGIA-01
+    Tipologías: 7 tipos fondos
+    
+    Tipologías_Fondos:
+      FNDR:
+        - Subtítulo 31 (Ejecución GORE): Imputación BIP/SIGFE, Actualizar avance BIP
+        - Subtítulo 33 (Transferencias): SISREC obligatorio, RTF + UCR revisan
+      Mecanismos_Específicos:
+        - FRIL: SISREC + Informe ITO
+        - FRPD: SISREC + Seguimiento división patrocinante
+        - 8% FNDR: SISREC + Medios verificación
+        - Programas Subtítulo 24: SISREC + Tope 5% gastos admin
+        - Circular 33: BIP + SISREC + RATE conservación
+
+    Requisitos_Tipología:
+      FNDR_Subtítulo_31: BIP + SIGFE - Actualizar avance físico-financiero
+      FNDR_Subtítulo_33: SISREC - RTF revisa coherencia técnica
+      FRIL: SISREC - Considerar informe ITO, SNI
+      FRPD: SISREC - Seguimiento metas división
+      8%_FNDR: SISREC - Medios verificación, gastos prohibidos
+      Programas_Subtítulo_24: SISREC - Tope 5% gastos administración
+      Circular_33: BIP + SISREC - RATE conservación
+
+  Procedimientos_Contables_SIGFE:
+    F07_Transferencias_Sector_Privado:
+      Fase1_Entrega_fondos: Devengo obligación pago
+      Fase2_Aprobación_rendición: Reconocimiento gasto
+      Fase3_Reintegro: Devengo cobro recepción
+    F08_Transferencias_Sector_Público:
+      Fase1_Entrega_fondos: Devengo obligación pago
+      Fase2_Aprobación_rendición: Reconocimiento gasto
+      Fase3_Reintegro: Devengo cobro recepción
+    Nota: Servicios públicos no consolidables devengan gasto al aprobar rendición
+
+  Marco_Normativo:
+    Resolución_30_2015_CGR: Procedimiento general
+    Resolución_1858_2023_CGR: Uso obligatorio SISREC
+    Ley_19862: Registro Colaboradores Estado
+    Ley_21719: Protección Datos Personales
+
+    Artículos_Clave_Res_30_2015:
+      Art_2: Constitución expediente
+      Art_4_5: Documentación auténtica
+      Art_10: Expediente rendición
+      Art_13: Gastos post-tramitación
+      Art_18: Prohíbe nuevos fondos si rendiciones pendientes
+      Art_31: Obligación restituir fondos
+
+  Expediente_Rendición:
+    Componentes:
+      Informe_Rendición: Documento formal ejecutor
+      Comprobantes_Ingreso: Recepción fondos
+      Comprobantes_Egreso: Facturas, boletas, contratos
+      Comprobantes_Traspaso: Operaciones sin efectivo
+      Registro_Ley_19862: Si aplica (privados)
+      Medios_Verificación: Fotos, listas, informes
+
+    Documentación_Auténtica:
+      Papel: Original copia autentificada
+      Electrónico: Firma electrónica Ley 19799
+      Digitalizado: Autentificado Ministro Fe
+
+  Responsabilidades_Sanciones:
+      Tipos_Responsabilidad:
+        Administrativa: Sumario → Censura/Multa/Destitución
+        Civil: Juicio Cuentas CGR → Restituir
+        Penal: Malversación/Fraude → Prisión
+      Consecuencias_Directas:
+        - Obligación restituir fondos
+        - Suspensión nuevas transferencias
+
+  Control_Transparencia:
+    Control_Interno:
+      Auditorías selectivas: Unidad Control
+      Listas chequeo: UCR/RTF
+      Seguimiento físico-financiero: RTF
+    Fiscalización_Externa:
+      CGR: Juzgamiento cuentas, auditorías, SISREC
+      DIPRES: Monitoreo ejecución SIGFE
+    Transparencia:
+      Glosa_08: Info corporaciones/fundaciones
+      Glosa_16: Cartera proyectos, acuerdos CORE
+
+  Sistemas_Involucrados:
+    SYS-SISREC: Rendición electrónica CGR
+    SYS-SIGFE: Contabilización
+    SYS-BIP-SNI: Avance físico-financiero
+    SYS-FIRMAGOB: Firma Electrónica Avanzada
+
+  Referencias_Cruzadas:
+    D03_Gestión_IPR: Cierre financiero Fase 7
+    D02_Ciclo_Presupuestario: Contabilización, devengo
+
+  Actualización: 2025-12-16

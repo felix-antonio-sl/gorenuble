@@ -1,0 +1,197 @@
+# KODA Artifact
+Metadata:
+  ID: kb_gn_200_d01_actos_administrativos_koda
+  URN: urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d01-actos-administrativos:1.0.0
+  Title: D01 Tramitación de Actos Administrativos
+  Domain: GORE Ñuble
+  Subdomain: Arquitectura BPMN
+  Type: Proceso
+  Version: 1.0.0
+  Status: Active
+  Created: 2025-12-22
+  Modified: 2025-12-22
+  Authors:
+    - KODA-TRANSFORMER
+  Tags:
+    - actos-administrativos
+    - resoluciones
+    - convenios
+    - TDE
+    - expediente-electronico
+  Language: es-CL
+  Summary: Procesos de tramitación de actos administrativos del GORE Ñuble incluyendo resoluciones exentas y convenios de transferencia
+  Sources:
+    - /Users/felixsanhueza/Developer/gorenuble/sources/gn/arquitectura/bpmn/D01_actos_administrativos.md
+  Related:
+    - urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d03-gestion-ipr:1.0.0
+    - urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d02-ciclo-presupuestario:1.0.0
+    - urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d08-rendiciones:1.0.0
+
+LLM_Parsing_Instructions:
+  - Preservar estructura jerárquica del documento
+  - Mantener IDs y referencias exactas
+  - No inferir ni resumir contenido
+  - Conservar diagramas mermaid como texto
+  - Mantener tablas y listas exactas
+  - Preservar metadatos y fechas
+
+Content:
+  Dominio:
+    ID: DOM-ACTOS-ADMIN
+    Criticidad: Alta
+    Dueño: Unidad Jurídica
+    Procesos: 2
+    Subprocesos: ~14 fases
+    Ref_Fuente: kb_gn_054_bpmn_c4_koda.yml L.100-499
+
+  Mapa_General:
+    Procesos:
+      P1:
+        Nombre: Resoluciones Exentas
+        Elementos_Transversales:
+          - Expediente Electrónico
+          - Firma Electrónica Avanzada
+      P2:
+        Nombre: Convenios y Transferencias
+        Elementos_Transversales:
+          - Expediente Electrónico
+          - Firma Electrónica Avanzada
+          - Toma de Razón
+
+  P1_Resoluciones_Exentas:
+    ID: BPMN-GN-RES-EXENTAS-FLUJO-01
+    Fases: 7
+    SLA: 15 días hábiles
+    
+    Flujo:
+      Fase1_Iniciación:
+        - Área Requirente elabora borrador
+        - Adjuntar antecedentes
+        - Ingresar al SGD
+      Fase2_Revisión_Jurídica:
+        - Jurídica recibe expediente
+        - Verificar legalidad y forma
+        - Decisión: OK/Observar
+        - V°B° Jurídico/Observar
+      Fase3_Gestión:
+        - Centro Gestión asigna N° resolución
+        - Completar formalidades
+      Fase4_Control:
+        - Unidad Control verifica procedencia
+        - Decisión: Conforme/Reparar
+        - V°B° Control/Reparar
+      Fase5_V°B°_Administrador:
+        - Administrador/a Regional revisa y visa
+      Fase6_Firma:
+        - Gobernador/a firma con FEA
+      Fase7_Notificación_Archivo:
+        - Oficina Partes numera y fecha
+        - Notificar interesados
+        - Publicar si corresponde
+        - Archivar expediente
+
+    Roles_por_Fase:
+      Fase1: Área Requirente - Elaborar borrador
+      Fase2: Unidad Jurídica - Verificar legalidad
+      Fase3: Centro de Gestión - Asignar N°
+      Fase4: Unidad de Control - Verificar procedencia
+      Fase5: Administrador/a Regional - Visar
+      Fase6: Gobernador/a - Firma FEA
+      Fase7: Oficina de Partes - Notificar, archivar
+
+    Requisitos_Expediente_Electrónico:
+      - Borrador resolución
+      - Antecedentes de respaldo
+      - Visaciones electrónicas
+      - Firma FEA Gobernador/a
+      - Notificación electrónica
+
+  P2_Convenios_Transferencias:
+    ID: PROC-GORE-BPMN-TRAMITACION-CONVENIOS-01
+    Fases: 7
+    SLA: 30 días hábiles
+    
+    Flujo:
+      Fase1_Iniciación:
+        - Área Responsable elabora borrador
+        - Incluir cláusulas: Partes, Objeto, Monto, Plazos, Rendición
+      Fase2_Revisión_Jurídica:
+        - Jurídica revisa legalidad
+        - Decisión: Cumple normativa/Observar
+        - V°B° Jurídico/Observar
+      Fase3_Visación_Presupuestaria:
+        - DAF verifica disponibilidad
+        - Emitir CDP
+        - V°B° DAF
+      Fase4_Control_Interno:
+        - U. Control verifica procedencia
+        - V°B° Control
+      Fase5_Firma_Partes:
+        - Coordinar firma: Gobernador/a GORE, Representante Entidad
+      Fase6_Resolución_Aprobatoria:
+        - Elaborar resolución que aprueba convenio
+        - Decisión: Requiere Toma de Razón/Tramitar exento
+        - Enviar a CGR/Tramitar exento
+      Fase7_Publicación_Archivo:
+        - Publicar en Transparencia
+        - Registrar en SIGFE
+        - Archivar expediente
+
+    Contenido_Mínimo_Convenio:
+      Partes: GORE + Entidad receptora
+      Objeto: Descripción del programa/proyecto
+      Monto: Valor total y calendario
+      Plazos: Duración y fechas clave
+      Obligaciones: Deberes de cada parte
+      Rendición: Modalidad, plazos, SISREC
+      Restitución: Condiciones de devolución
+      Probidad: Cláusulas anticorrupción
+
+    Criterios_Toma_de_Razón:
+      Monto_y_naturaleza:
+        - Supera umbral CGR: Requiere Toma de Razón
+        - Bajo umbral: Exento
+        - Normativa específica: Consultar Res. CGR
+
+  Expediente_Electronico_Ley_21180:
+    Estructura:
+      Metadatos:
+        - ID único
+        - Fecha creación
+        - Tipo acto
+      Documentos:
+        - Borrador
+        - Antecedentes
+        - Visaciones
+      Firmas:
+        - FEA funcionarios
+        - FEA autoridad
+      Trazabilidad:
+        - Log de acciones
+        - Fechas/horas
+
+    Principios_TDE:
+      Equivalencia_funcional: Documento digital = papel
+      Neutralidad_tecnológica: Sin dependencia de proveedor
+      Interoperabilidad: Comunicación entre sistemas
+      Seguridad: Integridad, autenticidad, no repudio
+
+  Sistemas_Involucrados:
+    SYS-DOCDIGITAL: Gestión documental, expediente
+    SYS-FIRMAGOB: Firma Electrónica Avanzada
+    SYS-SIGFE: Registro de compromisos
+    SYS-TRANSPARENCIA: Publicación
+
+  Normativa_Aplicable:
+    Ley_19880_LBPA: Procedimiento administrativo
+    Ley_21180_TDE: Expediente electrónico
+    Ley_19799: Firma electrónica
+    Resolución_30_2015_CGR: Rendiciones
+    Ley_19886: Contratación pública
+
+  Referencias_Cruzadas:
+    D03_Gestión_IPR: Fase 4 Formalización
+    D02_Ciclo_Presupuestario: Modificaciones, resoluciones
+    D08_Rendiciones: Convenios de transferencia
+
+  Actualización: 2025-12-16

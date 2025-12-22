@@ -1,0 +1,190 @@
+# KODA Artifact
+Metadata:
+  ID: kb_gn_203_d04_compras_contrataciones_koda
+  URN: urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d04-compras-contrataciones:1.0.0
+  Title: D04 Compras Públicas y Contrataciones
+  Domain: GORE Ñuble
+  Subdomain: Arquitectura BPMN
+  Type: Proceso
+  Version: 1.0.0
+  Status: Active
+  Created: 2025-12-22
+  Modified: 2025-12-22
+  Authors:
+    - KODA-TRANSFORMER
+  Tags:
+    - compras
+    - contrataciones
+    - mercado-publico
+    - convenio-marco
+    - licitacion
+  Language: es-CL
+  Summary: Gestión de compras públicas desde planificación hasta cierre de contratos
+  Sources:
+    - /Users/felixsanhueza/Developer/gorenuble/sources/gn/arquitectura/bpmn/D04_compras_contrataciones.md
+  Related:
+    - urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d02-ciclo-presupuestario:1.0.0
+    - urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d05-inventarios-activo-fijo:1.0.0
+    - urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d01-actos-administrativos:1.0.0
+
+LLM_Parsing_Instructions:
+  - Preservar estructura jerárquica del documento
+  - Mantener IDs y referencias exactas
+  - No inferir ni resumir contenido
+  - Conservar diagramas mermaid como texto
+  - Mantener tablas y listas exactas
+  - Preservar metadatos y fechas
+
+Content:
+  Dominio:
+    ID: DOM-COMPRAS
+    Criticidad: Alta
+    Dueño: Unidad de Abastecimiento
+    Procesos: 4
+    Subprocesos: ~12
+    Ref_Fuente: kb_gn_054_bpmn_c4_koda.yml L.700-950
+
+  Mapa_General:
+    Ciclo_Compras:
+      P1: Plan Anual de Compras
+      P2: Licitación Pública
+      P3: Órdenes de Compra
+      P4: Gestión de Contratos
+    Conexión: P1 --> P2 --> P3 --> P4
+    Atajo: P1 --> Convenio Marco --> P3
+
+  P1_Plan_Anual_Compras_PAC:
+    ID: BPMN-GN-COMPRAS-PAC-01
+    Período: Anual (Diciembre-Enero)
+    
+    Flujo:
+      - Divisiones identifican necesidades
+      - Unidades envían requerimientos
+      - Abastecimiento consolida
+      - Clasificar por: Convenio Marco, Licitación, Compra Directa
+      - Validación presupuestaria (DAF)
+      - Aprobación Gobernador/a
+      - Publicar PAC en Mercado Público
+      - Monitoreo y ajustes trimestrales
+
+    Contenido_PAC:
+      Producto_Servicio: Descripción detallada
+      Cantidad_estimada: Unidades requeridas
+      Monto_estimado: Valor en pesos
+      Período: Trimestre de adquisición
+      Mecanismo: CM/LP/CD/TDP
+
+  P2_Licitación Pública:
+    ID: BPMN-GN-COMPRAS-MECANISMOS-01
+    Umbral: > 1.000 UTM
+    
+    Flujo:
+      Preparación:
+        - Elaborar bases técnicas y admin.
+        - Revisión jurídica
+        - Resolución aprueba bases
+      Publicación:
+        - Publicar Mercado Público
+        - Período consultas
+        - Respuestas aclaraciones
+        - Recepción ofertas
+      Evaluación:
+        - Comisión revisa ofertas
+        - Aplicar criterios: Precio, Calidad, Experiencia
+        - Acta evaluación
+        - Propuesta adjudicación
+      Adjudicación:
+        - Resolución adjudicación
+        - Publicar resultado
+        - Notificar oferentes
+        - Período impugnación
+
+    Mecanismos_Compra:
+      Decisión_Monto:
+        - > 1.000 UTM: Licitación Pública
+        - 100-1.000 UTM: Licitación Privada
+        - < 100 UTM: Compra Directa
+      Decisión_Convenio:
+        - Sí: Convenio Marco
+        - No: Evaluar monto
+
+  P3_Ejecución_Ordenes_Compra:
+    ID: BPMN-GN-COMPRAS-OC-01
+    Sistema: Mercado Público
+    
+    Flujo:
+      - Adjudicación/Contrato vigente
+      - Abastecimiento genera OC
+      - Asociar CDP y partida presupuestaria
+      - Firma jefatura respectiva
+      - Enviar OC a proveedor
+      - Proveedor acepta OC
+      - Recepción bienes/servicios
+      - Decisión: Conforme/Rechazo/Devolución
+      - Acta recepción/Facturación/Pago
+
+    Estados_OC:
+      Generada: OC creada en sistema
+      Enviada: Notificada proveedor
+      Aceptada: Proveedor confirma
+      Recepcionada: Bienes/servicios entregados
+      Pagada: Proceso completado
+
+  P4_Gestión_Contratos:
+    ID: BPMN-GN-COMPRAS-CONTRATOS-01
+    Responsable: Administrador de Contrato
+    
+    Flujo:
+      Formalización:
+        - Elaborar contrato
+        - Revisión jurídica
+        - Firma partes
+        - Resolución aprobatoria
+        - Garantías: Fiel cumplimiento, Anticipo
+      Ejecución:
+        - Designar administrador contrato
+        - Seguimiento hitos
+        - Verificar cumplimiento
+        - Estados pago parciales
+      Cierre:
+        - Recepción definitiva
+        - Acta cierre
+        - Devolución garantías
+        - Evaluación proveedor
+
+    Funciones_Administrador_Contrato:
+      Supervisión: Verificar cumplimiento técnico
+      Comunicación: Enlace con proveedor
+      Documentación: Mantener expediente
+      Hitos: Certificar avances
+      Pagos: Autorizar estados pago
+
+  Control_Transparencia:
+    Obligaciones_Publicación:
+      PAC: Mercado Público
+      Licitaciones: Mercado Público
+      Adjudicaciones: Mercado Público
+      Contratos: Transparencia Activa
+      Ordenes_Compra: Mercado Público
+
+    Prohibiciones:
+      Fraccionamiento_prohibido: No dividir compras para eludir umbrales
+      Conflicto_intereses: Funcionarios declaran inhabilidades
+
+  Sistemas_Involucrados:
+    ORG-CHILECOMPRA: Mercado Público, OC, licitaciones
+    SYS-SIGFE: CDP, compromisos, pagos
+    SYS-DOCDIGITAL: Contratos, resoluciones
+
+  Normativa_Aplicable:
+    Ley_19886: Compras públicas
+    Reglamento_DS_250: Procedimientos
+    Directivas_ChileCompra: Operativas
+    Ley_20730: Lobby y conflictos
+
+  Referencias_Cruzadas:
+    D02_Ciclo_Presupuestario: CDP, compromisos
+    D05_Inventarios: Recepción bienes
+    D01_Actos_Administrativos: Resoluciones adjudicación
+
+  Actualización: 2025-12-16

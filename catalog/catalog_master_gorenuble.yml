@@ -139,6 +139,50 @@ Catalog:
       title: "Ley de Presupuestos 2026 - Normas Generales (Ley 21.796)"
       file: "knowledge/domains/gn/presupuesto/kb_gn_211_ley_presupuestos_2026_normas_generales_koda.yml"
       status: draft
+    - urn: "urn:knowledge:gorenuble:gn:matriz-integracion-organica:1.0.0"
+      title: "Matriz de Integración Orgánica del Conocimiento GORE Ñuble"
+      file: "knowledge/domains/gn/kb_gn_999_matriz_integracion_organica_koda.yml"
+      status: published
+    - urn: "urn:knowledge:gorenuble:gn:bpmn-index:1.0.0"
+      title: "Índice de Procesos BPMN"
+      file: "knowledge/domains/gn/arquitectura/bpmn/_index.yml"
+      status: published
+    - urn: "urn:knowledge:gorenuble:gn:manual-presupuesto:1.0.0"
+      title: "Manual 1.1: Gestión Presupuestaria (Formulación y Ejecución)"
+      file: "knowledge/domains/gn/gestion/kb_gn_043_manual_presupuesto_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:manual-contabilidad:1.0.0"
+      title: "Manual 1.2: Contabilidad e Información Financiera"
+      file: "knowledge/domains/gn/gestion/kb_gn_044_manual_contabilidad_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:manual-tesoreria:1.0.0"
+      title: "Manual 1.3: Tesorería y Gestión de Pagos"
+      file: "knowledge/domains/gn/gestion/kb_gn_045_manual_tesoreria_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:manual-compras:1.0.0"
+      title: "Manual 2.1: Compras y Contrataciones Públicas"
+      file: "knowledge/domains/gn/gestion/kb_gn_046_manual_compras_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:manual-flotas:1.0.0"
+      title: "Manual 2.4: Gestión de Vehículos e Infraestructura"
+      file: "knowledge/domains/gn/gestion/kb_gn_047_manual_flotas_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:manual-ciclo-vida:1.0.0"
+      title: "Manual 3.1: Ciclo de Vida del Funcionario"
+      file: "knowledge/domains/gn/gestion/kb_gn_048_manual_ciclo_vida_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:manual-remuneraciones:1.0.0"
+      title: "Manual 3.2: Gestión de Remuneraciones"
+      file: "knowledge/domains/gn/gestion/kb_gn_049_manual_remuneraciones_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:manual-asistencia:1.0.0"
+      title: "Manual 3.3: Control de Asistencia y Ausentismo"
+      file: "knowledge/domains/gn/gestion/kb_gn_051_manual_asistencia_koda.yml"
+      status: draft
+    - urn: "urn:knowledge:gorenuble:gn:manual-bienestar:1.0.0"
+      title: "Manual 3.5: Programas de Bienestar al Personal"
+      file: "knowledge/domains/gn/gestion/kb_gn_052_manual_bienestar_koda.yml"
+      status: draft
     - urn: "urn:knowledge:gorenuble:gn:cies-sitia:1.0.0"
       title: "Centro Integrado de Emergencia y Seguridad (CIES) de Ñuble con integración SITIA"
       file: "knowledge/domains/gn/arquitectura/kb_gn_080_cies_sitia_koda.yml"
@@ -284,11 +328,11 @@ Catalog:
       status: draft
 
 Statistics:
-  total_artifacts: 52
+  total_artifacts: 63
   core_guides: 1
-  agents: 9
+  agents: 10
   schemas: 0
-  domains: 50
-  last_updated: "2025-12-16"
+  domains: 61
+  last_updated: "2025-12-22"
   federation_status: "registered_in_koda"
-  notes: "Agregado Gobernador Virtual (agents: 8→9)"
+  notes: "Sincronización masiva: +11 manuales, +Matriz Orgánica, +BPMN Index. Corrección de ghost files."

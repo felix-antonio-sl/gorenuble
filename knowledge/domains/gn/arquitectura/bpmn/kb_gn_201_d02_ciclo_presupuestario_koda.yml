@@ -1,0 +1,231 @@
+# KODA Artifact
+Metadata:
+  ID: kb_gn_201_d02_ciclo_presupuestario_koda
+  URN: urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d02-ciclo-presupuestario:1.0.0
+  Title: D02 Ciclo Presupuestario Regional
+  Domain: GORE Ñuble
+  Subdomain: Arquitectura BPMN
+  Type: Proceso
+  Version: 1.0.0
+  Status: Active
+  Created: 2025-12-22
+  Modified: 2025-12-22
+  Authors:
+    - KODA-TRANSFORMER
+  Tags:
+    - presupuesto
+    - SIGFE
+    - DIPRES
+    - CORE
+    - cadena-presupuestaria
+  Language: es-CL
+  Summary: Ciclo completo de gestión presupuestaria regional desde formulación hasta cierre
+  Sources:
+    - /Users/felixsanhueza/Developer/gorenuble/sources/gn/arquitectura/bpmn/D02_ciclo_presupuestario.md
+  Related:
+    - urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d03-gestion-ipr:1.0.0
+    - urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d08-rendiciones:1.0.0
+    - urn:knowledge:gorenuble:domains:gn:arquitectura:bpmn:d04-compras-contrataciones:1.0.0
+
+LLM_Parsing_Instructions:
+  - Preservar estructura jerárquica del documento
+  - Mantener IDs y referencias exactas
+  - No inferir ni resumir contenido
+  - Conservar diagramas mermaid como texto
+  - Mantener tablas y listas exactas
+  - Preservar metadatos y fechas
+
+Content:
+  Dominio:
+    ID: DOM-PRESUPUESTO
+    Criticidad: Crítica
+    Dueño: DAF (Funcionamiento) / DIPIR (Inversión)
+    Procesos: 5
+    Subprocesos: ~15
+    Ref_Fuente: kb_gn_054_bpmn_c4_koda.yml L.500-1886
+
+  Mapa_General:
+    Ciclo_Anual:
+      P1: Formulación (May-Jun)
+      P2: Aprobación (Sep-Nov)
+      P3: Distribución (Dic-Ene)
+      P4: Ejecución (Todo el año)
+      P5: Control y Cierre (Dic-Ene)
+    Transversal:
+      - Modificaciones Presupuestarias
+
+  P1_Formulación_Presupuesto:
+    ID: BPMN-GN-PRESUPUESTO-FORMULACION-01
+    Período: Mayo-Junio (año anterior)
+    
+    Flujo:
+      Inicio:
+        - DIPRES emite instructivo y clasificador
+        - Definir techos preliminares
+      Inversión_DIPIR:
+        - Propuesta marco de inversión
+        - Cartera proyectos con RS vigente
+        - Asignaciones por fuente (FNDR/FRIL/FRPD)
+      Funcionamiento_DAF:
+        - Personal (Subt. 21)
+        - Bienes/Servicios (Subt. 22)
+        - Transferencias (Subt. 24)
+      Consolidación:
+        - Consolidar propuesta
+        - Presentación a Gobernador/a
+        - Ajustes según prioridades ERD
+        - Envío a DIPRES
+
+    Estructura_Presupuesto:
+      Subtítulo_21: Personal - DAF
+      Subtítulo_22: Bienes y Servicios - DAF
+      Subtítulo_24: Transferencias Corrientes - DAF/DIPIR
+      Subtítulo_29: Activos No Financieros - DAF
+      Subtítulo_31: Inversión (Iniciativas) - DIPIR
+      Subtítulo_33: Transferencias de Capital - DIPIR
+
+  P2_Aprobación_Presupuesto:
+    ID: BPMN-GN-PRESUPUESTO-APROBACION-01
+    Período: Septiembre-Noviembre
+    
+    Flujo:
+      - Propuesta GORE a DIPRES
+      - Negociación técnica GORE-DIPRES
+      - Incorporación en Proyecto Ley de Presupuestos
+      - Debate parlamentario
+      - Promulgación Ley de Presupuestos
+      - Resolución GORE: Distribución interna
+      - Decisión: Requiere Toma de Razón/Vigente
+      - Envío a CGR/Vigente
+
+  P3_Distribución_Inicial:
+    ID: BPMN-GN-PRESUPUESTO-DISTRIBUCION-01
+    Período: Diciembre-Enero
+    
+    Flujo:
+      - Ley de Presupuestos promulgada
+      - Resolución GORE distribución por subtítulos
+      - Incorporar SIC (Saldo Inicial Caja)
+      - Solicitar transferencias iniciales a DIPRES
+      - Apertura SIGFE nuevo ejercicio
+      - Decreto distribución fondos a divisiones
+      - CUF habilitada para operación
+
+  P4_Ejecución_Presupuestaria:
+    ID: BPMN-GN-PRESUPUESTO-EJECUCION-01
+    Período: Todo el año
+    Subprocesos: Cadena SIGFE, Tesorería, Contabilidad
+    
+    Cadena_Presupuestaria_SIGFE:
+      1_CDP: Certificado Disponibilidad
+      2_COMPROMISO: Acto administrativo
+      3_DEVENGO: Obligación exigible
+      4_PAGO: Extinción obligación
+
+    Gestión_Tesorería:
+      Programación_Caja:
+        - PAC: Programación Anual de Caja
+        - Solicitud fondos mensual a DIPRES
+        - Recepción en CUF
+      Pagos:
+        - Verificar saldo
+        - Procesar pago TEF/cheque
+        - Actualizar SIGFE
+      Ingresos:
+        - Recaudar ingresos propios
+        - Recibir traspasos FNDR/FRPD
+        - Conciliar cuentas
+
+    Contabilidad_Gubernamental:
+      - Registro diario en SIGFE
+      - Conciliaciones bancarias
+      - Análisis de cuentas
+      - Cierre mensual
+      - Generación estados financieros
+      - Validación con normas NICSP
+
+  Modificaciones_Presupuestarias:
+    ID: BPMN-GN-PRESUPUESTO-MODIFICACION-01
+    Tipos: Reasignación, Suplemento, Transferencia Consolidable
+    
+    Diagrama_Niveles:
+      Inicio: Detectar necesidad de modificación
+      Decisión:
+        - Interna mismo subtítulo: Nivel 1 Resolución GORE
+        - Entre subtítulos misma naturaleza: Nivel 2 Res. GORE + TdR CGR
+        - Suplementos/Nuevas asignaciones: Nivel 3 Decreto DIPRES
+      Evaluación_CORE:
+        - ¿Requiere CORE?
+        - Sesión y votación CORE/Tramitar directamente
+      Fin: Registro en SIGFE
+
+    Excepciones_sin_Acuerdo_CORE:
+      - Leyes generales: Reajustes, sentencias
+      - Regularización ingresos: Sin incidencia en gastos
+      - Emergencias Glosa 14: Uso del 3%
+      - Aumento costo proyectos: Hasta 10% (tope 7.000 UTM)
+      - Adjudicación licitaciones: Variación hasta 10% sobre RS
+
+    Transferencias_Consolidables:
+      Flujo:
+        - GORE solicita a DIPRES
+        - GORE emite resolución rebaja
+        - Adjuntar acuerdo CORE si aplica
+        - DIPRES elabora Decreto Supremo
+        - CGR Toma de Razón
+        - Receptor recibe fondos
+
+  P5_Control_Cierre_Ejercicio:
+    ID: BPMN-GN-PRESUPUESTO-CIERRE-01
+    Período: Diciembre-Enero
+    
+    Control_Durante_Año:
+      - Control interno (DAF, DIPIR, U. Control)
+      - Seguimiento DIPRES (mensual)
+      - Sistema KPIs y alertas tempranas
+    
+    Cierre_31_12:
+      - Consolidar información (DAF)
+      - Cerrar cuentas en SIGFE
+      - Calcular deuda flotante
+      - Regularizar deuda flotante
+      - Informe cierre a DIPRES/CGR
+    
+    Evaluación:
+      - Evaluar resultados físicos y financieros
+      - Informe evaluación ex post (DIPIR)
+
+    Deuda_Flotante:
+      Inicio: Obligaciones devengadas al 31/12 pendientes de pago
+      Decisión: ¿SIC suficiente?
+        - Sí: Financiar con SIC
+        - No: SIC + Mayor aporte fiscal
+      Fin: Incorporar en presupuesto año siguiente
+      Prioridad: Primera prioridad de pago
+
+    Reportería_Oficial:
+      Informe_Ejecución_Mensual: Mensual - DIPRES, CORE
+      Informes_por_Glosas: Trimestral - Transparencia
+      Cartera_Proyectos: Mensual - Web institucional
+      Acuerdos_CORE: 5 días hábiles - Web institucional
+
+  Sistemas_Involucrados:
+    SYS-SIGFE: Gestión financiera central
+    SYS-BIP-SNI: Inversión pública
+    SYS-TRANSPARENCIA: Publicación información
+
+  Normativa_Aplicable:
+    LOC_19175_Art_72-73: Competencias presupuestarias
+    Decreto_854_2004_Hacienda: Clasificador presupuestario
+    Ley_Presupuestos_anual: Marco legal ejercicio
+    Glosa_14_Partida_31: 3% emergencias
+    Glosa_16_Partida_31: Transparencia
+    NICSP-CGR: Contabilidad gubernamental
+    Resolución_30_2015_CGR: Rendiciones
+
+  Referencias_Cruzadas:
+    D03_Gestión_IPR: CDP, financiamiento proyectos
+    D08_Rendiciones: Contabilización, SIGFE
+    D04_Compras: Órdenes de compra, contratos
+
+  Actualización: 2025-12-16
