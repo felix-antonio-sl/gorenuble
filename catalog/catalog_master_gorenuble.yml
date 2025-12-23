@@ -11,7 +11,7 @@ _manifest:
   provenance:
     created_by: "GORE Ñuble"
     created_at: "2025-11-25"
-    last_modified_at: "2025-12-22"
+    last_modified_at: "2025-12-23"
 
 Catalog:
   Core_Guides:
@@ -374,6 +374,6 @@ Statistics:
   agents: 10
   schemas: 0
   domains: 61
-  last_updated: "2025-12-22"
+  last_updated: "2025-12-23"
   federation_status: "registered_in_koda"
   notes: "Sincronización masiva: +1 organigrama institucional. +11 manuales, +Matriz Orgánica, +BPMN Index."
