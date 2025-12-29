@@ -143,7 +143,7 @@ Parte_1_Marco_General_y_Objeto:
       - Ex: "Universidades Estatales."
     Fnd:
       - "Decreto Ley 1.263 de 1975 (Ley de Administración Financiera del Estado)."
-      - "Glosa 06 de Inversión Regional (\"transferencias a otras entidades públicas y al gobierno central\")."
+      - 'Glosa 06 de Inversión Regional ("transferencias a otras entidades públicas y al gobierno central").'
 
   Definicion_PPR_Transferible:
     ID: STS-KB-GN-PPR-DEF-PPR-01

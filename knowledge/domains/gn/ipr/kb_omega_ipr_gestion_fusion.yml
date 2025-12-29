@@ -86,7 +86,7 @@ omega_objects:
         name: "Fondo Regional de Infraestructura Local"
         description: "Infraestructura menor < 5000 UTM, ejecutor municipal"
         evaluador: GORE
-        dictamen: EXENTO_RS
+        dictamen: APROBACION_TECNICA
         tope_utm: 5000
         tope_regional_nuble: 4545
         source_id: MEC-FRIL
@@ -101,21 +101,21 @@ omega_objects:
       - id: MEC-C33-ANF
         name: "Circular 33 - Activos No Financieros"
         description: "Adquisición de activos aislados"
-        evaluador: DIPRES
-        dictamen: VISACION_DIPRES
+        evaluador: MDSF
+        dictamen: AD
         cofinanciamiento: "≥20%"
 
       - id: MEC-C33-ESTUDIOS
         name: "Circular 33 - Estudios Básicos"
         description: "Estudios técnicos para terceros"
-        evaluador: DIPRES
-        dictamen: AUTORIZACION_DIPRES
+        evaluador: MDSF
+        dictamen: AD
 
       - id: MEC-5000UTM
         name: "Proyectos < 5000 UTM"
         description: "Exentos de RS por monto"
         evaluador: GORE
-        dictamen: EXENTO_RS
+        dictamen: APROBACION_TECNICA
         condicion: "Sin fraccionamiento ni impedimentos"
 
       - id: MEC-FRPD-CAPITAL
@@ -735,6 +735,17 @@ omega_monads:
       NO_ELEGIBLE: "No cumple requisitos"
       LISTA_ESPERA: "Elegible sin cupo"
 
+  - id: Ω-TECNICA-MONAD
+    type: Monad
+    name: "Evaluación Técnica GORE (Exenta)"
+    applies_to: [MEC-FRIL, MEC-5000UTM]
+    evaluator: GORE (DIPRES/DIINF)
+    structure: "T_TEC(X) = X × {APROBADO} + {OBSERVADO} + {RECHAZADO}"
+    outcomes:
+      APROBACION_TECNICA: "Cumple estándar técnico → financiable"
+      OBSERVADO: "Observaciones técnicas → subsanar"
+      RECHAZADO: "No cumple estándar"
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # SECCIÓN 6: Ω-PROFUNCTOR (Selector ↔ Gestión)
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -757,7 +768,7 @@ omega_profunctor:
       gestion:
         fase2: GN-IPR-F2-C-FRIL-8FNDR-FRPD-CIRC33
         fase3: GN-IPR-F3-SIN-CORE
-        dictamen: EXENTO_RS
+        dictamen: APROBACION_TECNICA
 
     - selector: MEC-G06-DIRECTA
       gestion:

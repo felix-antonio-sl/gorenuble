@@ -1,12 +1,26 @@
 # Modelo Omega Avanzado - Sistema GORE Ñuble
 
-> **Versión**: 2.3.0
-> **Fecha**: 2025-12-28
-> **Fuentes**: LOC GORE (DFL 1-19.175), Guía Técnico-Operativa GORE Ñuble, GORE Ideal 4.0, Gestión IPR, Selector IPR, Rendiciones, Aprobaciones
+> **Versión**: 2.6.0
+> **Fecha**: 2025-12-29
+> **Fuentes**: LOC GORE (DFL 1-19.175), Guía Técnico-Operativa GORE Ñuble, GORE Ideal 4.0, Gestión IPR, Selector IPR, Rendiciones, Aprobaciones, Ley Presupuestos 2026
 
----
+## Ficha Territorial de la Región de Ñuble
 
-## 1. Arquitectura General del Sistema
+| Atributo                  | Valor                                                        | Fuente     |
+| :------------------------ | :----------------------------------------------------------- | :--------- |
+| **Creación**              | Ley N° 21.033 (promulgada 05-09-2017, vigencia 06-09-2018)   | Ley 21.033 |
+| **Origen**                | Escisión de la Provincia de Ñuble desde la Región del Biobío | Ley 21.033 |
+| **Ubicación**             | Zona centro-sur de Chile                                     | INE        |
+| **Superficie**            | 13.178,5 km² (menor región continental)                      | INE        |
+| **Población**             | 512.289 habitantes (Censo 2017)                              | INE        |
+| **Capital**               | Chillán                                                      | Ley 21.033 |
+| **Provincias**            | 3 (Diguillín, Itata, Punilla)                                | Ley 21.033 |
+| **Comunas**               | 21                                                           | Ley 21.033 |
+| **Índice Envejecimiento** | 97,6 (vs. 79,0 nacional)                                     | CASEN      |
+| **Ruralidad**             | 28,7% (vs. 11,3% nacional)                                   | INE        |
+| **Pobreza por Ingresos**  | 12,1% (vs. 6,5% nacional)                                    | CASEN      |
+
+## Arquitectura General del Sistema
 
 ```mermaid
 flowchart TB
@@ -14,7 +28,7 @@ flowchart TB
         PRES["Presidente de la República"]
         MIN_INT["Ministerio del Interior"]
         MIN_SEG["Ministerio de Seguridad Pública"]
-        MIDESO["MIDESO<br/>(Eval. Inversión SNI)"]
+        MDSF["MDSF<br/>(Eval. Inversión SNI)"]
         SUBDERE["SUBDERE"]
         DIPRES["DIPRES"]
         CGR["Contraloría General"]
@@ -31,7 +45,7 @@ flowchart TB
     subgraph GOBIERNO_REGIONAL["🏢 GOBIERNO REGIONAL DE ÑUBLE"]
         GR["Gobernador Regional<br/>Óscar Crisóstomo Llanos"]
         CORE["Consejo Regional<br/>(16 Consejeros)"]
-        AR["Administrador Regional<br/>Alejandro Aguilera Z."]
+        AR["Administrador/a Regional"]
         
         subgraph STAFF["Staff de Apoyo"]
             GAB["Gabinete"]
@@ -44,16 +58,16 @@ flowchart TB
         end
         
         subgraph DIVISIONES["Divisiones Orgánicas"]
-            DIPLADE["División Planificación<br/>y Desarrollo"]
-            DIPIR["División Presupuesto<br/>e Inversión Regional"]
-            DIDESO["División Desarrollo<br/>Social y Humano"]
-            DIFOI["División Fomento<br/>e Industria"]
-            DIINF["División Infraestructura<br/>y Transporte"]
-            DIAF["División Administración<br/>y Finanzas"]
+            DIPLADE["División Planificación y Desarrollo"]
+            DIPIR["División Presupuesto e Inversión Regional"]
+            DIDESO["División Desarrollo Social y Humano"]
+            DIFOI["División Fomento e Industria"]
+            DIINF["División Infraestructura y Transporte"]
+            DAF["División Administración y Finanzas"]
         end
         
         subgraph ORGANOS_ESP["Órganos Especiales"]
-            CIES["Centro Integral<br/>Emergencia y Seguridad"]
+            CIES["Centro Integral Emergencia y Seguridad"]
             COSOC["COSOC"]
             COM_CTI["Comité CTI"]
         end
@@ -160,74 +174,100 @@ flowchart TB
     class GR,CORE,AR gore
 ```
 
----
-
-## 2. Estructura Orgánica Detallada del GORE
+## Estructura Orgánica Detallada del GORE
 
 ```mermaid
 flowchart TB
     subgraph AUTORIDAD_MAXIMA["🎯 AUTORIDAD MÁXIMA"]
-        GR["GOBERNADOR REGIONAL<br/>Óscar Crisóstomo Llanos<br/><i>Electo por sufragio universal</i>"]
+        GR["GOBERNADOR REGIÓN DE ÑUBLE<br/>Óscar Crisóstomo Llanos"]
+        
+        subgraph DEP_GR["Dependencias Directas"]
+            COM_GR["Comunicaciones"]
+            GAB_GR["Gabinete Gobernador"]
+            CIES["Centro Integral Emergencia y Seguridad (CIES)"]
+        end
+        
+        subgraph ORG_ASES["Órganos Asesores/Consultivos"]
+            COMITE_CTI["Comité CTCI"]
+            COSOC["COSOC"]
+        end
     end
     
-    subgraph ORGANO_COLEGIADO["⚖️ ÓRGANO COLEGIADO"]
+    subgraph ORGANO_COLEGIADO["⚖️ CONSEJO REGIÓN DE ÑUBLE"]
         CORE["CONSEJO REGIONAL<br/>16 Consejeros Electos"]
         SEC_CORE["Secretaría Ejecutiva CORE"]
-        UC_CORE["Unidad Control CORE"]
+        UC_CORE["Unidad Control"]
     end
     
     subgraph ADMINISTRACION["🏛️ ADMINISTRACIÓN REGIONAL"]
-        AR["ADMINISTRADOR REGIONAL<br/>Alejandro Aguilera Z."]
+        AR["ADMINISTRADOR/A REGIONAL"]
         
         subgraph STAFF_AR["Staff de Apoyo"]
             CORP["Corporación"]
             AUD["Auditoría"]
             JUR["Jurídica"]
-            UCGI["Unidad Calidad<br/>y Gestión Institucional"]
+            UCGI["Unidad Calidad y Gestión Institucional"]
             OFP["Oficina de Partes"]
         end
     end
     
     subgraph DIV_DIPLADE["📊 DIVISIÓN PLANIFICACIÓN Y DESARROLLO"]
-        J_DIPLADE["Jefe División<br/>Erick Solo de Zaldivar"]
-        D_PLAN["Depto. Planificación Estratégica<br/>y Ordenamiento Territorial"]
-        D_PROY["Depto. Desarrollo<br/>Proyectos Estratégicos"]
+        J_DIPLADE["Jefe División DIPLADE"]
+        COMITE_PERT["Comité Pertenencia y Vinculación Estratégica"]
+        D_PLAN["Depto. Planificación Estratégica y Ordenamiento Territorial"]
+        D_PROY["Depto. Desarrollo Proyectos Estratégicos"]
         D_URB["Depto. Desarrollo Urbano"]
     end
     
     subgraph DIV_DIPIR["💰 DIVISIÓN PRESUPUESTO E INVERSIÓN REGIONAL"]
-        J_DIPIR["Jefe División<br/>Juan Parada González"]
-        D_AYE["Depto. Análisis<br/>y Evaluación"]
+        J_DIPIR["Jefe División DIPIR"]
+        D_AYE["Depto. Análisis y Evaluación"]
         D_PPTO["Depto. Presupuesto"]
         D_INV["Depto. Inversión"]
     end
     
     subgraph DIV_DIDESO["🤝 DIVISIÓN DESARROLLO SOCIAL Y HUMANO"]
-        J_DIDESO["Jefe División<br/>Tamara Valenzuela F."]
-        D_FC["Depto. Fondos Concursables<br/>y Programas Sociales"]
-        D_AGT["Depto. Análisis y<br/>Gestión Territorial"]
+        J_DIDESO["Jefe División DIDESO"]
+        D_FC["Depto. Fondos Concursables y Programas Sociales"]
+        U_SUB["Unidad Subvenciones"]
+        U_PS["Unidad Programas Sociales"]
+        D_AGT["Depto. Análisis y Gestión Territorial"]
+        U_PC["Unidad Participación Ciudadana"]
+        U_TP["Unidad Territorial Provincial"]
+        U_SPP["Unidad Seguimiento Políticas, Planes y Programas Sociales"]
     end
     
     subgraph DIV_DIFOI["🏭 DIVISIÓN FOMENTO E INDUSTRIA"]
-        J_DIFOI["Jefe División<br/>Raúl Súnico Galdames"]
+        J_DIFOI["Jefe División DIFOI"]
         D_ZD["Depto. Zonas en Desarrollo"]
-        D_DEL["Depto. Desarrollo<br/>Económico Local"]
-        D_CTI["Depto. CTI para<br/>la Competitividad"]
+        D_DEL["Depto. Desarrollo Económico Local"]
+        D_CTI["Depto. CTI para la Competitividad"]
+        D_DEA["Depto. Desarrollo Empresarial y Atracción de Inversiones"]
+        D_RMA["Depto. Riego y Medioambiente"]
     end
     
     subgraph DIV_DIINF["🛤️ DIVISIÓN INFRAESTRUCTURA Y TRANSPORTE"]
-        J_DIINF["Jefe División<br/>Cristián Quiroz Reyes"]
-        D_IER["Depto. Infraestructura y<br/>Equipamiento Regional"]
-        D_GTT["Depto. Gestión en<br/>Transportes y Telecomunicaciones"]
+        J_DIINF["Jefe División DIINF"]
+        D_IER["Depto. Infraestructura y Equipamiento Regional"]
+        U_SB["Unidad Saneamiento Básico"]
+        D_GTT["Depto. Gestión en Transportes y Telecomunicaciones"]
+        U_CON["Unidad Conectividad"]
     end
     
-    subgraph DIV_DIAF["📋 DIVISIÓN ADMINISTRACIÓN Y FINANZAS"]
-        J_DIAF["Jefe División<br/>Alicia Contreras Vielma"]
-        D_GDP["Depto. Gestión y<br/>Desarrollo de Personas"]
+    subgraph DIV_DAF["📋 DIVISIÓN ADMINISTRACIÓN Y FINANZAS"]
+        J_DAF["Jefe División DAF"]
+        D_GDP["Depto. Gestión y Desarrollo de Personas"]
+        U_GP["Unidad Gestión de Personas"]
+        U_DP["Unidad Desarrollo de Personas"]
         D_FIN["Depto. Finanzas"]
+        U_GOI["Unidad Gestión Operativa Interna"]
+        U_ABA["Unidad Abastecimiento"]
+        U_TIC["Unidad TIC"]
     end
     
     %% Conexiones jerárquicas
+    GR --> DEP_GR
+    GR --> ORG_ASES
     GR --> CORE
     CORE --> SEC_CORE
     CORE --> UC_CORE
@@ -240,8 +280,9 @@ flowchart TB
     AR --> J_DIDESO
     AR --> J_DIFOI
     AR --> J_DIINF
-    AR --> J_DIAF
+    AR --> J_DAF
     
+    J_DIPLADE --> COMITE_PERT
     J_DIPLADE --> D_PLAN
     J_DIPLADE --> D_PROY
     J_DIPLADE --> D_URB
@@ -252,16 +293,30 @@ flowchart TB
     
     J_DIDESO --> D_FC
     J_DIDESO --> D_AGT
+    D_FC --> U_SUB
+    D_FC --> U_PS
+    D_AGT --> U_PC
+    D_AGT --> U_TP
+    D_AGT --> U_SPP
     
     J_DIFOI --> D_ZD
     J_DIFOI --> D_DEL
     J_DIFOI --> D_CTI
+    J_DIFOI --> D_DEA
+    J_DIFOI --> D_RMA
     
     J_DIINF --> D_IER
     J_DIINF --> D_GTT
+    D_IER --> U_SB
+    D_GTT --> U_CON
     
-    J_DIAF --> D_GDP
-    J_DIAF --> D_FIN
+    J_DAF --> D_GDP
+    J_DAF --> D_FIN
+    D_GDP --> U_GP
+    D_GDP --> U_DP
+    D_FIN --> U_GOI
+    D_FIN --> U_ABA
+    D_FIN --> U_TIC
     
     %% Estilos
     classDef gobernador fill:#0f766e,stroke:#fff,color:#fff,font-weight:bold
@@ -272,189 +327,68 @@ flowchart TB
     class GR gobernador
     class CORE,SEC_CORE,UC_CORE consejo
     class AR,CORP,AUD,JUR,UCGI,OFP admin
-    class J_DIPLADE,J_DIPIR,J_DIDESO,J_DIFOI,J_DIINF,J_DIAF division
+    class J_DIPLADE,J_DIPIR,J_DIDESO,J_DIFOI,J_DIINF,J_DAF division
 ```
 
----
+## Restricciones del Sistema
 
-## 3. Instrumentos de Planificación Regional
+### Límites Jurídicos (LOC GORE)
 
-```mermaid
-flowchart TB
-    subgraph ESTRATEGICO["📐 PLANIFICACIÓN ESTRATÉGICA"]
-        ERD["Estrategia Regional<br/>de Desarrollo (ERD)"]
-        PROT["Plan Regional de<br/>Ordenamiento Territorial (PROT)"]
-        PRD["Plan Regional de<br/>Desarrollo (PRD)"]
-    end
-    
-    subgraph SECTORIAL["📑 PLANES SECTORIALES"]
-        PRDU["Plan Regional<br/>Desarrollo Urbano"]
-        PRI["Plan Regulador<br/>Intercomunal/Metropolitano"]
-        PRCC["Plan Regional<br/>Cambio Climático"]
-        PRS["Planes Regionales<br/>Sectoriales"]
-    end
-    
-    subgraph OPERATIVO["⚙️ PLANIFICACIÓN OPERATIVA"]
-        POA["Plan Operativo Anual"]
-        PPTO["Presupuesto Regional"]
-        PAC["Plan Anual de<br/>Compras"]
-        PMG["Programa de Mejoramiento<br/>de la Gestión"]
-    end
-    
-    subgraph EVALUACION["📊 SEGUIMIENTO Y EVALUACIÓN"]
-        IND["Sistema de<br/>Indicadores"]
-        EVAL["Evaluaciones<br/>Ex-Post"]
-        AUDIT["Auditorías de<br/>Gestión"]
-    end
-    
-    ERD --> PROT
-    ERD --> PRD
-    ERD --> PRS
-    
-    PRD --> POA
-    PRD --> PPTO
-    
-    PROT --> PRI
-    PROT --> PRDU
-    
-    PRS --> PRCC
-    
-    POA --> IND
-    PPTO --> EVAL
-    PMG --> AUDIT
-    
-    classDef estrategico fill:#0f766e,stroke:#fff,color:#fff
-    classDef sectorial fill:#b45309,stroke:#fff,color:#fff
-    classDef operativo fill:#1e40af,stroke:#fff,color:#fff
-    classDef evaluacion fill:#7c3aed,stroke:#fff,color:#fff
-    
-    class ERD,PROT,PRD estrategico
-    class PRDU,PRI,PRCC,PRS sectorial
-    class POA,PPTO,PAC,PMG operativo
-    class IND,EVAL,AUDIT evaluacion
-```
+| Restricción                      | Descripción                                                          | Referencia Legal     |
+| :------------------------------- | :------------------------------------------------------------------- | :------------------- |
+| **Competencias acotadas**        | GORE solo ejerce competencias expresamente transferidas              | DFL 1-19.175, Art.21 |
+| **Sin jerarquía sobre SEREMÍAs** | Coordina pero no instruye a representantes ministeriales             | Art.66               |
+| **Presupuesto nacional**         | Recursos asignados por Ley de Presupuestos, sin autonomía tributaria | Art.73               |
+| **Control CGR**                  | Toda actuación sujeta a toma de razón y fiscalización                | Ley 10.336           |
+| **Ámbitos no descentralizables** | FFAA, Relaciones Exteriores, Orden Público (reservados)              | Art.21 nonies        |
 
----
+### Marco Legal Transversal
 
-## 4. Mecanismos de Financiamiento
+| Ley            | Nombre                                    | Impacto en el GORE                                               |
+| :------------- | :---------------------------------------- | :--------------------------------------------------------------- |
+| **Ley 18.575** | Bases Generales Administración del Estado | Principios de legalidad, eficiencia, probidad y transparencia    |
+| **Ley 19.880** | Procedimientos Administrativos            | Procedimientos electrónicos, plazos, notificaciones y recursos   |
+| **Ley 19.886** | Compras Públicas                          | Licitación pública como regla general, Mercado Público           |
+| **Ley 20.285** | Transparencia y Acceso a Información      | Transparencia activa y pasiva, Consejo para la Transparencia     |
+| **Ley 21.180** | Transformación Digital del Estado         | Procedimientos electrónicos obligatorios, FEA, eliminación papel |
+| **Ley 21.719** | Protección de Datos Personales            | Obligaciones en tratamiento de datos, Agencia de Protección      |
+| **Ley 21.663** | Ciberseguridad e Infraestructura Crítica  | Prevención, reporte y gestión de incidentes cibernéticos         |
+| **Ley 21.364** | SINAPRED (Gestión de Desastres)           | Roles en prevención, mitigación, preparación y respuesta         |
 
-```mermaid
-flowchart LR
-    subgraph FUENTES["💵 FUENTES DE FINANCIAMIENTO"]
-        PPTO_NAC["Presupuesto Nacional<br/>(Ley de Presupuestos)"]
-        TRANSF["Transferencias<br/>Fiscales"]
-        REND["Rendimientos<br/>Propios"]
-    end
-    
-    subgraph FONDOS["🏦 FONDOS REGIONALES"]
-        FNDR["FNDR<br/>Fondo Nacional de<br/>Desarrollo Regional"]
-        FRPD["FRPD<br/>Fondo Regional de<br/>Productividad y Desarrollo"]
-        ISAR["ISAR<br/>Inversión Sectorial<br/>Asignación Regional"]
-        IRAL["IRAL<br/>Inversión Regional<br/>Asignación Local"]
-        CONV["Convenios de<br/>Programación"]
-    end
-    
-    subgraph DESTINO["🎯 DESTINO"]
-        INV_PUB["Inversión Pública<br/>Regional"]
-        PROG_SOC["Programas<br/>Sociales"]
-        INFRA["Infraestructura<br/>y Equipamiento"]
-        FOM["Fomento<br/>Productivo"]
-    end
-    
-    PPTO_NAC --> FNDR
-    PPTO_NAC --> FRPD
-    PPTO_NAC --> ISAR
-    PPTO_NAC --> IRAL
-    TRANSF --> CONV
-    
-    FNDR --> INV_PUB
-    FNDR --> INFRA
-    FRPD --> INV_PUB
-    ISAR --> PROG_SOC
-    ISAR --> FOM
-    IRAL --> INFRA
-    CONV --> INV_PUB
-    
-    classDef fuente fill:#1e3a5f,stroke:#fff,color:#fff
-    classDef fondo fill:#0f766e,stroke:#fff,color:#fff
-    classDef destino fill:#b45309,stroke:#fff,color:#fff
-    
-    class PPTO_NAC,TRANSF,REND fuente
-    class FNDR,FRPD,ISAR,IRAL,CONV fondo
-    class INV_PUB,PROG_SOC,INFRA,FOM destino
-```
+### Normas de Inversión y Glosas Relevantes (Ley de Presupuestos 2026)
 
----
+| Glosa/Norma    | Contenido                                                                                                                                                                     | Fuente           |
+| :------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------- |
+| **Glosa 01**   | Marco general FNDR: reglas de asignación y modificación presupuestaria                                                                                                        | Partida 31       |
+| **Glosa 03**   | **Prohibiciones**: NO usar recursos inversión para préstamos, gastos en personal/bienes de consumo de receptores, ni aportes a sociedades/empresas (salvo glosas específicas) | Partida 31       |
+| **Glosa 06**   | Programas públicos regionales, evaluación ex-ante DIPRES/SES, tope **5% admin GORE + 5% honorarios receptor**                                                                 | Partida 31       |
+| **Glosa 07**   | Subvenciones 8% FNDR, concurso público, **asignaciones directas ≤10% (Res. 72/2025 DIPRES)**                                                                                  | Partida 31       |
+| **Glosa 12**   | FRIL: transferencias a municipalidades, exención RS <5.000 UTM                                                                                                                | Partida 31       |
+| **Glosa 13**   | FRPD (Royalty Minero): I+D+i, instituciones habilitadas                                                                                                                       | Partida 31       |
+| **Art. 6**     | Licitación pública obligatoria: proyectos >1.000 UTM, estudios >500 UTM                                                                                                       | Normas Generales |
+| **Art. 7**     | Honorarios con cargo a transferencias: calidad de agente público                                                                                                              | Normas Generales |
+| **Art. 23-26** | Convenios de transferencia, rendición SISREC, plazos, restitución                                                                                                             | Normas Generales |
 
-## 5. Articulación Multinivel
+### Límites Operativos
 
-```mermaid
-flowchart TB
-    subgraph NIVEL_CENTRAL["🇨🇱 NIVEL CENTRAL"]
-        ESTADO["Estado de Chile"]
-        MIN["Ministerios"]
-        SERV_NAC["Servicios Nacionales"]
-    end
-    
-    subgraph NIVEL_REGIONAL["🏛️ NIVEL REGIONAL"]
-        GORE["GORE Ñuble"]
-        SEREMIS["SEREMÍAs"]
-        SERV_REG["Servicios Regionales"]
-        DPR["Delegado Presidencial"]
-    end
-    
-    subgraph NIVEL_PROVINCIAL["📍 NIVEL PROVINCIAL"]
-        DPP["Delegados Prov.<br/>(Diguillín, Itata, Punilla)"]
-        GOB_PROV["Gobiernos<br/>Provinciales"]
-    end
-    
-    subgraph NIVEL_COMUNAL["🏘️ NIVEL COMUNAL (21 Comunas)"]
-        ALC["Alcaldías"]
-        CONC["Concejos<br/>Municipales"]
-        COSOC_C["COSOC<br/>Comunales"]
-    end
-    
-    subgraph TERRITORIO["👥 TERRITORIO"]
-        CIU["Ciudadanía"]
-        OSC["Organizaciones<br/>Sociedad Civil"]
-        EMP["Sector<br/>Privado"]
-    end
-    
-    %% Relaciones descendentes
-    ESTADO ==>|normativa/recursos| GORE
-    MIN ==>|directrices| SEREMIS
-    SERV_NAC ==>|desconcentración| SERV_REG
-    ESTADO ==>|designación| DPR
-    
-    GORE -.-|coordinación| SEREMIS
-    GORE -.-|articulación| SERV_REG
-    GORE ==>|financiamiento/planes| ALC
-    DPR ==>|gobierno interior| DPP
-    
-    DPP -->|orden público| NIVEL_COMUNAL
-    
-    ALC <-->|participación| COSOC_C
-    ALC <-->|atención| CIU
-    
-    GORE <-.-|COSOC regional| OSC
-    GORE <-.-|fomento| EMP
-    
-    classDef central fill:#1e3a5f,stroke:#fff,color:#fff
-    classDef regional fill:#0f766e,stroke:#fff,color:#fff
-    classDef provincial fill:#7c3aed,stroke:#fff,color:#fff
-    classDef comunal fill:#b45309,stroke:#fff,color:#fff
-    classDef territorio fill:#15803d,stroke:#fff,color:#fff
-    
-    class ESTADO,MIN,SERV_NAC central
-    class GORE,SEREMIS,SERV_REG,DPR regional
-    class DPP,GOB_PROV provincial
-    class ALC,CONC,COSOC_C comunal
-    class CIU,OSC,EMP territorio
-```
+| Restricción                    | Impacto                                                    |
+| :----------------------------- | :--------------------------------------------------------- |
+| **Capacidad técnica limitada** | Dependencia de asistencia SUBDERE para proyectos complejos |
+| **Brechas digitales**          | Municipios rurales con baja conectividad y capacidad       |
+| **Rotación de personal**       | Pérdida de conocimiento institucional                      |
+| **Fragmentación de sistemas**  | Dificultad para consolidar información regional            |
 
----
+### Aspiraciones GORE 4.0
 
-## 6. Motor de 5 Funciones del GORE
+| Función        | Estado Actual                         | Visión GORE 4.0                               | Herramientas Habilitantes                       |
+| :------------- | :------------------------------------ | :-------------------------------------------- | :---------------------------------------------- |
+| **Planificar** | Planes estáticos, actualización lenta | Digital Twin del Territorio + prospectiva IA  | Gemelo Digital, Centro Inteligencia Territorial |
+| **Financiar**  | Asignación manual, ciclos largos      | Smart Contracts + evaluación automática       | Ventanilla Única IA, Trazabilidad Blockchain    |
+| **Ejecutar**   | Ejecución delegada, bajo control      | Monitoreo en tiempo real + alertas proactivas | PMO Regional, Unidad Desbloqueo IA              |
+| **Coordinar**  | Mesas de trabajo presenciales         | Plataforma integrada + dashboard ejecutivo    | APIs Datos Abiertos, Interoperabilidad          |
+| **Normar**     | Ordenanzas genéricas                  | Normativa adaptativa basada en datos          | Sandboxes Regulatorios, Análisis Impacto        |
+
+## Motor de 5 Funciones del GORE
 
 ```mermaid
 mindmap
@@ -484,50 +418,194 @@ mindmap
       Instrucciones técnicas
 ```
 
----
+## Planificación Regional
 
-## 7. Restricciones del Sistema
+### Requisitos de Información Sectorial (RIS)
 
-### 7.1 Límites Jurídicos (LOC GORE)
+> **Fuente**: `kb_gn_010_ris_index_koda.yml`
+> Los RIS son documentos obligatorios para la admisibilidad en SNI.
 
-| Restricción                      | Descripción                                                          | Referencia Legal     |
-| :------------------------------- | :------------------------------------------------------------------- | :------------------- |
-| **Competencias acotadas**        | GORE solo ejerce competencias expresamente transferidas              | DFL 1-19.175, Art.21 |
-| **Sin jerarquía sobre SEREMÍAs** | Coordina pero no instruye a representantes ministeriales             | Art.66               |
-| **Presupuesto nacional**         | Recursos asignados por Ley de Presupuestos, sin autonomía tributaria | Art.73               |
-| **Control CGR**                  | Toda actuación sujeta a toma de razón y fiscalización                | Ley 10.336           |
-| **Ámbitos no descentralizables** | FFAA, Relaciones Exteriores, Orden Público (reservados)              | Art.21 nonies        |
+| Tipo RIS                   | Código         | Descripción                             | Fuente               |
+| :------------------------- | :------------- | :-------------------------------------- | :------------------- |
+| **Proyectos de Inversión** | RIS-PROYINV    | Genérico para todo proyecto SNI (2023)  | kb_gn_010_proyinv    |
+| **Programas de Inversión** | RIS-PROGINV    | Genérico para programas (2025)          | kb_gn_010_proginv    |
+| **Edificación Pública**    | RIS-EDPUB      | Específico obras edificación            | kb_gn_010_edpub      |
+| **Estudios Básicos**       | RIS-EB-PMDT    | Para Planes Maestros Desarrollo (PMDT)  | kb_gn_010_pmdt       |
+| **Empresas Públicas**      | RIS-EMPUB      | Estudios/proyectos empresas estado      | kb_gn_010_empub      |
+| **Arte y Cultura**         | RIS-ARTCULT    | Infraestructura cultural y artística    | kb_gn_010_artcult    |
+| **Deportes**               | RIS-DEPORTES   | Infraestructura deportiva y recintos    | kb_gn_010_deportes   |
+| **Patrimonio**             | RIS-PATRIMONIO | Intervención en inmuebles patrimoniales | kb_gn_010_patrimonio |
 
-### 7.2 Límites Operativos
+### Instrumentos de Planificación Regional
 
-| Restricción                    | Impacto                                                    |
-| :----------------------------- | :--------------------------------------------------------- |
-| **Capacidad técnica limitada** | Dependencia de asistencia SUBDERE para proyectos complejos |
-| **Brechas digitales**          | Municipios rurales con baja conectividad y capacidad       |
-| **Rotación de personal**       | Pérdida de conocimiento institucional                      |
-| **Fragmentación de sistemas**  | Dificultad para consolidar información regional            |
+```mermaid
+flowchart TB
+    subgraph ESTRATEGICO["📐 PLANIFICACIÓN ESTRATÉGICA"]
+        ERD["Estrategia Regional de Desarrollo (ERD)"]
+        PROT["Plan Regional de Ordenamiento Territorial (PROT)"]
+        PRD["Plan Regional de Desarrollo (PRD)"]
+    end
+    
+    subgraph SECTORIAL["📑 PLANES SECTORIALES"]
+        PRDU["Plan Regional Desarrollo Urbano"]
+        PRI["Plan Regulador Intercomunal/Metropolitano"]
+        PRCC["Plan Regional Cambio Climático"]
+        PRS["Planes Regionales Sectoriales"]
+    end
+    
+    subgraph OPERATIVO["⚙️ PLANIFICACIÓN OPERATIVA"]
+        POA["Plan Operativo Anual"]
+        PPTO["Presupuesto Regional"]
+        PAC["Plan Anual de Compras"]
+        PMG["Programa de Mejoramiento de la Gestión"]
+    end
+    
+    subgraph EVALUACION["📊 SEGUIMIENTO Y EVALUACIÓN"]
+        IND["Sistema de Indicadores"]
+        EVAL["Evaluaciones Ex-Post"]
+        AUDIT["Auditorías de Gestión"]
+    end
+    
+    ERD --> PROT
+    ERD --> PRD
+    ERD --> PRS
+    
+    PRD --> POA
+    PRD --> PPTO
+    
+    PROT --> PRI
+    PROT --> PRDU
+    
+    PRS --> PRCC
+    
+    POA --> IND
+    PPTO --> EVAL
+    PMG --> AUDIT
+    
+    classDef estrategico fill:#0f766e,stroke:#fff,color:#fff
+    classDef sectorial fill:#b45309,stroke:#fff,color:#fff
+    classDef operativo fill:#1e40af,stroke:#fff,color:#fff
+    classDef evaluacion fill:#7c3aed,stroke:#fff,color:#fff
+    
+    class ERD,PROT,PRD estrategico
+    class PRDU,PRI,PRCC,PRS sectorial
+    class POA,PPTO,PAC,PMG operativo
+    class IND,EVAL,AUDIT evaluacion
+```
 
-### 7.3 Aspiraciones GORE 4.0
+## Financiamiento
 
-| Función        | Estado Actual                         | Visión GORE 4.0                               |
-| :------------- | :------------------------------------ | :-------------------------------------------- |
-| **Planificar** | Planes estáticos, actualización lenta | Digital Twin del Territorio + prospectiva IA  |
-| **Financiar**  | Asignación manual, ciclos largos      | Smart Contracts + evaluación automática       |
-| **Ejecutar**   | Ejecución delegada, bajo control      | Monitoreo en tiempo real + alertas proactivas |
-| **Coordinar**  | Mesas de trabajo presenciales         | Plataforma integrada + dashboard ejecutivo    |
-| **Normar**     | Ordenanzas genéricas                  | Normativa adaptativa basada en datos          |
+### Fuentes de Financiamiento
 
----
+```mermaid
+flowchart LR
+    subgraph FUENTES["💵 FUENTES DE FINANCIAMIENTO"]
+        PPTO_NAC["Presupuesto Nacional<br/>(Ley de Presupuestos)"]
+        TRANSF["Transferencias<br/>Fiscales"]
+        REND["Rendimientos<br/>Propios"]
+    end
+    
+    subgraph FONDOS["🏦 FONDOS REGIONALES"]
+        FNDR["FNDR<br/>Fondo Nacional de Desarrollo Regional"]
+        FRPD["FRPD<br/>Fondo Regional de Productividad y Desarrollo"]
+        ISAR["ISAR<br/>Inversión Sectorial Asignación Regional"]
+        IRAL["IRAL<br/>Inversión Regional Asignación Local"]
+        CONV["Convenios de Programación"]
+    end
+    
+    subgraph DESTINO["🎯 DESTINO"]
+        INV_PUB["Inversión Pública Regional"]
+        PROG_SOC["Programas Sociales"]
+        INFRA["Infraestructura y Equipamiento"]
+        FOM["Fomento Productivo"]
+    end
+    
+    PPTO_NAC --> FNDR
+    PPTO_NAC --> FRPD
+    PPTO_NAC --> ISAR
+    PPTO_NAC --> IRAL
+    TRANSF --> CONV
+    
+    FNDR --> INV_PUB
+    FNDR --> INFRA
+    FRPD --> INV_PUB
+    ISAR --> PROG_SOC
+    ISAR --> FOM
+    IRAL --> INFRA
+    CONV --> INV_PUB
+    
+    classDef fuente fill:#1e3a5f,stroke:#fff,color:#fff
+    classDef fondo fill:#0f766e,stroke:#fff,color:#fff
+    classDef destino fill:#b45309,stroke:#fff,color:#fff
+    
+    class PPTO_NAC,TRANSF,REND fuente
+    class FNDR,FRPD,ISAR,IRAL,CONV fondo
+    class INV_PUB,PROG_SOC,INFRA,FOM destino
+```
 
-## 8. Catálogo de Entidades
+### Ciclo Presupuestario Anual
 
-### 8.1 Actores Institucionales
+```mermaid
+flowchart TB
+    subgraph T1["📅 T-1: AÑO ANTERIOR (Jul-Dic)"]
+        A1["Jul-Ago: DIPRES emite instrucciones presupuestarias"]
+        A2["Sep: Gobernador presenta proyecto presupuesto al CORE"]
+        A3["Oct-Nov: CORE analiza y aprueba presupuesto"]
+        A4["Dic: Ley de Presupuestos promulgada"]
+        A1 --> A2 --> A3 --> A4
+    end
+    
+    subgraph T0["📅 T: AÑO DE EJECUCIÓN"]
+        subgraph Q1["Q1: Ene-Mar"]
+            B1["Ene: Decreto inicial de presupuesto"]
+            B2["Feb-Mar: Primera distribución FNDR"]
+        end
+        
+        subgraph Q2["Q2: Abr-Jun"]
+            B3["Abr: Informe trimestral al CORE"]
+            B4["May-Jun: Evaluación ejecución primer semestre"]
+        end
+        
+        subgraph Q3["Q3: Jul-Sep"]
+            B5["Jul: Informe semestral"]
+            B6["Ago: Solicitud de modificaciones presupuestarias"]
+            B7["Sep: CORE aprueba ajustes"]
+        end
+        
+        subgraph Q4["Q4: Oct-Dic"]
+            B8["Oct: Aceleración ejecución"]
+            B9["Nov: Última distribución recursos"]
+            B10["Dic: Cierre ejercicio presupuestario"]
+        end
+    end
+    
+    subgraph T_PLUS["📅 T+1: AÑO SIGUIENTE"]
+        C1["Ene-Mar: Rendición de cuentas"]
+        C2["Abr: Cuenta Pública Gobernador"]
+        C3["May-Jun: Auditoría CGR"]
+        C1 --> C2 --> C3
+    end
+    
+    T1 --> T0 --> T_PLUS
+    
+    classDef prep fill:#1e3a5f,stroke:#fff,color:#fff
+    classDef exec fill:#0f766e,stroke:#fff,color:#fff
+    classDef cierre fill:#b45309,stroke:#fff,color:#fff
+    
+    class A1,A2,A3,A4 prep
+    class B1,B2,B3,B4,B5,B6,B7,B8,B9,B10 exec
+    class C1,C2,C3 cierre
+```
+
+## Catálogo de Entidades
+
+### Actores Institucionales
 
 | ID      | Entidad                        | Tipo                  | Fuente          |
 | :------ | :----------------------------- | :-------------------- | :-------------- |
 | ACT-001 | Gobernador Regional            | Autoridad electa      | LOC GORE Art.23 |
 | ACT-002 | Consejo Regional               | Órgano colegiado      | LOC GORE Art.28 |
-| ACT-003 | Administrador Regional         | Cargo confianza       | LOC GORE Art.68 |
+| ACT-003 | Administrador/a Regional       | Cargo confianza       | LOC GORE Art.68 |
 | ACT-004 | Delegado Presidencial Regional | Representante central | LOC GORE Art.1  |
 | ACT-005 | Delegados Provinciales (3)     | Desconcentrado        | LOC GORE Art.3  |
 | ACT-006 | SEREMÍAs (15+)                 | Ministerial regional  | DL 575          |
@@ -536,39 +614,39 @@ mindmap
 | ACT-009 | COSOC Regional                 | Participación         | Ley 20.500      |
 | ACT-010 | Comité CTI                     | Asesor                | Interno GORE    |
 
-### 8.2 Divisiones Orgánicas
+### Divisiones Orgánicas
 
-| ID      | División                         | Jefatura                | Departamentos  |
-| :------ | :------------------------------- | :---------------------- | :------------- |
-| DIV-001 | Planificación y Desarrollo       | Erick Solo de Zaldivar  | 4              |
-| DIV-002 | Presupuesto e Inversión Regional | Juan Parada González    | 3              |
-| DIV-003 | Desarrollo Social y Humano       | Tamara Valenzuela F.    | 2 + 5 unidades |
-| DIV-004 | Fomento e Industria              | Raúl Súnico Galdames    | 5              |
-| DIV-005 | Infraestructura y Transporte     | Cristián Quiroz Reyes   | 2 + 2 unidades |
-| DIV-006 | Administración y Finanzas        | Alicia Contreras Vielma | 2 + 5 unidades |
+| ID      | División                         | Jefatura                | Departamentos       |
+| :------ | :------------------------------- | :---------------------- | :------------------ |
+| DIV-001 | Planificación y Desarrollo       | Erick Solo de Zaldivar  | 1 Comité + 3 Deptos |
+| DIV-002 | Presupuesto e Inversión Regional | Juan Parada González    | 3                   |
+| DIV-003 | Desarrollo Social y Humano       | Tamara Valenzuela F.    | 2 + 5 unidades      |
+| DIV-004 | Fomento e Industria              | Raúl Súnico Galdames    | 5                   |
+| DIV-005 | Infraestructura y Transporte     | Cristián Quiroz Reyes   | 2 + 2 unidades      |
+| DIV-006 | Administración y Finanzas        | Alicia Contreras Vielma | 2 + 5 unidades      |
 
-### 8.3 Instrumentos
+### Instrumentos
 
-| ID      | Instrumento               | Tipo        | Horizonte  |
-| :------ | :------------------------ | :---------- | :--------- |
-| INS-001 | ERD                       | Estratégico | 10-20 años |
-| INS-002 | PROT                      | Territorial | 10-15 años |
-| INS-003 | Presupuesto Regional      | Operativo   | Anual      |
-| INS-004 | Convenios de Programación | Contractual | Variable   |
-| INS-005 | Ordenanzas Regionales     | Normativo   | Indefinido |
+| ID      | Instrumento               | Tipo          | Horizonte  |
+| :------ | :------------------------ | :------------ | :--------- |
+| INS-001 | ERD                       | Estratégico   | 10-20 años |
+| INS-002 | PROT                      | Territorial   | 10-15 años |
+| INS-003 | ZUBC                      | Borde Costero | 10-15 años |
+| INS-004 | PLADETUR                  | Turístico     | 4-10 años  |
+| INS-005 | Presupuesto Regional      | Operativo     | Anual      |
+| INS-006 | Convenios de Programación | Contractual   | Variable   |
+| INS-007 | Ordenanzas Regionales     | Normativo     | Indefinido |
 
-### 8.4 Fondos
+### Fondos
 
 | ID      | Fondo | Administrador  | Destino principal     |
 | :------ | :---- | :------------- | :-------------------- |
 | FON-001 | FNDR  | GORE           | Inversión pública     |
-| FON-002 | FRPD  | GORE           | Preinversión          |
+| FON-002 | FRPD  | GORE           | CTCI + Fomento        |
 | FON-003 | ISAR  | GORE/Sectorial | Programas sectoriales |
 | FON-004 | IRAL  | GORE           | Inversión local       |
 
----
-
-## 9. Territorio: Detalle Comunal
+## Territorio: Detalle Comunal
 
 ### Provincia de Diguillín (9 comunas)
 
@@ -606,148 +684,7 @@ mindmap
 | San Fabián  | Turismo, Cordillera                |
 | San Nicolás | Agrícola                           |
 
----
-
-## 10. Leyenda de Relaciones
-
-```mermaid
-flowchart LR
-    A[Entidad A] ==>|Jerarquía formal| B[Entidad B]
-    C[Entidad C] -->|Dependencia funcional| D[Entidad D]
-    E[Entidad E] -.-|Coordinación/Colaboración| F[Entidad F]
-    G[Entidad G] <-.-|Bidireccional| H[Entidad H]
-```
-
-| Tipo de línea          | Significado                    |
-| :--------------------- | :----------------------------- |
-| `==>` (gruesa)         | Relación jerárquica/normativa  |
-| `-->` (normal)         | Dependencia funcional          |
-| `-.-` (punteada)       | Coordinación sin subordinación |
-| `<-.-` (bidireccional) | Relación colaborativa          |
-
----
-
-## 11. Procesos del Sistema GORE
-
-### 11.1 Ciclo de Vida de Iniciativa de Inversión Pública (IPR)
-
-```mermaid
-stateDiagram-v2
-    [*] --> Identificacion: Demanda territorial
-
-    state Identificacion {
-        [*] --> Idea
-        Idea --> Perfil: Formulación inicial
-    }
-    
-    Identificacion --> Admisibilidad: Ingreso formal
-    
-    state Admisibilidad {
-        [*] --> RevisionTecnica: DIPIR evalúa
-        RevisionTecnica --> Admisible: Cumple requisitos
-        RevisionTecnica --> Inadmisible: No cumple
-        Inadmisible --> [*]: Devuelto al formulador
-    }
-    
-    Admisibilidad --> Evaluacion: Proyecto admitido
-    
-    state Evaluacion {
-        [*] --> RATE: Análisis técnico-económico
-        RATE --> RS: Recomendación favorable
-        RATE --> OT: Observaciones técnicas
-        OT --> RATE: Subsanación
-        RS --> [*]: Listo para asignación
-    }
-    
-    Evaluacion --> Priorizacion: Cartera evaluada
-    
-    state Priorizacion {
-        [*] --> ARI: Anteproyecto Regional Inversiones
-        ARI --> PropuestaGR: Gobernador propone
-        PropuestaGR --> VotacionCORE: CORE decide
-        VotacionCORE --> Aprobado: Mayoría a favor
-        VotacionCORE --> Rechazado: Sin apoyo
-    }
-    
-    Priorizacion --> Ejecucion: Asignación presupuestaria
-    
-    state Ejecucion {
-        [*] --> Licitacion: Bases y llamado
-        Licitacion --> Adjudicacion: Selección oferente
-        Adjudicacion --> Contrato: Formalización
-        Contrato --> ObraEnCurso: Ejecución física
-        ObraEnCurso --> RecepcionProvisoria: Término obras
-        RecepcionProvisoria --> RecepcionDefinitiva: Garantías vencidas
-    }
-    
-    Ejecucion --> Cierre: Finiquito técnico-financiero
-    
-    state Cierre {
-        [*] --> RendicionCuentas: Documentación final
-        RendicionCuentas --> InformeFinal: Evaluación ex-post
-        InformeFinal --> [*]: Proyecto cerrado
-    }
-    
-    Cierre --> [*]
-```
-
-### 11.2 Ciclo Presupuestario Anual
-
-```mermaid
-flowchart TB
-    subgraph T1["📅 T-1: AÑO ANTERIOR (Jul-Dic)"]
-        A1["Jul-Ago: DIPRES emite<br/>instrucciones presupuestarias"]
-        A2["Sep: Gobernador presenta<br/>proyecto presupuesto al CORE"]
-        A3["Oct-Nov: CORE analiza<br/>y aprueba presupuesto"]
-        A4["Dic: Ley de Presupuestos<br/>promulgada"]
-        A1 --> A2 --> A3 --> A4
-    end
-    
-    subgraph T0["📅 T: AÑO DE EJECUCIÓN"]
-        subgraph Q1["Q1: Ene-Mar"]
-            B1["Ene: Decreto inicial<br/>de presupuesto"]
-            B2["Feb-Mar: Primera<br/>distribución FNDR"]
-        end
-        
-        subgraph Q2["Q2: Abr-Jun"]
-            B3["Abr: Informe trimestral<br/>al CORE"]
-            B4["May-Jun: Evaluación<br/>ejecución primer semestre"]
-        end
-        
-        subgraph Q3["Q3: Jul-Sep"]
-            B5["Jul: Informe semestral"]
-            B6["Ago: Solicitud de<br/>modificaciones presupuestarias"]
-            B7["Sep: CORE aprueba<br/>ajustes"]
-        end
-        
-        subgraph Q4["Q4: Oct-Dic"]
-            B8["Oct: Aceleración<br/>ejecución"]
-            B9["Nov: Última distribución<br/>recursos"]
-            B10["Dic: Cierre ejercicio<br/>presupuestario"]
-        end
-    end
-    
-    subgraph T_PLUS["📅 T+1: AÑO SIGUIENTE"]
-        C1["Ene-Mar: Rendición<br/>de cuentas"]
-        C2["Abr: Cuenta Pública<br/>Gobernador"]
-        C3["May-Jun: Auditoría CGR"]
-        C1 --> C2 --> C3
-    end
-    
-    T1 --> T0 --> T_PLUS
-    
-    classDef prep fill:#1e3a5f,stroke:#fff,color:#fff
-    classDef exec fill:#0f766e,stroke:#fff,color:#fff
-    classDef cierre fill:#b45309,stroke:#fff,color:#fff
-    
-    class A1,A2,A3,A4 prep
-    class B1,B2,B3,B4,B5,B6,B7,B8,B9,B10 exec
-    class C1,C2,C3 cierre
-```
-
----
-
-## 12. Catálogo de Procesos
+## Catálogo de Procesos
 
 | ID       | Proceso                    | Tipo         | Frecuencia        | Actores Principales          | Duración Típica |
 | :------- | :------------------------- | :----------- | :---------------- | :--------------------------- | :-------------- |
@@ -757,82 +694,88 @@ flowchart TB
 | PROC-004 | Planificación (ERD/PROT)   | Estratégico  | 10-20 años        | DIPLADE, CORE, COSOC         | 12-24 meses     |
 | PROC-005 | Fiscalización CORE         | Control      | Continuo          | CORE, Unidad Control, CGR    | Variable        |
 | PROC-006 | Sesión CORE                | Gobernanza   | Quincenal/Mensual | CORE, Gobernador, Secretaría | 3-6 horas       |
-| PROC-007 | Emergencia (SINAPRED)      | Contingencia | Eventual          | GORE, DPR, SENAPRED, CIES    | Variable        |
+| PROC-007 | Emergencia (SENAPRED)      | Contingencia | Eventual          | GORE, DPR, SENAPRED, CIES    | Variable        |
 
----
-
-## 13. Dominio IPR: Intervenciones Públicas Regionales
+## Dominio IPR: Intervenciones Públicas Regionales
 
 > **Fuente**: `kb_gn_019_gestion_ipr_koda.yml`, `kb_gn_011_selector_ipr_koda.yml`
 
-### 13.1 Taxonomía de IPR
+### Ontología IPR: Estructura Jerárquica
 
-```mermaid
-mindmap
-  root((IPR<br/>Intervención<br/>Pública<br/>Regional))
-    PROYECTO["🏗️ PROYECTO<br/>(Gasto Capital)"]
-      IDI["Iniciativa de<br/>Inversión"]
-      SNI_General["SNI General<br/>(+15.000 UTM)"]
-      FRIL["FRIL<br/>(<5.000 UTM,<br/>Municipal)"]
-      Circular33["Circular 33<br/>(Conservación,<br/>ANF, Estudios)"]
-    PROGRAMA["📋 PROGRAMA<br/>(Gasto Corriente)"]
-      PPR["Programa<br/>Público Regional"]
-      Glosa06_Directa["Glosa 06<br/>Ejecución Directa"]
-      Transferencia_Pub["Transferencia<br/>Institución Pública"]
-      Subvencion8["Subvención 8%<br/>(Concurso)"]
-    PRODUCTIVO["💡 PRODUCTIVO<br/>(I+D+i)"]
-      FRPD["FRPD<br/>(Royalty Minero)"]
-      CTCI["Iniciativas<br/>CTCI Concurso"]
-```
-
-### 13.2 Catálogo de Mecanismos de Financiamiento
+> **Principio Rector**: La correcta clasificación de la naturaleza de la IPR (proyecto vs programa) y del ejecutor determina la vía de financiamiento y el proceso de evaluación aplicable.
 
 ```mermaid
 flowchart TB
-    subgraph PROYECTOS["🏗️ VÍA PROYECTOS"]
-        subgraph SNI["SNI General"]
-            SNI_DESC["Proyectos > 15.000 UTM<br/>Evaluación MIDESO<br/>Resultado: RS"]
+    subgraph IPR["🏛️ IPR: INTERVENCIÓN PÚBLICA REGIONAL"]
+        DEF["Término paraguas para toda iniciativa<br/>(proyecto, programa, estudio) financiada por GORE"]
+    end
+    
+    subgraph TIPOS["BIFURCACIÓN POR NATURALEZA DEL GASTO"]
+        subgraph PROYECTO["🏗️ PROYECTO (Gasto Capital)"]
+            P_NAT["Subt. 31 / 33"]
+            P_CARACT["Crea activo físico o intangible de vida útil >1 año"]
+            P_EVAL["Evaluación: SNI (MDSF)"]
         end
         
-        subgraph FRIL_BOX["FRIL"]
-            FRIL_DESC["< 5.000 UTM<br/>Solo Municipios<br/>Exento RS si < 5.000 UTM"]
-        end
-        
-        subgraph C33["Circular 33"]
-            C33_CONS["Conservación<br/>(≤30% costo reposición)"]
-            C33_ANF["Adquisición ANF<br/>(Cofinanc. ≥20%)"]
-            C33_EST["Estudios Básicos"]
+        subgraph PROGRAMA["📋 PROGRAMA (Gasto Corriente)"]
+            PR_NAT["Subt. 24"]
+            PR_CARACT["Entrega servicios o prestaciones, NO crea activos"]
+            PR_EVAL["Evaluación: según ejecutor"]
         end
     end
     
-    subgraph PROGRAMAS["📋 VÍA PROGRAMAS"]
-        subgraph G06["Glosa 06 Directa"]
-            G06_DESC["GORE Ejecuta<br/>Eval. Bifásica DIPRES/SES<br/>Resultado: RF"]
+    subgraph MECANISMOS["MECANISMOS DE FINANCIAMIENTO"]
+        subgraph MEC_PROY["Vía Proyectos"]
+            SNI["SNI General: >15.000 UTM → RS"]
+            FRIL["FRIL: <5.000 UTM Municipal → Exento RS"]
+            C33["Circular 33: Conserv/ANF/Estudios → AD"]
         end
         
-        subgraph TRANSF["Transferencia Pública"]
-            TRANSF_DESC["Municipio/Servicio ejecuta<br/>Eval. interna GORE<br/>Resultado: ITF"]
+        subgraph MEC_PROG["Vía Programas"]
+            G06["Glosa 06 Directa: GORE ejecuta → RF"]
+            TRANSF["Transferencia Pública: Ent. Pública → ITF"]
+            SUB8["Subvención 8%: OSC/Privado → Concurso"]
         end
         
-        subgraph SUB8["Subvención 8%"]
-            SUB8_DESC["Organizaciones Privadas<br/>Concurso competitivo<br/>Exento SNI/Glosa06"]
+        subgraph MEC_MIX["Vía Mixta"]
+            FRPD["FRPD (Royalty Minero)<br/>Proyecto o Programa<br/>CTCI: exento | Fomento: SNI o G06"]
         end
     end
     
-    subgraph PRODUCTIVO["💡 VÍA PRODUCTIVA"]
-        FRPD_DESC["FRPD (Royalty)<br/>Concurso ANID/CORFO<br/>Instituciones habilitadas"]
-    end
+    IPR --> TIPOS
+    PROYECTO --> MEC_PROY
+    PROGRAMA --> MEC_PROG
+    TIPOS -.-> MEC_MIX
     
-    classDef proyecto fill:#1e40af,stroke:#fff,color:#fff
-    classDef programa fill:#0f766e,stroke:#fff,color:#fff
-    classDef productivo fill:#7c3aed,stroke:#fff,color:#fff
+    classDef ipr fill:#1e3a5f,stroke:#fff,color:#fff
+    classDef proyecto fill:#0f766e,stroke:#fff,color:#fff
+    classDef programa fill:#7c3aed,stroke:#fff,color:#fff
+    classDef mixto fill:#b45309,stroke:#fff,color:#fff
     
-    class SNI_DESC,FRIL_DESC,C33_CONS,C33_ANF,C33_EST proyecto
-    class G06_DESC,TRANSF_DESC,SUB8_DESC programa
-    class FRPD_DESC productivo
+    class IPR,DEF ipr
+    class PROYECTO,P_NAT,P_CARACT,P_EVAL,SNI,FRIL,C33 proyecto
+    class PROGRAMA,PR_NAT,PR_CARACT,PR_EVAL,G06,TRANSF,SUB8 programa
+    class FRPD mixto
 ```
 
-### 13.3 Árbol de Decisión: Selector de Mecanismo
+> ⚠️ **Nota Ontológica**: Los **Mecanismos de Financiamiento** (SNI, FRIL, C33, Glosa 06, Transferencias, Sub 8%, FRPD) son **vías operativas** para materializar IPRs, NO especializaciones ontológicas. Un Proyecto sigue siendo Proyecto independientemente de si se financia vía FRIL o SNI.
+
+### Matriz de Mecanismos de Financiamiento
+
+| Mecanismo                 | Tipo IPR | Subtítulo | Ejecutor         | Evaluador           | Dictamen           | KB        |
+| :------------------------ | :------- | :-------- | :--------------- | :------------------ | :----------------- | :-------- |
+| **SNI General**           | Proyecto | 31/33     | GORE/Terceros    | MDSF                | RS                 | kb_gn_024 |
+| **FRIL**                  | Proyecto | 33        | Municipalidad    | GORE (interno)      | Aprobación Técnica | kb_gn_026 |
+| **Circular 33**           | Proyecto | 31/33     | GORE/Terceros    | MDSF (simplificado) | AD                 | kb_gn_029 |
+| **Glosa 06 Directa**      | Programa | 24        | GORE             | DIPRES/SES          | RF                 | kb_gn_025 |
+| **Transferencia Pública** | Programa | 24        | Ent. Pública     | GORE (interno)      | ITF                | kb_gn_001 |
+| **Subvención 8%**         | Programa | 24        | OSC/Privado      | GORE (concurso)     | Puntaje            | kb_gn_028 |
+| **FRPD (CTCI)**           | Mixto    | 24/31     | Inst. Habilitada | ANID/CORFO          | Concurso           | kb_gn_027 |
+| **FRPD (Fomento)**        | Mixto    | 24/31     | Inst. Habilitada | SNI o Glosa 06      | RS o RF            | kb_gn_027 |
+
+> **Leyenda Dictámenes**: RS = Recomendación Satisfactoria | RF = Recomendación Favorable | AD = Admisibilidad | ITF = Informe Técnico Favorable
+
+### Árbol de Decisión: Selector de Mecanismo
 
 ```mermaid
 flowchart TB
@@ -891,19 +834,82 @@ flowchart TB
     class R_FRIL,R_C33,R_FRPD_P,R_SNI,R_SUB8,R_G06,R_TRANSF resultado
 ```
 
-### 13.4 Tracks de Evaluación Técnica
+### Tracks de Evaluación Técnica
 
-| Track                              | Descripción                             | Evaluador          | Resultado    | Aplica a                            |
-| :--------------------------------- | :-------------------------------------- | :----------------- | :----------- | :---------------------------------- |
-| **Track A: SNI**                   | Evaluación técnico-económica estándar   | MIDESO (SEREMI)    | RS, FI, OT   | IDI > 15.000 UTM                    |
-| **Track B: PPR Glosa 06**          | Evaluación bifásica (Perfil + Diseño)   | DIPRES/SES         | RF           | Programas ejecución directa GORE    |
-| **Track C-1: < 5.000 UTM**         | Procedimiento simplificado municipios   | GORE               | Exento RS    | FRIL, proyectos menores             |
-| **Track C-2: Conservación**        | Evaluación de admisibilidad             | MIDESO             | AD           | Conservación ≤30% reposición        |
-| **Track D: Transferencia Pública** | Evaluación interna GORE multifásica     | GORE (DAE, Comité) | ITF          | Transferencias a entidades públicas |
-| **Track E: Subvención 8%**         | Concurso competitivo por puntaje        | GORE               | Puntaje      | Organizaciones privadas s/f lucro   |
-| **Track F: FRPD**                  | Concurso previo + evaluación según tipo | CORFO/ANID + GORE  | Elegibilidad | I+D+i por instituciones habilitadas |
+| Track                              | Descripción                             | Evaluador          | Resultado          | Aplica a                            |
+| :--------------------------------- | :-------------------------------------- | :----------------- | :----------------- | :---------------------------------- |
+| **Track A: SNI**                   | Evaluación técnico-económica estándar   | MDSF (SEREMI)      | RS, FI, OT         | IDI > 15.000 UTM                    |
+| **Track B: PPR Glosa 06**          | Evaluación bifásica (Perfil + Diseño)   | DIPRES/SES         | RF                 | Programas ejecución directa GORE    |
+| **Track C-1: < 5.000 UTM**         | Procedimiento simplificado municipios   | GORE               | Aprobación Técnica | FRIL, proyectos menores             |
+| **Track C-2: Conservación**        | Evaluación de admisibilidad             | MDSF               | AD                 | Conservación ≤30% reposición        |
+| **Track D: Transferencia Pública** | Evaluación interna GORE multifásica     | GORE (DAE, Comité) | ITF                | Transferencias a entidades públicas |
+| **Track E: Subvención 8%**         | Concurso competitivo por puntaje        | GORE               | Puntaje            | Organizaciones privadas s/f lucro   |
+| **Track F: FRPD**                  | Concurso previo + evaluación según tipo | CORFO/ANID + GORE  | Elegibilidad       | I+D+i por instituciones habilitadas |
 
-### 13.5 Estados del Ciclo IPR
+### Ciclo de Vida de Intervención Pública Regional (IPR)
+
+```mermaid
+stateDiagram-v2
+    [*] --> Identificacion: Demanda territorial
+
+    state Identificacion {
+        [*] --> Idea
+        Idea --> Perfil: Formulación inicial
+    }
+    
+    Identificacion --> Admisibilidad: Ingreso formal
+    
+    state Admisibilidad {
+        [*] --> RevisionTecnica: DIPIR evalúa
+        RevisionTecnica --> Admisible: Cumple requisitos
+        RevisionTecnica --> Inadmisible: No cumple
+        Inadmisible --> [*]: Devuelto al formulador
+    }
+    
+    Admisibilidad --> Evaluacion: Proyecto admitido
+    
+    state Evaluacion {
+        [*] --> RATE: Análisis técnico-económico
+        RATE --> RS: Recomendación favorable
+        RATE --> OT: Observaciones técnicas
+        OT --> RATE: Subsanación
+        RS --> [*]: Listo para asignación
+    }
+    
+    Evaluacion --> Priorizacion: Cartera evaluada
+    
+    state Priorizacion {
+        [*] --> ARI: Anteproyecto Regional Inversiones
+        ARI --> PropuestaGR: Gobernador propone
+        PropuestaGR --> VotacionCORE: CORE decide
+        VotacionCORE --> Aprobado: Mayoría a favor
+        VotacionCORE --> Rechazado: Sin apoyo
+        Rechazado --> [*]: Archivado
+    }
+    
+    Priorizacion --> Ejecucion: Asignación presupuestaria
+    
+    state Ejecucion {
+        [*] --> Licitacion: Bases y llamado
+        Licitacion --> Adjudicacion: Selección oferente
+        Adjudicacion --> Contrato: Formalización
+        Contrato --> ObraEnCurso: Ejecución física
+        ObraEnCurso --> RecepcionProvisoria: Término obras
+        RecepcionProvisoria --> RecepcionDefinitiva: Garantías vencidas
+    }
+    
+    Ejecucion --> Cierre: Finiquito técnico-financiero
+    
+    state Cierre {
+        [*] --> RendicionCuentas: Documentación final
+        RendicionCuentas --> InformeFinal: Evaluación ex-post
+        InformeFinal --> [*]: Proyecto cerrado
+    }
+    
+    Cierre --> [*]
+```
+
+### Estados del Ciclo IPR
 
 ```mermaid
 flowchart LR
@@ -950,26 +956,109 @@ flowchart LR
     ADMISIBILIDAD --> EVALUACION --> FINANCIAMIENTO --> FORMALIZACION --> EJECUCION --> CIERRE
 ```
 
-### 13.6 Umbrales Críticos
+**Mapeo Estado ↔ Tipo/Mecanismo**:
 
-| Umbral                               | Valor                  | Consecuencia                      |
-| :----------------------------------- | :--------------------- | :-------------------------------- |
-| **Licitación Pública Proyectos**     | > 1.000 UTM            | Obligatoria (salvo emergencia)    |
-| **Licitación Pública Estudios**      | > 500 UTM              | Obligatoria (salvo emergencia)    |
-| **Exención RS (FRIL)**               | < 5.000 UTM            | No requiere informe MIDESO        |
-| **Aprobación CORE obligatoria**      | ≥ 7.000 UTM            | Debe pasar por CORE (referencial) |
-| **Garantías instituciones privadas** | > 1.000 UTM            | Exigir garantía (pagaré, boleta)  |
-| **Conservación**                     | ≤ 30% costo reposición | Aplica vía simplificada C33       |
-| **Cofinanciamiento ANF**             | ≥ 20%                  | Exigido para adquisición ANF      |
-| **Tope administración Glosa 06**     | ≤ 5%                   | Máximo para gastos GORE           |
+| Estado             | Aplica a                    |
+| :----------------- | :-------------------------- |
+| RS, FI, OT         | Proyecto (SNI General)      |
+| AD                 | Proyecto (C33 Conservación) |
+| Aprobación Técnica | Proyecto (FRIL)             |
+| RF                 | Programa (Glosa 06)         |
+| ITF                | Programa (Transferencia)    |
+| Puntaje/Selección  | Programa (Sub 8%), FRPD     |
 
----
+### Gestión de Modificaciones IPR (Fase 6)
 
-## 14. Dominio IDI: Iniciativas de Inversión en el SNI
+> **Fuente**: `kb_gn_019_gestion_ipr_koda.yml` – Fase 6
+
+Durante la ejecución pueden surgir necesidades de modificación (sobrecostos, imprevistos, obras adicionales). El proceso formal incluye:
+
+```mermaid
+flowchart TB
+    subgraph SOLICITUD["📝 1. SOLICITUD"]
+        S1["UT detecta necesidad<br/>de modificación"]
+        S2["Prepara informe<br/>técnico-financiero"]
+        S3["Envía oficio al<br/>Gobernador/a"]
+    end
+    
+    subgraph REEVALUACION["🔍 2. REEVALUACIÓN"]
+        R1["Supervisor GORE<br/>analiza pertinencia"]
+        R2["DIPIR/DIPLADE verifica<br/>umbrales y viabilidad"]
+        R3["Decisión: aprobar<br/>o rechazar"]
+    end
+    
+    subgraph TRAMITACION["⚙️ 3. TRAMITACIÓN"]
+        T1["Si aumento $:<br/>volver a CORE"]
+        T2["DAF tramita<br/>modificación PPT"]
+        T3["Modificar convenio<br/>si corresponde"]
+    end
+    
+    S1 --> S2 --> S3
+    S3 --> R1 --> R2 --> R3
+    R3 -->|Aprobada| T1 --> T2 --> T3
+    R3 -->|Rechazada| FIN["❌ Archivado"]
+    
+    classDef solicitud fill:#1e40af,stroke:#fff,color:#fff
+    classDef reeval fill:#f59e0b,stroke:#fff,color:#fff
+    classDef tramit fill:#10b981,stroke:#fff,color:#fff
+    
+    class S1,S2,S3 solicitud
+    class R1,R2,R3 reeval
+    class T1,T2,T3 tramit
+```
+
+**Criterios de Reevaluación**:
+
+| Condición                    | Acción Requerida              |
+| :--------------------------- | :---------------------------- |
+| Aumento ≥ 30% costo original | Reevaluación SNI (nuevo RATE) |
+| Aumento supera umbral CORE   | Nuevo pronunciamiento CORE    |
+| Cambio de alcance sustantivo | Reformulación técnica         |
+| Prórroga de plazo            | Addendum convenio             |
+
+### Umbrales Críticos
+
+| Umbral                                | Valor                  | Consecuencia                                                  |
+| :------------------------------------ | :--------------------- | :------------------------------------------------------------ |
+| **Licitación Pública Proyectos**      | > 1.000 UTM            | Obligatoria (salvo emergencia)                                |
+| **Licitación Pública Estudios**       | > 500 UTM              | Obligatoria (salvo emergencia)                                |
+| **Exención RS (FRIL)**                | < 5.000 UTM            | No requiere informe MDSF (valorizado al 1 de enero ejercicio) |
+| **Aprobación CORE obligatoria**       | ≥ 7.000 UTM            | Debe pasar por CORE (referencial)                             |
+| **Garantías instituciones privadas**  | > 1.000 UTM            | Exigir garantía (pagaré, boleta)                              |
+| **Conservación**                      | ≤ 30% costo reposición | Aplica vía simplificada C33                                   |
+| **Cofinanciamiento ANF**              | ≥ 20%                  | Exigido para adquisición ANF                                  |
+| **Tope administración Glosa 06**      | ≤ 5%                   | Máximo para gastos GORE                                       |
+| **Tope honorarios receptor Glosa 06** | ≤ 5%                   | Personal honorarios receptor público (nuevo 2026)             |
+
+## Vía SNI: Evaluación de Proyectos por MDSF
 
 > **Fuente**: `kb_gn_024_guia_idi_sni_koda.yml`
+>
+> ⚠️ **Nota**: "IDI" (Iniciativa de Inversión) es la nomenclatura SNI para referirse a Proyectos. No es un mecanismo de financiamiento separado.
 
-### 14.1 Principio de Proporcionalidad SNI
+### Formulación y Evaluación SNI
+
+**1. Problema Principal y Situaciones**:
+
+* **Problema de Cobertura**: Cantidad insuficiente de oferta para satisfacer la demanda.
+* **Problema de Calidad**: Oferta existente no cumple estándares normativos o de servicio.
+* **Situaciones de Análisis**:
+  * *Sin Proyecto*: Proyección optimizada de la situación actual (base de comparación).
+  * *Con Proyecto*: Escenario con la inversión operando.
+  * **Evaluación**: Se realiza sobre el **flujo incremental** (Con Proyecto - Sin Proyecto).
+
+**2. Separabilidad de Componentes**:
+
+* **Independientes**: Problemas distintos → Proyectos separados.
+* **Unificados**: Componentes inseparables técnica/funcionalmente → Un solo proyecto.
+* **Separables**: Mismo problema pero componentes ejecutables por separado → Evaluar c/u y el conjunto.
+
+### Vigencia de la Recomendación (RATE RS)
+
+> **Regla de Oro**: La vigencia de un RATE favorable (RS) es de **3 años presupuestarios** consecutivos.
+> Si no se obtiene la identificación presupuestaria en este plazo, se pierde la condición de RS y se debe reevaluar.
+
+### Principio de Proporcionalidad SNI
 
 ```mermaid
 flowchart LR
@@ -998,7 +1087,7 @@ flowchart LR
 | **2** | Estándar         | RIS completo, ATE                             | Perfil → Prefactibilidad → Ejecución         |
 | **3** | Alta complejidad | RIS enriquecido, metodologías complementarias | Idea → Perfil → Prefact. → Fact. → Ejecución |
 
-### 14.2 Indicadores Económicos SNI
+### Indicadores Económicos SNI
 
 | Indicador | Fórmula                      | Uso                   | Criterio Decisión       |
 | :-------- | :--------------------------- | :-------------------- | :---------------------- |
@@ -1009,7 +1098,7 @@ flowchart LR
 
 > **TSD 2025**: 5.5% (Tasa Social de Descuento)
 
-### 14.3 Subsistemas del SNI
+### Subsistemas del SNI
 
 ```mermaid
 flowchart LR
@@ -1024,7 +1113,7 @@ flowchart LR
     EX_POST -.-|Retroalimentación| EX_ANTE
 ```
 
-### 14.4 Tipos de IDI (Subtítulo 31)
+### Tipos de IDI (Subtítulo 31)
 
 | Ítem   | Tipo                | Descripción                      | Procesos Válidos                          |
 | :----- | :------------------ | :------------------------------- | :---------------------------------------- |
@@ -1032,13 +1121,30 @@ flowchart LR
 | **02** | Proyectos           | Crear/ampliar/mejorar activos    | Obras civiles, Equipamiento, Consultorías |
 | **03** | Programas Inversión | Capacidad recurso humano/físico  | Capacitación, Transferencia, Prevención   |
 
----
-
-## 15. Dominio PPR: Programas Públicos Regionales
+## Dominio PPR: Programas (Ejecución Directa / Glosa 06)
 
 > **Fuente**: `kb_gn_025_guia_programas_koda.yml`
 
-### 15.1 Ciclo de Vida PPR
+### Reglas de Oro y Restricciones PPR
+
+1. **Ejecución Directa**: GORE se encarga de la implementación, contratación de RRHH y bienes/servicios. No se transfiere responsabilidad.
+2. **Instrumentos Oficiales**: Usar **Formularios de Perfil y Diseño PPR GORE** (NO Ficha IDI SNI).
+3. **Tope Gastos Administrativos**: **Máximo 5%** del presupuesto total puede destinarse a gastos de administración interna del programa (Glosa 06).
+4. **Tope Honorarios Receptor**: **Máximo 5%** adicional para personal a honorarios en la entidad pública receptora (Glosa 06, Ley 21.796).
+5. **No Inversión**: Prohibido crear activos físicos o infraestructura como propósito principal.
+
+### Lógica Vertical MML (Metodología Marco Lógico)
+
+| Nivel           | Definición                                          | Regla de Formulación                                  |
+| :-------------- | :-------------------------------------------------- | :---------------------------------------------------- |
+| **Fin**         | Objetivo superior al que contribuye el programa     | Vinculación con ERD/Política Pública                  |
+| **Propósito**   | Cambio específico en población objetivo (Resultado) | `Población + Verbo + Variable a cambiar`              |
+| **Componentes** | Bienes/Servicios (Productos) entregados al usuario  | `Bien/Servicio + Verbo pasivo` (NO acciones internas) |
+| **Actividades** | Acciones principales para producir componentes      | Insumos para presupuesto y cronograma                 |
+
+> ⚠️ **Propósito Único**: Cada programa debe tener **un solo propósito** que revierta el Problema Central.
+
+### Ciclo de Vida PPR
 
 ```mermaid
 flowchart TB
@@ -1061,7 +1167,7 @@ flowchart TB
     end
     
     F1A --> F1B --> F1C
-    F1C -->|RF| F2A
+    F1C -->|RF Recomendación<br/>Favorable| F2A
     F2A --> F2B --> F2C
     F2C --> F3A --> F3B --> F3C
     F3C -.-|Retroalimentación| F1A
@@ -1075,7 +1181,7 @@ flowchart TB
     class F3A,F3B,F3C fase3
 ```
 
-### 15.2 Criterios de Evaluación DIPRES/SES
+### Criterios de Evaluación DIPRES/SES
 
 | Criterio         | Pregunta Clave             | Subcriterios                                                                                 |
 | :--------------- | :------------------------- | :------------------------------------------------------------------------------------------- |
@@ -1083,7 +1189,7 @@ flowchart TB
 | **Coherencia**   | ¿La lógica es sólida?      | Cadena causal MML, Estrategia clara, Enfoques transversales                                  |
 | **Consistencia** | ¿Es viable y monitoreable? | Indicadores SMART, Sistemas de información, Presupuesto coherente                            |
 
-### 15.3 Tipos de Población PPR
+### Tipos de Población PPR
 
 | Tipo             | Definición                     | Ejemplo                                  |
 | :--------------- | :----------------------------- | :--------------------------------------- |
@@ -1091,23 +1197,29 @@ flowchart TB
 | **Objetivo**     | Subconjunto con focalización   | Jóvenes 18-29, RSH ≤40%, comunas rurales |
 | **Beneficiaria** | Atendidos efectivamente en año | 500 jóvenes capacitados en 2026          |
 
----
-
-## 16. Dominio FRIL: Fondo Regional de Iniciativa Local
+## Dominio FRIL: Fondo Regional de Iniciativa Local
 
 > **Fuente**: `kb_gn_026_guia_fril_koda.yml`
 
-### 16.1 Caracterización FRIL
+### Caracterización FRIL
 
 | Aspecto            | Descripción                                             |
 | :----------------- | :------------------------------------------------------ |
 | **Naturaleza**     | Fondo FNDR para infraestructura comunal de menor escala |
-| **Umbral**         | ≤ 5.000 UTM (aprox. $306M)                              |
+| **Umbral Máximo**  | **≤ 4.545 UTM** (~$306M) – 10% margen para aumentos     |
+| **Umbral Mínimo**  | **M$100** – piso de postulación                         |
+| **Max Proyectos**  | 5 por comuna/llamado (excluye A2 Agua y A3 Vial)        |
 | **Ejecutor**       | Municipalidades                                         |
-| **Evaluación**     | GORE (exento SNI/MIDESO)                                |
+| **Evaluación**     | Evaluación Técnica GORE (exento SNI/MDSF)               |
 | **Financiamiento** | Subtítulo 33 FNDR                                       |
 
-### 16.2 Categorías de Proyecto FRIL
+### Reglas Especiales FRIL
+
+1. **Excepción A2/A3**: Proyectos de **Acceso al Agua** y **Viales** NO cuentan para el máximo de 5 proyectos/comuna.
+2. **Vigencia Licitación**: Si a los **90 días** desde el convenio no se licita, **se pierde la recomendación técnica**.
+3. **Multiubicación**: Un proyecto puede tener múltiples ubicaciones en la comuna si comparten objetivo y se licitan juntas.
+
+### Categorías de Proyecto FRIL
 
 ```mermaid
 flowchart LR
@@ -1135,7 +1247,7 @@ flowchart LR
     D --> D3["D3: Sustentabilidad"]
 ```
 
-### 16.3 Ciclo FRIL
+### Ciclo FRIL
 
 ```mermaid
 sequenceDiagram
@@ -1148,12 +1260,12 @@ sequenceDiagram
     rect rgb(15, 118, 110)
         Note over MUN,CORE: Fase 1: Postulación y Evaluación
         MUN->>MUN: Formula proyecto (EETT, Presupuesto, Planos)
-        MUN->>GORE: Ingresa vía GESDOC + BIP
+        MUN->>GORE: Ingresa postulación + BIP
         GORE->>GORE: Admisibilidad (5 días)
         GORE->>GORE: Evaluación técnica (60 días)
-        alt RS
-            GORE-->>MUN: Certificado RS
-        else FI
+        alt Aprobación Técnica
+            GORE-->>MUN: Certificado Aprobación
+        else Falta Información
             GORE-->>MUN: Subsanar (30 días)
         end
     end
@@ -1178,7 +1290,7 @@ sequenceDiagram
     end
 ```
 
-### 16.4 Restricciones FRIL
+### Restricciones FRIL
 
 | Prohibición                    | Justificación             |
 | :----------------------------- | :------------------------ |
@@ -1188,13 +1300,11 @@ sequenceDiagram
 | 2+ proyectos mismo terreno/año | Control duplicidad        |
 | ANF sin proyecto asociado      | Solo complemento de obras |
 
----
-
-## 17. Dominio C33: Circular 33
+## Dominio C33: Circular 33
 
 > **Fuente**: `kb_gn_029_guia_circ33_koda.yml`
 
-### 17.1 Categorías Circular 33
+### Categorías Circular 33
 
 ```mermaid
 flowchart TB
@@ -1211,7 +1321,8 @@ flowchart TB
     CONS_INF --> COND_30["≤30% costo reposición<br/>→ Sin RATE"]
     CONS_INF --> COND_GT[">30% o vida útil<br/>→ Requiere SNI"]
     
-    EMERG --> FASES["Emergencia → Rehabilitación<br/>→ Reconstrucción (inversión)"]
+    EMERG --> F_GASTO["Emergencia / Rehabilitación<br/>🔴 GASTO (Sub. Interior/GORE)<br/>NO Entra por C33"]
+    EMERG --> F_INV["Reconstrucción<br/>🟢 INVERSIÓN<br/>SÍ Entra por C33"]
     
     classDef giro fill:#1e3a5f,stroke:#fff,color:#fff
     classDef anf fill:#0f766e,stroke:#fff,color:#fff
@@ -1221,10 +1332,17 @@ flowchart TB
     class EST giro
     class ANF,ANF_TYPES anf
     class CONS_CAM,CONS_INF,COND_30,COND_GT cons
-    class EMERG,FASES emerg
+    class EMERG,F_GASTO,F_INV emerg
 ```
 
-### 17.2 Matriz de Documentación C33
+### Reglas Operativas Críticas C33
+
+1. **Cofinanciamiento ANF**: Exige **aporte propio mínimo del 20%** de la institución solicitante.
+2. **Plazo Postulación**: Se aceptan solicitudes hasta el **31 de Octubre** de cada año.
+3. **Emergencia**: Solo la fase de **Reconstrucción** (Inversión) es elegible vía C33. Emergencia y Rehabilitación son Gasto.
+4. **Metodología**: Conservación y Reposición requieren análisis de **Costo-Anual Equivalente (CAE)** o Costo-Eficiencia.
+
+### Matriz de Documentación C33
 
 | Documento                 | Estudios |  ANF  | Cons. Caminos | Cons. Infra | Emergencia |
 | :------------------------ | :------: | :---: | :-----------: | :---------: | :--------: |
@@ -1235,16 +1353,17 @@ flowchart TB
 | EETT + Presupuesto        |    ✓     |   ○   |       ✓       |      ✓      |     ○      |
 | 3 Cotizaciones/Tasaciones |    –     |   ✓   |       –       |      –      |     –      |
 | Decreto Emergencia        |    –     |   –   |       –       |      –      |     ✓      |
+| Evaluación Económica      |    –     |   ✓   |       ✓       |      ✓      |     ○      |
+| Cert. Mal Estado (Rep.)   |    –     |   ○   |       –       |      –      |     –      |
+| Cert. Conservación 30%    |    –     |   –   |       –       |      ✓      |     –      |
 
 > ✓ = Obligatorio | ○ = Si procede | – = No aplica
 
----
-
-## 18. Dominio FRPD: Fondo Regional para la Productividad y el Desarrollo
+## Dominio FRPD: Fondo Regional para la Productividad y el Desarrollo
 
 > **Fuente**: `kb_gn_027_guia_frpd_koda.yml`
 
-### 18.1 Origen y Marco FRPD
+### Origen y Marco FRPD
 
 | Aspecto         | Descripción                                                |
 | :-------------- | :--------------------------------------------------------- |
@@ -1253,7 +1372,7 @@ flowchart TB
 | **Postulantes** | Instituciones habilitadas por SUBCTCI (Res. Ex. N°33/2024) |
 | **Alineación**  | ERD + Estrategia Regional CTCI                             |
 
-### 18.2 Bifurcación Post-Selección FRPD
+### Bifurcación Post-Selección FRPD
 
 ```mermaid
 flowchart TB
@@ -1286,7 +1405,7 @@ flowchart TB
     class EVAL_EX,IDI_SNI,PPR_G06 fomento
 ```
 
-### 18.3 Sectores y Focos Prioritarios FRPD 2025
+### Sectores y Focos Prioritarios FRPD 2025
 
 | Sector Prioritario     | Focos                                       |
 | :--------------------- | :------------------------------------------ |
@@ -1295,34 +1414,73 @@ flowchart TB
 | Turismo/Medioambiente  | Sustentabilidad, eco-innovación             |
 | Energía/Conectividad   | Transición energética, brecha digital       |
 
-### 18.4 Criterios Admisibilidad FRPD
+### Criterios Admisibilidad FRPD
 
-| Criterio             | Requisito                                       |
-| :------------------- | :---------------------------------------------- |
-| **Máx. iniciativas** | 2 por postulante                                |
-| **Plazo ejecución**  | ≤ 30 meses                                      |
-| **Cobertura**        | Regional (21 comunas) o territorial justificado |
-| **RRHH**             | Mín. 1 profesional residente en Ñuble           |
-| **Remuneraciones**   | Máx. 30% del fondo                              |
-| **Gastos admin**     | Máx. 5%                                         |
+| Criterio               | Requisito                                       |
+| :--------------------- | :---------------------------------------------- |
+| **Máx. iniciativas**   | 2 por postulante                                |
+| **Plazo ejecución**    | ≤ 30 meses                                      |
+| **Cobertura**          | Regional (21 comunas) o territorial justificado |
+| **Max Remuneraciones** | **30%** del monto total con cargo al fondo      |
+| **Profesional Local**  | Mín **1 residente en Ñuble** contratado         |
+| **Gastos Admin**       | Máx **5%** del total (Art. 25 Ley 21.796)       |
 
----
+### Reglas y Restricciones FRPD
 
-## 19. Dominio Transferencia PPR: Programas a Entidades Públicas
+1. **Garantía Privados**: Obligatoria si transferencia > **1.000 UTM** → **5%** del total, vigencia 90 días post-término.
+2. **Puntaje Elegibilidad**: Mínimo **5 puntos** promedio ponderado para pasar a Evaluación Técnica.
+3. **Vigencia RS**: 3 años (año obtención + 2 siguientes), sin cambios sustantivos.
+4. **Aprobación CORE**: > 7.000 UTM → Aprobación; ≤ 7.000 UTM → Solo toma conocimiento.
+5. **Viáticos Prohibidos**: Viáticos, alimentación, pasajes, peajes y estacionamiento NO se cargan al FRPD.
+6. **Parentesco**: Inhabilidad hasta **4° consanguinidad / 3° afinidad** con Gobernador, CORE o directivos GORE.
+
+### Ponderación Evaluación Técnica
+
+| Variable                  | Peso  |
+| :------------------------ | :---: |
+| Mérito Innovador          |  40%  |
+| Coherencia Regional (ERD) |  30%  |
+| Coherencia Componentes    |  20%  |
+| Coherencia Global         |  10%  |
+
+## Dominio Transferencia PPR: Programas a Entidades Públicas
 
 > **Fuente**: `kb_gn_001_transferencia_ppr_koda.yml`
 
-### 19.1 Caracterización Transferencia PPR
+### Caracterización Transferencia PPR
 
 | Aspecto         | Descripción                                         |
 | :-------------- | :-------------------------------------------------- |
 | **Alcance**     | PPR ejecutados por terceros públicos                |
 | **Evaluación**  | Interna GORE (exento evaluación ex-ante DIPRES/SES) |
 | **Dictamen**    | ITF (Informe Técnico Favorable) - NO es RATE RS     |
-| **Plataforma**  | GESDOC (NO usa BIP)                                 |
+| **Plataforma**  | Plataforma Digital (NO usa BIP)                     |
 | **Metodología** | MML obligatorio                                     |
 
-### 19.2 Proceso Evaluación Interna
+### Kit de Postulación (Admisibilidad)
+
+> ⚠️ **Digital**: Todo ingreso debe ser vía plataforma digital del GORE.
+
+| N°   | Documento              | Formulario Código           |
+| :--- | :--------------------- | :-------------------------- |
+| 1    | Oficio Conductor       | N/A                         |
+| 2    | **Diseño de Programa** | `FORM-PPR-TRANSFER-PUBLIC`  |
+| 3    | Presupuesto Detallado  | Excel / PDF                 |
+| 4    | Cotizaciones Respaldo  | N/A                         |
+| 5    | Perfil de Cargos       | `FORM-ANEXO1-PERFIL-CARGOS` |
+| 6    | **Patrocinio GORE**    | `FORM-PPR-PATROCINIO-GORE`  |
+| 7    | DJ Rendiciones/SISREC  | `FORM-PPR-RENDICIONES-DJ`   |
+| 8    | DJ No Fraccionamiento  | `FORM-PPR-NO-FRACCION-DJ`   |
+| 9    | Compromiso Financiero  | `FORM-PPR-FINANZAS-COMP`    |
+
+### Reglas y Restricciones de Transferencia
+
+1. **Personal Entidad Receptora**: Máximo **5%** del monto transferido puede usarse para contratar personal a honorarios para gestión del programa.
+2. **Probidad y Parentesco**: Prohibido contratar a cónyuges o parientes (hasta 3° grado consanguinidad / 2° afinidad) de autoridades GORE o directivos de la institución.
+3. **Prohibiciones Financieras**: No usar recursos para otorgar préstamos, invertir en instrumentos financieros o constituir sociedades.
+4. **Rendición**: Obligatoria vía plataforma **SISREC** (Contraloría).
+
+### Proceso Evaluación Interna
 
 ```mermaid
 flowchart LR
@@ -1343,7 +1501,7 @@ flowchart LR
     SUB --> TEC
 ```
 
-### 19.3 Restricciones de Gasto
+### Restricciones de Gasto
 
 | Ítem                             | Límite                   |
 | :------------------------------- | :----------------------- |
@@ -1352,187 +1510,114 @@ flowchart LR
 | Préstamos/sociedades             | PROHIBIDO                |
 | Subcontratación objeto principal | PROHIBIDO                |
 
----
-
-## 20. Dominio Subvención 8%: Vinculación con la Comunidad
+## Dominio Subvención 8%: Vinculación con la Comunidad
 
 > **Fuente**: `kb_gn_028_instructivo_subvencion_8_koda.yml`
 
-### 20.1 Caracterización Subvención 8%
+### Caracterización Subvención 8%
 
-| Aspecto              | Descripción                         |
-| :------------------- | :---------------------------------- |
-| **Base legal**       | Glosa 07, Subt. 24 Ley Presupuestos |
-| **Monto total 2025** | M$ 4.850.000                        |
-| **Postulantes**      | OSC + Municipalidades               |
-| **Plazo ejecución**  | 8 meses desde transferencia         |
+| Aspecto              | Descripción                                                                     |
+| :------------------- | :------------------------------------------------------------------------------ |
+| **Base legal**       | Glosa 07, Subt. 24, Ley Presupuestos 2026.                                      |
+| **Monto total 2025** | **M$ 4.850.000** (Total Privados: M$ 4.850.000 / Municipios: M$ 730.000)        |
+| **Postulantes**      | Instituciones Privadas s/f lucro, Org. Base y Municipalidades.                  |
+| **Plazo ejecución**  | Máx **8 meses** (Privados) / **9 meses** (Municipios).                          |
+| **Garantía**         | **Pagaré Notarial** obligatorio para Privados (100% monto + 18 meses vigencia). |
 
-### 20.2 Fondos Temáticos
+### Tabla Maestra de Fondos y Montos Tope (Privados)
 
-```mermaid
-flowchart TB
-    subgraph FONDOS_8["💰 Fondos Subvención 8%"]
-        CULT["🎭 Cultura<br/>$600M"]
-        SOC["🤝 Social/Inclusión<br/>$500M"]
-        GEN["⚧ Equidad Género<br/>$400M"]
-        DEP["⚽ Deporte<br/>$1.000M"]
-        AM["👴 Personas Mayores<br/>$400M"]
-        MA["🌿 Medio Ambiente<br/>$400M"]
-        SEG["🛡️ Seguridad<br/>$1.550M"]
-    end
-    
-    classDef cultura fill:#7c3aed,stroke:#fff,color:#fff
-    classDef social fill:#2563eb,stroke:#fff,color:#fff
-    classDef genero fill:#ec4899,stroke:#fff,color:#fff
-    classDef deporte fill:#10b981,stroke:#fff,color:#fff
-    classDef am fill:#f59e0b,stroke:#fff,color:#fff
-    classDef ma fill:#22c55e,stroke:#fff,color:#fff
-    classDef seg fill:#dc2626,stroke:#fff,color:#fff
-    
-    class CULT cultura
-    class SOC social
-    class GEN genero
-    class DEP deporte
-    class AM am
-    class MA ma
-    class SEG seg
-```
+| Fondo            | Presupuesto       | Tope Inst. Intermedia | Tope Org. Base | Tope Especiales                                    |
+| :--------------- | :---------------- | :-------------------- | :------------- | :------------------------------------------------- |
+| **Cultura**      | $600M + $270M Esp | **$5.000.000**        | **$2.500.000** | $60M (Películas), $20M (Festivales), $10M (Libros) |
+| **Deporte**      | $1.000M           | **$5.000.000**        | **$3.000.000** | $15M (Ligas), $6M (Alto Rendimiento)               |
+| **Social**       | $500M             | **$5.500.000**        | **$3.500.000** | $10M (Residencias Mejor Niñez)                     |
+| **Seguridad**    | $1.550M           | **$8.000.000**        | **$5.500.000** | N/A                                                |
+| **Medio Amb.**   | $400M             | **$5.000.000**        | **$3.500.000** | N/A                                                |
+| **Adulto Mayor** | $400M             | **$4.000.000**        | **$3.000.000** | N/A                                                |
+| **Género**       | $400M             | **$6.500.000**        | **$3.500.000** | N/A                                                |
 
-### 20.3 Áreas por Fondo
+> **Nota**: "Tope Especiales" aplica a líneas específicas definidas en el instructivo (ej. Representación, Eventos Masivos).
 
-| Fondo                | Áreas                                                                                                            |
-| :------------------- | :--------------------------------------------------------------------------------------------------------------- |
-| **Cultura**          | Artes escénicas, audiovisuales, visuales, musicales, literatura, tradición, ciencias, patrimonio, representación |
-| **Social**           | Social, Inclusión, Prevención psicosocial, Residencias Mejor Niñez                                               |
-| **Género**           | Prevención VBG, Formación/autonomía, Mujer rural, Diversidad sexual                                              |
-| **Deporte**          | Formativo, Recreativo, Inclusivo, Competición, Representación                                                    |
-| **Personas Mayores** | Envejecimiento activo, Dependencia moderada/severa                                                               |
-| **Medio Ambiente**   | Protección, Educación, Eficiencia hídrica/energética, Mascotas                                                   |
-| **Seguridad**        | Prevención situacional, Recuperación espacios, Equipamiento comunitario                                          |
+### Reglas Operativas Críticas (Procedimiento Admisibilidad)
 
-### 20.4 Estructura de Gastos
+1. **Unicidad**: Máximo **1 iniciativa** por institución postulante.
+    * *Excepción 1*: Cultura/Deporte pueden postular una 2ª iniciativa si es de **Representación** (Regional/Nac/Int).
+    * *Excepción 2*: Colaboradores Mejor Niñez pueden postular múltiples residencias.
+2. **Asignación Directa ≤10%**: Previo acuerdo CORE, hasta 10% del Concurso 8% puede destinarse a **casos emblemáticos, excepcionales y emergentes** (Res. 72/2025 DIPRES).
+3. **Excepción SISREC**: Proyectos **≤ 500 UTM** pueden ser autorizados a rendir fuera de plataforma SISREC (en papel).
+4. **Pagaré**: Requisito habilitante para la transferencia en privados. Sin pagaré no hay desembolso.
+5. **Coordinación**: Actividades deben coordinarse con GORE (DIDESO) con **10 días** de antelación.
 
-| Ítem                   | Descripción                                                 | Límites                        |
-| :--------------------- | :---------------------------------------------------------- | :----------------------------- |
-| **Equipamiento**       | Bienes duraderos post-proyecto                              | Logo GORE obligatorio          |
-| **Gestión/Producción** | Actividades directas, materiales fungibles                  | Alimentación máx. $10K/persona |
-| **Difusión**           | Medios, artículos promocionales                             | 3-10% del presupuesto          |
-| **Honorarios**         | RRHH: Profesional $25K/hr, Técnico $23K/hr, Monitor $18K/hr | Según perfil                   |
+### Matriz de Admisibilidad (Checklist)
 
----
+| Documento Requerido       | Condición                                        |
+| :------------------------ | :----------------------------------------------- |
+| **Oficio Conductor**      | Firmado por Rep. Legal.                          |
+| **RUT Institución**       | Fotocopia legible.                               |
+| **Cédula Rep. Legal**     | Ambos lados.                                     |
+| **Directorio Vigente**    | **< 60 días** antigüedad (Registro Civil).       |
+| **Cert. Receptor Fondos** | Inscripción Ley 19.862 vigente.                  |
+| **Cuenta Bancaria**       | A nombre de la institución (No personal).        |
+| **Declaraciones Juradas** | Inhabilidades, Parentesco, No Drogas/Alcohol.    |
+| **Cotizaciones**          | 1 por ítem (Equipamiento, Difusión, Producción). |
+| **Carta Respaldo**        | Permiso de uso de recinto (si aplica).           |
 
-## 21. Catálogo Unificado de Mecanismos IPR
+> ⚠️ **Inadmisibilidad Inmediata**: Si el monto del formulario, la carta y el presupuesto NO coinciden exactamante.
 
-| Mecanismo             | Vía      | Costo Típico | Evaluador    | Dictamen  | Ejecutor         | Plazo Ejecución |
-| :-------------------- | :------- | :----------- | :----------- | :-------- | :--------------- | :-------------- |
-| **SNI General**       | Proyecto | > 15.000 UTM | MIDESO       | RS        | GORE/Terceros    | 12-36 meses     |
-| **FRIL**              | Proyecto | < 5.000 UTM  | GORE         | Exento RS | Municipalidad    | 12-24 meses     |
-| **Circular 33**       | Proyecto | Variable     | MIDESO/GORE  | AD        | GORE/Terceros    | 6-18 meses      |
-| **Glosa 06 Directa**  | Programa | Variable     | DIPRES/SES   | RF        | GORE             | 12 meses        |
-| **Transferencia PPR** | Programa | Variable     | GORE         | ITF       | Entidad Pública  | 12 meses        |
-| **Subvención 8%**     | Programa | < $15M       | GORE         | Concurso  | OSC/Municipio    | 8 meses         |
-| **FRPD (CTCI)**       | Mixto    | Variable     | ANID/CORFO   | Concurso  | Inst. Habilitada | ≤ 30 meses      |
-| **FRPD (Fomento)**    | Mixto    | Variable     | SNI/Glosa 06 | RS o RF   | Inst. Habilitada | ≤ 30 meses      |
+## Catálogo Unificado de Mecanismos IPR
 
----
+| Mecanismo             | Vía      | Costo Típico | Evaluador    | Dictamen           | Ejecutor         | Plazo Ejecución |
+| :-------------------- | :------- | :----------- | :----------- | :----------------- | :--------------- | :-------------- |
+| **SNI General**       | Proyecto | > 15.000 UTM | MDSF         | RS                 | GORE/Terceros    | 12-36 meses     |
+| **FRIL**              | Proyecto | < 5.000 UTM  | GORE         | Aprobación Técnica | Municipalidad    | 12-24 meses     |
+| **Circular 33**       | Proyecto | Variable     | MDSF/GORE    | AD                 | GORE/Terceros    | 6-18 meses      |
+| **Glosa 06 Directa**  | Programa | Variable     | DIPRES/SES   | RF                 | GORE             | 12 meses        |
+| **Transferencia PPR** | Programa | Variable     | GORE         | ITF                | Entidad Pública  | 12 meses        |
+| **Subvención 8%**     | Programa | < $15M       | GORE         | Concurso           | OSC/Municipio    | 8 meses         |
+| **FRPD (CTCI)**       | Mixto    | Variable     | ANID/CORFO   | Concurso           | Inst. Habilitada | ≤ 30 meses      |
+| **FRPD (Fomento)**    | Mixto    | Variable     | SNI/Glosa 06 | RS o RF            | Inst. Habilitada | ≤ 30 meses      |
 
-## 22. Árbol de Decisión: Selector de Mecanismo (Vista Ampliada)
-
-```mermaid
-flowchart TB
-    START(("🎯 NUEVA<br/>IPR"))
-    
-    Q1{"¿CREAR<br/>ACTIVO?"}
-    
-    subgraph PROY["🏗️ PROYECTOS"]
-        Q2{"¿Muni +<br/><5000 UTM?"}
-        Q3{"¿Conserv/<br/>ANF/Estudio?"}
-        Q4{"¿I+D+i<br/>Productivo?"}
-        
-        FRIL["✅ FRIL"]
-        C33["✅ C33"]
-        FRPD_P["✅ FRPD"]
-        SNI["✅ SNI"]
-    end
-    
-    subgraph PROG["📋 PROGRAMAS"]
-        Q5{"¿OSC/<br/>Privado?"}
-        Q6{"¿GORE<br/>ejecuta?"}
-        Q7{"¿Entidad<br/>pública?"}
-        
-        SUB8["✅ Sub 8%"]
-        G06["✅ G06"]
-        TRANSF["✅ Transf."]
-    end
-    
-    START --> Q1
-    Q1 -->|Sí| Q2
-    Q1 -->|No| Q5
-    
-    Q2 -->|Sí| FRIL
-    Q2 -->|No| Q3
-    Q3 -->|Sí| C33
-    Q3 -->|No| Q4
-    Q4 -->|Sí| FRPD_P
-    Q4 -->|No| SNI
-    
-    Q5 -->|Sí| SUB8
-    Q5 -->|No| Q6
-    Q6 -->|Sí| G06
-    Q6 -->|No| Q7
-    Q7 -->|Sí| TRANSF
-    Q7 -->|No| G06
-    
-    classDef dec fill:#f59e0b,stroke:#000,color:#000
-    classDef res fill:#10b981,stroke:#fff,color:#fff
-    
-    class Q1,Q2,Q3,Q4,Q5,Q6,Q7 dec
-    class FRIL,C33,FRPD_P,SNI,SUB8,G06,TRANSF res
-```
-
----
-
-## 23. Dominio Rendiciones de Cuentas
+## Dominio Rendiciones de Cuentas
 
 > **Fuente**: `kb_gn_020_gestion_rendiciones_koda.yml`
 
-### 23.1 Ciclo de Vida de Rendición
+### Ciclo de Vida de Rendición (Flujo SISREC Estándar)
 
 ```mermaid
 flowchart TB
     subgraph EE["📤 ENTIDAD EJECUTORA"]
-        EE1["Prepara rendición<br/>(comprobantes, informe)"]
-        EE2["Ingresa vía SISREC"]
+        EE1["Analista Ejecutor<br/>(Crea Informe)"]
+        EE2["Ministro de Fe<br/>(Certifica)"]
+        EE3["Encargado Ejecutor<br/>(Firma y Envía)"]
     end
     
-    subgraph GORE["🏛️ GORE Ñuble"]
-        OP["Oficina de Partes<br/>(Recepción)"]
-        UCR["U.C.R.<br/>(Control Rendiciones)"]
-        RTF["RTF<br/>(Revisión Técnica)"]
-        DAF["DAF<br/>(Contabilización)"]
-        SIGFE["SIGFE<br/>(Registro)"]
-        ARCH["Archivo<br/>(Expediente)"]
+    subgraph GORE["🏛️ GORE Ñuble (SISREC)"]
+        RTF["RTF / Analista Otorgante<br/>(Revisión Técnica)"]
+        JEFE["Jefe DAF / Encargado Otorgante<br/>(Firma Aprobación)"]
+        UCR["U.C.R.<br/>(Contabilización y Archivo)"]
+        SIGFE["SIGFE<br/>(Registro Financiero)"]
     end
-    
+
     EE1 --> EE2
-    EE2 --> OP
-    OP --> UCR
-    UCR --> RTF
+    EE2 --> EE3
+    EE3 -->|Envío Digital| RTF
     
-    RTF -->|Aprobado| DAF
+    RTF -->|Aprobado| JEFE
     RTF -->|Observado| EE1
     
-    DAF --> SIGFE
-    SIGFE --> ARCH
+    JEFE -->|Firma FEA| UCR
+    JEFE -->|Observado| EE1
+    
+    UCR --> SIGFE
     
     classDef ee fill:#6b7280,stroke:#fff,color:#fff
     classDef gore fill:#0f766e,stroke:#fff,color:#fff
     
-    class EE1,EE2 ee
-    class OP,UCR,RTF,DAF,SIGFE,ARCH gore
+    class EE1,EE2,EE3 ee
+    class RTF,JEFE,UCR,SIGFE gore
 ```
 
-### 23.2 Flujo SISREC (Rendición Electrónica)
+### Flujo SISREC (Rendición Electrónica)
 
 ```mermaid
 sequenceDiagram
@@ -1576,27 +1661,27 @@ sequenceDiagram
     end
 ```
 
-### 23.3 Actores de Rendición
+### Actores de Rendición
 
-| Actor                 | Rol                           | División                   | Función SISREC                    |
-| :-------------------- | :---------------------------- | :------------------------- | :-------------------------------- |
-| **U.C.R.**            | Control operativo rendiciones | DAF                        | Administrador/Encargado Otorgante |
-| **RTF**               | Revisión técnica-financiera   | DIPIR/DIDESO/DIFOI         | Analista Otorgante                |
-| **Jefe DAF**          | Firma aprobación              | DAF                        | Encargado Otorgante               |
-| **Unidad Control**    | Auditoría selectiva           | GORE - Staff               | —                                 |
-| **Entidad Ejecutora** | Rinde cuentas                 | Externa (Muni/SSP/Privado) | Analista/Ministro Fe/Encargado    |
+| Actor                 | Rol (SISREC)                        | División           | Función Clave                     |
+| :-------------------- | :---------------------------------- | :----------------- | :-------------------------------- |
+| **RTF**               | Analista Otorgante                  | DIPIR/DIDESO/DIFOI | Revisión técnica-financiera       |
+| **Jefe DAF**          | Encargado Otorgante                 | DAF                | Firma resolución aprobación       |
+| **U.C.R.**            | Administrador / Encargado (Soporte) | DAF                | Control, contabilización, archivo |
+| **Entidad Ejecutora** | Analista / Ministro Fe / Encargado  | Externa            | Rendición de cuentas              |
+| **Unidad Control**    | Auditor (Visualizador)              | GORE - Staff       | Auditoría selectiva               |
 
-### 23.4 Plazos de Rendición
+### Plazos de Rendición
 
-| Etapa                  | Plazo                             | Responsable                |
-| :--------------------- | :-------------------------------- | :------------------------- |
-| Presentación rendición | 15 días hábiles del mes siguiente | Entidad Ejecutora          |
-| Registro y derivación  | 2 días hábiles                    | Oficina de Partes → U.C.R. |
-| Revisión técnica       | 7 días hábiles                    | RTF                        |
-| Contabilización        | 2 días hábiles                    | U.C.R./DAF                 |
-| Archivo                | 1 día hábil                       | U.C.R./DAF                 |
+| Etapa                      | Plazo (Días Hábiles GORE) | Responsable          |
+| :------------------------- | :------------------------ | :------------------- |
+| Presentación rendición     | 15 del mes siguiente      | Entidad Ejecutora    |
+| Revisión técnica           | 7 días                    | RTF (Analista)       |
+| Devolución por Observación | 1 día                     | Jefe DAF (Encargado) |
+| Contabilización            | 2 días                    | U.C.R./DAF           |
+| Archivo                    | 2 días                    | U.C.R./DAF           |
 
-### 23.5 Consecuencias por Incumplimiento
+### Consecuencias por Incumplimiento
 
 | Norma                              | Consecuencia                                                                    |
 | :--------------------------------- | :------------------------------------------------------------------------------ |
@@ -1606,13 +1691,11 @@ sequenceDiagram
 | **Responsabilidad Civil**          | Restitución de fondos vía Juicio de Cuentas CGR                                 |
 | **Responsabilidad Penal**          | Malversación, fraude al fisco (Código Penal)                                    |
 
----
-
-## 24. Dominio Flujos de Aprobación
+## Dominio Flujos de Aprobación
 
 > **Fuente**: `kb_gn_015_aprobaciones_koda.yml`
 
-### 24.1 Principios de Aprobación
+### Principios de Aprobación
 
 | Principio                     | Descripción                                                       |
 | :---------------------------- | :---------------------------------------------------------------- |
@@ -1622,7 +1705,7 @@ sequenceDiagram
 | **Probidad y Transparencia**  | Interés general sobre particular; acceso público                  |
 | **Control Externo**           | CGR fiscaliza legalidad (Toma de Razón)                           |
 
-### 24.2 Flujo Resolución Exenta
+### Flujo Resolución Exenta
 
 ```mermaid
 flowchart LR
@@ -1639,7 +1722,7 @@ flowchart LR
     class A,B,C,D,E,F,G paso
 ```
 
-### 24.3 Flujo Convenio de Transferencia
+### Flujo Convenio de Transferencia
 
 ```mermaid
 sequenceDiagram
@@ -1677,7 +1760,7 @@ sequenceDiagram
     end
 ```
 
-### 24.4 Modificaciones Presupuestarias
+### Modificaciones Presupuestarias
 
 | Tipo                           | Afecta Partida 31 | Acto Requerido               | Excepción CORE                                     |
 | :----------------------------- | :---------------- | :--------------------------- | :------------------------------------------------- |
@@ -1685,10 +1768,11 @@ sequenceDiagram
 | Creación Iniciativas FRPD      | No                | Resolución GORE              | —                                                  |
 | Suplemento Presupuestario      | Sí                | Decreto Supremo + Resolución | —                                                  |
 | Transferencia Otros Organismos | Sí                | Decreto Supremo + Resolución | —                                                  |
-| Emergencias (3%)               | Sí                | Decreto Supremo + Resolución | Coordinación Subsecretaría Interior                |
+| Emergencias (3% SUBINT)        | Sí                | Decreto Supremo + Resolución | Traspasable a Subsecretaría Interior               |
+| Emergencias (2% GORE)          | Sí                | Resolución GORE              | Uso interno GORE (coordinación SUBINT)             |
 | Aumento ≤10% costo aprobado    | No                | Resolución GORE              | **Glosa 10/11**: No requiere nueva aprobación CORE |
 
-### 24.5 Proceso Modificación Presupuestaria
+### Proceso Modificación Presupuestaria
 
 ```mermaid
 flowchart TB
@@ -1715,52 +1799,149 @@ flowchart TB
     class DIPRES,CGR_TDR,VIGENCIA externo
 ```
 
----
+## Leyenda de Relaciones
 
-## 25. Catálogo Expandido de Actores
+```mermaid
+flowchart LR
+    A[Entidad A] ==>|Jerarquía formal| B[Entidad B]
+    C[Entidad C] -->|Dependencia funcional| D[Entidad D]
+    E[Entidad E] -.-|Coordinación/Colaboración| F[Entidad F]
+    G[Entidad G] <-.-|Bidireccional| H[Entidad H]
+```
 
-### 25.1 Actores de Gobernanza
+| Tipo de línea          | Significado                    |
+| :--------------------- | :----------------------------- |
+| `==>` (gruesa)         | Relación jerárquica/normativa  |
+| `-->` (normal)         | Dependencia funcional          |
+| `-.-` (punteada)       | Coordinación sin subordinación |
+| `<-.-` (bidireccional) | Relación colaborativa          |
 
-| ID      | Entidad                             | Rol                                         | Fuente    |
-| :------ | :---------------------------------- | :------------------------------------------ | :-------- |
-| ACT-011 | U.C.R. (Unidad Control Rendiciones) | Control operativo de rendiciones            | kb_gn_020 |
-| ACT-012 | RTF (Referente Técnico-Financiero)  | Primera línea revisión proyectos/programas  | kb_gn_020 |
-| ACT-013 | Asesoría Jurídica                   | Control de legalidad interno                | kb_gn_015 |
-| ACT-014 | Ministro de Fe (Ejecutor)           | Certifica autenticidad documentos en SISREC | kb_gn_020 |
+## Catálogo Expandido de Actores
 
----
+### Actores de Gobernanza
 
-## 26. Glosario Consolidado de Entidades
+### Actores de Gobernanza y Gestión
 
-| Categoría  | Entidad                                        | Definición                                           |
-| :--------- | :--------------------------------------------- | :--------------------------------------------------- |
-| **IPR**    | Intervención Pública Regional                  | Término paraguas: proyectos, programas, estudios     |
-| **IDI**    | Iniciativa de Inversión                        | IPR de gasto capital (Subt. 31)                      |
-| **PPR**    | Programa Público Regional                      | IPR de gasto corriente (Subt. 24)                    |
-| **RATE**   | Resultado Análisis Técnico-Económico           | Dictamen MIDESO (RS, FI, OT, AD)                     |
-| **RF**     | Recomendación Favorable                        | Dictamen DIPRES/SES para PPR                         |
-| **ITF**    | Informe Técnico Favorable                      | Dictamen interno GORE para transferencias            |
-| **MML**    | Metodología de Marco Lógico                    | Herramienta de formulación de programas              |
-| **BIP**    | Banco Integrado de Proyectos                   | Plataforma SNI para IDI                              |
-| **RIS**    | Requisitos de Información Sectorial            | Documentos de admisibilidad                          |
-| **CDP**    | Certificado de Disponibilidad Presupuestaria   | Acredita fondos disponibles                          |
-| **CDR**    | Comité Directivo Regional                      | Filtro de pertinencia estratégica                    |
-| **TSD**    | Tasa Social de Descuento                       | 5.5% (2025) para evaluación social                   |
-| **FRIL**   | Fondo Regional Iniciativa Local                | Infraestructura municipal ≤5.000 UTM                 |
-| **C33**    | Circular 33                                    | Procedimiento expedito (estudios, ANF, conservación) |
-| **FRPD**   | Fondo Regional Productividad                   | Royalty Minero para CTCI y fomento                   |
-| **Sub 8%** | Subvención 8%                                  | Fondos concursables para OSC                         |
-| **CTCI**   | Ciencia, Tecnología, Conocimiento e Innovación | Ámbito de acción FRPD                                |
-| **OSC**    | Organización de la Sociedad Civil              | Postulantes privados sin fines de lucro              |
-| **SISREC** | Sistema de Rendición Electrónica de Cuentas    | Plataforma CGR para rendiciones Subt. 24/33          |
-| **SIGFE**  | Sistema de Información Gestión Financiera      | Sistema contable-financiero del Estado               |
-| **FEA**    | Firma Electrónica Avanzada                     | Mecanismo que sustituye firma manuscrita             |
-| **UCR**    | Unidad de Control de Rendiciones               | Unidad especializada en DAF para control rendiciones |
-| **RTF**    | Referente Técnico-Financiero                   | Profesional GORE responsable de revisión técnica     |
-| **TdR**    | Toma de Razón                                  | Control preventivo de legalidad por CGR              |
+| Entidad                      | Rol Principal en Aprobaciones                                                                         | Fuente Normativa     |
+| :--------------------------- | :---------------------------------------------------------------------------------------------------- | :------------------- |
+| **Gobernador/a Regional**    | Firma ejecutiva final de actos adm. Propone presupuesto/planes al CORE. Repr. judicial/extrajudicial. | GORE-GUIA-ESTRUCTURA |
+| **Consejo Regional (CORE)**  | Aprueba presupuesto, ERD, FNDR, 8%, FRIL. Fiscaliza gestión del Gobernador.                           | GORE-GUIA-ESTRUCTURA |
+| **Administrador/a Regional** | Coordina gestión adm. interna. V°B° final pre-firma. Subrogancia legal.                               | GORE-GUIA-ESTRUCTURA |
+| **DIPIR**                    | Lidera presupuesto inversión. Evalúa técnicamente IDI. Monitorea avance físico-financiero.            | KB-GN-CTX-AUTH       |
+| **DIPLADE**                  | Lidera ERD. Secretaría ejecutiva coordinación gasto (ARI/PROPIR).                                     | KB-GN-CTX-AUTH       |
+| **DAF**                      | Ejecuta gestión financiera. Elabora convenios/pagos. Controla rendiciones. Registra en SIGFE.         | STS-KB-GN-RENDICION  |
+| **Asesoría Jurídica**        | Control legalidad interno actos/convenios. Redacta resoluciones/decretos.                             | KB-GN-015            |
+| **Unidad de Control**        | Control preventivo/posterior legalidad. Dependencia técnica CGR. Audita procesos.                     | STS-KB-GN-RENDICION  |
+| **Comité Directivo (CDR)**   | Filtro estratégico y político-técnico de IPR pre-evaluación.                                          | GORE-IPR-PHASE1      |
+| **Oficina de Partes**        | Punto único ingreso formal doc. externa. Asigna folio. Deriva.                                        | GORE-IPR-PHASE1      |
+| **RTF**                      | Referente Técnico-Financiero. Primera línea revisión proyectos.                                       | STS-KB-GN-RENDICION  |
+| **UCR**                      | Unidad Control Rendiciones (DAF). Control operativo rendiciones.                                      | KB-GN-020            |
+| **Ministro de Fe**           | Certifica autenticidad documentos en SISREC (Ejecutor).                                               | KB-GN-020            |
 
----
+## Dominio Gestión Presupuestaria
 
-> **Modelo Omega GORE Ñuble v2.3.0**
-> **Fuentes integradas**: 14 KBs KODA (Intro, Organigrama, LOC GORE, Gestión IPR, Selector IPR, Guía IDI, Guía PPR, FRIL, C33, FRPD, Transferencia PPR, Subvención 8%, Rendiciones, Aprobaciones)
-> **Última actualización**: 2025-12-28
+> **Fuente**: `kb_gn_018_gestion_prpto_koda.yml`
+
+### Ciclo Presupuestario Regional
+
+```mermaid
+flowchart TB
+    subgraph FORM["📅 FORMULACIÓN"]
+        DIPIR["DIPIR<br/>(Inversión/ARI)"]
+        DAF["DAF<br/>(Funcionamiento)"]
+        PROP["Propuesta<br/>Gobernador"]
+    end
+
+    subgraph APROB["⚖️ APROBACIÓN"]
+        CORE["CORE<br/>(Distribución Inicial)"]
+        DIPRES["DIPRES<br/>(Resoluciones)"]
+        CGR["CGR<br/>(Toma de Razón)"]
+    end
+
+    subgraph EJEC["💸 EJECUCIÓN"]
+        SIGFE["Registro<br/>SIGFE (DAF)"]
+        BIP["Registro<br/>BIP (DIPIR)"]
+        MODS["Modificaciones<br/>(Reasignaciones)"]
+    end
+    
+    DIPIR & DAF --> PROP
+    PROP --> CORE
+    CORE --> DIPRES --> CGR
+    CGR --> SIGFE & BIP
+    SIGFE <--> MODS
+    
+    classDef form fill:#3b82f6,stroke:#fff,color:#fff
+    classDef aprob fill:#8b5cf6,stroke:#fff,color:#fff
+    classDef ejec fill:#10b981,stroke:#fff,color:#fff
+    
+    class DIPIR,DAF,PROP form
+    class CORE,DIPRES,CGR aprob
+    class SIGFE,BIP,MODS ejec
+```
+
+### Roles en la Gestión Presupuestaria
+
+| Rol       | Enfoque Principal           | Responsabilidades Clave                                                                                         |
+| :-------- | :-------------------------- | :-------------------------------------------------------------------------------------------------------------- |
+| **DIPIR** | Inversión (S31, S33, S24)   | Lidera formulación de inversión (ARI). Monitoreo físico-financiero (BIP). Gestiona modificaciones de inversión. |
+| **DAF**   | Financiero / Funcionamiento | Lidera presupuesto funcionamiento (S21, S22). Ejecución financiera (Pagos/SIGFE). Control de saldos y caja.     |
+| **CORE**  | Normativo / Fiscalizador    | Aprueba distribución inicial (Inversión). Aprueba modificaciones de inversión. Fiscaliza ejecución.             |
+
+### Clasificadores Presupuestarios Clave (Partida 31)
+
+| Subtítulo | Nombre                         | Uso en GORE Ñuble                                                                 |
+| :-------- | :----------------------------- | :-------------------------------------------------------------------------------- |
+| **21**    | Gastos en Personal             | Remuneraciones planta/contrata. (Gestión DAF)                                     |
+| **22**    | Bienes y Servicios de Consumo  | Gastos operativos (luz, agua, materiales). (Gestión DAF)                          |
+| **24**    | Transferencias Corrientes      | Programas (Glosa 06), 8% FNDR, Transf. a Privados/Públicos. (DIPIR/DAF)           |
+| **29**    | Adquisición Activos No Financ. | Compra de activos propios (computadores, vehículos). (DAF)                        |
+| **31**    | Iniciativas de Inversión       | **Ejecución Directa**: Proyectos propios del GORE (obras, estudios). (DIPIR)      |
+| **33**    | Transferencias de Capital      | **Ejecución Indirecta**: Transferencias a Municipios (FRIL), Serviu, etc. (DIPIR) |
+
+## Glosario General del Sistema
+
+| Categoría       | Entidad                                        | Definición                                                           |
+| :-------------- | :--------------------------------------------- | :------------------------------------------------------------------- |
+| **IPR**         | Intervención Pública Regional                  | Superclase: proyectos, programas, estudios                           |
+| **IDI**         | Iniciativa de Inversión                        | Nomenclatura SNI para Proyecto (NO es un mecanismo)                  |
+| **PPR**         | Programa Público Regional                      | IPR de gasto corriente (Subt. 24) → G06, Transf, 8%                  |
+| **MEC**         | Mecanismo de Financiamiento                    | Vía operativa para materializar IPR (SNI, FRIL, etc.)                |
+| **RATE**        | Resultado Análisis Técnico-Económico           | Dictamen MDSF (RS, FI, OT, AD)                                       |
+| **RF**          | Recomendación Favorable                        | Dictamen DIPRES/SES para PPR                                         |
+| **ITF**         | Informe Técnico Favorable                      | Dictamen interno GORE para transferencias                            |
+| **MML**         | Metodología de Marco Lógico                    | Herramienta de formulación de programas                              |
+| **BIP**         | Banco Integrado de Proyectos                   | Plataforma SNI para IDI                                              |
+| **RIS**         | Requisitos de Información Sectorial            | Documentos de admisibilidad                                          |
+| **CDP**         | Certificado de Disponibilidad Presupuestaria   | Acredita fondos disponibles                                          |
+| **CDR**         | Comité Directivo Regional                      | Filtro de pertinencia estratégica                                    |
+| **TSD**         | Tasa Social de Descuento                       | 5.5% (2025) para evaluación social                                   |
+| **FRIL**        | Fondo Regional Iniciativa Local                | Infraestructura municipal ≤5.000 UTM                                 |
+| **C33**         | Circular 33                                    | Procedimiento expedito (estudios, ANF, conservación)                 |
+| **FRPD**        | Fondo Regional Productividad                   | Mixto: financia proyectos o programas (CTCI+Fomento)                 |
+| **Sub 8%**      | Subvención 8%                                  | Fondos concursables para OSC                                         |
+| **CTCI**        | Ciencia, Tecnología, Conocimiento e Innovación | Ámbito de acción FRPD                                                |
+| **OSC**         | Organización de la Sociedad Civil              | Postulantes privados sin fines de lucro                              |
+| **SISREC**      | Sistema de Rendición Electrónica de Cuentas    | Plataforma CGR para rendiciones Subt. 24/33                          |
+| **SIGFE**       | Sistema de Información Gestión Financiera      | Sistema contable-financiero del Estado                               |
+| **FEA**         | Firma Electrónica Avanzada                     | Mecanismo que sustituye firma manuscrita                             |
+| **UCR**         | Unidad de Control de Rendiciones               | Unidad especializada en DAF para control rendiciones                 |
+| **RTF**         | Referente Técnico-Financiero                   | Profesional GORE responsable de revisión técnica                     |
+| **TdR**         | Toma de Razón                                  | Control preventivo de legalidad por CGR                              |
+| **ANF**         | Activo No Financiero                           | Bienes físicos adquiridos (terrenos, equipos, etc.)                  |
+| **ZUBC**        | Zonificación del Uso del Borde Costero         | Instrumento que define usos del borde costero regional               |
+| **PLADETUR**    | Plan Regional de Desarrollo Turístico          | Instrumento de planificación turística regional                      |
+| **Decreto**     | Acto Administrativo (con TdR CGR)              | Norma dictada por autoridad sujeta a control externo                 |
+| **Resolución**  | Acto Administrativo (exento o con TdR)         | Decisión formal del GORE, puede ser exenta o afecta                  |
+| **PMO**         | Oficina de Gestión de Proyectos                | Torre de control para monitoreo de cartera regional                  |
+| **MDSF**        | Ministerio de Desarrollo Social y Familia      | Organismo que evalúa técnico-económicamente IDI en SNI               |
+| **Devengo**     | Momento de Exigibilidad Presupuestaria         | Privados/Munic: al tramitar convenio; Serv.Púb: al aprobar rendición |
+| **Postulación** | IPR presentada para evaluación                 | Estado previo a clasificación o aprobación                           |
+| **ARI**         | Anteproyecto Regional de Inversiones           | Planificación de inversión regional para el año siguiente            |
+| **PROPIR**      | Programa Público Inversión Regional            | Instrumento de monitoreo de ejecución anual                          |
+| **SIC**         | Saldo Inicial de Caja                          | Recursos remanentes del año anterior (requiere incorporación)        |
+| **Deuda Flot.** | Deuda Flotante                                 | Obligaciones devengadas no pagadas al 31/12                          |
+
+> **Modelo Omega GORE Ñuble v2.6.0**
+> **Fuentes integradas**: 16 KBs KODA (Intro, Organigrama, LOC GORE, GORE Ideal 4.0, Gestión IPR, Selector IPR, Guía IDI, Guía PPR, FRIL, C33, FRPD, Transferencia PPR, Subvención 8%, Rendiciones, Aprobaciones, Ley Presupuestos 2026)
+> **Última actualización**: 2025-12-29
+> **Auditorías**: Omega 2.0 + KBs Fuente + IPR (todas las brechas P1/P2 remediadas)
