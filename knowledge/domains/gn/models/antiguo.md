@@ -4,10 +4,6 @@
 > **Fecha**: 2025-12-29
 > **Fuentes**: LOC GORE (DFL 1-19.175), Guía Técnico-Operativa GORE Ñuble, GORE Ideal 4.0, Gestión IPR, Selector IPR, Rendiciones, Aprobaciones, Ley Presupuestos 2026
 
----
-
-# I. Fundamentos Institucionales
-
 ## Ficha Territorial de la Región de Ñuble
 
 | Atributo                  | Valor                                                        | Fuente     |
@@ -334,10 +330,6 @@ flowchart TB
     class J_DIPLADE,J_DIPIR,J_DIDESO,J_DIFOI,J_DIINF,J_DAF division
 ```
 
----
-
-# II. Marco Normativo y Restricciones
-
 ## Restricciones del Sistema
 
 ### Límites Jurídicos (LOC GORE)
@@ -427,10 +419,6 @@ mindmap
       Reglamentos
       Instrucciones técnicas
 ```
-
----
-
-# III. Estrategia y Financiamiento
 
 ## Planificación Regional
 
@@ -611,10 +599,104 @@ flowchart TB
     class C1,C2,C3 cierre
 ```
 
----
+## Catálogo de Entidades
 
+### Actores Institucionales
 
-# IV. Core de Negocio: Inversión Pública (IPR)
+| ID      | Entidad                        | Tipo                              | Fuente           |
+| :------ | :----------------------------- | :-------------------------------- | :--------------- |
+| ACT-001 | Gobernador Regional            | Autoridad electa                  | LOC GORE Art.23  |
+| ACT-002 | Consejo Regional               | Órgano colegiado                  | LOC GORE Art.28  |
+| ACT-003 | Administrador/a Regional       | Cargo confianza                   | LOC GORE Art.68  |
+| ACT-004 | Delegado Presidencial Regional | Gobierno Interior/Supervigilancia | LOC GORE Art.1-2 |
+| ACT-005 | Delegados Provinciales (3)     | Desconcentrado                    | LOC GORE Art.3   |
+| ACT-006 | SEREMÍAs (15+)                 | Ministerial regional              | DL 575           |
+| ACT-007 | Servicios Públicos Regionales  | Desconcentrados                   | Diversos         |
+| ACT-008 | Alcaldías (21)                 | Autónomas comunales               | LOCM             |
+| ACT-009 | COSOC Regional                 | Participación                     | Ley 20.500       |
+| ACT-010 | Comité CTI                     | Asesor                            | Interno GORE     |
+
+### Divisiones Orgánicas
+
+| ID      | División                         | Jefatura                | Departamentos       |
+| :------ | :------------------------------- | :---------------------- | :------------------ |
+| DIV-001 | Planificación y Desarrollo       | Erick Solo de Zaldivar  | 1 Comité + 3 Deptos |
+| DIV-002 | Presupuesto e Inversión Regional | Juan Parada González    | 3                   |
+| DIV-003 | Desarrollo Social y Humano       | Tamara Valenzuela F.    | 2 + 5 unidades      |
+| DIV-004 | Fomento e Industria              | Raúl Súnico Galdames    | 5                   |
+| DIV-005 | Infraestructura y Transporte     | Cristián Quiroz Reyes   | 2 + 2 unidades      |
+| DIV-006 | Administración y Finanzas        | Alicia Contreras Vielma | 2 + 5 unidades      |
+
+### Instrumentos
+
+| ID      | Instrumento               | Tipo                     | Horizonte  |
+| :------ | :------------------------ | :----------------------- | :--------- |
+| INS-001 | ERD                       | Estratégico              | 10-20 años |
+| INS-002 | PROT                      | Territorial (Vinculante) | 10-15 años |
+| INS-003 | ZUBC                      | Borde Costero            | 10-15 años |
+| INS-004 | PLADETUR                  | Turístico                | 4-10 años  |
+| INS-005 | Presupuesto Regional      | Operativo                | Anual      |
+| INS-006 | Convenios de Programación | Contractual              | Variable   |
+| INS-007 | Ordenanzas Regionales     | Normativo                | Indefinido |
+
+### Fondos
+
+| ID      | Fondo | Administrador  | Destino principal     |
+| :------ | :---- | :------------- | :-------------------- |
+| FON-001 | FNDR  | GORE           | Inversión pública     |
+| FON-002 | FRPD  | GORE           | CTCI + Fomento        |
+| FON-003 | ISAR  | GORE/Sectorial | Programas sectoriales |
+| FON-004 | IRAL  | GORE           | Inversión local       |
+
+## Territorio: Detalle Comunal
+
+### Provincia de Diguillín (9 comunas)
+
+| Comuna        | Características                                   |
+| :------------ | :------------------------------------------------ |
+| Chillán       | Capital regional, mayor población, IDH medio-alto |
+| Chillán Viejo | Conurbación con Chillán                           |
+| Bulnes        | Capital provincial                                |
+| El Carmen     | Rural, agrícola                                   |
+| Pemuco        | Alta pobreza (~19%)                               |
+| Pinto         | Turismo, precordillera                            |
+| Quillón       | Agrícola                                          |
+| San Ignacio   | IDH bajo (0.437)                                  |
+| Yungay        | Agrícola-forestal                                 |
+
+### Provincia de Itata (7 comunas)
+
+| Comuna     | Características        |
+| :--------- | :--------------------- |
+| Quirihue   | Capital provincial     |
+| Cobquecura | Alta ruralidad (71.5%) |
+| Coelemu    | Forestal               |
+| Ninhue     | Alta ruralidad (71.2%) |
+| Portezuelo | IDH muy bajo (0.444)   |
+| Ránquil    | Vitivinícola           |
+| Treguaco   | Rural                  |
+
+### Provincia de Punilla (5 comunas)
+
+| Comuna      | Características                    |
+| :---------- | :--------------------------------- |
+| San Carlos  | Capital provincial, segunda ciudad |
+| Coihueco    | Agrícola-ganadero                  |
+| Ñiquén      | Rural                              |
+| San Fabián  | Turismo, Cordillera                |
+| San Nicolás | Agrícola                           |
+
+## Catálogo de Procesos
+
+| ID       | Proceso                    | Tipo         | Frecuencia        | Actores Principales          | Duración Típica |
+| :------- | :------------------------- | :----------- | :---------------- | :--------------------------- | :-------------- |
+| PROC-001 | Ciclo IPR                  | Operativo    | Continuo          | DIPIR, Formuladores, CORE    | 12-36 meses     |
+| PROC-002 | Transferencia Competencias | Estratégico  | Eventual          | GORE, Com. Interministerial  | 6-24 meses      |
+| PROC-003 | Ciclo Presupuestario       | Anual        | Anual             | Gobernador, CORE, DIPRES     | 18 meses        |
+| PROC-004 | Planificación (ERD/PROT)   | Estratégico  | 10-20 años        | DIPLADE, CORE, COSOC         | 12-24 meses     |
+| PROC-005 | Fiscalización CORE         | Control      | Continuo          | CORE, Unidad Control, CGR    | Variable        |
+| PROC-006 | Sesión CORE                | Gobernanza   | Quincenal/Mensual | CORE, Gobernador, Secretaría | 3-6 horas       |
+| PROC-007 | Emergencia (SENAPRED)      | Contingencia | Eventual          | GORE, DPR, SENAPRED, CIES    | Variable        |
 
 ## Dominio IPR: Intervenciones Públicas Regionales (Modelo Unificado)
 
@@ -656,65 +738,57 @@ classDiagram
     PROYECTO --|> IPR : es un
     PROGRAMA --|> IPR : es un
 
-    %% Clases Específicas de Mecanismos (Poly-IPR)
-    class MEC_SNI {
+    %% Instancias / Mecanismos (Vías Operativas)
+    class MEC_SNI_GEN {
         <<Instance: Proyecto>>
-        +codigo_bip: String
-        +rate_mdsf: Enum(RS, FI, OT)
-        +etapa_bip: Enum(Perfil, Factibilidad, Ejecucion)
-        +sector: String
+        +Evaluador: MDSF
+        +Dictamen: RS
+        +Umbral: > 0 UTM
     }
-
-    class MEC_C33 {
-        <<Instance: Proyecto>>
-        +categoria: Enum(ANF, Conservacion, Emergencia)
-        +vida_util_residual: Integer
-        +informe_tecnico_favorable: Bool
-        +cofinanciamiento_anf: Percentage
-    }
-
+    
     class MEC_FRIL {
         <<Instance: Proyecto>>
-        +tipo_fril: Enum(Infraestructura, Emergencia)
-        +cumple_norma_5k_utm: Bool
-        +res_subdere: String
-        +plazo_licitacion: Integer
+        +Evaluador: GORE
+        +Dictamen: Aprob. Técnica
+        +Umbral: < 4.545 UTM
     }
-
+    
+    class MEC_C33 {
+        <<Instance: Proyecto>>
+        +Evaluador: MDSF/GORE
+        +Dictamen: AD
+        +Foco: Conservación/ANF
+    }
+    
     class MEC_GLOSA06 {
         <<Instance: Programa>>
-        +modelo_gestion: Enum(Ejecucion_Directa)
-        +fase_eval_central: Enum(Perfil, Diseno)
-        +rate_ses: Enum(RF, OT, FI)
-        +gasto_admin_max: Percentage
+        +Evaluador: DIPRES/SES
+        +Dictamen: RF
+        +Ejecutor: GORE
     }
-
+    
     class MEC_TRANSFER {
         <<Instance: Programa>>
-        +modelo_gestion: Enum(Transferencia)
-        +convenio_mandato: Bool
-        +itf_gore: Bool
-        +gasto_honorario_max: Percentage
+        +Evaluador: GORE
+        +Dictamen: ITF
+        +Ejecutor: Terceros Públicos
     }
 
     class MEC_FRPD {
         <<Instance: Mixto>>
-        +eje_fomento: String
-        +nivel_trl: Integer
-        +admisibilidad_tecnica: Bool
-        +innovacion_ctci: Bool
+        +Evaluador: ANID/CORFO
+        +Dictamen: Elegibilidad
+        +Fuente: Royalty Minero
     }
 
     class MEC_SUBV8 {
         <<Instance: Programa>>
-        +fondo_tematico: Enum(Cultura, Deporte, Social...)
-        +puntaje_evaluacion: Float
-        +asignacion_directa: Bool
-        +antiguedad_organizacion: Integer
+        +Evaluador: GORE (Comisión)
+        +Dictamen: Puntaje/Ranking
+        +Foco: OSC / Privados s/f lucro
     }
 
-    %% Relaciones de Implementación (Realization)
-    MEC_SNI ..|> PROYECTO : implementa
+    MEC_SNI_GEN ..|> PROYECTO : implementa
     MEC_FRIL ..|> PROYECTO : implementa
     MEC_C33 ..|> PROYECTO : implementa
     
@@ -752,7 +826,7 @@ stateDiagram-v2
         
         %% Track A: SNI General
         SwitchMecanismo --> TrackA_SNI: Proyecto >15k UTM / Estándar
-        state "Track A: SNI (MDSF)" as TrackA_SNI {
+        state "Track A: SNI (Mideso)" as TrackA_SNI {
            [*] --> EvaluacionMDSF
            EvaluacionMDSF --> RATE_RS: Rec. Satisfactoria
            EvaluacionMDSF --> RATE_OT: Observaciones
@@ -898,27 +972,16 @@ flowchart TB
     class TRACK_A,TRACK_B,TRACK_C,TRACK_D1,TRACK_D2,TRACK_E1,TRACK_E2 track
 ```
 
-### 5. Matriz de Umbrales Financieros y Reglas (2025-2026)
+### 5. Umbrales Críticos del Sistema (2025-2026)
 
-| Concepto               | Umbral / Regla   | Detalle / Excepción                                                                    |
-| :--------------------- | :--------------- | :------------------------------------------------------------------------------------- |
-| **Exención RS (FRIL)** | **< 4.545 UTM**  | Tope específico para Ñuble (otras regiones 5.000 UTM). Incluye 10% variacional.        |
-| **Licitación Pública** | **> 1.000 UTM**  | Obligatoria para Obras. Para Estudios/Servicios el umbral es > 500 UTM.                |
-| **Toma de Razón CGR**  | **> 2.500 UTM**  | Contratos de Obras/Servicios van a control de legalidad previo en Contraloría.         |
-| **Aprobación CORE**    | **> 7.000 UTM**  | Requiere voto de aprobación explícito. Bajo este monto, el Gobernador informa.         |
-| **Evaluación SNI**     | **> 15.000 UTM** | Proyectos mayores deben ir a MIDESO obligatoriamente (salvo excepciones C33/FRIL).     |
-| **Trato Directo**      | **< 10 UTM**     | Permitido por monto nimio. Entre 10-1000 UTM requiere causal fundada (ej. emergencia). |
-
-### 6. Matriz de Restricciones Operativas por Mecanismo
-
-| Mecanismo    | Restricción Clave                  | Consecuencia de Incumplimiento                                                                                 |
-| :----------- | :--------------------------------- | :------------------------------------------------------------------------------------------------------------- |
-| **FRIL**     | **Prohibición de Fraccionamiento** | Si se detecta división artificial para bajar de 4.545 UTM, **se rechaza** la admisibilidad.                    |
-| **FRIL**     | **Plazo Licitación** (90 días)     | Si no se licita en 90 días desde convenio, **se pierde la Recomendación Técnica** y debe reevaluarse.          |
-| **Glosa 06** | **Gastos Admin (5%)**              | Solo el 5% del presupuesto total puede destinarse a gastos de soporte administrativo del GORE.                 |
-| **Transfer** | **Honorarios (5%)**                | La entidad receptora no puede gastar más del 5% del traspaso en contratación de honorarios.                    |
-| **Subv 8%**  | **Inhabilidad Rendiciones**        | Entidades con rendiciones pendientes vencidas **NO pueden recibir nuevos fondos** (bloqueo total).             |
-| **C33**      | **Cofinanciamiento ANF (20%)**     | Entidad solicitante debe certificar aporte propio del 20% para vehículos/equipos. Sin esto es **Inadmisible**. |
+| Concepto               | Umbral (UTM/$) | Regla / Consecuencia                                        |
+| :--------------------- | :------------- | :---------------------------------------------------------- |
+| **Exención RS (FRIL)** | < 4.545 UTM    | Evaluación interna GORE (Track C).                          |
+| **Licitación Pública** | > 1.000 UTM    | Obligatoria para Obras. (500 UTM para Estudios).            |
+| **Toma de Razón CGR**  | > 2.500 UTM    | Contratos y Convenios van a Contraloría.                    |
+| **Aprobación CORE**    | > 7.000 UTM    | Requiere acuerdo explícito (Bajo este monto, solo informe). |
+| **Evaluación SNI**     | > 15.000 UTM   | Track A Obligatorio (salvo excepciones C33).                |
+| **Garantía Privados**  | > 1.000 UTM    | Pagaré/Boleta por el 5% al 100% según fondo.                |
 
 ## Vía SNI: Evaluación de Proyectos por MDSF
 
@@ -1452,7 +1515,7 @@ flowchart LR
 | **Cotizaciones**          | 1 por ítem (Equipamiento, Difusión, Producción). |
 | **Carta Respaldo**        | Permiso de uso de recinto (si aplica).           |
 
-> ⚠️ **Inadmisibilidad Inmediata**: Si el monto del formulario, la carta y el presupuesto NO coinciden exactamente.
+> ⚠️ **Inadmisibilidad Inmediata**: Si el monto del formulario, la carta y el presupuesto NO coinciden exactamante.
 
 ## Catálogo Unificado de Mecanismos IPR
 
@@ -1466,10 +1529,6 @@ flowchart LR
 | **Subvención 8%**     | Programa | < $15M       | GORE         | Concurso           | OSC/Municipio    | 8 meses         |
 | **FRPD (CTCI)**       | Mixto    | Variable     | ANID/CORFO   | Concurso           | Inst. Habilitada | ≤ 30 meses      |
 | **FRPD (Fomento)**    | Mixto    | Variable     | SNI/Glosa 06 | RS o RF            | Inst. Habilitada | ≤ 30 meses      |
-
----
-
-# V. Dominios de Soporte y Gestión
 
 ## Dominio Rendiciones de Cuentas
 
@@ -1753,7 +1812,7 @@ sequenceDiagram
 | :----------------------------- | :---------------- | :--------------------------- | :------------------------------------------------- |
 | Reasignación Interna           | No                | Resolución GORE              | —                                                  |
 | Creación Iniciativas FRPD      | No                | Resolución GORE              | —                                                  |
-| Suplementación Presupuestaria  | Sí                | Decreto Supremo + Resolución | —                                                  |
+| Suplemento Presupuestario      | Sí                | Decreto Supremo + Resolución | —                                                  |
 | Transferencia Otros Organismos | Sí                | Decreto Supremo + Resolución | —                                                  |
 | Emergencias (3% SUBINT)        | Sí                | Decreto Supremo + Resolución | Traspasable a Subsecretaría Interior               |
 | Emergencias (2% GORE)          | Sí                | Resolución GORE              | Uso interno GORE (coordinación SUBINT)             |
@@ -1805,9 +1864,117 @@ flowchart LR
 
 ## Catálogo Expandido de Actores
 
+### Actores de Gobernanza (LOC 19.175)
 
+| Entidad                   | Rol Fundamental (LOC GORE)                                                                                                               | Referencia |
+| :------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------- | :--------- |
+| **Gobernador Regional**   | Órgano **EJECUTIVO** del GORE. Preside el CORE. Elegido por sufragio universal.                                                          | Art. 23    |
+| **Delegado Presidencial** | Jefe del **GOBIERNO INTERIOR**. Representante natural e inmediato del Presidente. Supervisa servicios públicos no dependientes del GORE. | Art. 1-2   |
+| **Consejo Regional**      | Órgano **NORMATIVO, RESOLUTIVO Y FISCALIZADOR**. Hace efectiva la participación de la comunidad regional.                                | Art. 36    |
 
+### Dualidad: Gobierno Regional vs Gobierno Interior
 
+```mermaid
+flowchart LR
+    subgraph GORE["🏢 GOBIERNO REGIONAL (Administración Superior)"]
+        GR["Gobernador Regional<br/>(Ejecutivo)"]
+        CORE["Consejo Regional<br/>(Normativo/Fiscalizador)"]
+        GR <--> CORE
+    end
+
+    subgraph GOB_INT["🛡️ GOBIERNO INTERIOR (Orden y Seguridad)"]
+        DPR["Delegado Presidencial<br/>Regional"]
+        DPP["Delegados<br/>Provinciales"]
+        SEREMI["SEREMIS<br/>(Coordinación)"]
+        DPR --> DPP
+        DPR -.-> SEREMI
+    end
+    
+    GR -.->|Coordinación sin subordinación| DPR
+    GORE -.->|Competencias Transferidas| GOB_INT
+    
+    style GORE fill:#0f766e,stroke:#fff,color:#fff
+    style GOB_INT fill:#7c3aed,stroke:#fff,color:#fff
+```
+
+### Proceso de Transferencia de Competencias (LOC Art. 21 bis y ss.)
+
+> **Definición**: Traspaso de facultades, funciones o atribuciones desde ministerios/servicios al GORE. Puede ser **Temporal** (min 1 año) o **Definitiva**.
+
+```mermaid
+flowchart TB
+    INICIO((Inicio))
+    
+    subgraph SOLICITUD["1. SOLICITUD"]
+        OFICIO["De Oficio<br/>(Presidente)"]
+        GORE_SOL["A pedido del GORE<br/>(Gobernador + CORE)"]
+    end
+    
+    subgraph ANALISIS["2. ANÁLISIS TÉCNICO"]
+        COMITE["COMITÉ INTERMINISTERIAL<br/>(Preside: Interior / Sec: SUBDERE)"]
+        COMISION["COMISIÓN DE ESTUDIOS<br/>(Paritaria GORE-Nivel Central)"]
+    end
+    
+    subgraph DECISION["3. DECISIÓN"]
+        DECRETO["DECRETO SUPREMO<br/>(Ministerio Interior + Hacienda + SEGPRES)"]
+    end
+    
+    INICIO --> OFICIO & GORE_SOL
+    OFICIO & GORE_SOL --> COMITE
+    COMITE -->|Instruye| COMISION
+    COMISION -->|Informe fundado| COMITE
+    COMITE -->|Recomendación| DECRETO
+    
+    DECRETO --> TEMP["TRANSFERENCIA TEMPORAL<br/>(Revocable Adm.)"]
+    DECRETO --> DEF["TRANSFERENCIA DEFINITIVA<br/>(Revocable solo por Ley)"]
+```
+
+### Causales de Cese e Inhabilidades (LOC Art. 23 sexies)
+
+| Tipo                 | Causal Principal                                     | Autoridad que declara            |
+| :------------------- | :--------------------------------------------------- | :------------------------------- |
+| **Cese**             | Infracción grave probidad / Notable abandono deberes | **TRICEL** (Req. 1/3 Consejeros) |
+| **Cese**             | Incapacidad física/psíquica permanente               | **TRICEL**                       |
+| **Inhabilidad**      | Contratos/Juicios con el GORE > 200 UTM              | **TRICEL**                       |
+| **Incompatibilidad** | Simultaneidad con otros cargos públicos              | **De pleno derecho**             |
+
+### Gestión de Seguridad Pública (Ley 21.730)
+
+| Entidad                     | Rol Fundamental                                                         | Relación con GORE                     |
+| :-------------------------- | :---------------------------------------------------------------------- | :------------------------------------ |
+| **Ministerio de Seguridad** | Rectoría nacional, orden público y prevención.                          | Dicta Política Nacional.              |
+| **Delegado Presidencial**   | Coordinación operativa regional. Preside Consejo Regional de Seguridad. | Coordinación (sin subordinación).     |
+| **Consejo Reg. Seguridad**  | Instancia de coordinación interinstitucional.                           | **Gobernador** integra (Voz y Voto).  |
+| **SEREMI Seguridad**        | Representación desconcentrada del Ministerio.                           | Asesoría técnica a GORE y Municipios. |
+
+> **Nota Crítica**: El GORE financia (FNDR) pero **NO** dirige a las policías. Toda inversión debe alinearse a la Política Nacional de Seguridad Pública.
+
+### Ecosistema de Integridad y Transparencia
+
+| Norma          | Instrumento                      | Obligados GORE                        | Plazos Críticos                        |
+| :------------- | :------------------------------- | :------------------------------------ | :------------------------------------- |
+| **Ley 20.880** | **DIP** (Intereses y Patrimonio) | Gob, Cores, Jefes Div, Prof > Grado 3 | Al asumir, Marzo (anual), al cesar.    |
+| **Ley 20.880** | Mandato / Fideicomiso            | Gob, Cores (Patrimonio > 25.000 UF)   | 90 días desde asunción.                |
+| **Ley 20.730** | Registro de **Lobby**            | Gob, Cores, Jefes, Sec. CORE          | Registro mensual de audiencias/viajes. |
+| **Ley 19.653** | Deber de Abstención              | Todos los funcionarios                | Inmediato ante conflicto de interés.   |
+
+### Actores de Gobernanza y Gestión
+
+| Entidad                      | Rol Principal en Aprobaciones                                                                         | Fuente Normativa     |
+| :--------------------------- | :---------------------------------------------------------------------------------------------------- | :------------------- |
+| **Gobernador/a Regional**    | Firma ejecutiva final de actos adm. Propone presupuesto/planes al CORE. Repr. judicial/extrajudicial. | GORE-GUIA-ESTRUCTURA |
+| **Consejo Regional (CORE)**  | Aprueba presupuesto, ERD, FNDR, 8%, FRIL. Fiscaliza gestión del Gobernador.                           | GORE-GUIA-ESTRUCTURA |
+| **Administrador/a Regional** | Coordina gestión adm. interna. V°B° final pre-firma. Subrogancia legal.                               | GORE-GUIA-ESTRUCTURA |
+| **DIPIR**                    | Lidera presupuesto inversión. Evalúa técnicamente IDI. Monitorea avance físico-financiero.            | KB-GN-CTX-AUTH       |
+| **DIPLADE**                  | Lidera ERD. Secretaría ejecutiva coordinación gasto (ARI/PROPIR).                                     | KB-GN-CTX-AUTH       |
+| **DAF**                      | Ejecuta gestión financiera. Elabora convenios/pagos. Controla rendiciones. Registra en SIGFE.         | STS-KB-GN-RENDICION  |
+| **Asesoría Jurídica**        | Control legalidad interno actos/convenios. Redacta resoluciones/decretos.                             | KB-GN-015            |
+| **Unidad de Control**        | Control preventivo/posterior legalidad. Dependencia técnica CGR. Audita procesos.                     | STS-KB-GN-RENDICION  |
+| **Comité Directivo (CDR)**   | Filtro estratégico y político-técnico de IPR pre-evaluación.                                          | GORE-IPR-PHASE1      |
+| **Oficina de Partes**        | Punto único ingreso formal doc. externa. Asigna folio. Deriva.                                        | GORE-IPR-PHASE1      |
+| **RTF**                      | Referente Técnico-Financiero. Primera línea revisión proyectos.                                       | STS-KB-GN-RENDICION  |
+| **UCR**                      | Unidad Control Rendiciones (DAF). Control operativo rendiciones.                                      | KB-GN-020            |
+| **Ministro de Fe**           | Certifica autenticidad documentos en SISREC (Ejecutor).                                               | KB-GN-020            |
 
 ## Dominio Gestión Presupuestaria
 
@@ -1911,132 +2078,6 @@ flowchart TB
 | **PROPIR**      | Programa Público Inversión Regional            | Instrumento de monitoreo de ejecución anual                          |
 | **SIC**         | Saldo Inicial de Caja                          | Recursos remanentes del año anterior (requiere incorporación)        |
 | **Deuda Flot.** | Deuda Flotante                                 | Obligaciones devengadas no pagadas al 31/12                          |
-
-# VI. Catálogos y Referencias
-
-## 6.1 Catálogo de Actores y Gobernanza
-
-### Marco Legal de Actores (LOC 19.175)
-
-| Entidad                   | Rol Fundamental (LOC GORE)                                                                                                               | Referencia |
-| :------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------- | :--------- |
-| **Gobernador Regional**   | Órgano **EJECUTIVO** del GORE. Preside el CORE. Elegido por sufragio universal.                                                          | Art. 23    |
-| **Delegado Presidencial** | Jefe del **GOBIERNO INTERIOR**. Representante natural e inmediato del Presidente. Supervisa servicios públicos no dependientes del GORE. | Art. 1-2   |
-| **Consejo Regional**      | Órgano **NORMATIVO, RESOLUTIVO Y FISCALIZADOR**. Hace efectiva la participación de la comunidad regional.                                | Art. 36    |
-
-### Matriz Operativa de Actores y Gestión
-
-| Entidad                      | Rol Principal en Gestión y Aprobaciones                                                               | Fuente Normativa     |
-| :--------------------------- | :---------------------------------------------------------------------------------------------------- | :------------------- |
-| **Gobernador/a Regional**    | Firma ejecutiva final de actos adm. Propone presupuesto/planes al CORE. Repr. judicial/extrajudicial. | GORE-GUIA-ESTRUCTURA |
-| **Consejo Regional (CORE)**  | Aprueba presupuesto, ERD, FNDR, 8%, FRIL. Fiscaliza gestión del Gobernador.                           | GORE-GUIA-ESTRUCTURA |
-| **Administrador/a Regional** | Coordina gestión adm. interna. V°B° final pre-firma. Subrogancia legal.                               | GORE-GUIA-ESTRUCTURA |
-| **DIPIR**                    | Lidera presupuesto inversión. Evalúa técnicamente IDI. Monitorea avance físico-financiero.            | KB-GN-CTX-AUTH       |
-| **DIPLADE**                  | Lidera ERD. Secretaría ejecutiva coordinación gasto (ARI/PROPIR).                                     | KB-GN-CTX-AUTH       |
-| **DAF**                      | Ejecuta gestión financiera. Elabora convenios/pagos. Controla rendiciones. Registra en SIGFE.         | STS-KB-GN-RENDICION  |
-| **Asesoría Jurídica**        | Control legalidad interno actos/convenios. Redacta resoluciones/decretos.                             | KB-GN-015            |
-| **Unidad de Control**        | Control preventivo/posterior legalidad. Dependencia técnica CGR. Audita procesos.                     | STS-KB-GN-RENDICION  |
-| **Comité Directivo (CDR)**   | Filtro estratégico y político-técnico de IPR pre-evaluación.                                          | GORE-IPR-PHASE1      |
-| **Oficina de Partes**        | Punto único ingreso formal doc. externa. Asigna folio. Deriva.                                        | GORE-IPR-PHASE1      |
-| **RTF**                      | Referente Técnico-Financiero. Primera línea revisión proyectos.                                       | STS-KB-GN-RENDICION  |
-| **UCR**                      | Unidad Control Rendiciones (DAF). Control operativo rendiciones.                                      | KB-GN-020            |
-| **Ministro de Fe**           | Certifica autenticidad documentos en SISREC (Ejecutor).                                               | KB-GN-020            |
-
-### Dualidad y Transferencia de Competencias
-
-```mermaid
-flowchart LR
-    subgraph GORE["🏢 GOBIERNO REGIONAL (Administración Superior)"]
-        GR["Gobernador Regional<br/>(Ejecutivo)"]
-        CORE["Consejo Regional<br/>(Normativo/Fiscalizador)"]
-        GR <--> CORE
-    end
-
-    subgraph GOB_INT["🛡️ GOBIERNO INTERIOR (Orden y Seguridad)"]
-        DPR["Delegado Presidencial<br/>Regional"]
-        DPP["Delegados<br/>Provinciales"]
-        SEREMI["SEREMIS<br/>(Coordinación)"]
-        DPR --> DPP
-        DPR -.-> SEREMI
-    end
-    
-    GR -.->|Coordinación sin subordinación| DPR
-    GORE -.->|Competencias Transferidas| GOB_INT
-    
-    style GORE fill:#0f766e,stroke:#fff,color:#fff
-    style GOB_INT fill:#7c3aed,stroke:#fff,color:#fff
-```
-
-## 6.2 Divisiones Orgánicas
-
-| ID      | División                         | Jefatura                | Departamentos       |
-| :------ | :------------------------------- | :---------------------- | :------------------ |
-| DIV-001 | Planificación y Desarrollo       | Erick Solo de Zaldivar  | 1 Comité + 3 Deptos |
-| DIV-002 | Presupuesto e Inversión Regional | Juan Parada González    | 3                   |
-| DIV-003 | Desarrollo Social y Humano       | Tamara Valenzuela F.    | 2 + 5 unidades      |
-| DIV-004 | Fomento e Industria              | Raúl Súnico Galdames    | 5                   |
-| DIV-005 | Infraestructura y Transporte     | Cristián Quiroz Reyes   | 2 + 2 unidades      |
-| DIV-006 | Administración y Finanzas        | Alicia Contreras Vielma | 2 + 5 unidades      |
-
-## 6.3 Catálogo de Instrumentos y Fondos
-
-### Instrumentos de Gestión
-
-| ID      | Instrumento               | Tipo                     | Horizonte  |
-| :------ | :------------------------ | :----------------------- | :--------- |
-| INS-001 | ERD                       | Estratégico              | 10-20 años |
-| INS-002 | PROT                      | Territorial (Vinculante) | 10-15 años |
-| INS-003 | ZUBC                      | Borde Costero            | 10-15 años |
-| INS-004 | PLADETUR                  | Turístico                | 4-10 años  |
-| INS-005 | Presupuesto Regional      | Operativo                | Anual      |
-| INS-006 | Convenios de Programación | Contractual              | Variable   |
-| INS-007 | Ordenanzas Regionales     | Normativo                | Indefinido |
-
-### Fondos Regionales
-
-| ID      | Fondo | Administrador  | Destino principal     |
-| :------ | :---- | :------------- | :-------------------- |
-| FON-001 | FNDR  | GORE           | Inversión pública     |
-| FON-002 | FRPD  | GORE           | CTCI + Fomento        |
-| FON-003 | ISAR  | GORE/Sectorial | Programas sectoriales |
-| FON-004 | IRAL  | GORE           | Inversión local       |
-
-## 6.4 Territorio y Procesos
-
-### Detalle Comunal (Provincias)
-
-| Provincia     | Comunas Clave                | Características Destacadas                                                     |
-| :------------ | :--------------------------- | :----------------------------------------------------------------------------- |
-| **Diguillín** | Chillán, El Carmen, Yungay   | Capital regional, alta población, sectores agrícolas y forestales.             |
-| **Itata**     | Quirihue, Cobquecura, Ninhue | Capital provincial, alta ruralidad (>70%), potencial vitivinícola y turístico. |
-| **Punilla**   | San Carlos, San Fabián       | Segunda ciudad (San Carlos), turismo cordillerano, núcleos agrícolas.          |
-
-### Catálogo de Procesos Operativos
-
-| ID       | Proceso                  | Tipo        | Actores Principales          | Duración Típica |
-| :------- | :----------------------- | :---------- | :--------------------------- | :-------------- |
-| PROC-001 | Ciclo IPR                | Operativo   | DIPIR, Formuladores, CORE    | 12-36 meses     |
-| PROC-003 | Ciclo Presupuestario     | Anual       | Gobernador, CORE, DIPRES     | 18 meses        |
-| PROC-004 | Planificación (ERD/PROT) | Estratégico | DIPLADE, CORE, COSOC         | 12-24 meses     |
-| PROC-006 | Sesión CORE              | Gobernanza  | CORE, Gobernador, Secretaría | 3-6 horas       |
-
-## 6.5 Ecosistema Legal y Probidad
-
-### Inhabilidades y Cese (LOC Art. 23 sexies)
-
-| Tipo            | Causal Principal                             | Autoridad  |
-| :-------------- | :------------------------------------------- | :--------- |
-| **Cese**        | Infracción grave probidad / Abandono deberes | **TRICEL** |
-| **Inhabilidad** | Contratos/Juicios con el GORE > 200 UTM      | **TRICEL** |
-
-### Transparencia e Integridad (Ley 20.880 / 20.730)
-
-| Norma          | Instrumento                      | Obligados                    |
-| :------------- | :------------------------------- | :--------------------------- |
-| **Ley 20.880** | **DIP** (Intereses y Patrimonio) | Gob, Cores, Jefas/es Div.    |
-| **Ley 20.730** | Registro de **Lobby**            | Gob, Cores, Jefes, Sec. CORE |
-
----
 
 > **Modelo Omega GORE Ñuble v2.6.0**
 > **Fuentes integradas**: 16 KBs KODA (Intro, Organigrama, LOC GORE, GORE Ideal 4.0, Gestión IPR, Selector IPR, Guía IDI, Guía PPR, FRIL, C33, FRPD, Transferencia PPR, Subvención 8%, Rendiciones, Aprobaciones, Ley Presupuestos 2026)

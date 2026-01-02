@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder_Repository" prefer="public" xml:base="">
+        <uri id="Entry_gistCore" name="https://w3id.org/semanticarts/ontology/gistCore"
+            uri="gistCore14.0.0.ttl" />
+        <uri id="Entry_gistGoreNuble" name="https://w3id.org/gorenuble/ns/ontology/gist/"
+            uri="gistGoreNuble.ttl" />
+        <uri id="Entry_gistGoreNuble_Instances" name="https://w3id.org/gorenuble/ns/resource/"
+            uri="gistn-instances.ttl" />
+    </group>
+</catalog>

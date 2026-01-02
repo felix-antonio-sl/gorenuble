@@ -1,0 +1,535 @@
+@prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
+@prefix gistn: <https://w3id.org/gorenuble/ns/ontology/gist/> .
+@prefix gistnr: <https://w3id.org/gorenuble/ns/resource/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# =============================================================================
+# gistGoreNuble: Ontología GORE Ñuble - Extensión 100% gist
+# =============================================================================
+# Versión: 1.3.0
+# Fecha: 2025-12-30
+# Estrategia: Máxima reutilización de primitivos gist, mínima creación de clases
+# =============================================================================
+
+<https://w3id.org/gorenuble/ns/ontology/gist/> a owl:Ontology ;
+    rdfs:label "gistGoreNuble"@es ;
+    rdfs:comment "Extensión de gist para el dominio del Gobierno Regional de Ñuble, Chile."@es ;
+    owl:versionInfo "1.5.0" ;
+    owl:imports <https://w3id.org/semanticarts/ontology/gistCore> .
+
+# =============================================================================
+# CONSTELACIÓN 1: ORGANIZACIONES (100% gist)
+# =============================================================================
+# Usamos directamente gist:GovernmentOrganization para GORE
+# Divisiones como gist:Component de gist:System
+
+# =============================================================================
+# CONSTELACIÓN 2: LUGARES (100% gist:GeoRegion)
+# =============================================================================
+# Usamos gist:GeoRegion, gist:CountryGeoRegion
+
+# =============================================================================
+# CONSTELACIÓN 3: CARGOS Y CATEGORÍAS (100% gist)
+# =============================================================================
+# Clases de Cargos (subclases de gist:CatalogItem)
+
+gistn:GovernorPosition a owl:Class ;
+    rdfs:subClassOf gist:CatalogItem ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:disjointWith gistn:RegionalAdministratorPosition, gistn:DivisionHeadPosition, gistn:CouncilPosition ;
+    skos:definition "Cargo de elección popular que ejerce la función ejecutiva del GORE (LOC Art.23)."@es ;
+    skos:prefLabel "Cargo de Gobernador Regional"@es .
+
+gistn:RegionalAdministratorPosition a owl:Class ;
+    rdfs:subClassOf gist:CatalogItem ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:disjointWith gistn:GovernorPosition, gistn:DivisionHeadPosition, gistn:CouncilPosition ;
+    skos:definition "Cargo de confianza exclusiva del Gobernador para la gestión administrativa (LOC Art.68)."@es ;
+    skos:prefLabel "Cargo de Administrador Regional"@es .
+
+gistn:DivisionHeadPosition a owl:Class ;
+    rdfs:subClassOf gist:CatalogItem ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:disjointWith gistn:GovernorPosition, gistn:RegionalAdministratorPosition, gistn:CouncilPosition ;
+    skos:definition "Cargo directivo responsable de una división orgánica del GORE."@es ;
+    skos:prefLabel "Cargo de Jefe de División"@es .
+
+gistn:CouncilPosition a owl:Class ;
+    rdfs:subClassOf gist:CatalogItem ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:disjointWith gistn:GovernorPosition, gistn:RegionalAdministratorPosition, gistn:DivisionHeadPosition ;
+    skos:definition "Cargo electivo como integrante del Consejo Regional (CORE)."@es ;
+    skos:prefLabel "Cargo de Consejero Regional"@es .
+
+# --- Categorías de Régimen de Personal (gist:Category) ---
+gistn:PermanentStaffCategory a gist:Category ;
+    rdfs:label "Funcionario de Planta o Contrata"@es ;
+    rdfs:comment "Persona con relación estatutaria permanente con el GORE."@es .
+
+gistn:HonoraryStaffCategory a gist:Category ;
+    rdfs:label "Honorario"@es ;
+    rdfs:comment "Persona con contrato a suma alzada: entregables, boleta, informe de cumplimiento."@es .
+
+gistn:ElectedAuthorityCategory a gist:Category ;
+    rdfs:label "Autoridad Electa"@es ;
+    rdfs:comment "Gobernador Regional o Consejero Regional, electo por sufragio."@es .
+
+gistn:ExternalActorCategory a gist:Category ;
+    rdfs:label "Actor Externo"@es ;
+    rdfs:comment "Alcalde, Dirigente, ONG, u otro actor que interactúa con el GORE."@es .
+
+# --- Roles Funcionales (gist:Category) ---
+gistn:TechnicalFinancialReferentRole a gist:Category ;
+    rdfs:label "Referente Técnico-Financiero"@es ;
+    rdfs:comment "Rol operativo asignable para revisión técnica de proyectos."@es .
+
+gistn:TechnicalInspectorOfWorksRole a gist:Category ;
+    rdfs:label "Inspector Técnico de Obra"@es ;
+    rdfs:comment "Rol de supervisión de ejecución de proyectos de infraestructura."@es .
+
+gistn:AccountabilityControlUnitRole a gist:Category ;
+    rdfs:label "Unidad de Control de Rendiciones"@es ;
+    rdfs:comment "Rol de control operativo de rendiciones de cuentas."@es .
+
+# =============================================================================
+# CONSTELACIÓN 4: IPR - INTERVENCIÓN PÚBLICA REGIONAL (100% gist)
+# =============================================================================
+# IPR como gist:CatalogItem con gist:hasGoal
+# Mecanismos como gist:Category
+
+# --- Categorías de Mecanismo (gist:Category) ---
+gistn:SNIMechanism a gist:Category ;
+    rdfs:label "Sistema Nacional de Inversiones"@es ;
+    skos:prefLabel "SNI"@es ;
+    rdfs:comment "Proyecto con evaluación MDSF, dictamen RS."@es .
+
+gistn:FRILMechanism a gist:Category ;
+    rdfs:label "Fondo Regional de Iniciativa Local"@es ;
+    skos:prefLabel "FRIL"@es ;
+    rdfs:comment "Proyecto municipal ≤4.545 UTM, exento SNI."@es .
+
+gistn:Circular33Mechanism a gist:Category ;
+    rdfs:label "Circular 33"@es ;
+    skos:prefLabel "C33"@es ;
+    rdfs:comment "Procedimiento expedito para ANF, conservación, estudios."@es .
+
+gistn:Glosa06Mechanism a gist:Category ;
+    rdfs:label "Glosa 06"@es ;
+    rdfs:comment "Programa de ejecución directa GORE."@es .
+
+gistn:TransferPPRMechanism a gist:Category ;
+    rdfs:label "Transferencia PPR"@es ;
+    rdfs:comment "Programa ejecutado por terceros públicos."@es .
+
+gistn:Subsidy8PercentMechanism a gist:Category ;
+    rdfs:label "Subvención 8%"@es ;
+    rdfs:comment "Fondo concursable para OSC."@es .
+
+gistn:FRPDMechanism a gist:Category ;
+    rdfs:label "Fondo Regional para la Productividad y el Desarrollo"@es ;
+    skos:prefLabel "FRPD"@es ;
+    rdfs:comment "Royalty Minero para CTCI y fomento."@es .
+
+# --- Categorías de Tipo IPR (gist:Category) ---
+gistn:ProjectType a gist:Category ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    skos:definition "Categoría para IPR que crea activo físico (Capital, Subtítulo 31/33)."@es ;
+    skos:prefLabel "Tipo Proyecto"@es .
+
+gistn:ProgramType a gist:Category ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    skos:definition "Categoría para IPR de gasto corriente (Subtítulo 24)."@es ;
+    skos:prefLabel "Tipo Programa"@es .
+
+# --- Clases IPR: Proyecto y Programa (owl:equivalentClass) ---
+gistn:IPR a owl:Class ;
+    rdfs:subClassOf gist:CatalogItem ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    skos:definition "Intervención Pública Regional: iniciativa de inversión o programa gestionada por el GORE."@es ;
+    skos:prefLabel "IPR"@es .
+
+gistn:Proyecto a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            gistn:IPR
+            [ a owl:Restriction ;
+              owl:onProperty gist:isCategorizedBy ;
+              owl:hasValue gistn:ProjectType ]
+        )
+    ] ;
+    owl:disjointWith gistn:Programa ;
+    skos:definition "IPR que crea activo físico durable (Capital, Subtítulos 31/33)."@es ;
+    skos:prefLabel "Proyecto"@es .
+
+gistn:Programa a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            gistn:IPR
+            [ a owl:Restriction ;
+              owl:onProperty gist:isCategorizedBy ;
+              owl:hasValue gistn:ProgramType ]
+        )
+    ] ;
+    owl:disjointWith gistn:Proyecto ;
+    skos:definition "IPR de gasto corriente, no crea activo físico (Subtítulo 24)."@es ;
+    skos:prefLabel "Programa"@es .
+
+# --- Categorías de Fase IPR (gist:Category) con cadena gist:precedes ---
+gistn:IdeaPhase a gist:Category ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    gist:precedes gistn:AdmissibilityPhase ;
+    skos:definition "Fase inicial de identificación y formulación de la iniciativa."@es ;
+    skos:prefLabel "F0: Formulación"@es .
+
+gistn:AdmissibilityPhase a gist:Category ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    gist:precedes gistn:EvaluationPhase ;
+    skos:definition "Fase de verificación de requisitos mínimos (The Gatekeeper)."@es ;
+    skos:prefLabel "F1: Admisibilidad"@es .
+
+gistn:EvaluationPhase a gist:Category ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    gist:precedes gistn:PrioritizationAssignmentPhase ;
+    skos:definition "Fase de evaluación técnica/económica según mecanismo (Poly-Switch)."@es ;
+    skos:prefLabel "F2: Evaluación"@es .
+
+gistn:PrioritizationAssignmentPhase a gist:Category ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    gist:precedes gistn:FormalizationExecutionPhase ;
+    skos:definition "Fase de priorización política y asignación presupuestaria CORE."@es ;
+    skos:prefLabel "F3: Priorización & Asignación"@es .
+
+gistn:FormalizationExecutionPhase a gist:Category ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    gist:precedes gistn:ClosurePhase ;
+    skos:definition "Fase de convenio, licitación y ejecución de obras/servicios."@es ;
+    skos:prefLabel "F4: Formalización & Ejecución"@es .
+
+gistn:ClosurePhase a gist:Category ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    skos:definition "Fase final de recepción, rendición y cierre administrativo."@es ;
+    skos:prefLabel "F5: Cierre"@es .
+
+# --- Categorías de Dictamen (gist:Category) ---
+gistn:SatisfactoryRecommendationDictamen a gist:Category ;
+    rdfs:label "Recomendación Satisfactoria"@es ;
+    skos:prefLabel "RS"@es .
+
+gistn:MissingInformationDictamen a gist:Category ;
+    rdfs:label "Falta Información"@es ;
+    skos:prefLabel "FI"@es .
+
+gistn:TechnicallyObservedDictamen a gist:Category ;
+    rdfs:label "Observado Técnicamente"@es ;
+    skos:prefLabel "OT"@es .
+
+gistn:FavorableRecommendationDictamen a gist:Category ;
+    rdfs:label "Recomendación Favorable"@es ;
+    skos:prefLabel "RF"@es .
+
+gistn:FavorableTechnicalReportDictamen a gist:Category ;
+    rdfs:label "Informe Técnico Favorable"@es ;
+    skos:prefLabel "ITF"@es .
+
+# =============================================================================
+# CONSTELACIÓN 5: FONDOS Y CUENTAS (100% gist)
+# =============================================================================
+# Fondos como gist:Account
+
+gistn:FNDRAccount a gist:Account ;
+    rdfs:label "Fondo Nacional de Desarrollo Regional"@es ;
+    skos:prefLabel "FNDR"@es .
+
+gistn:FRPDAccount a gist:Account ;
+    rdfs:label "Fondo Regional para la Productividad y el Desarrollo"@es ;
+    skos:prefLabel "FRPD"@es .
+
+gistn:ISARAccount a gist:Account ;
+    rdfs:label "Inversión Sectorial de Asignación Regional"@es ;
+    skos:prefLabel "ISAR"@es .
+
+# =============================================================================
+# CONSTELACIÓN 6: INCUMBENCIAS Y RELACIONES TEMPORALES (100% gist)
+# =============================================================================
+# Patrón: gist:TemporalRelation para capturar ocupación de cargos con vigencia
+
+# --- Clases de Incumbencia (subclases de gist:TemporalRelation) ---
+gistn:Incumbency a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            gist:TemporalRelation
+            [ a owl:Restriction ;
+              owl:onProperty gistn:occupiesPosition ;
+              owl:someValuesFrom gist:CatalogItem ]
+            [ a owl:Restriction ;
+              owl:onProperty gistn:isHeldBy ;
+              owl:someValuesFrom gist:Person ]
+        )
+    ] ;
+    owl:disjointWith gistn:ServiceCommission, gistn:RoleAssignment ;
+    skos:definition "Ocupación temporal de un cargo formal por una persona."@es ;
+    skos:prefLabel "Incumbencia"@es .
+
+gistn:Subrogation a owl:Class ;
+    rdfs:subClassOf gistn:Incumbency ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    skos:definition "Ocupación temporal de un cargo por ausencia del titular."@es ;
+    skos:prefLabel "Subrogancia"@es .
+
+gistn:ServiceCommission a owl:Class ;
+    rdfs:subClassOf gist:TemporalRelation ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:disjointWith gistn:Incumbency, gistn:RoleAssignment ;
+    skos:definition "Desempeño temporal en otra unidad u organización."@es ;
+    skos:prefLabel "Comisión de Servicio"@es .
+
+gistn:RoleAssignment a owl:Class ;
+    rdfs:subClassOf gist:TemporalRelation ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:disjointWith gistn:Incumbency, gistn:ServiceCommission ;
+    skos:definition "Asignación temporal de un rol funcional (RTF, ITO, UCR)."@es ;
+    skos:prefLabel "Asignación de Rol"@es .
+
+# --- Propiedades para Incumbencias ---
+gistn:occupiesPosition a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:subPropertyOf gist:hasParticipant ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    rdfs:domain gistn:Incumbency ;
+    rdfs:range gist:CatalogItem ;
+    skos:definition "Vincula una incumbencia con el cargo que se ocupa."@es ;
+    skos:prefLabel "ocupa cargo"@es .
+
+gistn:isHeldBy a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:subPropertyOf gist:hasParticipant ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    rdfs:domain gistn:Incumbency ;
+    rdfs:range gist:Person ;
+    skos:definition "Vincula una incumbencia con la persona que la ejerce."@es ;
+    skos:prefLabel "es ejercido por"@es .
+
+gistn:hasRole a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:isCategorizedBy ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    rdfs:domain gistn:RoleAssignment ;
+    rdfs:range gist:Category ;
+    skos:definition "Vincula una asignación de rol con la categoría del rol."@es ;
+    skos:prefLabel "tiene rol"@es .
+
+# =============================================================================
+# CONSTELACIÓN 7: EVENTOS Y TAREAS (100% gist)
+# =============================================================================
+# Sesiones, reuniones, evaluaciones como gist:Event o gist:Task
+
+gistn:CORESession a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            gist:Event
+            [ a owl:Restriction ;
+              owl:onProperty gist:hasParticipant ;
+              owl:someValuesFrom gist:GovernmentOrganization ]
+        )
+    ] ;
+    owl:disjointWith gistn:Meeting ;
+    skos:definition "Sesión del Consejo Regional para votación de acuerdos."@es ;
+    skos:prefLabel "Sesión CORE"@es .
+
+gistn:Meeting a owl:Class ;
+    rdfs:subClassOf gist:Event,
+        [ a owl:Restriction ;
+          owl:onProperty gist:hasParticipant ;
+          owl:someValuesFrom [ a owl:Class ;
+              owl:unionOf ( gist:Person gist:Organization ) ] ] ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:disjointWith gistn:CORESession ;
+    skos:definition "Encuentro formal entre actores (kick-off, coordinación, etc.).  Requiere al menos un participante."@es ;
+    skos:prefLabel "Reunión"@es .
+
+gistn:IPREvaluation a owl:Class ;
+    rdfs:subClassOf gist:Task ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:disjointWith gistn:PaymentMilestone ;
+    skos:definition "Tarea de evaluación técnica/económica de una IPR."@es ;
+    skos:prefLabel "Evaluación de IPR"@es .
+
+gistn:PaymentMilestone a owl:Class ;
+    rdfs:subClassOf gist:Task ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:disjointWith gistn:IPREvaluation, gistn:Bidding ;
+    skos:definition "Hito que gatilla devengo, vinculado a avance físico."@es ;
+    skos:prefLabel "Estado de Pago"@es .
+
+gistn:Bidding a owl:Class ;
+    rdfs:subClassOf gist:Task ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:disjointWith gistn:IPREvaluation, gistn:PaymentMilestone ;
+    skos:definition "Proceso de licitación pública o privada para contratación de obras/servicios."@es ;
+    skos:prefLabel "Licitación"@es .
+
+gistn:ConstructionContract a owl:Class ;
+    rdfs:subClassOf gist:Contract ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    skos:definition "Contrato de ejecución de obras civiles o servicios asociado a una IPR."@es ;
+    skos:prefLabel "Contrato de Obras"@es .
+
+# =============================================================================
+# CONSTELACIÓN 8: ACUERDOS Y ARTEFACTOS (100% gist)
+# =============================================================================
+# Convenios, actas, documentos como gist:Agreement, gist:Contract, gist:Artifact
+
+gistn:TransferAgreement a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:equivalentClass [
+        a owl:Class ;
+        owl:intersectionOf (
+            gist:Contract
+            [ a owl:Restriction ;
+              owl:onProperty gistn:isBasedOnIPR ;
+              owl:someValuesFrom gist:CatalogItem ]
+        )
+    ] ;
+    skos:definition "Acuerdo legal para transferir recursos a un ejecutor basado en una IPR."@es ;
+    skos:prefLabel "Convenio de Transferencia"@es .
+
+gistn:Minutes a owl:Class ;
+    rdfs:subClassOf gist:Agreement ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:disjointWith gistn:ApprovalResolution ;
+    skos:definition "Documento que registra acuerdos y compromisos de una reunión."@es ;
+    skos:prefLabel "Acta"@es .
+
+gistn:Rendition a owl:Class ;
+    rdfs:subClassOf gist:Commitment ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    skos:definition "Compromiso de justificar uso de recursos transferidos (Res.30 CGR)."@es ;
+    skos:prefLabel "Rendición de Cuentas"@es .
+
+gistn:ApprovalResolution a owl:Class ;
+    rdfs:subClassOf gist:Agreement ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    owl:disjointWith gistn:Minutes ;
+    skos:definition "Acto administrativo que aprueba una IPR o convenio."@es ;
+    skos:prefLabel "Resolución Aprobatoria"@es .
+
+# --- Documentos/Artefactos ---
+gistn:ComplianceReport a owl:Class ;
+    rdfs:subClassOf gist:Artifact ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    skos:definition "Entregable para devengar pago a honorario."@es ;
+    skos:prefLabel "Informe de Cumplimiento"@es .
+
+gistn:Boleta a owl:Class ;
+    rdfs:subClassOf gist:Artifact ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    skos:definition "Documento tributario para pago a persona honorario."@es ;
+    skos:prefLabel "Boleta de Honorarios"@es .
+
+gistn:LandDeliveryDocument a owl:Class ;
+    rdfs:subClassOf gist:Artifact ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    skos:definition "Documento que formaliza inicio de obras."@es ;
+    skos:prefLabel "Acta de Entrega de Terreno"@es .
+
+# --- Propiedades de Vinculación ---
+gistn:producesArtifact a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:produces ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    rdfs:domain gist:Event ;
+    rdfs:range gist:Artifact ;
+    skos:definition "Un evento produce un artefacto documental."@es ;
+    skos:prefLabel "produce artefacto"@es .
+
+gistn:isBasedOnIPR a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:isBasedOn ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    rdfs:domain gistn:TransferAgreement ;
+    rdfs:range gist:CatalogItem ;
+    skos:definition "Vincula convenio con la IPR que lo origina."@es ;
+    skos:prefLabel "basado en IPR"@es .
+
+gistn:hasDictamen a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:subPropertyOf gist:isCategorizedBy ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    rdfs:domain gistn:IPREvaluation ;
+    rdfs:range gist:Category ;
+    skos:definition "Resultado de evaluación (RS, FI, OT, RF, ITF)."@es ;
+    skos:prefLabel "tiene dictamen"@es .
+
+gistn:hasBIPCode a owl:DatatypeProperty, owl:FunctionalProperty ;
+    rdfs:subPropertyOf gist:uniqueText ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    rdfs:domain gistn:IPR ;
+    rdfs:range xsd:string ;
+    skos:definition "Código único BIP (Banco Integrado de Proyectos) asignado por MIDESO."@es ;
+    skos:prefLabel "código BIP"@es .
+
+gistn:hasMecanismo a owl:ObjectProperty, owl:FunctionalProperty ;
+    rdfs:subPropertyOf gist:isCategorizedBy ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    rdfs:domain gistn:IPR ;
+    rdfs:range gist:Category ;
+    skos:definition "Mecanismo de financiamiento de la IPR (SNI, FRIL, C33, Glosa06, etc.)."@es ;
+    skos:prefLabel "tiene mecanismo"@es .
+
+gistn:hasTotalAmount a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:hasMagnitude ;
+    rdfs:isDefinedBy <https://w3id.org/gorenuble/ns/ontology/gist/> ;
+    rdfs:domain gistn:IPR ;
+    rdfs:range gist:Magnitude ;
+    skos:definition "Monto total de inversión de la IPR."@es ;
+    skos:prefLabel "monto total"@es .
+
+# =============================================================================
+# CONSTELACIÓN 9: FLUJOS DE TRABAJO (100% gist)
+# =============================================================================
+
+# --- Categorías de Estado de Workflow (gist:Category) ---
+gistn:WorkflowStatus a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:label "Estado de Workflow"@es .
+
+gistn:EnteredStatus a gistn:WorkflowStatus ; skos:prefLabel "Ingresado"@es .
+gistn:InEvaluationStatus a gistn:WorkflowStatus ; skos:prefLabel "En Evaluación"@es .
+gistn:RecommendedStatus a gistn:WorkflowStatus ; skos:prefLabel "Recomendado (RS/FI)"@es .
+gistn:PrioritizedStatus a gistn:WorkflowStatus ; skos:prefLabel "Priorizado"@es .
+gistn:ApprovedByCOREStatus a gistn:WorkflowStatus ; skos:prefLabel "Aprobado por CORE"@es .
+gistn:InProgressStatus a gistn:WorkflowStatus ; skos:prefLabel "En Ejecución"@es .
+gistn:ClosedStatus a gistn:WorkflowStatus ; skos:prefLabel "Cerrado"@es .
+gistn:ApprovedStatus a gistn:WorkflowStatus ; skos:prefLabel "Aprobado"@es . # Added for Rendition example
+
+# --- El Proceso de IPR como gist:Task ---
+gistn:IPRLifecycle a owl:Class ;
+    rdfs:subClassOf gist:Task ;
+    rdfs:label "Ciclo de Vida de IPR"@es ;
+    rdfs:comment "Conjunto de tareas y hitos para la concreción de una IPR."@es .
+
+# --- Transacciones Financieras (gist:Transaction) ---
+gistn:TransferPayment a owl:Class ;
+    rdfs:subClassOf gist:Transaction ;
+    rdfs:label "Giro de Transferencia"@es ;
+    rdfs:comment "Movimiento de fondos desde el GORE al ejecutor."@es .
+
+# --- Propiedades de Rendición ---
+gistn:isRenderedBy a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:isRelatedTo ;
+    rdfs:label "es rendido por"@es ;
+    rdfs:domain gistn:TransferPayment ;
+    rdfs:range gistn:Rendition ;
+    rdfs:comment "Vincula un pago con su correspondiente rendición de cuentas."@es .
+
+# =============================================================================
+# FIN DE gistGoreNuble.ttl - Versión 1.5.0 (Completa y 100% gist)
+# =============================================================================
+
+
