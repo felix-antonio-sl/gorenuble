@@ -1,0 +1,943 @@
+@prefix gnub: <https://gorenuble.gob.cl/ns/ontology/> .
+@prefix gnubd: <https://gorenuble.gob.cl/ns/data/> .
+@prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# =============================================================================
+# DECLARACIÓN DE LA ONTOLOGÍA
+# =============================================================================
+
+<https://gorenuble.gob.cl/ontology/goreNubleOntology>
+    a owl:Ontology ;
+    owl:imports <https://w3id.org/semanticarts/ontology/gistCore14.0.0> ;
+    owl:versionIRI <https://gorenuble.gob.cl/ontology/goreNubleOntology1.0.0> ;
+    skos:definition "Esquema conceptual unificado (TBox) del Gobierno Regional de Ñuble. Consolida modelos organizacionales, legales y de gestión de inversiones, extendiendo gist 14.0."@es ;
+    skos:prefLabel "Ontología GORE Ñuble (Core)"@es ;
+    .
+
+# =============================================================================
+# CLASES DE DOMINIO (Extensiones en el espacio de nombres gnub:)
+# =============================================================================
+
+gnub:Division
+    a owl:Class ;
+    rdfs:subClassOf gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Unidad organizacional de primer nivel dentro del GORE, con responsabilidad sobre un área funcional específica."@es ;
+    skos:prefLabel "División"@es ;
+    skos:example "División de Planificación y Desarrollo (DIPLADE), División de Presupuesto e Inversión Regional (DIPIR)."@es ;
+    .
+
+gnub:Department
+    a owl:Class ;
+    rdfs:subClassOf gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Unidad organizacional de segundo nivel, subordinada a una División."@es ;
+    skos:prefLabel "Departamento"@es ;
+    .
+
+gnub:Unit
+    a owl:Class ;
+    rdfs:subClassOf gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Unidad organizacional de tercer nivel, subordinada a un Departamento o División."@es ;
+    skos:prefLabel "Unidad"@es ;
+    .
+
+gnub:StaffUnit
+    a owl:Class ;
+    rdfs:subClassOf gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Unidad de apoyo o staff, con funciones transversales (ej. Gabinete, Jurídica, Auditoría)."@es ;
+    skos:prefLabel "Unidad de Staff"@es ;
+    .
+
+gnub:AdvisoryBody
+    a owl:Class ;
+    rdfs:subClassOf gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Órgano asesor o consultivo sin jerarquía lineal (ej. COSOC, Comité CTCI)."@es ;
+    skos:prefLabel "Órgano Asesor"@es ;
+    .
+
+# =============================================================================
+# SUBCLASES DE CATEGORÍA (para taxonomías flexibles)
+# =============================================================================
+
+gnub:PositionType
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Tipo de cargo o posición dentro de la estructura organizacional."@es ;
+    skos:prefLabel "Tipo de Cargo"@es ;
+    .
+
+gnub:OrganizationalUnitType
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Tipo de unidad organizacional (ej. División, Departamento, Unidad)."@es ;
+    skos:prefLabel "Tipo de Unidad Organizacional"@es ;
+    .
+
+# =============================================================================
+# CLASES FUNCIONALES (LOC GORE Art. 16-20)
+# =============================================================================
+
+gnub:GOREFunction
+    a owl:Class ;
+    rdfs:subClassOf gist:Function ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Función del Gobierno Regional según LOC GORE: planificar, financiar, ejecutar, coordinar, normar."@es ;
+    skos:prefLabel "Función del GORE"@es ;
+    .
+
+gnub:PlanningInstrument
+    a owl:Class ;
+    rdfs:subClassOf gist:Specification ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Instrumento de planificación regional vinculante (ERD, PROT, ARI, etc.)."@es ;
+    skos:prefLabel "Instrumento de Planificación"@es ;
+    skos:note "Modela documentos normativos/especificaciones que guían la planificación territorial."@es ;
+    .
+
+gnub:RegionalFund
+    a owl:Class ;
+    rdfs:subClassOf gist:Account ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Fondo de inversión o financiamiento administrado por el GORE."@es ;
+    skos:prefLabel "Fondo Regional"@es ;
+    .
+
+gnub:CompetencyType
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Tipo de competencia administrativa transferible (temporal o definitiva)."@es ;
+    skos:prefLabel "Tipo de Competencia"@es ;
+    .
+
+gnub:LegalMandate
+    a owl:Class ;
+    rdfs:subClassOf gist:Requirement ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Obligación, atribución o deber impuesto por una ley o norma jurídica a un órgano o autoridad."@es ;
+    skos:prefLabel "Mandato Legal"@es ;
+    skos:example "La obligación del Gobernador de someter al CORE el presupuesto regional."@es ;
+    .
+
+gnub:LegalDocument
+    a owl:Class ;
+    rdfs:subClassOf gist:Content ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Cuerpo normativo formal (ley, decreto, reglamento) que establece obligaciones y derechos."@es ;
+    skos:prefLabel "Documento Legal"@es ;
+    skos:example "DFL 1-19.175 (LOC GORE), Ley 21.033 (Creación Región de Ñuble)."@es ;
+    .
+
+gnub:LegalArticle
+    a owl:Class ;
+    rdfs:subClassOf gist:Content ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Artículo específico dentro de un documento legal que contiene una o más disposiciones normativas."@es ;
+    skos:prefLabel "Artículo Legal"@es ;
+    .
+
+# =============================================================================
+# SUBCLASES DE FUNCIONES GORE (LOC GORE Art. 17-20)
+# =============================================================================
+
+gnub:OrdenamientoTerritorialFunction
+    a owl:Class ;
+    rdfs:subClassOf gnub:GOREFunction ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Funciones relacionadas con la organización del territorio (Art. 17 LOC)."@es ;
+    skos:prefLabel "Función de Ordenamiento Territorial"@es ;
+    .
+
+gnub:FomentoProductivoFunction
+    a owl:Class ;
+    rdfs:subClassOf gnub:GOREFunction ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Funciones relacionadas con el fomento productivo y la innovación (Art. 18 LOC)."@es ;
+    skos:prefLabel "Función de Fomento Productivo"@es ;
+    .
+
+gnub:DesarrolloSocialFunction
+    a owl:Class ;
+    rdfs:subClassOf gnub:GOREFunction ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Funciones relacionadas con el desarrollo social y cultural (Art. 19 LOC)."@es ;
+    skos:prefLabel "Función de Desarrollo Social"@es ;
+    .
+
+gnub:GestionInternaFunction
+    a owl:Class ;
+    rdfs:subClassOf gnub:GOREFunction ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Atribuciones de gestión administrativa y financiera interna (Art. 20 LOC)."@es ;
+    skos:prefLabel "Función de Gestión Interna"@es ;
+    .
+
+gnub:BudgetaryRule
+    a owl:Class ;
+    rdfs:subClassOf gnub:LegalMandate ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Regla operativa definida en la Ley de Presupuestos o normativa financiera que restringe el uso de recursos."@es ;
+    skos:prefLabel "Regla Presupuestaria"@es ;
+    .
+
+gnub:BudgetSubtitle
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Clasificador presupuestario del gasto público chileno (Subtítulo 21-33)."@es ;
+    skos:prefLabel "Subtítulo Presupuestario"@es ;
+    .
+
+gnub:BudgetPartida
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Nivel superior de la clasificación institucional del presupuesto (ej. Partida 31)."@es ;
+    skos:prefLabel "Partida Presupuestaria"@es ;
+    .
+
+gnub:BudgetChapter
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Desagregación institucional de una Partida (ej. Capítulo 01)."@es ;
+    skos:prefLabel "Capítulo Presupuestario"@es ;
+    .
+
+gnub:BudgetProgram
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "División presupuestaria base asignada a un servicio o propósito específico (ej. Programa 19: GORE Ñuble)."@es ;
+    skos:prefLabel "Programa Presupuestario"@es ;
+    .
+
+gnub:GlossType
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Tipo de glosa presupuestaria según su naturaleza y estructura."@es ;
+    skos:prefLabel "Tipo de Glosa"@es ;
+    .
+
+# =============================================================================
+# PROPIEDADES DE DOMINIO - IPR y Finanzas (GIST-Aligned)
+# =============================================================================
+
+# NOTA: gnub:createsAsset y gnub:hasBudgetSubtitle eliminadas.
+# Usar gist:isCategorizedBy con gnub:BudgetSubtitle y subclases de gnub:IPR.
+
+gnub:maxExecutionMonths
+    a owl:DatatypeProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Plazo máximo de ejecución en meses permitido por la normativa del mecanismo."@es ;
+    skos:prefLabel "Meses Máximos Ejecución"@es ;
+    skos:scopeNote "Excepción pragmática: valor simple sin reificar como gist:Magnitude dado que no hay razonamiento dimensional requerido."@es ;
+    .
+
+gnub:allowsPersonnelExpenses
+    a owl:DatatypeProperty ;
+    rdfs:domain gnub:BudgetaryRule ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Indica si la regla permite imputar gastos en personal."@es ;
+    skos:prefLabel "Permite Gastos Personal"@es ;
+    .
+
+gnub:requiresCoFinancing
+    a owl:DatatypeProperty ;
+    rdfs:domain gnub:BudgetaryRule ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Indica si la regla exige cofinanciamiento por parte de la entidad postulante."@es ;
+    skos:prefLabel "Requiere Cofinanciamiento"@es ;
+    .
+
+# NOTA: gnub:adminCostCap eliminada. Usar gist:hasMagnitude con gist:Aspect _Aspect_AdminCostCap.
+
+# =============================================================================
+# CLASES DEL DOMINIO IPR (Intervención Pública Regional)
+# =============================================================================
+
+gnub:IPR
+    a owl:Class ;
+    rdfs:subClassOf gist:Project ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Intervención Pública Regional: término paraguas para cualquier acción (proyecto, programa, estudio) financiada por el GORE para objetivos de desarrollo."@es ;
+    skos:prefLabel "Intervención Pública Regional"@es ;
+    skos:altLabel "IPR"@es ;
+    .
+
+gnub:IPRProject
+    a owl:Class ;
+    rdfs:subClassOf gnub:IPR ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "IPR de gasto de capital (Subtítulo 31 o 33) orientada a crear, ampliar, reponer o mejorar activos físicos o intangibles de larga duración."@es ;
+    skos:prefLabel "Proyecto de Inversión"@es ;
+    skos:altLabel "IDI"@es ;
+    owl:disjointWith gnub:InvestmentProgram, gnub:OperationalProgram, gnub:BasicStudy ;
+    .
+
+gnub:InvestmentProgram
+    a owl:Class ;
+    rdfs:subClassOf gnub:IPR ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Conjunto de proyectos de inversión (Subt. 31 Item 03) articulados bajo un propósito común y duración finita."@es ;
+    skos:prefLabel "Programa de Inversión (SNI)"@es ;
+    skos:altLabel "ProgInv"@es ;
+    owl:disjointWith gnub:IPRProject, gnub:OperationalProgram, gnub:BasicStudy ;
+    .
+
+gnub:OperationalProgram
+    a owl:Class ;
+    rdfs:subClassOf gnub:IPR ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "IPR de gasto corriente (Subtítulo 24) orientada a entregar servicios o prestaciones continuas a una población objetivo (PPR)."@es ;
+    skos:prefLabel "Programa Operacional"@es ;
+    skos:altLabel "PPR"@es ;
+    owl:disjointWith gnub:IPRProject, gnub:InvestmentProgram, gnub:BasicStudy ;
+    .
+
+gnub:BasicStudy
+    a owl:Class ;
+    rdfs:subClassOf gnub:IPR ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Iniciativa de inversión (Subt. 31 Item 01) destinada a generar información para decisiones futuras (diagnósticos, planes)."@es ;
+    skos:prefLabel "Estudio Básico"@es ;
+    owl:disjointWith gnub:IPRProject, gnub:InvestmentProgram, gnub:OperationalProgram ;
+    .
+
+gnub:ProgramComponent
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ; 
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Bien o servicio directo (producto) entregado a la población objetivo como parte de un Programa Operacional."@es ;
+    skos:prefLabel "Componente de Programa"@es ;
+    .
+
+gnub:CTCIInitiative
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Categorización temática CTCI que aplica a proyectos y programas de Ciencia, Tecnología, Conocimiento e Innovación."@es ;
+    skos:prefLabel "Categoría CTCI"@es ;
+    .
+
+gnub:ANFAcquisition
+    a owl:Class ;
+    rdfs:subClassOf gnub:IPRProject ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Adquisición de Activos No Financieros (Vehículos, Equipos) vía Circular 33."@es ;
+    skos:prefLabel "Adquisición ANF"@es ;
+    .
+
+gnub:ApplicantInstitution
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Tipo de entidad habilitada para postular a fondos (ej. Municipalidad, ONG, Univ)."@es ;
+    skos:prefLabel "Institución Postulante"@es ;
+    .
+
+gnub:FinancingMechanism
+    a owl:Class ;
+    rdfs:subClassOf gist:CatalogItem ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Especificación de la vía de aplicación y evaluación de una IPR. Define proceso, criterios y responsables de evaluación técnica."@es ;
+    skos:prefLabel "Mecanismo de Financiamiento"@es ;
+    skos:scopeNote "Alineado con gist:CatalogItem ya que los mecanismos son 'plantillas' que definen cómo se materializan IPRs concretas."@es ;
+    .
+
+gnub:AdmissibilityState
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Estado de admisibilidad de una IPR en el proceso de gestión."@es ;
+    skos:prefLabel "Estado de Admisibilidad"@es ;
+    .
+
+gnub:IPRPhase
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Fase del ciclo de vida de una IPR según proceso estándar GORE."@es ;
+    skos:prefLabel "Fase de IPR"@es ;
+    .
+
+gnub:EvaluationResult
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Resultado de la evaluación técnico-económica de una IPR."@es ;
+    skos:prefLabel "Resultado de Evaluación"@es ;
+    .
+
+gnub:EvaluationTrack
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Vía o sistema de evaluación técnico-económica de IPR (RATE, Glosa06, Local, CTCI)."@es ;
+    skos:prefLabel "Track de Evaluación"@es ;
+    .
+
+gnub:InvestmentTypology
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Tipología de inversión que determina los Requisitos de Información Sectorial (RIS) aplicables."@es ;
+    skos:prefLabel "Tipología de Inversión"@es ;
+    .
+
+gnub:PreinvestmentStage
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Etapa de madurez del estudio preinversional según normas SNI (Perfil, Factibilidad)."@es ;
+    skos:prefLabel "Etapa de Preinversión"@es ;
+    .
+
+gnub:EvaluationTier
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Nivel de proporcionalidad de la evaluación SNI (Nivel 0 a 3)."@es ;
+    skos:prefLabel "Nivel de Evaluación"@es ;
+    .
+
+gnub:FRILCategory
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Categoría temática de proyectos FRIL (A, B, C, D)."@es ;
+    skos:prefLabel "Categoría FRIL"@es ;
+    .
+
+gnub:ThematicFund
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Fondo temático específico dentro de la Subvención 8%."@es ;
+    skos:prefLabel "Fondo Temático"@es ;
+    .
+
+gnub:PopulationType
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Tipo de población según Marco Lógico (Potencial, Objetivo, Beneficiaria)."@es ;
+    skos:prefLabel "Tipo de Población"@es ;
+    .
+
+gnub:ImplementationMode
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Modalidad de ejecución administrativa de una iniciativa (Directa GORE, Transferencia)."@es ;
+    skos:prefLabel "Modalidad de Implementación"@es ;
+    .
+
+# =============================================================================
+# INSTANCIAS DE CATEGORÍA - Tipos de Cargo
+# =============================================================================
+
+
+
+# =============================================================================
+# CLASES TERRITORIALES (Extensiones en el espacio de nombres gnub:)
+# =============================================================================
+
+gnub:Province
+    a owl:Class ;
+    rdfs:subClassOf gist:GeoRegion ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "División político-administrativa intermedia entre región y comuna en Chile."@es ;
+    skos:prefLabel "Provincia"@es ;
+    .
+
+gnub:Commune
+    a owl:Class ;
+    rdfs:subClassOf gist:GovernedGeoRegion ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Unidad territorial básica de administración local en Chile, gobernada por una Municipalidad."@es ;
+    skos:prefLabel "Comuna"@es ;
+    .
+
+# =============================================================================
+# PROPIEDADES TERRITORIALES (Extensiones en el espacio de nombres gnub:)
+# =============================================================================
+
+gnub:isCapitalOf
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    rdfs:domain gnub:Commune ;
+    rdfs:range gnub:Province ;
+    skos:definition "Indica que una comuna es la capital administrativa de una provincia."@es ;
+    skos:prefLabel "es capital de"@es ;
+    .
+
+# =============================================================================
+# PROPIEDADES ORGANIZACIONALES Y TERRITORIALES (Extensiones gnub:)
+# Nota: Se usan para evitar 'namespace squatting' en gist: y para alinear con Omega.
+# =============================================================================
+
+gnub:containsGeoRegion
+    a owl:ObjectProperty ;
+    rdfs:domain gist:GeoRegion ;
+    rdfs:range gist:GeoRegion ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    owl:inverseOf gist:isGeoContainedIn ;
+    skos:definition "Relaciona una región geográfica con una sub-región contenida (atajo orientado a lectura; complementa relaciones parte-de/contención ya modeladas)."@es ;
+    skos:prefLabel "contiene geo-región"@es ;
+    .
+
+gnub:isProvidedBy
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:GOREFunction ;
+    rdfs:range gist:Organization ;
+    rdfs:subPropertyOf gist:hasParticipant ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Indica qué organización provee o ejerce una función institucional."@es ;
+    skos:prefLabel "es provista por"@es ;
+    .
+
+gnub:isOwnedBy
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:PlanningInstrument ;
+    rdfs:range gist:Organization ;
+    rdfs:subPropertyOf gist:isGovernedBy ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Indica la organización responsable/propietaria (en términos institucionales) de un instrumento de planificación."@es ;
+    skos:prefLabel "es propiedad de"@es ;
+    .
+
+gnub:isManagedBy
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:RegionalFund ;
+    rdfs:range gist:Organization ;
+    rdfs:subPropertyOf gist:isGovernedBy ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Indica la organización que administra operacionalmente un fondo regional."@es ;
+    skos:prefLabel "es administrado por"@es ;
+    .
+
+# =============================================================================
+# PROPIEDADES DE GOBERNANZA UNIFICADA (Alineación Omega-Gist)
+# =============================================================================
+
+gnub:governs
+    a owl:ObjectProperty ;
+    rdfs:domain gist:Organization ;
+    rdfs:range owl:Thing ;
+    owl:inverseOf gist:isGovernedBy ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Superpropiedad que agrupa todas las formas de ejercicio de autoridad, control, financiamiento o regulación."@es ;
+    skos:prefLabel "gobierna"@es ;
+    .
+
+gnub:designates
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf gnub:governs ;
+    rdfs:domain gist:GovernmentOrganization ;
+    rdfs:range gist:GovernmentOrganization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación institucional de designación/nombramiento (p.ej., Presidencia designa Delegado Presidencial Regional)."@es ;
+    skos:prefLabel "designa"@es ;
+    .
+
+gnub:hasTutelaOver
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf gnub:governs ;
+    rdfs:domain gist:GovernmentOrganization ;
+    rdfs:range gist:GovernmentOrganization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación de tutela administrativa (p.ej., Ministerio del Interior tutela al Gobierno Interior regional)."@es ;
+    skos:prefLabel "tutela"@es ;
+    .
+
+gnub:regulates
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf gnub:governs ;
+    rdfs:domain gist:GovernmentOrganization ;
+    rdfs:range gist:GovernmentOrganization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación de regulación normativa (p.ej., SUBDERE norma al GORE)."@es ;
+    skos:prefLabel "norma"@es ;
+    .
+
+gnub:funds
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf gnub:governs ;
+    rdfs:domain gist:GovernmentOrganization ;
+    rdfs:range gist:GovernmentOrganization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación de financiamiento institucional (p.ej., SUBDERE financia al GORE)."@es ;
+    skos:prefLabel "financia"@es ;
+    .
+
+gnub:allocatesBudgetTo
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf gnub:governs ;
+    rdfs:domain gist:GovernmentOrganization ;
+    rdfs:range gist:GovernmentOrganization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación de asignación de presupuesto (p.ej., DIPRES asigna presupuesto al GORE)."@es ;
+    skos:prefLabel "asigna presupuesto"@es ;
+    .
+
+gnub:audits
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf gnub:governs ;
+    rdfs:domain gist:Organization ;
+    rdfs:range gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación de fiscalización/auditoría (p.ej., CGR fiscaliza al GORE; CORE fiscaliza a la administración regional)."@es ;
+    skos:prefLabel "fiscaliza"@es ;
+    .
+
+gnub:chairs
+    a owl:ObjectProperty ;
+    rdfs:domain gist:Assignment ;
+    rdfs:range gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación de presidencia de órgano colegiado (p.ej., Gobernador preside el CORE)."@es ;
+    skos:prefLabel "preside"@es ;
+    .
+
+gnub:supervises
+    a owl:ObjectProperty ;
+    rdfs:domain gist:Assignment ;
+    rdfs:range gist:Assignment ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación de supervisión jerárquica entre Asignaciones (ej. Jefatura de División supervisa a Jefatura de Departamento)."@es ;
+    skos:prefLabel "supervisa"@es ;
+    .
+
+gnub:nominatesCandidatesFor
+    a owl:ObjectProperty ;
+    rdfs:domain gist:Assignment ;
+    rdfs:range gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación de nominación de terna del diagrama: el Gobernador nomina candidatos para cargos SEREMI."@es ;
+    skos:prefLabel "nomina terna para"@es ;
+    .
+
+gnub:coordinatesPlansWith
+    a owl:ObjectProperty ;
+    rdfs:domain gist:GovernmentOrganization ;
+    rdfs:range gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación de coordinación de planes (p.ej., DIPLADE coordina planes con SEREMIs)."@es ;
+    skos:prefLabel "coordina planes"@es ;
+    .
+
+gnub:coordinatesProductivelyWith
+    a owl:ObjectProperty ;
+    rdfs:domain gist:GovernmentOrganization ;
+    rdfs:range gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación de articulación productiva (p.ej., DIFOI articula con servicios públicos regionales)."@es ;
+    skos:prefLabel "articulación productiva"@es ;
+    .
+
+gnub:managesFundingFor
+    a owl:ObjectProperty ;
+    rdfs:domain gist:GovernmentOrganization ;
+    rdfs:range gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación de gestión de financiamiento para proyectos (p.ej., DIPIR gestiona financiamiento para servicios públicos regionales)."@es ;
+    skos:prefLabel "gestiona financiamiento para"@es ;
+    .
+
+gnub:deliversSocialProgramsIn
+    a owl:ObjectProperty ;
+    rdfs:domain gist:GovernmentOrganization ;
+    rdfs:range gist:GeoRegion ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación del diagrama: DIDESO ejecuta/coordina programas sociales en el territorio."@es ;
+    skos:prefLabel "programas sociales"@es ;
+    .
+
+gnub:deliversPublicWorksIn
+    a owl:ObjectProperty ;
+    rdfs:domain gist:GovernmentOrganization ;
+    rdfs:range gist:GeoRegion ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación del diagrama: DIINF ejecuta/coordina obras públicas en el territorio."@es ;
+    skos:prefLabel "obras públicas"@es ;
+    .
+
+gnub:promotesProductiveDevelopmentIn
+    a owl:ObjectProperty ;
+    rdfs:domain gist:GovernmentOrganization ;
+    rdfs:range gist:GeoRegion ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relación del diagrama: DIFOI ejecuta/coordina fomento productivo en el territorio."@es ;
+    skos:prefLabel "fomento productivo"@es ;
+    .
+
+gnub:exercisesInteriorGovernmentOver
+    a owl:ObjectProperty ;
+    rdfs:domain gist:GovernmentOrganization ;
+    rdfs:range gist:GeoRegion ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    rdfs:subPropertyOf gnub:governs ;
+    skos:definition "Relación del diagrama: Delegación Presidencial ejerce gobierno interior sobre un territorio (provincia/región)."@es ;
+    skos:prefLabel "gobierno interior"@es ;
+    .
+
+# =============================================================================
+# PROPIEDADES IPR (Extensiones en el espacio de nombres gnub:)
+# =============================================================================
+
+gnub:isBNUP
+    a owl:DatatypeProperty ;
+    rdfs:domain gnub:IPRProject ;
+    rdfs:range xsd:boolean ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Indica si el terreno de intervención es Bien Nacional de Uso Público."@es ;
+    skos:prefLabel "es BNUP"@es ;
+    .
+
+gnub:hasApplicant
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Organización que postula la iniciativa (distinto del ejecutor financiero)."@es ;
+    skos:prefLabel "tiene postulante"@es ;
+    .
+
+gnub:hasFundingSource
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gnub:RegionalFund ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Fondo regional fuente de recursos para la IPR."@es ;
+    skos:prefLabel "tiene fuente de financiamiento"@es ;
+    .
+
+gnub:usesFinancingMechanism
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gnub:FinancingMechanism ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Mecanismo/track de postulación y evaluación utilizado por la IPR."@es ;
+    skos:prefLabel "usa mecanismo de financiamiento"@es ;
+    .
+
+gnub:hasEvaluationTrack
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:EvaluationResult ;
+    rdfs:range gnub:EvaluationTrack ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Track de evaluación al que pertenece este resultado."@es ;
+    skos:prefLabel "pertenece a track"@es ;
+    .
+
+gnub:hasInvestmentTypology
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gnub:InvestmentTypology ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Clasificación sectorial (RIS) requerida para iniciativas evaluadas bajo el Sistema Nacional de Inversiones (SNI) (ej. Edificación, Patrimonio)."@es ;
+    skos:prefLabel "tiene tipología de inversión"@es ;
+    .
+
+gnub:currentPreinvestmentStage
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ; 
+    rdfs:range gnub:PreinvestmentStage ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Etapa actual de preinversión en formulación."@es ;
+    skos:prefLabel "está en etapa de preinversión"@es ;
+    .
+
+gnub:hasEvaluationTier
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPRProject ;
+    rdfs:range gnub:EvaluationTier ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Nivel de proporcionalidad asignado para evaluación (0, 1, 2, 3)."@es ;
+    skos:prefLabel "tiene nivel de evaluación"@es ;
+    .
+
+gnub:hasProgramComponent
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:OperationalProgram ;
+    rdfs:range gnub:ProgramComponent ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relaciona un programa con sus componentes (bienes/servicios)."@es ;
+    skos:prefLabel "tiene componente"@es ;
+    .
+
+gnub:hasImplementationMode
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gnub:ImplementationMode ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Modalidad de ejecución del IPR (Directa o Transferencia)."@es ;
+    skos:prefLabel "tiene modalidad de implementación"@es ;
+    .
+
+gnub:targetPopulationDescription
+    a owl:DatatypeProperty ;
+    rdfs:domain gnub:OperationalProgram ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Descripción cualitativa de la población objetivo."@es ;
+    skos:prefLabel "descripción población objetivo"@es ;
+    .
+
+gnub:beneficiaryCount
+    a owl:DatatypeProperty ;
+    rdfs:domain gnub:OperationalProgram ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Cantidad estimada de beneficiarios anuales."@es ;
+    skos:prefLabel "cantidad beneficiarios"@es ;
+    .
+
+gnub:hasAdmissibilityState
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gnub:AdmissibilityState ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Estado de admisibilidad actual de la IPR."@es ;
+    skos:prefLabel "tiene estado de admisibilidad"@es ;
+    .
+
+gnub:hasThreshold
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:FinancingMechanism ;
+    rdfs:range gist:Magnitude ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Umbral o monto máximo aplicable (requiere magnitud con unidad: UTM, CLP, etc)."@es ;
+    skos:prefLabel "tiene umbral máximo"@es ;
+    .
+
+gnub:requiresEvaluation
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:FinancingMechanism ;
+    rdfs:range gnub:EvaluationTrack ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Track de evaluación técnica requerido por el mecanismo."@es ;
+    skos:prefLabel "requiere evaluación"@es ;
+    .
+
+gnub:producesResult
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:EvaluationTrack ;
+    rdfs:range gnub:EvaluationResult ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Tipo de resultado/dictamen que produce este track de evaluación."@es ;
+    skos:prefLabel "produce resultado"@es ;
+    .
+
+gnub:hasMaxAdminCost
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:FinancingMechanism ;
+    rdfs:range gist:Magnitude ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Porcentaje máximo del presupuesto total permitido para gastos administrativos."@es ;
+    skos:prefLabel "máximo gasto administrativo"@es ;
+    .
+
+gnub:hasMaxExecTime
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:FinancingMechanism ;
+    rdfs:range gist:Magnitude ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Plazo máximo de ejecución."@es ;
+    skos:prefLabel "plazo máximo ejecución"@es ;
+    .
+
+gnub:isEvaluatedBy
+    a owl:ObjectProperty ;
+    rdfs:range gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Organización responsable de la evaluación técnica (se puede aplicar tanto a una IPR concreta como a un mecanismo de financiamiento)."@es ;
+    skos:prefLabel "es evaluada por"@es ;
+    skos:note "Domain intencionalmente omitido para permitir uso flexible desde IPR y FinancingMechanism."@es ;
+    .
+
+gnub:hasValidityPeriod
+    a owl:DatatypeProperty ;
+    rdfs:domain gnub:EvaluationResult ;
+    rdfs:range xsd:integer ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Vigencia del resultado de evaluación en años."@es ;
+    skos:prefLabel "vigencia (años)"@es ;
+    .
+
+gnub:hasLegalMandate
+    a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ; owl:unionOf (gist:Organization gist:Person) ] ;
+    rdfs:range gnub:LegalMandate ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relaciona un órgano o autoridad con un mandato legal específico."@es ;
+    skos:prefLabel "tiene mandato legal"@es ;
+    .
+
+gnub:derivesFromArticle
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:LegalMandate ;
+    rdfs:range gnub:LegalArticle ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relaciona un mandato legal con el artículo específico de ley del que deriva."@es ;
+    skos:prefLabel "deriva de artículo"@es ;
+    .
+
+gnub:belongsToLegalDocument
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:LegalArticle ;
+    rdfs:range gnub:LegalDocument ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relaciona un artículo con el documento legal al que pertenece."@es ;
+    skos:prefLabel "pertenece a documento"@es ;
+    .
+
+gnub:articleNumber
+    a owl:DatatypeProperty ;
+    rdfs:domain gnub:LegalArticle ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Número del artículo dentro del documento legal (ej. '16', '21 bis')."@es ;
+    skos:prefLabel "número de artículo"@es ;
+    .
+
+gnub:binds
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:LegalMandate ;
+    rdfs:range gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Indica a qué organización obliga o aplica un mandato legal."@es ;
+    skos:prefLabel "obliga a"@es ;
+    .
+
+gnub:establishes
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:LegalArticle ;
+    rdfs:range gnub:LegalMandate ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relaciona un artículo con los mandatos que establece."@es ;
+    skos:prefLabel "establece"@es ;
+    .
+
+
+
+# =============================================================================
+# FIN DEL DOCUMENTO TBOX (SOLO CLASES Y PROPIEDADES)
+# =============================================================================

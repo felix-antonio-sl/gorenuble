@@ -1,0 +1,10 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<https://gorenuble.gob.cl/ontology/goreNubleBundle>
+    a owl:Ontology ;
+    owl:imports <https://gorenuble.gob.cl/data/goreNubleOrgData> ;
+    owl:imports <https://gorenuble.gob.cl/data/goreNubleIPRData> ;
+    owl:imports <https://gorenuble.gob.cl/data/goreNubleLegalData> ;
+    skos:prefLabel "Ontología Integrada GORE Ñuble"@es ;
+    skos:definition "Punto de entrada unificado y capa de integración que ensambla el TBox estructural con sus respectivos módulos de datos (OrgData, IPRData, LegalData) para conformar el Grafo de Conocimiento institucional completo."@es .
