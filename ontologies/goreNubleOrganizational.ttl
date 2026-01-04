@@ -121,6 +121,68 @@ gnub:CompetencyType
     skos:prefLabel "Tipo de Competencia"@es ;
     .
 
+gnub:LegalMandate
+    a owl:Class ;
+    rdfs:subClassOf gist:Requirement ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOrganizational> ;
+    skos:definition "Obligación, atribución o deber impuesto por una ley o norma jurídica a un órgano o autoridad."@es ;
+    skos:prefLabel "Mandato Legal"@es ;
+    skos:example "La obligación del Gobernador de someter al CORE el presupuesto regional."@es ;
+    .
+
+gnub:LegalDocument
+    a owl:Class ;
+    rdfs:subClassOf gist:Content ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOrganizational> ;
+    skos:definition "Cuerpo normativo formal (ley, decreto, reglamento) que establece obligaciones y derechos."@es ;
+    skos:prefLabel "Documento Legal"@es ;
+    skos:example "DFL 1-19.175 (LOC GORE), Ley 21.033 (Creación Región de Ñuble)."@es ;
+    .
+
+gnub:LegalArticle
+    a owl:Class ;
+    rdfs:subClassOf gist:Content ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOrganizational> ;
+    skos:definition "Artículo específico dentro de un documento legal que contiene una o más disposiciones normativas."@es ;
+    skos:prefLabel "Artículo Legal"@es ;
+    .
+
+# =============================================================================
+# SUBCLASES DE FUNCIONES GORE (LOC GORE Art. 17-20)
+# =============================================================================
+
+gnub:OrdenamientoTerritorialFunction
+    a owl:Class ;
+    rdfs:subClassOf gnub:GOREFunction ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOrganizational> ;
+    skos:definition "Funciones relacionadas con la organización del territorio (Art. 17 LOC)."@es ;
+    skos:prefLabel "Función de Ordenamiento Territorial"@es ;
+    .
+
+gnub:FomentoProductivoFunction
+    a owl:Class ;
+    rdfs:subClassOf gnub:GOREFunction ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOrganizational> ;
+    skos:definition "Funciones relacionadas con el fomento productivo y la innovación (Art. 18 LOC)."@es ;
+    skos:prefLabel "Función de Fomento Productivo"@es ;
+    .
+
+gnub:DesarrolloSocialFunction
+    a owl:Class ;
+    rdfs:subClassOf gnub:GOREFunction ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOrganizational> ;
+    skos:definition "Funciones relacionadas con el desarrollo social y cultural (Art. 19 LOC)."@es ;
+    skos:prefLabel "Función de Desarrollo Social"@es ;
+    .
+
+gnub:GestionInternaFunction
+    a owl:Class ;
+    rdfs:subClassOf gnub:GOREFunction ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOrganizational> ;
+    skos:definition "Atribuciones de gestión administrativa y financiera interna (Art. 20 LOC)."@es ;
+    skos:prefLabel "Función de Gestión Interna"@es ;
+    .
+
 # =============================================================================
 # CLASES DEL DOMINIO IPR (Intervención Pública Regional)
 # =============================================================================
@@ -750,6 +812,60 @@ gnub:hasValidityPeriod
     skos:prefLabel "vigencia (años)"@es ;
     .
 
+gnub:hasLegalMandate
+    a owl:ObjectProperty ;
+    rdfs:domain [ a owl:Class ; owl:unionOf (gist:Organization gist:Person) ] ;
+    rdfs:range gnub:LegalMandate ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOrganizational> ;
+    skos:definition "Relaciona un órgano o autoridad con un mandato legal específico."@es ;
+    skos:prefLabel "tiene mandato legal"@es ;
+    .
+
+gnub:derivesFromArticle
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:LegalMandate ;
+    rdfs:range gnub:LegalArticle ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOrganizational> ;
+    skos:definition "Relaciona un mandato legal con el artículo específico de ley del que deriva."@es ;
+    skos:prefLabel "deriva de artículo"@es ;
+    .
+
+gnub:belongsToLegalDocument
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:LegalArticle ;
+    rdfs:range gnub:LegalDocument ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOrganizational> ;
+    skos:definition "Relaciona un artículo con el documento legal al que pertenece."@es ;
+    skos:prefLabel "pertenece a documento"@es ;
+    .
+
+gnub:articleNumber
+    a owl:DatatypeProperty ;
+    rdfs:domain gnub:LegalArticle ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOrganizational> ;
+    skos:definition "Número del artículo dentro del documento legal (ej. '16', '21 bis')."@es ;
+    skos:prefLabel "número de artículo"@es ;
+    .
+
+gnub:binds
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:LegalMandate ;
+    rdfs:range gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOrganizational> ;
+    skos:definition "Indica a qué organización obliga o aplica un mandato legal."@es ;
+    skos:prefLabel "obliga a"@es ;
+    .
+
+gnub:establishes
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:LegalArticle ;
+    rdfs:range gnub:LegalMandate ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOrganizational> ;
+    skos:definition "Relaciona un artículo con los mandatos que establece."@es ;
+    skos:prefLabel "establece"@es ;
+    .
+
 # =============================================================================
 # INSTANCIAS TERRITORIALES - Región
 # =============================================================================
@@ -1339,8 +1455,10 @@ gnubd:_Assignment_JefeDIFOI skos:altLabel "Jefe División DIFOI"@es .
 gnubd:_Assignment_JefeDIINF skos:altLabel "Jefe División DIINF"@es .
 
 # =============================================================================
-# INSTANCIAS DE FUNCIONES GORE (LOC GORE Art. 16)
+# INSTANCIAS DE FUNCIONES GORE (LOC GORE Art. 16 y ss.)
 # =============================================================================
+
+# --- Macro Funciones (Art 16) ---
 
 gnubd:_Function_Planificar
     a gnub:GOREFunction ;
@@ -1374,6 +1492,70 @@ gnubd:_Function_Normar
     a gnub:GOREFunction ;
     skos:prefLabel "Normar"@es ;
     skos:definition "Dictar normas generales dentro de su competencia, subordinadas a ley y decretos supremos."@es ;
+    gnub:isProvidedBy gnubd:_Org_GORE_Nuble ;
+    .
+
+# --- Ordenamiento Territorial (Art 17) ---
+
+gnubd:_Function_AprobarPROT
+    a gnub:OrdenamientoTerritorialFunction ;
+    skos:prefLabel "Aprobar PROT"@es ;
+    skos:definition "Aprobar el Plan Regional de Ordenamiento Territorial."@es ;
+    gnub:isProvidedBy gnubd:_Org_GORE_Nuble ;
+    .
+
+gnubd:_Function_FomentarDesarrolloRural
+    a gnub:OrdenamientoTerritorialFunction ;
+    skos:prefLabel "Fomentar Desarrollo Rural"@es ;
+    skos:definition "Fomentar el desarrollo de áreas rurales y localidades aisladas."@es ;
+    gnub:isProvidedBy gnubd:_Org_GORE_Nuble ;
+    .
+
+gnubd:_Function_CuidarMedioambiente
+    a gnub:OrdenamientoTerritorialFunction ;
+    skos:prefLabel "Cuidar Medioambiente"@es ;
+    skos:definition "Fomentar la protección y el mejoramiento del medio ambiente regional."@es ;
+    gnub:isProvidedBy gnubd:_Org_GORE_Nuble ;
+    .
+
+# --- Fomento Productivo (Art 18) ---
+
+gnubd:_Function_FomentarTurismo
+    a gnub:FomentoProductivoFunction ;
+    skos:prefLabel "Fomentar Turismo"@es ;
+    skos:definition "Aprobar el plan regional de desarrollo turístico."@es ;
+    gnub:isProvidedBy gnubd:_Org_GORE_Nuble ;
+    .
+
+gnubd:_Function_PromoverCienciaTecnologia
+    a gnub:FomentoProductivoFunction ;
+    skos:prefLabel "Promover CTCI"@es ;
+    skos:definition "Promover la investigación científica y tecnológica y la innovación."@es ;
+    gnub:isProvidedBy gnubd:_Org_GORE_Nuble ;
+    .
+
+# --- Desarrollo Social y Cultural (Art 19) ---
+
+gnubd:_Function_DesarrolloSocial
+    a gnub:DesarrolloSocialFunction ;
+    skos:prefLabel "Desarrollo Social"@es ;
+    skos:definition "Establecer prioridades para la erradicación de la pobreza."@es ;
+    gnub:isProvidedBy gnubd:_Org_GORE_Nuble ;
+    .
+
+gnubd:_Function_FomentoCultural
+    a gnub:DesarrolloSocialFunction ;
+    skos:prefLabel "Fomento Cultural"@es ;
+    skos:definition "Fomentar las expresiones culturales y cautelar el patrimonio histórico."@es ;
+    gnub:isProvidedBy gnubd:_Org_GORE_Nuble ;
+    .
+
+# --- Gestión Interna (Art 20) ---
+
+gnubd:_Function_AdministrarBienes
+    a gnub:GestionInternaFunction ;
+    skos:prefLabel "Administrar Bienes"@es ;
+    skos:definition "Adquirir, administrar y disponer de bienes y recursos propios."@es ;
     gnub:isProvidedBy gnubd:_Org_GORE_Nuble ;
     .
 
@@ -2497,38 +2679,7 @@ gnubd:_FRILCat_D1 a gnub:FRILCategory ; skos:prefLabel "D1: Deportes"@es ; gist:
 gnubd:_FRILCat_D2 a gnub:FRILCategory ; skos:prefLabel "D2: Áreas Verdes"@es ; gist:isDirectPartOf gnubd:_FRILCat_D .
 gnubd:_FRILCat_D3 a gnub:FRILCategory ; skos:prefLabel "D3: Sustentabilidad"@es ; gist:isDirectPartOf gnubd:_FRILCat_D .
 
-# --- Fondos Temáticos 8% ---
 
-gnubd:_Fund8_Cultura
-    a gnub:ThematicFund ;
-    skos:prefLabel "Fondo Cultura"@es ;
-    gnub:hasThreshold "5000000"^^xsd:decimal ;
-    skos:note "Tope referencial para privados."@es ;
-    .
-gnubd:_Fund8_Deporte
-    a gnub:ThematicFund ;
-    skos:prefLabel "Fondo Deporte"@es ;
-    .
-gnubd:_Fund8_Social
-    a gnub:ThematicFund ;
-    skos:prefLabel "Fondo Social"@es ;
-    .
-gnubd:_Fund8_Seguridad
-    a gnub:ThematicFund ;
-    skos:prefLabel "Fondo Seguridad"@es ;
-    .
-gnubd:_Fund8_MedioAmbiente
-    a gnub:ThematicFund ;
-    skos:prefLabel "Fondo Medio Ambiente"@es ;
-    .
-gnubd:_Fund8_AdultoMayor
-    a gnub:ThematicFund ;
-    skos:prefLabel "Fondo Adulto Mayor"@es ;
-    .
-gnubd:_Fund8_Genero
-    a gnub:ThematicFund ;
-    skos:prefLabel "Fondo Género"@es ;
-    .
 
 # --- Sectores Prioritarios FRPD ---
 
@@ -2628,4 +2779,231 @@ gnubd:_Assignment_JefeCIES
     gist:isCategorizedBy gnubd:_PositionType_JefeUnidad ;
     gist:hasGiver gnubd:_Org_GORE_Nuble ;
     skos:prefLabel "Álvaro Rivas como Jefe CIES"@es ;
+    .
+
+# =============================================================================
+# INSTANCIAS DE DOCUMENTOS LEGALES
+# =============================================================================
+
+gnubd:_LegalDoc_LOC_GORE
+    a gnub:LegalDocument ;
+    skos:prefLabel "LOC GORE (DFL 1-19.175)"@es ;
+    skos:altLabel "Ley Orgánica Constitucional de Gobiernos Regionales"@es ;
+    skos:definition "Texto refundido, coordinado, sistematizado y actualizado de la Ley N° 19.175 sobre Gobierno y Administración Regional."@es ;
+    gist:hasURI "https://www.bcn.cl/leychile/navegar?idNorma=243771"^^xsd:anyURI ;
+    .
+
+gnubd:_LegalDoc_Ley21033
+    a gnub:LegalDocument ;
+    skos:prefLabel "Ley 21.033"@es ;
+    skos:altLabel "Ley de Creación de la Región de Ñuble"@es ;
+    skos:definition "Ley que crea la XVI Región de Ñuble y modifica otros cuerpos legales."@es ;
+    gist:hasURI "https://www.bcn.cl/leychile/navegar?idNorma=1108237"^^xsd:anyURI ;
+    .
+
+# =============================================================================
+# INSTANCIAS DE ARTÍCULOS LEGALES (LOC GORE)
+# =============================================================================
+
+gnubd:_Article_LOC_Art16
+    a gnub:LegalArticle ;
+    gnub:belongsToLegalDocument gnubd:_LegalDoc_LOC_GORE ;
+    gnub:articleNumber "16" ;
+    skos:prefLabel "Art. 16 LOC GORE"@es ;
+    skos:definition "Funciones generales del Gobierno Regional."@es ;
+    .
+
+gnubd:_Article_LOC_Art17
+    a gnub:LegalArticle ;
+    gnub:belongsToLegalDocument gnubd:_LegalDoc_LOC_GORE ;
+    gnub:articleNumber "17" ;
+    skos:prefLabel "Art. 17 LOC GORE"@es ;
+    skos:definition "Funciones en materia de ordenamiento territorial."@es ;
+    .
+
+gnubd:_Article_LOC_Art18
+    a gnub:LegalArticle ;
+    gnub:belongsToLegalDocument gnubd:_LegalDoc_LOC_GORE ;
+    gnub:articleNumber "18" ;
+    skos:prefLabel "Art. 18 LOC GORE"@es ;
+    skos:definition "Funciones en materia de fomento de actividades productivas."@es ;
+    .
+
+gnubd:_Article_LOC_Art19
+    a gnub:LegalArticle ;
+    gnub:belongsToLegalDocument gnubd:_LegalDoc_LOC_GORE ;
+    gnub:articleNumber "19" ;
+    skos:prefLabel "Art. 19 LOC GORE"@es ;
+    skos:definition "Funciones de desarrollo social y cultural."@es ;
+    .
+
+gnubd:_Article_LOC_Art20
+    a gnub:LegalArticle ;
+    gnub:belongsToLegalDocument gnubd:_LegalDoc_LOC_GORE ;
+    gnub:articleNumber "20" ;
+    skos:prefLabel "Art. 20 LOC GORE"@es ;
+    skos:definition "Atribuciones generales del Gobierno Regional."@es ;
+    .
+
+gnubd:_Article_LOC_Art21bis
+    a gnub:LegalArticle ;
+    gnub:belongsToLegalDocument gnubd:_LegalDoc_LOC_GORE ;
+    gnub:articleNumber "21 bis" ;
+    skos:prefLabel "Art. 21 bis LOC GORE"@es ;
+    skos:definition "Transferencia de competencias desde el nivel central a gobiernos regionales."@es ;
+    .
+
+gnubd:_Article_LOC_Art2
+    a gnub:LegalArticle ;
+    gnub:belongsToLegalDocument gnubd:_LegalDoc_LOC_GORE ;
+    gnub:articleNumber "2" ;
+    skos:prefLabel "Art. 2 LOC GORE"@es ;
+    skos:definition "Atribuciones del Delegado Presidencial Regional."@es ;
+    .
+
+# =============================================================================
+# INSTANCIAS DE MANDATOS LEGALES (ejemplos vinculados)
+# =============================================================================
+
+gnubd:_Mandate_AprobarPresupuestoRegional
+    a gnub:LegalMandate ;
+    skos:prefLabel "Aprobar Presupuesto Regional"@es ;
+    skos:definition "Obligación del GORE de elaborar y aprobar el proyecto de presupuesto regional."@es ;
+    gnub:derivesFromArticle gnubd:_Article_LOC_Art16 ;
+    gnub:binds gnubd:_Org_GORE_Nuble ;
+    .
+
+gnubd:_Mandate_AprobarPROT
+    a gnub:LegalMandate ;
+    skos:prefLabel "Aprobar PROT"@es ;
+    skos:definition "Obligación de aprobar el Plan Regional de Ordenamiento Territorial."@es ;
+    gnub:derivesFromArticle gnubd:_Article_LOC_Art17 ;
+    gnub:binds gnubd:_Org_GORE_Nuble ;
+    .
+
+gnubd:_Mandate_FomentarTurismo
+    a gnub:LegalMandate ;
+    skos:prefLabel "Fomentar Turismo Regional"@es ;
+    skos:definition "Obligación de aprobar el plan regional de desarrollo turístico."@es ;
+    gnub:derivesFromArticle gnubd:_Article_LOC_Art18 ;
+    gnub:binds gnubd:_Org_GORE_Nuble ;
+    .
+
+gnubd:_Mandate_CoordinarSeguridadPublica
+    a gnub:LegalMandate ;
+    skos:prefLabel "Coordinar Seguridad Pública"@es ;
+    skos:definition "Atribución del DPR de velar por la tranquilidad y protección de personas y bienes."@es ;
+    gnub:derivesFromArticle gnubd:_Article_LOC_Art2 ;
+    gnub:binds gnubd:_Org_DPR_Nuble ;
+    .
+
+# Vincular artículos con mandatos (relación inversa)
+gnubd:_Article_LOC_Art16 gnub:establishes gnubd:_Mandate_AprobarPresupuestoRegional .
+gnubd:_Article_LOC_Art17 gnub:establishes gnubd:_Mandate_AprobarPROT .
+gnubd:_Article_LOC_Art18 gnub:establishes gnubd:_Mandate_FomentarTurismo .
+gnubd:_Article_LOC_Art2 gnub:establishes gnubd:_Mandate_CoordinarSeguridadPublica .
+
+# =============================================================================
+# INSTANCIAS DE FONDOS TEMÁTICOS (Subvención 8%)
+# =============================================================================
+
+gnubd:_ThematicFund_Cultura
+    a gnub:ThematicFund ;
+    skos:prefLabel "Fondo Cultura"@es ;
+    skos:definition "Fondos concursables para actividades artísticas, culturales, patrimoniales."@es ;
+    gnub:hasThreshold 5000000 ;
+    .
+
+gnubd:_ThematicFund_Deporte
+    a gnub:ThematicFund ;
+    skos:prefLabel "Fondo Deporte"@es ;
+    skos:definition "Fondos para desarrollo deportivo, clubes, ligas y alto rendimiento."@es ;
+    gnub:hasThreshold 5000000 ;
+    .
+
+gnubd:_ThematicFund_Social
+    a gnub:ThematicFund ;
+    skos:prefLabel "Fondo Social"@es ;
+    skos:definition "Fondos para programas sociales, vulnerabilidad, inclusión."@es ;
+    gnub:hasThreshold 5500000 ;
+    .
+
+gnubd:_ThematicFund_Seguridad
+    a gnub:ThematicFund ;
+    skos:prefLabel "Fondo Seguridad Ciudadana"@es ;
+    skos:definition "Fondos para proyectos de prevención y seguridad comunitaria."@es ;
+    gnub:hasThreshold 8000000 ;
+    .
+
+gnubd:_ThematicFund_MedioAmbiente
+    a gnub:ThematicFund ;
+    skos:prefLabel "Fondo Medio Ambiente"@es ;
+    skos:definition "Fondos para educación ambiental, reciclaje, áreas verdes."@es ;
+    gnub:hasThreshold 5000000 ;
+    .
+
+gnubd:_ThematicFund_AdultoMayor
+    a gnub:ThematicFund ;
+    skos:prefLabel "Fondo Adulto Mayor"@es ;
+    skos:definition "Fondos para programas de envejecimiento activo y bienestar."@es ;
+    gnub:hasThreshold 4000000 ;
+    .
+
+gnubd:_ThematicFund_Genero
+    a gnub:ThematicFund ;
+    skos:prefLabel "Fondo Género"@es ;
+    skos:definition "Fondos para igualdad de género, prevención de violencia, empoderamiento."@es ;
+    gnub:hasThreshold 6500000 ;
+    .
+
+# =============================================================================
+# INSTANCIAS DE INSTRUMENTOS DE PLANIFICACIÓN (Complementarios)
+# =============================================================================
+
+gnubd:_Instrument_PRD
+    a gnub:PlanningInstrument ;
+    skos:prefLabel "Plan Regional de Desarrollo"@es ;
+    skos:altLabel "PRD"@es ;
+    skos:definition "Plan operativo que traduce la ERD en iniciativas concretas de mediano plazo."@es ;
+    gnub:isOwnedBy gnubd:_Org_GORE_Nuble ;
+    .
+
+gnubd:_Instrument_POA
+    a gnub:PlanningInstrument ;
+    skos:prefLabel "Plan Operativo Anual"@es ;
+    skos:altLabel "POA"@es ;
+    skos:definition "Programación de actividades y metas para el año fiscal en curso."@es ;
+    gnub:isOwnedBy gnubd:_Org_GORE_Nuble ;
+    .
+
+gnubd:_Instrument_PAC
+    a gnub:PlanningInstrument ;
+    skos:prefLabel "Plan Anual de Compras"@es ;
+    skos:altLabel "PAC"@es ;
+    skos:definition "Programación de adquisiciones de bienes y servicios del GORE."@es ;
+    gnub:isOwnedBy gnubd:_Org_GORE_Nuble ;
+    .
+
+gnubd:_Instrument_PMG
+    a gnub:PlanningInstrument ;
+    skos:prefLabel "Programa de Mejoramiento de la Gestión"@es ;
+    skos:altLabel "PMG"@es ;
+    skos:definition "Sistema de gestión por resultados con indicadores de desempeño institucional."@es ;
+    gnub:isOwnedBy gnubd:_Org_GORE_Nuble ;
+    .
+
+gnubd:_Instrument_PRDU
+    a gnub:PlanningInstrument ;
+    skos:prefLabel "Plan Regional de Desarrollo Urbano"@es ;
+    skos:altLabel "PRDU"@es ;
+    skos:definition "Instrumento de planificación urbana de escala regional."@es ;
+    gnub:isOwnedBy gnubd:_Org_GORE_Nuble ;
+    .
+
+gnubd:_Instrument_PRCC
+    a gnub:PlanningInstrument ;
+    skos:prefLabel "Plan Regional de Cambio Climático"@es ;
+    skos:altLabel "PRCC"@es ;
+    skos:definition "Instrumento de gestión climática regional, alineado con la Estrategia Nacional."@es ;
+    gnub:isOwnedBy gnubd:_Org_GORE_Nuble ;
     .
