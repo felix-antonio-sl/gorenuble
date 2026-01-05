@@ -9,14 +9,30 @@
 
 # =============================================================================
 # DATOS ORGANIZACIONALES GORE ÑUBLE (ABox)
+# Fuente: Organigrama oficial GORE Ñuble 2025, omega_gore_nuble_mermaid.md
+# =============================================================================
+# CONVENCIÓN DE URIs (C4 - Documentación):
+#   - Este archivo usa prefijo "_" + PascalCase: _Org_GORE_Nuble, _Div_DIPLADE
+#   - Archivos nuevos (ApprovalData, RenditionData) usan MixedCase sin prefijo
+#   - Ambas convenciones son válidas; mantener consistencia dentro de cada archivo
+# ORDEN DE CARGA (M2):
+#   1. goreNubleOntology.ttl (TBox)
+#   2. goreNubleOrgData.ttl (este archivo - define UoM y Aspects compartidos)
+#   3. goreNubleIPRData.ttl, goreNubleLegalData.ttl (dependen de OrgData)
+#   4. goreNubleApprovalData.ttl, goreNubleRenditionData.ttl (independientes)
 # =============================================================================
 
 <https://gorenuble.gob.cl/data/goreNubleOrgData>
     a owl:Ontology ;
     owl:imports <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
     skos:prefLabel "Datos Organizacionales GORE Ñuble"@es ;
-    skos:definition "Componente de la base de conocimientos (ABox) que contiene las instancias concretas de la estructura orgánica, la división territorial de la Región de Ñuble y el personal institucional."@es ;
+    skos:definition "Componente de la base de conocimientos (ABox) que contiene las instancias concretas de la estructura orgánica, la división territorial de la Región de Ñuble, el personal institucional, y elementos compartidos (UoM, Aspects)."@es ;
     .
+
+# =============================================================================
+# SECCIÓN COMPARTIDA: UNIDADES DE MEDIDA Y ASPECTOS (M3)
+# Estas instancias son usadas por múltiples módulos ABox
+# =============================================================================
 
 # =============================================================================
 # INSTANCIAS DE UNIDADES DE MEDIDA (Extensiones locales de gist)
@@ -51,6 +67,17 @@ gnubd:_Unit_Month
     .
 
 # =============================================================================
+# INSTANCIAS DE ASPECTOS GIST COMPARTIDOS (para Magnitudes)
+# Ubicadas aquí para evitar dependencias cruzadas entre ABox
+# =============================================================================
+
+gnubd:_Aspect_AdminCostCap
+    a gist:Aspect ;
+    skos:prefLabel "Tope Gastos Administración"@es ;
+    skos:definition "Aspecto que mide el porcentaje máximo permitido para gastos administrativos."@es ;
+    .
+
+# =============================================================================
 # INSTANCIAS DE CATEGORÍA - Tipos de Cargo
 # =============================================================================
 
@@ -69,7 +96,23 @@ gnubd:_PositionType_AdministradorRegional
 gnubd:_PositionType_JefeDivision
     a gnub:PositionType ;
     skos:prefLabel "Jefe/a de División"@es ;
-    skos:definition "Responsable de una División orgánica del GORE."@es ;
+    skos:definition "Cargo de responsabilidad sobre una División del GORE, depende del Administrador Regional."@es ;
+    .
+
+# =============================================================================
+# INSTANCIAS DE PERSONAS (gist:Person) - Referenciadas en Assignments
+# =============================================================================
+
+gnubd:_Person_OscarCrisostomo
+    a gist:Person ;
+    skos:prefLabel "Óscar Crisóstomo Llanos"@es ;
+    skos:definition "Gobernador Regional de Ñuble (2021-2025)."@es ;
+    .
+
+gnubd:_Person_AlejandroAguilera
+    a gist:Person ;
+    skos:prefLabel "Alejandro Aguilera"@es ;
+    skos:definition "Administrador Regional del GORE Ñuble."@es ;
     .
 
 gnubd:_PositionType_JefeDepartamento
@@ -511,6 +554,7 @@ gnubd:_Advisory_CDR
     skos:prefLabel "Comité Directivo Regional"@es ;
     skos:altLabel "CDR"@es ;
     skos:definition "Instancia político-técnica de filtro de pertinencia estratégica de IPR antes de evaluación técnica."@es ;
+    skos:scopeNote "Primer gate del flujo de admisibilidad: emite PRE-ADMISIBLE CDR o NO PRE-ADMISIBLE CDR. Ver instancias AdmissibilityState en IPRData."@es ;
     gist:isDirectPartOf gnubd:_Org_GORE_Nuble ;
     .
 
@@ -569,20 +613,9 @@ gnubd:_Org_DPP_Punilla
     .
 
 # =============================================================================
-# INSTANCIAS DE PERSONAS - Autoridades Clave
+# INSTANCIAS DE PERSONAS ADICIONALES - Autoridades
+# Nota: _Person_OscarCrisostomo y _Person_AlejandroAguilera definidos arriba
 # =============================================================================
-
-gnubd:_Person_OscarCrisostomo
-    a gist:Person ;
-    skos:prefLabel "Óscar Crisóstomo Llanos"@es ;
-    skos:altLabel "Gobernador Regional Óscar Crisóstomo Llanos"@es ;
-    .
-
-gnubd:_Person_AlejandroAguilera
-    a gist:Person ;
-    skos:prefLabel "Alejandro Aguilera Zambrano"@es ;
-    skos:altLabel "Administrador/a Regional"@es ;
-    .
 
 gnubd:_Person_AliciaContreras
     a gist:Person ;
@@ -1070,6 +1103,132 @@ gnubd:_OrgType_Universidad
 gnubd:_OrgType_ServicioPublico
     a gnub:ApplicantInstitution ;
     skos:prefLabel "Servicio Público"@es ;
+    .
+
+# =============================================================================
+# INSTANCIAS DE ASIGNACIONES (gist:Assignment)
+# Patrón Gist: Assignment vincula Person con Position/Role en Organization
+# =============================================================================
+
+gnubd:_Assignment_Gobernador
+    a gist:Assignment ;
+    skos:prefLabel "Gobernador Regional de Ñuble"@es ;
+    skos:definition "Asignación del cargo de Gobernador/a Regional de Ñuble."@es ;
+    gist:atDateTime "2021-07-14T00:00:00"^^xsd:dateTime ;
+    gist:hasParty gnubd:_Person_OscarCrisostomo ;
+    gist:hasMember gnubd:_Org_GORE_Nuble ;
+    gist:isCategorizedBy gnubd:_PositionType_Gobernador ;
+    .
+
+gnubd:_Assignment_AdministradorRegional
+    a gist:Assignment ;
+    skos:prefLabel "Administrador/a Regional de Ñuble"@es ;
+    skos:definition "Asignación del cargo de Administrador/a Regional."@es ;
+    gist:hasParty gnubd:_Person_AlejandroAguilera ;
+    gist:hasMember gnubd:_Org_GORE_Nuble ;
+    gist:isCategorizedBy gnubd:_PositionType_AdministradorRegional ;
+    .
+
+gnubd:_Assignment_JefeDIPLADE
+    a gist:Assignment ;
+    skos:prefLabel "Jefe/a División DIPLADE"@es ;
+    gist:hasMember gnubd:_Div_DIPLADE ;
+    gist:isCategorizedBy gnubd:_PositionType_JefeDivision ;
+    .
+
+gnubd:_Assignment_JefeDIPIR
+    a gist:Assignment ;
+    skos:prefLabel "Jefe/a División DIPIR"@es ;
+    gist:hasMember gnubd:_Div_DIPIR ;
+    gist:isCategorizedBy gnubd:_PositionType_JefeDivision ;
+    .
+
+gnubd:_Assignment_JefeDIDESO
+    a gist:Assignment ;
+    skos:prefLabel "Jefe/a División DIDESO"@es ;
+    gist:hasMember gnubd:_Div_DIDESO ;
+    gist:isCategorizedBy gnubd:_PositionType_JefeDivision ;
+    .
+
+gnubd:_Assignment_JefeDIFOI
+    a gist:Assignment ;
+    skos:prefLabel "Jefe/a División DIFOI"@es ;
+    gist:hasMember gnubd:_Div_DIFOI ;
+    gist:isCategorizedBy gnubd:_PositionType_JefeDivision ;
+    .
+
+gnubd:_Assignment_JefeDIINF
+    a gist:Assignment ;
+    skos:prefLabel "Jefe/a División DIINF"@es ;
+    gist:hasMember gnubd:_Div_DIINF ;
+    gist:isCategorizedBy gnubd:_PositionType_JefeDivision ;
+    .
+
+gnubd:_Assignment_JefeDAF
+    a gist:Assignment ;
+    skos:prefLabel "Jefe/a División DAF"@es ;
+    gist:hasMember gnubd:_Div_DAF ;
+    gist:isCategorizedBy gnubd:_PositionType_JefeDivision ;
+    .
+
+gnubd:_Assignment_JefeGabinete
+    a gist:Assignment ;
+    skos:prefLabel "Jefe/a Gabinete Gobernador"@es ;
+    gist:hasMember gnubd:_Staff_Gabinete ;
+    .
+
+gnubd:_Assignment_JefeComunicaciones
+    a gist:Assignment ;
+    skos:prefLabel "Jefe/a Comunicaciones"@es ;
+    gist:hasMember gnubd:_Staff_Comunicaciones ;
+    .
+
+gnubd:_Assignment_JefeJuridica
+    a gist:Assignment ;
+    skos:prefLabel "Jefe/a Asesoría Jurídica"@es ;
+    gist:hasMember gnubd:_Staff_Juridica ;
+    .
+
+gnubd:_Assignment_JefeAuditoria
+    a gist:Assignment ;
+    skos:prefLabel "Jefe/a Auditoría Interna"@es ;
+    gist:hasMember gnubd:_Staff_Auditoria ;
+    .
+
+gnubd:_Assignment_JefeCalidadGestion
+    a gist:Assignment ;
+    skos:prefLabel "Jefe/a Calidad y Gestión Institucional"@es ;
+    gist:hasMember gnubd:_Staff_CalidadGestion ;
+    .
+
+gnubd:_Assignment_JefeOficinaPartes
+    a gist:Assignment ;
+    skos:prefLabel "Jefe/a Oficina de Partes"@es ;
+    gist:hasMember gnubd:_Staff_OficinaPartes ;
+    .
+
+gnubd:_Assignment_JefeCorporacion
+    a gist:Assignment ;
+    skos:prefLabel "Jefe/a Corporación"@es ;
+    gist:hasMember gnubd:_Staff_Corporacion ;
+    .
+
+gnubd:_Assignment_JefeCIES
+    a gist:Assignment ;
+    skos:prefLabel "Jefe/a CIES"@es ;
+    gist:hasMember gnubd:_Staff_CIES ;
+    .
+
+gnubd:_Assignment_PresidenteCOSOC
+    a gist:Assignment ;
+    skos:prefLabel "Presidente/a COSOC"@es ;
+    gist:hasMember gnubd:_Advisory_COSOC ;
+    .
+
+gnubd:_Assignment_PresidenteCTCI
+    a gist:Assignment ;
+    skos:prefLabel "Presidente/a Comité CTCI"@es ;
+    gist:hasMember gnubd:_Advisory_ComiteCTCI ;
     .
 
 # =============================================================================

@@ -4,5 +4,8 @@
     <uri name="https://gorenuble.gob.cl/data/goreNubleOrgData" uri="goreNubleOrgData.ttl" />
     <uri name="https://gorenuble.gob.cl/data/goreNubleIPRData" uri="goreNubleIPRData.ttl" />
     <uri name="https://gorenuble.gob.cl/data/goreNubleLegalData" uri="goreNubleLegalData.ttl" />
+    <uri name="https://gorenuble.gob.cl/data/goreNubleRenditionData"
+        uri="goreNubleRenditionData.ttl" />
+    <uri name="https://gorenuble.gob.cl/data/goreNubleApprovalData" uri="goreNubleApprovalData.ttl" />
     <uri name="https://gorenuble.gob.cl/ontology/goreNubleBundle" uri="goreNubleBundle.ttl" />
 </catalog>

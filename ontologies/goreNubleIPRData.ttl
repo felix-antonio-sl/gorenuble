@@ -9,6 +9,8 @@
 
 # =============================================================================
 # DATOS IPR GORE ÑUBLE (ABox)
+# Fuentes: kb_gn_019_gestion_ipr_koda.yml, kb_gn_011_selector_ipr_koda.yml
+#          omega_gore_nuble_mermaid.md (v2.6.0)
 # =============================================================================
 
 <https://gorenuble.gob.cl/data/goreNubleIPRData>
@@ -58,15 +60,11 @@ gnubd:_Subtitle_33_TransferenciasCapital
     skos:definition "Clasificador para transferencias a terceros para inversión (FRIL, etc)."@es ;
     .
 
-# =============================================================================
-# INSTANCIAS DE ASPECTOS GIST (para Magnitudes)
-# =============================================================================
 
-gnubd:_Aspect_AdminCostCap
-    a gist:Aspect ;
-    skos:prefLabel "Tope Gastos Administración"@es ;
-    skos:definition "Aspecto que mide el porcentaje máximo permitido para gastos administrativos."@es ;
-    .
+# =============================================================================
+# NOTA: _Aspect_AdminCostCap está definido en goreNubleOrgData.ttl
+# para evitar dependencias cruzadas entre módulos ABox.
+# =============================================================================
 
 # =============================================================================
 # INSTANCIAS DE FONDOS REGIONALES
@@ -131,8 +129,16 @@ gnubd:_AdmState_Inadmisible
     .
 
 # =============================================================================
-# INSTANCIAS DE FASES IPR (Ciclo de Vida)
+# INSTANCIAS DE FASES IPR (Ciclo de Vida - MCD Omega v2.6.0)
 # =============================================================================
+
+gnubd:_Phase_F0_Formulacion
+    a gnub:IPRPhase ;
+    skos:prefLabel "F0: Formulación e Ingreso"@es ;
+    skos:definition "Identificación del problema, formulación del perfil/diseño y postulación oficial."@es ;
+    skos:scopeNote "Fase previa a admisibilidad. Incluye: necesidad identificada, perfil/MML elaborado, documentación compilada."@es ;
+    gist:sequence 0 ;
+    .
 
 gnubd:_Phase_F1_Ingreso
     a gnub:IPRPhase ;
@@ -184,8 +190,272 @@ gnubd:_Phase_F7_Cierre
     .
 
 # =============================================================================
+# INSTANCIAS DE ESTADO OPERATIVO IPR (28 estados - Fuente: dim_estado_ipr.csv)
+# Granularidad fina para tracking de gestión
+# =============================================================================
+
+# --- FASE ADMISIBILIDAD (Estados 1-4) ---
+
+gnubd:_IPRState_PreAdmisible
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "Pre-Admisible CDR"@es ;
+    skos:definition "Ingreso inicial a Cartera de Revisión del CDR."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F1_Ingreso ;
+    gist:sequence 1 ;
+    .
+
+gnubd:_IPRState_ParaRevision
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "Para Revisión Técnica"@es ;
+    skos:definition "En cola de revisión técnica DIPIR."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F1_Ingreso ;
+    gist:sequence 2 ;
+    .
+
+gnubd:_IPRState_Admisible
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "Admisible"@es ;
+    skos:definition "Cumple requisitos formales para evaluación."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F1_Ingreso ;
+    gist:sequence 3 ;
+    .
+
+gnubd:_IPRState_Inadmisible
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "Inadmisible"@es ;
+    skos:definition "No cumple requisitos - devuelto al postulante."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F1_Ingreso ;
+    gist:sequence 4 ;
+    .
+
+# --- FASE EVALUACION (Estados 5-11) ---
+
+gnubd:_IPRState_EnviadoMDSF
+    a gnub:ProjectIPRState ;
+    skos:prefLabel "Enviado a MDSF"@es ;
+    skos:definition "En evaluación por Ministerio Desarrollo Social."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F2_Evaluacion ;
+    gist:sequence 5 ;
+    .
+
+gnubd:_IPRState_RS
+    a gnub:ProjectIPRState ;
+    skos:prefLabel "Recomendación Satisfactoria"@es ;
+    skos:altLabel "RS"@es ;
+    skos:definition "Evaluación técnico-económica favorable SNI."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F2_Evaluacion ;
+    gist:sequence 6 ;
+    .
+
+gnubd:_IPRState_FI
+    a gnub:ProjectIPRState ;
+    skos:prefLabel "Falta Información"@es ;
+    skos:altLabel "FI"@es ;
+    skos:definition "Requiere información adicional del postulante."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F2_Evaluacion ;
+    gist:sequence 7 ;
+    .
+
+gnubd:_IPRState_OT
+    a gnub:ProjectIPRState ;
+    skos:prefLabel "Objetado Técnicamente"@es ;
+    skos:altLabel "OT"@es ;
+    skos:definition "Con observaciones técnicas a subsanar."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F2_Evaluacion ;
+    gist:sequence 8 ;
+    .
+
+gnubd:_IPRState_RF
+    a gnub:ProgramIPRState ;
+    skos:prefLabel "Recomendación Favorable"@es ;
+    skos:altLabel "RF"@es ;
+    skos:definition "Evaluación favorable DIPRES/SES para programas."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F2_Evaluacion ;
+    gist:sequence 9 ;
+    .
+
+gnubd:_IPRState_ITF
+    a gnub:ProgramIPRState ;
+    skos:prefLabel "Informe Técnico Favorable"@es ;
+    skos:altLabel "ITF"@es ;
+    skos:definition "Aprobación interna GORE para transferencias."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F2_Evaluacion ;
+    gist:sequence 10 ;
+    .
+
+gnubd:_IPRState_AD
+    a gnub:ProjectIPRState ;
+    skos:prefLabel "Admisibilidad Directa"@es ;
+    skos:altLabel "AD"@es ;
+    skos:definition "Vía simplificada Circular 33 (conservación, ANF, estudios)."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F2_Evaluacion ;
+    gist:sequence 11 ;
+    .
+
+# --- FASE FINANCIAMIENTO (Estados 12-14) ---
+
+gnubd:_IPRState_CarteraCORE
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "Cartera Enviada a CORE"@es ;
+    skos:definition "En proceso de priorización por Consejo Regional."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F3_Financiamiento ;
+    gist:sequence 12 ;
+    .
+
+gnubd:_IPRState_CertCOREOK
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "Certificado CORE OK"@es ;
+    skos:definition "Aprobado por Consejo Regional."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F3_Financiamiento ;
+
+    gist:sequence 13 ;
+    .
+
+gnubd:_IPRState_CDPEmitido
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "CDP Emitido"@es ;
+    skos:definition "Certificado de Disponibilidad Presupuestaria emitido."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F3_Financiamiento ;
+
+    gist:sequence 14 ;
+    .
+
+# --- FASE FORMALIZACION (Estados 15-17) ---
+
+gnubd:_IPRState_DecretoTramitado
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "Decreto Tramitado"@es ;
+    skos:definition "Decreto de asignación en proceso CGR."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F4_Formalizacion ;
+
+    gist:sequence 15 ;
+    .
+
+gnubd:_IPRState_ConvenioFormalizado
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "Convenio Formalizado"@es ;
+    skos:definition "Convenio firmado por las partes."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F4_Formalizacion ;
+
+    gist:sequence 16 ;
+    .
+
+gnubd:_IPRState_TomadoRazon
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "Tomado de Razón CGR"@es ;
+    skos:definition "Aprobado por Contraloría General de la República."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F4_Formalizacion ;
+
+    gist:sequence 17 ;
+    .
+
+# --- FASE EJECUCION (Estados 18-21, 26) ---
+
+gnubd:_IPRState_EnLicitacion
+    a gnub:ProjectIPRState ;
+    skos:prefLabel "En Licitación"@es ;
+    skos:definition "Proceso de licitación activo."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F5_Ejecucion ;
+
+    gist:sequence 18 ;
+    .
+
+gnubd:_IPRState_ContratoFirmado
+    a gnub:ProjectIPRState ;
+    skos:prefLabel "Contrato Firmado"@es ;
+    skos:definition "Contrato adjudicado y formalizado."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F5_Ejecucion ;
+
+    gist:sequence 19 ;
+    .
+
+gnubd:_IPRState_EnObra
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "En Obra/Ejecución"@es ;
+    skos:definition "Ejecución física o programática activa."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F5_Ejecucion ;
+
+    gist:sequence 20 ;
+    .
+
+gnubd:_IPRState_RecepcionProv
+    a gnub:ProjectIPRState ;
+    skos:prefLabel "Recepción Provisoria"@es ;
+    skos:definition "Término de obras con garantía vigente."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F5_Ejecucion ;
+
+    gist:sequence 21 ;
+    .
+
+gnubd:_IPRState_Paralizado
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "Paralizado"@es ;
+    skos:definition "Ejecución detenida temporalmente."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F5_Ejecucion ;
+
+    gist:sequence 26 ;
+    .
+
+# --- FASE CIERRE (Estados 22-25, 27-28) ---
+
+gnubd:_IPRState_RecepcionDef
+    a gnub:ProjectIPRState ;
+    skos:prefLabel "Recepción Definitiva"@es ;
+    skos:definition "Término de garantías."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F7_Cierre ;
+
+    gist:sequence 22 ;
+    .
+
+gnubd:_IPRState_RendicionPend
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "Rendición Pendiente"@es ;
+    skos:definition "Esperando documentación de cierre."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F7_Cierre ;
+
+    gist:sequence 23 ;
+    .
+
+gnubd:_IPRState_RendicionAprob
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "Rendición Aprobada"@es ;
+    skos:definition "Rendición revisada y aceptada."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F7_Cierre ;
+
+    gist:sequence 24 ;
+    .
+
+gnubd:_IPRState_IPRCerrada
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "IPR Cerrada"@es ;
+    skos:definition "Proyecto/Programa finalizado completamente."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F7_Cierre ;
+
+    gist:sequence 25 ;
+    .
+
+gnubd:_IPRState_TerminadoAntic
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "Terminado Anticipadamente"@es ;
+    skos:definition "Finalizado antes de completar alcance."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F7_Cierre ;
+
+    gist:sequence 27 ;
+    .
+
+gnubd:_IPRState_Rechazado
+    a gnub:UniversalIPRState ;
+    skos:prefLabel "Rechazado"@es ;
+    skos:definition "No aprobado en alguna etapa del ciclo."@es ;
+    gnub:belongsToPhase gnubd:_Phase_F1_Ingreso ;
+
+    gist:sequence 28 ;
+    .
+
+# =============================================================================
 # INSTANCIAS DE RESULTADOS DE EVALUACIÓN
 # =============================================================================
+
 
 gnubd:_EvalResult_RS
     a gnub:EvaluationResult ;
@@ -264,6 +534,7 @@ gnubd:_EvalTrack_RATE
     skos:prefLabel "Track RATE"@es ;
     skos:altLabel "SNI/MDSF"@es ;
     skos:definition "Track de evaluación estándar del SNI (RS, FI, OT, AD, NV)."@es ;
+    skos:scopeNote "También aplica a iniciativas Circular 33 (conservación, ANF) que obtienen AD."@es ;
     .
 
 gnubd:_EvalTrack_Glosa06
@@ -312,6 +583,7 @@ gnubd:_InvTypology_PMDT
     a gnub:InvestmentTypology ;
     skos:prefLabel "Estudios PMDT"@es ;
     skos:altLabel "Plan Maestro de Desarrollo Territorial"@es ;
+    skos:definition "Estudios de planificación territorial que definen lineamientos de desarrollo para una localidad."@es ;
     .
 
 # =============================================================================
@@ -643,7 +915,11 @@ gnubd:_ThematicFund_Genero
     a gnub:ThematicFund ;
     skos:prefLabel "Fondo Género"@es ;
     skos:definition "Fondos para igualdad de género, prevención de violencia, empoderamiento."@es ;
-    gnub:hasThreshold 6500000 ;
+    gnub:hasThreshold [
+        a gist:Magnitude ;
+        gist:numericValue "6500000"^^xsd:decimal ;
+        gist:hasUnitOfMeasure gnubd:_Unit_PesoCLP
+    ] ;
     .
 
 # =============================================================================
@@ -720,4 +996,106 @@ gnubd:_Instrument_PRCC
     skos:altLabel "PRCC"@es ;
     skos:definition "Instrumento de gestión climática regional, alineado con la Estrategia Nacional."@es ;
     gnub:isOwnedBy gnubd:_Org_GORE_Nuble ;
+    .
+
+# =============================================================================
+# INSTANCIAS IPR DE EJEMPLO (Datos Reales ETL gore_os)
+# Fuente: fact_iniciativa_250.csv, fact_fril.csv
+# Propósito: Validar navegabilidad E2E modelo ontológico
+# =============================================================================
+
+# --- Proyecto SNI con RS (Alcantarillado San Fabián) ---
+gnubd:_IPR_40028237
+    a gnub:IPRProject ;
+    skos:prefLabel "Construcción Sistema de Alcantarillado y P.T.A.S Localidad de San Fabián de Alico"@es ;
+    skos:definition "Proyecto de infraestructura sanitaria para la localidad de San Fabián, financiado por FNDR."@es ;
+    gnub:codigoBIP "40028237-0" ;
+    gnub:hasApplicant gnubd:_Org_Muni_SanFabian ;
+    gnub:hasExecutor gnubd:_Org_Muni_SanFabian ;
+    gnub:hasFundingSource gnubd:_Fund_FNDR ;
+    gnub:usesFinancingMechanism gnubd:_Mech_SNI ;
+    gnub:hasCurrentPhase gnubd:_Phase_F5_Ejecucion ;
+    gnub:hasIPRState gnubd:_IPRState_EnObra ;
+    gist:hasMagnitude [
+        a gist:Magnitude ;
+        gist:numericValue "9943572"^^xsd:decimal ;
+        gist:hasUnitOfMeasure gnubd:_Unit_PesoCLP
+    ] ;
+    gist:isCategorizedBy gnubd:_EvalResult_RS ;
+    gist:isLocatedIn gnubd:_Commune_SanFabian ;
+    skos:scopeNote "Estado: EJECUCIÓN. Beneficiarios: 641 personas. Próximo hito: Inicio de obra."@es ;
+    .
+
+# --- Proyecto SNI con RS (Parque Intercomunal Ultraestación) ---
+gnubd:_IPR_40014384
+    a gnub:IPRProject ;
+    skos:prefLabel "Construcción Parque Intercomunal Ultraestación, Chillán"@es ;
+    skos:definition "Proyecto de área verde y espacio público en la zona de Ultraestación, Chillán."@es ;
+    gnub:codigoBIP "40014384-0" ;
+    gnub:hasApplicant gnubd:_Org_SEREMI_Vivienda ;
+    gnub:hasExecutor gnubd:_Org_SEREMI_Vivienda ;
+    gnub:hasFundingSource gnubd:_Fund_FNDR ;
+    gnub:usesFinancingMechanism gnubd:_Mech_SNI ;
+    gnub:hasCurrentPhase gnubd:_Phase_F4_Formalizacion ;
+    gnub:hasIPRState gnubd:_IPRState_ConvenioFormalizado ;
+    gist:hasMagnitude [
+        a gist:Magnitude ;
+        gist:numericValue "3822158"^^xsd:decimal ;
+        gist:hasUnitOfMeasure gnubd:_Unit_PesoCLP
+    ] ;
+    gist:isCategorizedBy gnubd:_EvalResult_RS ;
+    gist:isLocatedIn gnubd:_Commune_Chillan ;
+    skos:scopeNote "Estado: DISEÑO. Superficie: 86.150 m2. Finalización esperada: mar-2026."@es ;
+    .
+
+# --- Proyecto FRIL (Infraestructura Municipal) ---
+gnubd:_IPR_FRIL_Cobquecura_01
+    a gnub:IPRProject ;
+    skos:prefLabel "Proyecto FRIL Cobquecura 2025"@es ;
+    skos:definition "Proyecto de infraestructura municipal bajo mecanismo FRIL."@es ;
+    gnub:codigoBIP "FRIL-11af3db2" ;
+    gnub:hasApplicant gnubd:_Org_Muni_Cobquecura ;
+    gnub:hasExecutor gnubd:_Org_Muni_Cobquecura ;
+    gnub:hasFundingSource gnubd:_Fund_FNDR ;
+    gnub:usesFinancingMechanism gnubd:_Mech_FRIL ;
+    gnub:hasCurrentPhase gnubd:_Phase_F5_Ejecucion ;
+    gnub:hasIPRState gnubd:_IPRState_EnLicitacion ;
+    gist:isCategorizedBy gnubd:_EvalResult_AT, gnubd:_FRILCat_B1 ;
+    gist:isLocatedIn gnubd:_Commune_Cobquecura ;
+    skos:scopeNote "Categoría FRIL: B1-Edificación Pública. Item presupuestario: 33.03.125."@es ;
+    .
+
+# --- Programa Operacional (Subvención 8% - Deporte) ---
+gnubd:_IPR_Prog_Deporte_2025
+
+    skos:prefLabel "Programa Regional Fomento Deportivo 2025"@es ;
+    skos:definition "Programa de subvención 8% para organizaciones deportivas de la Región de Ñuble."@es ;
+    gnub:hasApplicant gnubd:_Org_GORE_Nuble ;
+    gnub:hasExecutor gnubd:_Org_GORE_Nuble ;
+    gnub:hasFundingSource gnubd:_Fund_FNDR ;
+    gnub:usesFinancingMechanism gnubd:_Mech_Subv8 ;
+    gnub:hasCurrentPhase gnubd:_Phase_F5_Ejecucion ;
+    gnub:hasIPRState gnubd:_IPRState_EnObra ;
+    gnub:hasImplementationMode gnubd:_ImplMode_Transferencia ;
+    gist:hasMagnitude [
+        a gist:Magnitude ;
+        gist:numericValue "500000000"^^xsd:decimal ;
+        gist:hasUnitOfMeasure gnubd:_Unit_PesoCLP
+    ] ;
+    gist:isCategorizedBy gnubd:_ThematicFund_Deporte ;
+    skos:scopeNote "Fondo temático: Deporte. Modelo: Transferencia a organizaciones vía concurso."@es ;
+    .
+
+# --- Municipalidades referenciadas por las IPR de ejemplo ---
+
+gnubd:_Org_Muni_SanFabian
+    a gnub:ApplicantInstitution ;
+    skos:prefLabel "Municipalidad de San Fabián"@es ;
+    gist:isLocatedIn gnubd:_Commune_SanFabian ;
+    .
+
+gnubd:_Org_Muni_Cobquecura
+    a gnub:ApplicantInstitution ;
+    skos:prefLabel "Municipalidad de Cobquecura"@es ;
+    gist:isLocatedIn gnubd:_Commune_Cobquecura ;
     .

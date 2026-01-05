@@ -248,6 +248,17 @@ gnub:maxExecutionMonths
     skos:scopeNote "Excepción pragmática: valor simple sin reificar como gist:Magnitude dado que no hay razonamiento dimensional requerido."@es ;
     .
 
+gnub:codigoBIP
+    a owl:DatatypeProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range xsd:string ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Código único de la Iniciativa en el Banco Integrado de Proyectos (BIP) del SNI."@es ;
+    skos:prefLabel "Código BIP"@es ;
+    skos:altLabel "código BIP" ;
+    skos:scopeNote "Formato típico: XXXXXXXX-X (ej. 40028237-0). Para FRIL se usa prefijo FRIL-."@es ;
+    .
+
 gnub:allowsPersonnelExpenses
     a owl:DatatypeProperty ;
     rdfs:domain gnub:BudgetaryRule ;
@@ -373,8 +384,64 @@ gnub:IPRPhase
     a owl:Class ;
     rdfs:subClassOf gist:Category ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
-    skos:definition "Fase del ciclo de vida de una IPR según proceso estándar GORE."@es ;
+    skos:definition "Fase del ciclo de vida de una IPR según proceso estándar GORE (F0-Postulación, F1-Admisibilidad, F2-Evaluación, F3-Priorización, F4-Formalización, F5-Cierre)."@es ;
     skos:prefLabel "Fase de IPR"@es ;
+    skos:scopeNote "Las transiciones entre fases están modeladas por gnub:IPRStateTransition."@es ;
+    .
+
+gnub:IPRStateTransition
+    a owl:Class ;
+    rdfs:subClassOf gist:Event ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Transición entre dos fases/estados en el ciclo de vida de una IPR (ej. F1→F2, PRE-ADMISIBLE→ADMISIBLE)."@es ;
+    skos:prefLabel "Transición de Estado IPR"@es ;
+    skos:scopeNote "Modela el MCD (Modelo Canónico de Estados) del modelo Omega como eventos de transición."@es ;
+    .
+
+gnub:fromIPRPhase
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPRStateTransition ;
+    rdfs:range gnub:IPRPhase ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Fase de origen de la transición."@es ;
+    skos:prefLabel "desde fase"@es ;
+    .
+
+gnub:toIPRPhase
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPRStateTransition ;
+    rdfs:range gnub:IPRPhase ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Fase de destino de la transición."@es ;
+    skos:prefLabel "hacia fase"@es ;
+    .
+
+gnub:transitionOf
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPRStateTransition ;
+    rdfs:range gnub:IPR ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "IPR sujeta a la transición de estado."@es ;
+    skos:prefLabel "transición de"@es ;
+    .
+
+gnub:triggeredBy
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPRStateTransition ;
+    rdfs:range gnub:AdministrativeAct ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Acto administrativo que gatilla la transición (ej. Resolución de aprobación, Certificado CORE)."@es ;
+    skos:prefLabel "gatillada por"@es ;
+    .
+
+gnub:hasCurrentPhase
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:isCategorizedBy ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gnub:IPRPhase ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Fase actual del ciclo de vida de la IPR."@es ;
+    skos:prefLabel "tiene fase actual"@es ;
     .
 
 gnub:EvaluationResult
@@ -450,21 +517,332 @@ gnub:ImplementationMode
     .
 
 # =============================================================================
+# CLASES ENRIQUECIDAS PARA CICLO DE VIDA IPR (Fuente: ETL gore_os)
+# Basado en dim_estado_ipr.csv - 28 estados operativos
+# =============================================================================
+
+gnub:IPRState
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Estado operativo de una IPR en su ciclo de vida. Granularidad fina para tracking de gestión."@es ;
+    skos:prefLabel "Estado Operativo IPR"@es ;
+    skos:scopeNote "Clase abstracta. Subclases: ProjectIPRState, ProgramIPRState, UniversalIPRState."@es ;
+    .
+
+gnub:ProjectIPRState
+    a owl:Class ;
+    rdfs:subClassOf gnub:IPRState ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Estado operativo válido exclusivamente para Proyectos de Inversión."@es ;
+    skos:prefLabel "Estado de Proyecto"@es ;
+    skos:example "RS, FI, OT, AD, En Licitación, Contrato Firmado"@es ;
+    .
+
+gnub:ProgramIPRState
+    a owl:Class ;
+    rdfs:subClassOf gnub:IPRState ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Estado operativo válido exclusivamente para Programas Operacionales."@es ;
+    skos:prefLabel "Estado de Programa"@es ;
+    skos:example "RF, ITF"@es ;
+    .
+
+gnub:UniversalIPRState
+    a owl:Class ;
+    rdfs:subClassOf gnub:IPRState ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Estado operativo válido para cualquier tipo de IPR (Proyecto, Programa, Estudio)."@es ;
+    skos:prefLabel "Estado Universal IPR"@es ;
+    skos:example "Admisible, CDP Emitido, Convenio Formalizado, En Obra, IPR Cerrada"@es ;
+    .
+
+gnub:BudgetLine
+    a owl:Class ;
+    rdfs:subClassOf gist:FinancialInstrument ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Línea presupuestaria asignada a una IPR, vinculando clasificadores, montos y años."@es ;
+    skos:prefLabel "Línea Presupuestaria"@es ;
+    skos:scopeNote "Modela fact_linea_presupuestaria.csv. Extiende gist:FinancialInstrument para alineación con finanzas."@es ;
+    .
+
+gnub:ExecutionReport
+    a owl:Class ;
+    rdfs:subClassOf gist:Event ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Reporte mensual de ejecución física y financiera de una IPR."@es ;
+    skos:prefLabel "Informe de Ejecución"@es ;
+    skos:scopeNote "Modela fact_ejecucion_mensual.csv. Extiende gist:Event como ocurrencia periódica."@es ;
+    .
+
+gnub:DocumentEvent
+    a owl:Class ;
+    rdfs:subClassOf gist:Event ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Evento documental asociado a IPR (resolución, decreto, certificado, acta)."@es ;
+    skos:prefLabel "Evento Documental"@es ;
+    skos:scopeNote "Modela fact_evento_documental.csv. Extiende gist:Event para trazabilidad de hitos."@es ;
+    .
+
+gnub:BudgetModification
+    a owl:Class ;
+    rdfs:subClassOf gist:Event ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Modificación presupuestaria que afecta recursos asignados a IPR."@es ;
+    skos:prefLabel "Modificación Presupuestaria"@es ;
+    skos:scopeNote "Modela fact_modificacion.csv. Extiende gist:Event como cambio en el tiempo."@es ;
+    .
+
+# =============================================================================
+# PROPIEDADES DE TRACKING IPR (P2)
+# =============================================================================
+
+gnub:hasIPRState
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:isCategorizedBy ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gnub:IPRState ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Estado operativo actual de la IPR (granularidad fina)."@es ;
+    skos:prefLabel "tiene estado operativo"@es ;
+    .
+
+gnub:belongsToPhase
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:isCategorizedBy ;
+    rdfs:domain gnub:IPRState ;
+    rdfs:range gnub:IPRPhase ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Vincula un estado operativo con su fase de alto nivel."@es ;
+    skos:prefLabel "pertenece a fase"@es ;
+    .
+
+
+gnub:hasBudgetLine
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gnub:BudgetLine ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Línea presupuestaria asignada a esta IPR."@es ;
+    skos:prefLabel "tiene línea presupuestaria"@es ;
+    .
+
+gnub:hasExecutionReport
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gnub:ExecutionReport ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Informe de ejecución asociado a esta IPR."@es ;
+    skos:prefLabel "tiene informe de ejecución"@es ;
+    .
+
+gnub:hasDocumentEvent
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gnub:DocumentEvent ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Evento documental asociado a esta IPR."@es ;
+    skos:prefLabel "tiene evento documental"@es ;
+    .
+
+gnub:hasBudgetModification
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gnub:BudgetModification ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Modificación presupuestaria que afecta a esta IPR."@es ;
+    skos:prefLabel "tiene modificación presupuestaria"@es ;
+    .
+
+# =============================================================================
 # INSTANCIAS DE CATEGORÍA - Tipos de Cargo
 # =============================================================================
 
 
+# =============================================================================
+# DOMINIO RENDICIONES DE CUENTAS (P3 - Extensión Omega/SISREC)
+# Fuente: kb_gn_020_gestion_rendiciones_koda.yml
+# =============================================================================
 
+gnub:Rendition
+    a owl:Class ;
+    rdfs:subClassOf gist:Event ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Procedimiento administrativo mediante el cual una entidad ejecutora demuestra y justifica la correcta utilización de fondos públicos recibidos del GORE."@es ;
+    skos:prefLabel "Rendición de Cuentas"@es ;
+    skos:scopeNote "Modela el evento de rendición como gist:Event con participantes (entidad ejecutora, GORE) y fases."@es ;
+    .
+
+gnub:RenditionState
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Estado del proceso de rendición (Pendiente, En Revisión, Observada, Aprobada, Rechazada)."@es ;
+    skos:prefLabel "Estado de Rendición"@es ;
+    .
+
+gnub:RenditionExpedient
+    a owl:Class ;
+    rdfs:subClassOf gist:Content ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Conjunto ordenado de documentos que respaldan la recepción, uso y justificación de fondos públicos (Res. 30/2015 CGR Art. 10)."@es ;
+    skos:prefLabel "Expediente de Rendición"@es ;
+    .
+
+gnub:RenditionRole
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Rol de un actor en el proceso de rendición SISREC (Analista Ejecutor, Ministro de Fe, Encargado Ejecutor, Analista Otorgante, Encargado Otorgante)."@es ;
+    skos:prefLabel "Rol en Rendición"@es ;
+    .
+
+# =============================================================================
+# DOMINIO FLUJOS DE APROBACIÓN (P3 - Extensión Omega)
+# Fuente: kb_gn_015_aprobaciones_koda.yml, omega_gore_nuble_mermaid.md
+# =============================================================================
+
+gnub:AdministrativeAct
+    a owl:Class ;
+    rdfs:subClassOf gist:Commitment ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Acto administrativo formal del GORE que genera obligaciones o derechos (Resolución, Decreto, Convenio)."@es ;
+    skos:prefLabel "Acto Administrativo"@es ;
+    skos:scopeNote "Extendido de gist:Commitment dado que representa un compromiso institucional formalizado."@es ;
+    .
+
+gnub:Resolution
+    a owl:Class ;
+    rdfs:subClassOf gnub:AdministrativeAct ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Decisión formal del GORE que puede ser exenta o afecta a Toma de Razón de CGR."@es ;
+    skos:prefLabel "Resolución"@es ;
+    .
+
+gnub:Decree
+    a owl:Class ;
+    rdfs:subClassOf gnub:AdministrativeAct ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Norma dictada por autoridad sujeta a control externo de CGR (Toma de Razón), típicamente para modificaciones presupuestarias que afectan Partida 31."@es ;
+    skos:prefLabel "Decreto"@es ;
+    .
+
+gnub:TransferAgreement
+    a owl:Class ;
+    rdfs:subClassOf gist:Agreement ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Convenio de transferencia de recursos entre el GORE y una entidad ejecutora, que establece obligaciones mutuas."@es ;
+    skos:prefLabel "Convenio de Transferencia"@es ;
+    skos:scopeNote "Modela el convenio como gist:Agreement con partes (GORE y ejecutor) y contenido (montos, plazos, obligaciones)."@es ;
+    .
+
+gnub:AgreementState
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Estado de tramitación del convenio (Borrador, Visado, Firmado, TdR Pendiente, Formalizado)."@es ;
+    skos:prefLabel "Estado de Convenio"@es ;
+    .
+
+gnub:ApprovalFlowStage
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Etapa del flujo de aprobación de un acto administrativo (Elaboración, V°B° Jurídico, V°B° Control, V°B° Jefatura, Firma Gobernador, TdR CGR)."@es ;
+    skos:prefLabel "Etapa de Aprobación"@es ;
+    .
+
+# =============================================================================
+# PROPIEDADES DE RENDICIONES Y APROBACIONES
+# =============================================================================
+
+gnub:hasRenditionState
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:Rendition ;
+    rdfs:range gnub:RenditionState ;
+    rdfs:subPropertyOf gist:isCategorizedBy ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Estado actual del proceso de rendición."@es ;
+    skos:prefLabel "tiene estado de rendición"@es ;
+    .
+
+gnub:hasExpedient
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:Rendition ;
+    rdfs:range gnub:RenditionExpedient ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Relaciona una rendición con su expediente documental."@es ;
+    skos:prefLabel "tiene expediente"@es ;
+    .
+
+gnub:rendersAccount
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:hasParty ;
+    rdfs:domain gnub:Rendition ;
+    rdfs:range gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Entidad ejecutora que rinde cuentas (participante en rol de ejecutor)."@es ;
+    skos:prefLabel "rinde cuentas (ejecutor)"@es ;
+    .
+
+gnub:receivesRendition
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:hasParty ;
+    rdfs:domain gnub:Rendition ;
+    rdfs:range gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Entidad otorgante que recibe la rendición (GORE como participante en rol de otorgante)."@es ;
+    skos:prefLabel "recibe rendición (otorgante)"@es ;
+    .
+
+gnub:rendersFor
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:Rendition ;
+    rdfs:range gnub:TransferAgreement ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Convenio de transferencia al que corresponde esta rendición."@es ;
+    skos:prefLabel "rinde por convenio"@es ;
+    .
+
+gnub:hasAgreementState
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:TransferAgreement ;
+    rdfs:range gnub:AgreementState ;
+    rdfs:subPropertyOf gist:isCategorizedBy ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Estado actual de tramitación del convenio."@es ;
+    skos:prefLabel "tiene estado de convenio"@es ;
+    .
+
+gnub:hasApprovalStage
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:AdministrativeAct ;
+    rdfs:range gnub:ApprovalFlowStage ;
+    rdfs:subPropertyOf gist:isCategorizedBy ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Etapa actual en el flujo de aprobación del acto administrativo."@es ;
+    skos:prefLabel "tiene etapa de aprobación"@es ;
+    .
+
+gnub:approvesAct
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:Resolution ;
+    rdfs:range gnub:TransferAgreement ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Resolución que aprueba y formaliza un convenio de transferencia."@es ;
+    skos:prefLabel "aprueba convenio"@es ;
+    .
 # =============================================================================
 # CLASES TERRITORIALES (Extensiones en el espacio de nombres gnub:)
 # =============================================================================
 
 gnub:Province
     a owl:Class ;
-    rdfs:subClassOf gist:GeoRegion ;
+    rdfs:subClassOf gist:GovernedGeoRegion ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
-    skos:definition "División político-administrativa intermedia entre región y comuna en Chile."@es ;
+    skos:definition "División político-administrativa intermedia entre región y comuna en Chile, gobernada por un Delegado Presidencial Provincial."@es ;
     skos:prefLabel "Provincia"@es ;
+    skos:scopeNote "Extendida de gist:GovernedGeoRegion (no GeoRegion) ya que es una entidad con gobierno propio."@es ;
     .
 
 gnub:Commune
@@ -713,11 +1091,24 @@ gnub:isBNUP
 
 gnub:hasApplicant
     a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:hasParty ;
     rdfs:domain gnub:IPR ;
     rdfs:range gist:Organization ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
     skos:definition "Organización que postula la iniciativa (distinto del ejecutor financiero)."@es ;
     skos:prefLabel "tiene postulante"@es ;
+    skos:scopeNote "Alineado con gist:hasParty para participación en el contexto de la IPR."@es ;
+    .
+
+gnub:hasExecutor
+    a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:hasParty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gist:Organization ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Organización responsable de ejecutar técnica y financieramente la IPR (puede ser distinta del postulante)."@es ;
+    skos:prefLabel "tiene ejecutor"@es ;
+    skos:scopeNote "Para FRIL: municipio. Para SNI directa: GORE. Para transferencias: ONG/Universidad/Servicio."@es ;
     .
 
 gnub:hasFundingSource
@@ -866,11 +1257,13 @@ gnub:hasMaxExecTime
 
 gnub:isEvaluatedBy
     a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:hasParticipant ;
     rdfs:range gist:Organization ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
     skos:definition "Organización responsable de la evaluación técnica (se puede aplicar tanto a una IPR concreta como a un mecanismo de financiamiento)."@es ;
     skos:prefLabel "es evaluada por"@es ;
     skos:note "Domain intencionalmente omitido para permitir uso flexible desde IPR y FinancingMechanism."@es ;
+    skos:scopeNote "Alineado con gist:hasParticipant para participación en rol de evaluador."@es ;
     .
 
 gnub:hasValidityPeriod
@@ -884,11 +1277,13 @@ gnub:hasValidityPeriod
 
 gnub:hasLegalMandate
     a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:isGovernedBy ;
     rdfs:domain [ a owl:Class ; owl:unionOf (gist:Organization gist:Person) ] ;
     rdfs:range gnub:LegalMandate ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
     skos:definition "Relaciona un órgano o autoridad con un mandato legal específico."@es ;
     skos:prefLabel "tiene mandato legal"@es ;
+    skos:scopeNote "Alineado con gist:isGovernedBy: los mandatos legales gobiernan el comportamiento de las organizaciones."@es ;
     .
 
 gnub:derivesFromArticle
@@ -902,11 +1297,13 @@ gnub:derivesFromArticle
 
 gnub:belongsToLegalDocument
     a owl:ObjectProperty ;
+    rdfs:subPropertyOf gist:isPartOf ;
     rdfs:domain gnub:LegalArticle ;
     rdfs:range gnub:LegalDocument ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
     skos:definition "Relaciona un artículo con el documento legal al que pertenece."@es ;
     skos:prefLabel "pertenece a documento"@es ;
+    skos:scopeNote "Alineado con gist:isPartOf: un artículo es parte de un documento legal."@es ;
     .
 
 gnub:articleNumber
@@ -929,11 +1326,13 @@ gnub:binds
 
 gnub:establishes
     a owl:ObjectProperty ;
+    owl:inverseOf gnub:derivesFromArticle ;
     rdfs:domain gnub:LegalArticle ;
     rdfs:range gnub:LegalMandate ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
     skos:definition "Relaciona un artículo con los mandatos que establece."@es ;
     skos:prefLabel "establece"@es ;
+    skos:scopeNote "Inversa de gnub:derivesFromArticle para navegación bidireccional."@es ;
     .
 
 

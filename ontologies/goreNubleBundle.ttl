@@ -3,8 +3,12 @@
 
 <https://gorenuble.gob.cl/ontology/goreNubleBundle>
     a owl:Ontology ;
+    owl:imports <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
     owl:imports <https://gorenuble.gob.cl/data/goreNubleOrgData> ;
     owl:imports <https://gorenuble.gob.cl/data/goreNubleIPRData> ;
     owl:imports <https://gorenuble.gob.cl/data/goreNubleLegalData> ;
+    owl:imports <https://gorenuble.gob.cl/data/goreNubleRenditionData> ;
+    owl:imports <https://gorenuble.gob.cl/data/goreNubleApprovalData> ;
     skos:prefLabel "Ontología Integrada GORE Ñuble"@es ;
-    skos:definition "Punto de entrada unificado y capa de integración que ensambla el TBox estructural con sus respectivos módulos de datos (OrgData, IPRData, LegalData) para conformar el Grafo de Conocimiento institucional completo."@es .
+    skos:definition "Punto de entrada unificado que importa el TBox estructural y sus 5 módulos de datos (OrgData, IPRData, LegalData, RenditionData, ApprovalData) para conformar el Grafo de Conocimiento institucional completo."@es .
+
