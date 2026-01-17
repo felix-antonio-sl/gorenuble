@@ -67,31 +67,195 @@ gnubd:_Subtitle_33_TransferenciasCapital
 # =============================================================================
 
 # =============================================================================
-# INSTANCIAS DE FONDOS REGIONALES
+# INSTANCIAS DE FONDOS REGIONALES (gnub:FundingSource - Gist Category)
+# Fuente: Glosa 02 Partida 31 Ley 21.796
+# NOTA: FRIL y 8% son MECANISMOS (ver _Mech_FRIL, _Mech_Subv8), NO fondos.
 # =============================================================================
 
 gnubd:_Fund_FNDR
-    a gnub:RegionalFund ;
-    skos:prefLabel "Fondo Nacional de Desarrollo Regional"@es ;
+    a gnub:FundingSource ;
+    skos:prefLabel "FNDR - Fondo Nacional de Desarrollo Regional"@es ;
     skos:altLabel "FNDR"@es ;
     skos:definition "Principal fondo de inversión regional destinado a financiar proyectos y programas priorizados por el GORE."@es ;
-    gnub:isManagedBy gnubd:_Org_GORE_Nuble ;
     .
 
 gnubd:_Fund_FRPD
-    a gnub:RegionalFund ;
-    skos:prefLabel "Fondo Regional para la Productividad y el Desarrollo"@es ;
+    a gnub:FundingSource ;
+    skos:prefLabel "FRPD - Fondo Regional de Productividad y Desarrollo"@es ;
     skos:altLabel "FRPD"@es ;
-    skos:definition "Fondo financiado por el Royalty Minero para apoyar iniciativas de innovación, competitividad y fomento productivo."@es ;
-    gnub:isManagedBy gnubd:_Org_GORE_Nuble ;
+    skos:definition "Fondo financiado por Royalty Minero para innovación, competitividad y desarrollo productivo."@es ;
+    .
+
+gnubd:_Fund_FATC
+    a gnub:FundingSource ;
+    skos:prefLabel "FATC - Fondo de Apoyo al Transporte y Conectividad"@es ;
+    skos:altLabel "FATC"@es ;
+    skos:definition "Fondo Ley 20.378 para transporte público y conectividad regional."@es ;
+    .
+
+gnubd:_Fund_FIC
+    a gnub:FundingSource ;
+    skos:prefLabel "FIC - Fondo de Innovación y Competitividad"@es ;
+    skos:altLabel "FIC"@es ;
+    skos:definition "Fondo para innovación y competitividad regional, ejecutado por CORFO/ANID."@es ;
+    .
+
+gnubd:_Fund_FEI
+    a gnub:FundingSource ;
+    skos:prefLabel "FEI - Fondo de Equidad Interregional"@es ;
+    skos:altLabel "FEI"@es ;
+    skos:definition "Fondo de compensación para regiones con menor desarrollo."@es ;
+    .
+
+gnubd:_Fund_FEIRR
+    a gnub:FundingSource ;
+    skos:prefLabel "FEIRR - Fondo de Inversión y Reconversión Regional"@es ;
+    skos:altLabel "FEIRR"@es ;
+    skos:definition "Fondo para reconversión económica y territorial."@es ;
     .
 
 gnubd:_Fund_ISAR
-    a gnub:RegionalFund ;
-    skos:prefLabel "Inversiones Sectoriales de Asignación Regional"@es ;
+    a gnub:FundingSource ;
+    skos:prefLabel "ISAR - Inversiones Sectoriales de Asignación Regional"@es ;
     skos:altLabel "ISAR"@es ;
-    skos:definition "Recursos de ministerios sectoriales cuya destinación territorial es decidida por el GORE."@es ;
-    gnub:isManagedBy gnubd:_Org_GORE_Nuble ;
+    skos:definition "Recursos sectoriales cuya asignación territorial decide el GORE."@es ;
+    .
+
+# =============================================================================
+# FASES DEL CICLO PRESUPUESTARIO
+# Fuente: kb_gn_018_gestion_prpto_2026_koda.yml
+# =============================================================================
+
+gnubd:_BudgetPhase_01_Formulation
+    a gnub:BudgetCyclePhase ;
+    skos:prefLabel "Fase 1: Formulación Presupuestaria"@es ;
+    skos:definition "Elaboración del proyecto de presupuesto (ARI, PROPIR, coordinación DAF-DIPIR)."@es ;
+    gist:sequence 1 ;
+    .
+
+gnubd:_BudgetPhase_02_Approval
+    a gnub:BudgetCyclePhase ;
+    skos:prefLabel "Fase 2: Aprobación y Distribución Inicial"@es ;
+    skos:definition "Aprobación CORE, envío DIPRES, Toma de Razón CGR."@es ;
+    gist:sequence 2 ;
+    .
+
+gnubd:_BudgetPhase_03_Execution
+    a gnub:BudgetCyclePhase ;
+    skos:prefLabel "Fase 3: Ejecución Presupuestaria"@es ;
+    skos:definition "Programación de caja, compromisos, devengos, pagos en SIGFE."@es ;
+    gist:sequence 3 ;
+    .
+
+gnubd:_BudgetPhase_04_Modification
+    a gnub:BudgetCyclePhase ;
+    skos:prefLabel "Fase 4: Modificaciones Presupuestarias"@es ;
+    skos:definition "Suplementos, reasignaciones, incorporación SIC, transferencias consolidables."@es ;
+    gist:sequence 4 ;
+    .
+
+gnubd:_BudgetPhase_05_Control
+    a gnub:BudgetCyclePhase ;
+    skos:prefLabel "Fase 5: Control y Seguimiento"@es ;
+    skos:definition "Control interno, CGR, seguimiento DIPRES, transparencia."@es ;
+    gist:sequence 5 ;
+    .
+
+gnubd:_BudgetPhase_06_Closure
+    a gnub:BudgetCyclePhase ;
+    skos:prefLabel "Fase 6: Cierre Presupuestario"@es ;
+    skos:definition "Deuda flotante, SIC, cierre SIGFE/BIP, evaluación."@es ;
+    gist:sequence 6 ;
+    .
+
+# =============================================================================
+# GLOSAS PRESUPUESTARIAS PRINCIPALES (gnub:BudgetaryRule)
+# Fuente: kb_gn_211_ley_presupuestos_2026_glosas_gores_2026_koda.yml
+# =============================================================================
+
+gnubd:_Gloss_01_Funcionamiento
+    a gnub:BudgetaryRule ;
+    skos:prefLabel "Glosa 01: Funcionamiento Regional"@es ;
+    skos:definition "Reglas para gastos en personal (S21), contratas, honorarios agente público."@es ;
+    .
+
+gnubd:_Gloss_03_Restricciones
+    a gnub:BudgetaryRule ;
+    skos:prefLabel "Glosa 03: Restricciones de Financiamiento"@es ;
+    skos:definition "Prohibición de usar inversión para préstamos, personal o bienes/servicios de entidades receptoras."@es ;
+    .
+
+gnubd:_Gloss_04_Traspaso
+    a gnub:BudgetaryRule ;
+    skos:prefLabel "Glosa 04: Traspaso de Recursos"@es ;
+    skos:definition "Permite traspasos entre subtítulos de inversión (excepto hacia S22)."@es ;
+    .
+
+gnubd:_Gloss_06_OfertaProgramatica
+    a gnub:BudgetaryRule ;
+    skos:prefLabel "Glosa 06: Oferta Programática Inversión S24"@es ;
+    skos:definition "Reglas para programas directos: 5% administración GORE, 5% honorarios receptor, evaluación ex-ante."@es ;
+    .
+
+gnubd:_Gloss_07_8PCT
+    a gnub:BudgetaryRule ;
+    skos:prefLabel "Glosa 07: Concurso Vinculación con Comunidad 8%"@es ;
+    skos:definition "Hasta 8% de inversión para subvenciones deportivas, sociales, culturales; 10% asignación directa."@es ;
+    .
+
+gnubd:_Gloss_10_S31_Inversion
+    a gnub:BudgetaryRule ;
+    skos:prefLabel "Glosa 10: Inversión Pública S31"@es ;
+    skos:definition "Reglas para ejecución directa de inversión; hasta 10% variación sin nuevo acuerdo CORE."@es ;
+    .
+
+gnubd:_Gloss_11_S33_Transferencias
+    a gnub:BudgetaryRule ;
+    skos:prefLabel "Glosa 11: Transferencias de Capital S33"@es ;
+    skos:definition "Reglas para transferencias a terceros: FRIL, FRPD, PMU/PMB, emergencias."@es ;
+    .
+
+gnubd:_Gloss_14_Emergencias
+    a gnub:BudgetaryRule ;
+    skos:prefLabel "Glosa 14: Emergencias 3%/2%"@es ;
+    skos:definition "3% traspaso a Subsecretaría Interior; 2% uso directo GORE para emergencias."@es ;
+    .
+
+# =============================================================================
+# EJEMPLO: PATRÓN MAGNITUDE PARA MONTOS PRESUPUESTARIOS
+# Fuente: Tabla asignación Glosa 02, GORE Ñuble 2026
+# NOTA: Los Aspects (gnub:BudgetedAmountAspect, etc.) están definidos en el TBox.
+# =============================================================================
+
+gnubd:_UoM_ThousandsCLP
+    a gist:UnitOfMeasure ;
+    skos:prefLabel "Miles de Pesos Chilenos"@es ;
+    skos:altLabel "M$"@es ;
+    gist:conversionFactor 1000 ;
+    .
+
+gnubd:_Magnitude_FNDR_Nuble_2026
+    a gist:Magnitude ;
+    gist:hasAspect gnub:BudgetedAmountAspect ;
+    gist:hasUnitOfMeasure gnubd:_UoM_ThousandsCLP ;
+    gist:numericValue 41562476 ;
+    skos:definition "Asignación FNDR GORE Ñuble año 2026: $41.562.476 Miles."@es ;
+    .
+
+gnubd:_Magnitude_FRPD_Nuble_2026
+    a gist:Magnitude ;
+    gist:hasAspect gnub:BudgetedAmountAspect ;
+    gist:hasUnitOfMeasure gnubd:_UoM_ThousandsCLP ;
+    gist:numericValue 12829611 ;
+    skos:definition "Asignación FRPD GORE Ñuble año 2026: $12.829.611 Miles."@es ;
+    .
+
+gnubd:_Magnitude_Total_Nuble_2026
+    a gist:Magnitude ;
+    gist:hasAspect gnub:BudgetedAmountAspect ;
+    gist:hasUnitOfMeasure gnubd:_UoM_ThousandsCLP ;
+    gist:numericValue 85752331 ;
+    skos:definition "Asignación Total Inversión GORE Ñuble año 2026: $85.752.331 Miles."@es ;
     .
 
 # =============================================================================
@@ -670,6 +834,7 @@ gnubd:_Mech_SNI
     skos:altLabel "Track A"@es ;
     skos:definition "Mecanismo estándar para proyectos >15.000 UTM evaluados por MDSF (RS)."@es ;
     skos:note "Aplica a: Proyectos de Inversión (IDI). Resultado esperado: RS."@es ;
+    gnub:hasFundingSource gnubd:_Fund_FNDR ;
     gist:isGovernedBy gnubd:_EvalTrack_RATE ;
     gnub:hasThreshold [
         a gist:Magnitude ;
@@ -682,10 +847,11 @@ gnubd:_Mech_SNI
 
 gnubd:_Mech_FRIL
     a gnub:FinancingMechanism ;
-    skos:prefLabel "FRIL"@es ;
+    skos:prefLabel "FRIL - Mecanismo Infraestructura Local"@es ;
     skos:altLabel "Track C"@es ;
-    skos:definition "Fondo Regional de Iniciativa Local para proyectos <4.545 UTM."@es ;
+    skos:definition "Mecanismo para proyectos infraestructura municipal <4.545 UTM. Usa recursos del FNDR."@es ;
     skos:note "Aplica a: Proyectos de Inversión (IDI). Resultado esperado: AT."@es ;
+    gnub:hasFundingSource gnubd:_Fund_FNDR ;
     gist:isGovernedBy gnubd:_EvalTrack_LocalGORE ;
     gnub:hasThreshold [
         a gist:Magnitude ;
@@ -731,10 +897,11 @@ gnubd:_Mech_Transfer
 
 gnubd:_Mech_Subv8
     a gnub:FinancingMechanism ;
-    skos:prefLabel "Subvención 8% FNDR"@es ;
+    skos:prefLabel "Subvención 8% - Vinculación Comunidad"@es ;
     skos:altLabel "Track E1"@es ;
-    skos:definition "Concursos para organizaciones privadas y municipios."@es ;
+    skos:definition "Mecanismo de subvención hasta 8% del FNDR para actividades comunitarias."@es ;
     skos:note "Aplica a: Programas Operacionales (PPR). Resultado esperado: Puntaje."@es ;
+    gnub:hasFundingSource gnubd:_Fund_FNDR ;
     gist:isGovernedBy gnubd:_EvalTrack_LocalGORE ;
     gnub:isEvaluatedBy gnubd:_Org_GORE_Nuble ;
     gist:isCategorizedBy gnubd:_Subtitle_24_TransferenciasCorrientes ;
@@ -744,8 +911,9 @@ gnubd:_Mech_FRPD_CTCI
     a gnub:FinancingMechanism ;
     skos:prefLabel "FRPD - Línea CTCI"@es ;
     skos:altLabel "Track E2a"@es ;
-    skos:definition "Fondo Royalty para iniciativas de Ciencia y Tecnología."@es ;
+    skos:definition "Mecanismo Royalty para iniciativas de Ciencia, Tecnología e Innovación."@es ;
     skos:note "Aplica a: Iniciativas CTCI. Resultado esperado: Elegible."@es ;
+    gnub:hasFundingSource gnubd:_Fund_FRPD ;
     gist:isGovernedBy gnubd:_EvalTrack_CTCI ;
     gnub:hasMaxExecTime [
         a gist:Magnitude ;
@@ -759,8 +927,9 @@ gnubd:_Mech_FRPD_Fomento
     a gnub:FinancingMechanism ;
     skos:prefLabel "FRPD - Línea Fomento"@es ;
     skos:altLabel "Track E2b"@es ;
-    skos:definition "Fondo Royalty para fomento productivo general."@es ;
+    skos:definition "Mecanismo Royalty para fomento productivo general."@es ;
     skos:note "Aplica a: Proyectos de Inversión y Programas Operacionales."@es ;
+    gnub:hasFundingSource gnubd:_Fund_FRPD ;
     gist:isGovernedBy gnubd:_EvalTrack_RATE ;
     gnub:hasMaxExecTime [
         a gist:Magnitude ;
@@ -1018,11 +1187,12 @@ gnubd:_IPR_40028237
     gnub:hasIPRState gnubd:_IPRState_EnObra ;
     gist:hasMagnitude [
         a gist:Magnitude ;
+        gist:hasAspect gnub:BudgetedAmountAspect ;
         gist:numericValue "9943572"^^xsd:decimal ;
         gist:hasUnitOfMeasure gnubd:_Unit_PesoCLP
     ] ;
     gist:isCategorizedBy gnubd:_EvalResult_RS ;
-    gist:isLocatedIn gnubd:_Commune_SanFabian ;
+    gnub:isLocatedIn gnubd:_Commune_SanFabian ;
     skos:scopeNote "Estado: EJECUCIÓN. Beneficiarios: 641 personas. Próximo hito: Inicio de obra."@es ;
     .
 
@@ -1040,11 +1210,12 @@ gnubd:_IPR_40014384
     gnub:hasIPRState gnubd:_IPRState_ConvenioFormalizado ;
     gist:hasMagnitude [
         a gist:Magnitude ;
+        gist:hasAspect gnub:BudgetedAmountAspect ;
         gist:numericValue "3822158"^^xsd:decimal ;
         gist:hasUnitOfMeasure gnubd:_Unit_PesoCLP
     ] ;
     gist:isCategorizedBy gnubd:_EvalResult_RS ;
-    gist:isLocatedIn gnubd:_Commune_Chillan ;
+    gnub:isLocatedIn gnubd:_Commune_Chillan ;
     skos:scopeNote "Estado: DISEÑO. Superficie: 86.150 m2. Finalización esperada: mar-2026."@es ;
     .
 
@@ -1061,12 +1232,13 @@ gnubd:_IPR_FRIL_Cobquecura_01
     gnub:hasCurrentPhase gnubd:_Phase_F5_Ejecucion ;
     gnub:hasIPRState gnubd:_IPRState_EnLicitacion ;
     gist:isCategorizedBy gnubd:_EvalResult_AT, gnubd:_FRILCat_B1 ;
-    gist:isLocatedIn gnubd:_Commune_Cobquecura ;
+    gnub:isLocatedIn gnubd:_Commune_Cobquecura ;
     skos:scopeNote "Categoría FRIL: B1-Edificación Pública. Item presupuestario: 33.03.125."@es ;
     .
 
 # --- Programa Operacional (Subvención 8% - Deporte) ---
 gnubd:_IPR_Prog_Deporte_2025
+    a gnub:OperationalProgram ;
 
     skos:prefLabel "Programa Regional Fomento Deportivo 2025"@es ;
     skos:definition "Programa de subvención 8% para organizaciones deportivas de la Región de Ñuble."@es ;
@@ -1079,6 +1251,7 @@ gnubd:_IPR_Prog_Deporte_2025
     gnub:hasImplementationMode gnubd:_ImplMode_Transferencia ;
     gist:hasMagnitude [
         a gist:Magnitude ;
+        gist:hasAspect gnub:BudgetedAmountAspect ;
         gist:numericValue "500000000"^^xsd:decimal ;
         gist:hasUnitOfMeasure gnubd:_Unit_PesoCLP
     ] ;
@@ -1091,11 +1264,140 @@ gnubd:_IPR_Prog_Deporte_2025
 gnubd:_Org_Muni_SanFabian
     a gnub:ApplicantInstitution ;
     skos:prefLabel "Municipalidad de San Fabián"@es ;
-    gist:isLocatedIn gnubd:_Commune_SanFabian ;
+    gnub:isLocatedIn gnubd:_Commune_SanFabian ;
     .
 
 gnubd:_Org_Muni_Cobquecura
     a gnub:ApplicantInstitution ;
     skos:prefLabel "Municipalidad de Cobquecura"@es ;
-    gist:isLocatedIn gnubd:_Commune_Cobquecura ;
+    gnub:isLocatedIn gnubd:_Commune_Cobquecura ;
     .
+
+# --- Tipologías de Inversión ---
+
+gnubd:_Typology_Salud
+    a gnub:InvestmentTypology ;
+    skos:prefLabel "Salud"@es ;
+    skos:definition "Iniciativas del sector salud (CESFAM, Hospitales, Postas)."@es ;
+    .
+
+# =============================================================================
+# GOLDEN RECORDS: IPRs ENRIQUECIDAS (MODELO GIST 5 NIVELES)
+# Datos Base: idis_cleaned.csv (Reales)
+# Datos Enriquecidos: Sintéticos realistas para Cuentas, Convenios, Hitos
+# =============================================================================
+
+# --- CASO 1: CESFAM CHILLÁN VIEJO (BIP 30119286-0) ---
+
+gnubd:_IPR_30119286
+    a gnub:IPRProject ;
+    skos:prefLabel "REPOSICIÓN CESFAM FEDERICO PUGA BORNE, CHILLÁN VIEJO"@es ;
+    gist:name "REPOSICIÓN CESFAM FEDERICO PUGA BORNE, CHILLÁN VIEJO" ;
+    gnub:codigoBIP "30119286-0" ;
+    
+    # Nivel 1: Clasificadores
+    gnub:hasFundingSource gnubd:_Fund_FNDR ;
+    gnub:hasInvestmentTypology gnubd:_Typology_Salud ;
+    gnub:hasCurrentPhase gnubd:_Phase_F5_Ejecucion ;
+    
+    # Nivel 2: Cuentas
+    gnub:hasBudgetaryAccount gnubd:_Account_30119286_2026 ;
+    
+    # Nivel 4: Convenios
+    gnub:isExecutedVia gnubd:_Agreement_Mandate_30119286 ;
+    
+    # Nivel 5: Cronograma y Material (Propiedades Nativas Gist + Modelo Avance)
+    gist:plannedStartDateTime "2024-01-15T00:00:00"^^xsd:dateTime ;
+    gist:plannedEndDateTime "2026-06-30T00:00:00"^^xsd:dateTime ;
+    gist:actualStartDateTime "2024-03-01T00:00:00"^^xsd:dateTime ;
+    
+    gnub:hasProjectMilestone gnubd:_Milestone_30119286_InicioObras ;
+    gnub:hasProjectMilestone gnubd:_Milestone_30119286_Termino ;
+    
+    gnub:hasPhysicalProgress gnubd:_Magnitude_PhysProg_30119286 ;
+    gnub:hasPlannedProgress gnubd:_Magnitude_PlanProg_30119286 ;
+    .
+
+# --- Componentes N2: Cuenta Presupuestaria ---
+
+gnubd:_Account_30119286_2026
+    a gnub:BudgetaryAccount ;
+    skos:prefLabel "Cuenta Presupuestaria 2026 - CESFAM Chillán Viejo"@es ;
+    
+    # Magnitud: Presupuesto Vigente 2026
+    gist:hasMagnitude [
+        a gist:Magnitude ;
+        gist:hasAspect gnub:CurrentBudgetAspect ;
+        gist:hasUnitOfMeasure gnubd:_UoM_ThousandsCLP ;
+        gist:numericValue 1500000 ;
+    ] ;
+    # Magnitud: Devengado (Ejecutado)
+    gist:hasMagnitude [
+        a gist:Magnitude ;
+        gist:hasAspect gnub:AccruedAmountAspect ;
+        gist:hasUnitOfMeasure gnubd:_UoM_ThousandsCLP ;
+        gist:numericValue 450000 ;
+    ] .
+
+# --- Componentes N4: Convenio Mandato ---
+
+gnubd:_Agreement_Mandate_30119286
+    a gnub:MandateAgreement ;
+    skos:prefLabel "Convenio Mandato CESFAM Chillán Viejo"@es ;
+    gist:isAffectedBy gnubd:AgreementState_Formalizado ;
+    .
+
+# --- Componentes N5: Hitos y Avance ---
+
+gnubd:_Milestone_30119286_InicioObras
+    a gnub:ProjectMilestone ;
+    skos:prefLabel "H1: Inicio de Obras"@es ;
+    gist:hasGoal [ a gist:Intention ; skos:prefLabel "Acta de Entrega de Terreno"@es ] ;
+    gist:plannedStartDateTime "2024-03-01T00:00:00"^^xsd:dateTime ;
+    gist:actualStartDateTime "2024-03-01T00:00:00"^^xsd:dateTime ;
+    gist:isRecordedAt gnubd:_IPR_30119286 .
+
+gnubd:_Milestone_30119286_Termino
+    a gnub:ProjectMilestone ;
+    skos:prefLabel "H2: Término de Obras"@es ;
+    gist:hasGoal [ a gist:Intention ; skos:prefLabel "Recepción Provisoria"@es ] ;
+    gist:plannedStartDateTime "2026-06-30T00:00:00"^^xsd:dateTime ;
+    gist:isRecordedAt gnubd:_IPR_30119286 .
+
+gnubd:_Magnitude_PhysProg_30119286
+    a gist:Magnitude ;
+    gist:hasAspect gnub:PhysicalProgressAspect ;
+    gist:hasUnitOfMeasure gnubd:_Unit_Percentage ;
+    gist:numericValue 45.5 .
+
+gnubd:_Magnitude_PlanProg_30119286
+    a gist:Magnitude ;
+    gist:hasAspect gnub:PlannedProgressAspect ;
+    gist:hasUnitOfMeasure gnubd:_Unit_Percentage ;
+    gist:numericValue 60.0 .
+
+# --- CASO 2: POLIDEPORTIVO SAN CARLOS (BIP 30286222-0) ---
+
+gnubd:_IPR_30286222
+    a gnub:IPRProject ;
+    skos:prefLabel "CONSTRUCCION POLIDEPORTIVO MUNICIPAL DE SAN CARLOS"@es ;
+    gnub:codigoBIP "30286222-0" ;
+    gnub:hasFundingSource gnubd:_Fund_FNDR ;
+    gnub:hasCurrentPhase gnubd:_Phase_F5_Ejecucion ;
+    
+    gnub:hasBudgetaryAccount gnubd:_Account_30286222_2026 ;
+    gnub:hasPhysicalProgress gnubd:_Magnitude_PhysProg_30286222 .
+
+gnubd:_Account_30286222_2026
+    a gnub:BudgetaryAccount ;
+    gist:hasMagnitude [
+        a gist:Magnitude ;
+        gist:hasAspect gnub:CurrentBudgetAspect ;
+        gist:numericValue 800000 ;
+    ] .
+
+gnubd:_Magnitude_PhysProg_30286222
+    a gist:Magnitude ;
+    gist:hasAspect gnub:PhysicalProgressAspect ;
+    gist:hasUnitOfMeasure gnubd:_Unit_Percentage ;
+    gist:numericValue 12.0 .

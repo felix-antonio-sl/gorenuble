@@ -7,8 +7,25 @@ _manifest:
   provenance:
     created_by: "GORE Ñuble"
     created_at: "2025-12-22"
-    last_modified_at: "2025-12-22"
-    source_artifact: "organigrama.jpg"
+    last_modified_at: "2026-01-05"
+    source_artifact: "Rex_00056_2023, Rex_1367_2023, Rex_004_2024"
+
+LLM_Parsing_Instructions:
+  ID: KODA-LLM-PARSER-01
+  Req: Mandatory block following Metadata.
+  Prohib: Using for artifact creation or translation.
+  Content: |
+    BEGIN_LLM_INSTRUCTIONS
+    You are an AI agent consuming a KODA artifact. Parse with absolute fidelity.
+
+    FIDELITY: Preserve meat (essential information) and skeleton (structure: headers, IDs, lists, tables) with zero loss. Ignore fat (filler words, rhetoric, stylistic prose).
+
+    LEXICON (expand before processing): Act->Action, Cond->Condition, Ctx->Context, Ctx_Required->Required External Reference, Ctx_Optional->Optional External Reference, Def->Definition, Ex->Example, Mssn->Mission, Obj->Objective, Proc->Process, Purp->Purpose, Ref->Reference, XRef->Cross-Artifact Reference, XRef_Required->Mandatory Cross-Artifact Reference, Req->Requirement, Res->Result, Src->Source, Prohib->Prohibition, Warn->Warning, Just->Justification, Rec->Recommendation
+
+    REFERENCE POLICY: Ref: is internal only—must point to existing ID within THIS document. XRef/XRef_Required: are external only—must point to a URN (optionally with #ID fragment) in another artifact. External documents without specific ID use Ctx:, Ctx_Required:, or Ctx_Optional:.
+
+    LANGUAGE POLICY: Keywords in English, content in original language. Never translate content.
+    END_LLM_INSTRUCTIONS
 
 titulo: ORGANIGRAMA INSTITUCIONAL
 subtitulo: Gobierno Regional de Ñuble
@@ -30,18 +47,21 @@ organigrama:
           - Unidad de Calidad y Gestión Institucional
           - Oficina de Partes
         divisiones:
-          - nodo: Jefe División de Planificación y Desarrollo
+          - nodo: Jefe División de Planificación y Desarrollo (DIPLADE)
             departamentos_unidades:
               - Comité Pertenencia y Vinculación Estratégica
               - Departamento Planificación Estratégica y Ordenamiento Territorial
               - Departamento Desarrollo Proyectos Estratégicos
               - Departamento Desarrollo Urbano
-          - nodo: Jefe División de Presupuesto e Inversión Regional
-            departamentos_unidades:
+              - Departamento Puesta en Valor del Patrimonio
               - Departamento de Análisis y Evaluación
+              - Unidad de Municipalidades y Conservaciones
+              - Unidad de proyectos y programas
+          - nodo: Jefe División de Presupuesto e Inversión Regional (DIPIR)
+            departamentos_unidades:
               - Departamento de Presupuesto
               - Departamento de Inversión
-          - nodo: Jefe División de Desarrollo Social y Humano
+          - nodo: Jefe División de Desarrollo Social y Humano (DIDESOH)
             departamentos_unidades:
               - Departamento Fondos Concursables y Programas Sociales
               - Unidad Subvenciones
@@ -50,20 +70,20 @@ organigrama:
               - Unidad Participación Ciudadana
               - Unidad Territorial Provincial
               - Unidad Seguimiento de Políticas, Planes y Programas Sociales
-          - nodo: Jefe División de Fomento e Industria
+          - nodo: Jefe División de Fomento e Industria (DIFOI)
             departamentos_unidades:
               - Departamento Zonas en Desarrollo
               - Departamento Desarrollo Económico Local
               - Departamento Ciencia, Tecnología e Innovación para la Competitividad
-              - Departamento Desarrollo Empresarial y Atracción de Inversiones
+              - Departamento Desarrollo Empresarial y Atracción de Inversiones y URAI
               - Departamento de Riego y Medioambiente
-          - nodo: Jefe División de Infraestructura y Transporte
+          - nodo: Jefe División de Infraestructura y Transporte (DIT)
             departamentos_unidades:
               - Departamento Infraestructura y Equipamiento Regional
-              - Unidad Saneamiento Básico
-              - Departamento Gestión en Transportes y Telecomunicaciones
+              - Unidad Saneamiento básico
+              - Departamento Gestión en Transporte y Telecomunicaciones
               - Unidad Conectividad
-          - nodo: Jefe División de Administración y Finanzas
+          - nodo: Jefe División de Administración y Finanzas (DAF)
             departamentos_unidades:
               - Departamento de Gestión y Desarrollo de Personas
               - Unidad Gestión de Personas
@@ -72,7 +92,8 @@ organigrama:
               - Unidad Gestión Operativa Interna
               - Unidad Abastecimiento
               - Unidad TIC
+              - Unidad de Control de Rendiciones (U.C.R.)
   - nodo: CONSEJO REGIÓN DE ÑUBLE
     dependencias:
-      - Secretaria Ejecutiva CORE
+      - Secretaría Ejecutiva CORE
       - Unidad Control

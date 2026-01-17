@@ -72,13 +72,13 @@ Definitions:
     - ID: DEF-DEUDA-FLOTANTE
       Def: "Deuda Flotante: obligaciones devengadas y no pagadas al cierre del ejercicio."
     - ID: DEF-INTEROPERABILIDAD
-      Def: "Interoperabilidad: capacidad de intercambiar información financiera automáticamente entre sistemas (ej.: SIGFIN <-> Banco)."
+      Def: "Interoperabilidad: capacidad de intercambiar información financiera automáticamente entre sistemas (ej.: ERP <-> Banco)."
 
   Sistemas_y_Modulos:
     - ID: DEF-SIGFE
       Def: "SIGFE: Sistema de Información para la Gestión Financiera del Estado (agregador central)."
-    - ID: DEF-ERP-SIGFIN
-      Def: "ERP (SIGFIN): sistema ERP financiero institucional; mantiene Matriz de Devengamiento y asientos patrimoniales."
+    - ID: DEF-ERP
+      Def: "ERP: sistema ERP financiero institucional; mantiene Matriz de Devengamiento y asientos patrimoniales."
     - ID: DEF-SIGPER
       Def: "SIGPER: módulo/sistema de remuneraciones."
     - ID: DEF-SIGAS
@@ -100,7 +100,7 @@ Definitions:
     - ID: DEF-ASIENTO-TIPO
       Def: "Asiento Tipo: asiento contable pre-parametrizado en ERP para operaciones recurrentes."
     - ID: DEF-MATRIZ-DEVENGAMIENTO
-      Def: "Matriz de Devengamiento: parametrización en ERP (SIGFIN) que asocia imputación presupuestaria (Subtítulo/Ítem/Asig) con asiento contable patrimonial."
+      Def: "Matriz de Devengamiento: parametrización en ERP que asocia imputación presupuestaria (Subtítulo/Ítem/Asig) con asiento contable patrimonial."
 
 Manual_1_2_Contabilidad_Gubernamental_y_Cierre_Financiero:
   ID: GN-MANUAL-CONTAB-ROOT-01
@@ -187,14 +187,14 @@ Manual_1_2_Contabilidad_Gubernamental_y_Cierre_Financiero:
         Req: "Cada IDI funciona como centro de gestión contable; permite balances por proyecto."
       Asociacion_Contable_Presupuestaria:
         ID: GN-MANUAL-CONTAB-S2-ASOC-01
-        Req: "Matriz de Devengamiento debe mantenerse actualizada en ERP (SIGFIN)."
+        Req: "Matriz de Devengamiento debe mantenerse actualizada en ERP."
         Mech:
           - "Cada imputación presupuestaria (Subtítulo/Ítem/Asig) genera automáticamente asiento contable patrimonial correcto."
         Ex:
           - "Gastos en Personal -> Cuenta de Gasto Patrimonial + Pasivo Corriente."
         Ref:
           - DEF-MATRIZ-DEVENGAMIENTO
-          - DEF-ERP-SIGFIN
+          - DEF-ERP
 
     Biblioteca_de_Asientos_Contables_Memoria_Contable:
       ID: GN-MANUAL-CONTAB-S2-ASIENTOS-01

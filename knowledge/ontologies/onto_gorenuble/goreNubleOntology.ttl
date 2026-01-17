@@ -1,5 +1,6 @@
 @prefix gnub: <https://gorenuble.gob.cl/ns/ontology/> .
 @prefix gnubd: <https://gorenuble.gob.cl/ns/data/> .
+@prefix tde: <https://datos.gob.cl/ns/ontology/tde/> .
 @prefix gist: <https://w3id.org/semanticarts/ns/ontology/gist/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -14,7 +15,8 @@
 <https://gorenuble.gob.cl/ontology/goreNubleOntology>
     a owl:Ontology ;
     owl:imports <https://w3id.org/semanticarts/ontology/gistCore14.0.0> ;
-    owl:versionIRI <https://gorenuble.gob.cl/ontology/goreNubleOntology1.0.0> ;
+    owl:imports <https://datos.gob.cl/ns/ontology/tdeBundle> ;
+    owl:versionIRI <https://gorenuble.gob.cl/ontology/goreNubleOntology2.0.0> ;
     skos:definition "Esquema conceptual unificado (TBox) del Gobierno Regional de Ñuble. Consolida modelos organizacionales, legales y de gestión de inversiones, extendiendo gist 14.0."@es ;
     skos:prefLabel "Ontología GORE Ñuble (Core)"@es ;
     .
@@ -105,13 +107,9 @@ gnub:PlanningInstrument
     skos:note "Modela documentos normativos/especificaciones que guían la planificación territorial."@es ;
     .
 
-gnub:RegionalFund
-    a owl:Class ;
-    rdfs:subClassOf gist:Account ;
-    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
-    skos:definition "Fondo de inversión o financiamiento administrado por el GORE."@es ;
-    skos:prefLabel "Fondo Regional"@es ;
-    .
+# NOTA: gnub:RegionalFund ha sido eliminado.
+# Los fondos se modelan como gnub:FundingSource (Category).
+# Las cuentas presupuestarias con saldo se modelan como gnub:BudgetaryAccount (Account).
 
 gnub:CompetencyType
     a owl:Class ;
@@ -191,36 +189,219 @@ gnub:BudgetaryRule
     skos:prefLabel "Regla Presupuestaria"@es ;
     .
 
-gnub:BudgetSubtitle
+# =============================================================================
+# CLASIFICADORES PRESUPUESTARIOS (Gist-Aligned: Category + Partonomía)
+# Jerarquía: Partida → Capítulo → Programa → Subtítulo → Ítem → Asignación
+# =============================================================================
+
+gnub:BudgetClassifier
     a owl:Class ;
     rdfs:subClassOf gist:Category ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
-    skos:definition "Clasificador presupuestario del gasto público chileno (Subtítulo 21-33)."@es ;
-    skos:prefLabel "Subtítulo Presupuestario"@es ;
+    skos:definition "Clasificador presupuestario en cualquier nivel jerárquico. Usa gist:isDirectPartOf para estructura."@es ;
+    skos:prefLabel "Clasificador Presupuestario"@es ;
+    skos:scopeNote "Superclase unificadora. Subclases representan niveles específicos por conveniencia."@es ;
     .
 
 gnub:BudgetPartida
     a owl:Class ;
-    rdfs:subClassOf gist:Category ;
+    rdfs:subClassOf gnub:BudgetClassifier ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
-    skos:definition "Nivel superior de la clasificación institucional del presupuesto (ej. Partida 31)."@es ;
+    skos:definition "Nivel 1: Partida presupuestaria (ej. Partida 31 GORES)."@es ;
     skos:prefLabel "Partida Presupuestaria"@es ;
     .
 
 gnub:BudgetChapter
     a owl:Class ;
-    rdfs:subClassOf gist:Category ;
+    rdfs:subClassOf gnub:BudgetClassifier ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
-    skos:definition "Desagregación institucional de una Partida (ej. Capítulo 01)."@es ;
+    skos:definition "Nivel 2: Capítulo presupuestario (ej. Capítulo 16 GORE Ñuble)."@es ;
     skos:prefLabel "Capítulo Presupuestario"@es ;
     .
 
 gnub:BudgetProgram
     a owl:Class ;
+    rdfs:subClassOf gnub:BudgetClassifier ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Nivel 3: Programa presupuestario (ej. Programa 01 Funcionamiento, 02 Inversión)."@es ;
+    skos:prefLabel "Programa Presupuestario"@es ;
+    .
+
+gnub:BudgetSubtitle
+    a owl:Class ;
+    rdfs:subClassOf gnub:BudgetClassifier ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Nivel 4: Subtítulo del gasto (ej. 21 Personal, 24 Transferencias Corrientes, 33 Transferencias Capital)."@es ;
+    skos:prefLabel "Subtítulo Presupuestario"@es ;
+    .
+
+gnub:BudgetItem
+    a owl:Class ;
+    rdfs:subClassOf gnub:BudgetClassifier ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Nivel 5: Ítem presupuestario (ej. 01 Al Sector Privado, 03 A Otras Entidades)."@es ;
+    skos:prefLabel "Ítem Presupuestario"@es ;
+    .
+
+gnub:BudgetAllocation
+    a owl:Class ;
+    rdfs:subClassOf gnub:BudgetClassifier ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Nivel 6: Asignación presupuestaria (ej. 33.03.001 A Otras Entidades Públicas)."@es ;
+    skos:prefLabel "Asignación Presupuestaria"@es ;
+    .
+
+# =============================================================================
+# FUENTES DE FINANCIAMIENTO (Gist-Aligned: Category)
+# =============================================================================
+
+gnub:FundingSource
+    a owl:Class ;
     rdfs:subClassOf gist:Category ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
-    skos:definition "División presupuestaria base asignada a un servicio o propósito específico (ej. Programa 19: GORE Ñuble)."@es ;
-    skos:prefLabel "Programa Presupuestario"@es ;
+    skos:definition "Clasificador de origen de recursos presupuestarios regionales (FNDR, FRPD, FATC, FIC, etc.)."@es ;
+    skos:prefLabel "Fuente de Financiamiento"@es ;
+    skos:scopeNote "Clasificador puro (Category). FRIL/8% son Mecanismos, no Fondos. Para saldos usar BudgetaryAccount."@es ;
+    .
+
+# =============================================================================
+# CUENTAS PRESUPUESTARIAS (gist:Account para ejecución con saldos)
+# Fuente: kb_gn_043_manual_presupuesto - Cadena CDP→Compromiso→Devengo→Pago
+# =============================================================================
+
+gnub:BudgetaryAccount
+    a owl:Class ;
+    rdfs:subClassOf gist:Account ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Cuenta presupuestaria con saldos para seguimiento de ejecución (vigente, comprometido, devengado, pagado, disponible)."@es ;
+    skos:prefLabel "Cuenta Presupuestaria"@es ;
+    skos:scopeNote "Para clasificadores usar FundingSource. Esta clase modela saldos según gist:Account."@es ;
+    .
+
+# =============================================================================
+# TRANSACCIONES PRESUPUESTARIAS (gist:Event)
+# Fuente: kb_gn_043 cadena CDP→Compromiso→Devengo→Pago
+# =============================================================================
+
+gnub:BudgetaryTransaction
+    a owl:Class ;
+    rdfs:subClassOf gist:Event ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Operación que modifica saldo de cuenta presupuestaria."@es ;
+    skos:prefLabel "Transacción Presupuestaria"@es ;
+    .
+
+gnub:PreCommitmentEvent
+    a owl:Class ;
+    rdfs:subClassOf gnub:BudgetaryTransaction ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Pre-afectación: emisión de CDP que reserva saldo presupuestario."@es ;
+    skos:prefLabel "Pre-Compromiso (CDP)"@es ;
+    .
+
+gnub:CommitmentEvent
+    a owl:Class ;
+    rdfs:subClassOf gnub:BudgetaryTransaction ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Compromiso: acto administrativo (OC, Contrato) que reserva recursos definitivamente."@es ;
+    skos:prefLabel "Compromiso"@es ;
+    .
+
+gnub:AccrualEvent
+    a owl:Class ;
+    rdfs:subClassOf gnub:BudgetaryTransaction ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Devengo: hito de recepción conforme que genera obligación de pago y pasivo contable."@es ;
+    skos:prefLabel "Devengo"@es ;
+    .
+
+gnub:PaymentEvent
+    a owl:Class ;
+    rdfs:subClassOf gnub:BudgetaryTransaction ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Pago: egreso efectivo de fondos (TEF/Cheque) que extingue la obligación."@es ;
+    skos:prefLabel "Pago"@es ;
+    .
+
+gnub:BudgetModificationEvent
+    a owl:Class ;
+    rdfs:subClassOf gnub:BudgetaryTransaction ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Modificación presupuestaria: reasignación, suplemento o transferencia de recursos."@es ;
+    skos:prefLabel "Modificación Presupuestaria"@es ;
+    .
+
+# =============================================================================
+# ASPECTOS PARA PATRÓN MAGNITUDE (Gist 14.0) - Ejecución Presupuestaria
+# =============================================================================
+
+gnub:BudgetedAmountAspect
+    a gist:Aspect ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Aspecto: monto presupuestado inicial (Ley de Presupuestos)."@es ;
+    skos:prefLabel "Monto Presupuestado"@es ;
+    .
+
+gnub:CurrentBudgetAspect
+    a gist:Aspect ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Aspecto: presupuesto vigente (post-modificaciones)."@es ;
+    skos:prefLabel "Presupuesto Vigente"@es ;
+    .
+
+gnub:PreCommittedAmountAspect
+    a gist:Aspect ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Aspecto: monto pre-afectado (CDPs emitidos)."@es ;
+    skos:prefLabel "Monto Pre-Comprometido"@es ;
+    .
+
+gnub:CommittedAmountAspect
+    a gist:Aspect ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Aspecto: monto comprometido cierto (OC, Contratos formalizados)."@es ;
+    skos:prefLabel "Monto Comprometido"@es ;
+    .
+
+gnub:AccruedAmountAspect
+    a gist:Aspect ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Aspecto: monto devengado (obligación exigible tras recepción conforme)."@es ;
+    skos:prefLabel "Monto Devengado"@es ;
+    .
+
+gnub:PaidAmountAspect
+    a gist:Aspect ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Aspecto: monto pagado (egreso efectivo que extinguió obligación)."@es ;
+    skos:prefLabel "Monto Pagado"@es ;
+    .
+
+gnub:AvailableBalanceAspect
+    a gist:Aspect ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Aspecto: saldo disponible (Vigente - Comprometido)."@es ;
+    skos:prefLabel "Saldo Disponible"@es ;
+    .
+
+gnub:ExecutedAmountAspect
+    a gist:Aspect ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Aspecto: monto ejecutado/devengado (legado, usar AccruedAmountAspect)."@es ;
+    skos:prefLabel "Monto Ejecutado"@es ;
+    owl:deprecated true ;
+    .
+
+# =============================================================================
+# FASES DEL CICLO PRESUPUESTARIO
+# =============================================================================
+
+gnub:BudgetCyclePhase
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Fase del ciclo presupuestario anual (Formulación, Aprobación, Ejecución, etc.)."@es ;
+    skos:prefLabel "Fase del Ciclo Presupuestario"@es ;
     .
 
 gnub:GlossType
@@ -559,7 +740,7 @@ gnub:UniversalIPRState
 
 gnub:BudgetLine
     a owl:Class ;
-    rdfs:subClassOf gist:FinancialInstrument ;
+    rdfs:subClassOf gnub:FinancialInstrument ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
     skos:definition "Línea presupuestaria asignada a una IPR, vinculando clasificadores, montos y años."@es ;
     skos:prefLabel "Línea Presupuestaria"@es ;
@@ -685,8 +866,11 @@ gnub:RenditionExpedient
     a owl:Class ;
     rdfs:subClassOf gist:Content ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
-    skos:definition "Conjunto ordenado de documentos que respaldan la recepción, uso y justificación de fondos públicos (Res. 30/2015 CGR Art. 10)."@es ;
+    owl:deprecated true ;
+    rdfs:seeAlso <https://datos.gob.cl/ns/ontology/tde/ExpedienteElectronico> ;
+    skos:definition "DEPRECATED: Usar tde:ExpedienteElectronico. Conjunto ordenado de documentos que respaldan la recepción, uso y justificación de fondos públicos (Res. 30/2015 CGR Art. 10)."@es ;
     skos:prefLabel "Expediente de Rendición"@es ;
+    skos:editorialNote "Deprecado v2.0: Semánticamente un expediente es gist:Collection, no gist:Content. Migrar a tde:ExpedienteElectronico."@es ;
     .
 
 gnub:RenditionRole
@@ -727,13 +911,45 @@ gnub:Decree
     skos:prefLabel "Decreto"@es ;
     .
 
+# =============================================================================
+# CONVENIOS (gist:Contract - Acuerdos con fuerza legal)
+# Fuente: kb_gn_043 Gestión de Convenios de Transferencia
+# =============================================================================
+
+gnub:GOREAgreement
+    a owl:Class ;
+    rdfs:subClassOf gist:Contract ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Convenio formalizado por el GORE con una entidad ejecutora, con fuerza legal y obligaciones mutuas."@es ;
+    skos:prefLabel "Convenio GORE"@es ;
+    skos:scopeNote "Modela convenios como gist:Contract (Agreement + jurisdicción legal). Incluye TransferAgreement y MandateAgreement."@es ;
+    .
+
 gnub:TransferAgreement
     a owl:Class ;
-    rdfs:subClassOf gist:Agreement ;
+    rdfs:subClassOf gnub:GOREAgreement ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
-    skos:definition "Convenio de transferencia de recursos entre el GORE y una entidad ejecutora, que establece obligaciones mutuas."@es ;
+    skos:definition "Convenio de Transferencia: entrega recursos para ejecución directa del beneficiario (subvenciones, fondos concursables). Requiere rendición SISREC."@es ;
     skos:prefLabel "Convenio de Transferencia"@es ;
-    skos:scopeNote "Modela el convenio como gist:Agreement con partes (GORE y ejecutor) y contenido (montos, plazos, obligaciones)."@es ;
+    skos:scopeNote "Modelo pago: transferencia upfront → rendición posterior vía SISREC/CGR."@es ;
+    .
+
+gnub:MandateAgreement
+    a owl:Class ;
+    rdfs:subClassOf gnub:GOREAgreement ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Convenio Mandato: GORE encarga ejecución a tercero (MOP, SERVIU, Municipalidad); transfiere recursos contra avance (Estados de Pago)."@es ;
+    skos:prefLabel "Convenio Mandato"@es ;
+    skos:scopeNote "Modelo pago: estados de pago contra avance de obra. Unidades técnicas: MOP, SERVIU, Municipios."@es ;
+    .
+
+gnub:AgreementType
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Tipo de convenio según su naturaleza (Mandato, Transferencia, Colaboración, etc.)."@es ;
+    skos:prefLabel "Tipo de Convenio"@es ;
+    skos:scopeNote "Para clasificación adicional más allá de las subclases."@es ;
     .
 
 gnub:AgreementState
@@ -753,6 +969,56 @@ gnub:ApprovalFlowStage
     .
 
 # =============================================================================
+# EJECUCIÓN MATERIAL Y CRONOGRAMA (Gist 14.0 Project Management)
+# =============================================================================
+
+gnub:ProjectMilestone
+    a owl:Class ;
+    rdfs:subClassOf gist:ScheduledTask ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Hito clave de ejecución de IPR (Inicio Obras, Recepción Provisoria, Término). Tiene objetivo y fecha planificada."@es ;
+    skos:prefLabel "Hito de Proyecto"@es ;
+    skos:scopeNote "Usa gist:plannedStartDateTime y gist:actualStartDateTime para fechas planificadas vs. reales. Subclase de ScheduledTask porque tiene Goal."@es ;
+    .
+
+gnub:PhysicalProgressAspect
+    a gist:Aspect ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Aspecto: porcentaje de avance físico de una IPR (0-100%)."@es ;
+    skos:prefLabel "Avance Físico"@es ;
+    skos:scopeNote "Usar con gist:Magnitude y gist:numericValue para representar el % de avance."@es ;
+    .
+
+gnub:PlannedProgressAspect
+    a gist:Aspect ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Aspecto: porcentaje de avance físico planificado según cronograma."@es ;
+    skos:prefLabel "Avance Planificado"@es ;
+    .
+
+# =============================================================================
+# RENDICIONES (gist:Process)
+# Fuente: kb_gn_020_gestion_rendiciones
+# =============================================================================
+
+gnub:AccountabilityProcess
+    a owl:Class ;
+    rdfs:subClassOf gist:Task ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Proceso de rendición de cuentas de transferencias GORE, ejecutado vía SISREC."@es ;
+    skos:prefLabel "Proceso de Rendición"@es ;
+    skos:scopeNote "Gobernado por GOREAgreement. Participantes: RTF y UCR."@es ;
+    .
+
+gnub:AccountabilityState
+    a owl:Class ;
+    rdfs:subClassOf gist:Category ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Estado de una rendición (Pendiente, En Revisión, Aprobada, Observada, Rechazada)."@es ;
+    skos:prefLabel "Estado de Rendición"@es ;
+    .
+
+# =============================================================================
 # PROPIEDADES DE RENDICIONES Y APROBACIONES
 # =============================================================================
 
@@ -769,10 +1035,11 @@ gnub:hasRenditionState
 gnub:hasExpedient
     a owl:ObjectProperty ;
     rdfs:domain gnub:Rendition ;
-    rdfs:range gnub:RenditionExpedient ;
+    rdfs:range tde:ExpedienteElectronico ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
-    skos:definition "Relaciona una rendición con su expediente documental."@es ;
+    skos:definition "Relaciona una rendición con su expediente electrónico (tde:ExpedienteElectronico)."@es ;
     skos:prefLabel "tiene expediente"@es ;
+    skos:editorialNote "v2.0: Rango actualizado de gnub:RenditionExpedient (deprecado) a tde:ExpedienteElectronico."@es ;
     .
 
 gnub:rendersAccount
@@ -903,11 +1170,11 @@ gnub:isOwnedBy
 
 gnub:isManagedBy
     a owl:ObjectProperty ;
-    rdfs:domain gnub:RegionalFund ;
+    rdfs:domain gnub:FundingSource ;
     rdfs:range gist:Organization ;
     rdfs:subPropertyOf gist:isGovernedBy ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
-    skos:definition "Indica la organización que administra operacionalmente un fondo regional."@es ;
+    skos:definition "Indica la organización que administra operacionalmente una fuente de financiamiento."@es ;
     skos:prefLabel "es administrado por"@es ;
     .
 
@@ -1114,10 +1381,11 @@ gnub:hasExecutor
 gnub:hasFundingSource
     a owl:ObjectProperty ;
     rdfs:domain gnub:IPR ;
-    rdfs:range gnub:RegionalFund ;
+    rdfs:range gnub:FundingSource ;
     rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
-    skos:definition "Fondo regional fuente de recursos para la IPR."@es ;
+    skos:definition "Clasificador de fuente de recursos para la IPR (FNDR, FRPD, etc.)."@es ;
     skos:prefLabel "tiene fuente de financiamiento"@es ;
+    skos:scopeNote "Apunta a FundingSource (Category). Para saldos usar hasBudgetaryAccount."@es ;
     .
 
 gnub:usesFinancingMechanism
@@ -1335,7 +1603,128 @@ gnub:establishes
     skos:scopeNote "Inversa de gnub:derivesFromArticle para navegación bidireccional."@es ;
     .
 
+# =============================================================================
+# PROPIEDADES EJECUCIÓN MATERIAL Y CRONOGRAMA
+# =============================================================================
 
+gnub:hasProjectMilestone
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gnub:ProjectMilestone ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Conecta una IPR con sus hitos de ejecución."@es ;
+    skos:prefLabel "tiene hito"@es ;
+    .
+
+gnub:hasPhysicalProgress
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gist:Magnitude ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Avance físico actual de la IPR (Magnitude con PhysicalProgressAspect)."@es ;
+    skos:prefLabel "tiene avance físico"@es ;
+    .
+
+gnub:hasPlannedProgress
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gist:Magnitude ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Avance físico planificado según cronograma (Magnitude con PlannedProgressAspect)."@es ;
+    skos:prefLabel "tiene avance planificado"@es ;
+    .
+
+gnub:triggersPayment
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:ProjectMilestone ;
+    rdfs:range gnub:PaymentEvent ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Hito cumplido que gatilla un pago (cuota de convenio)."@es ;
+    skos:prefLabel "gatilla pago"@es ;
+    .
+
+# =============================================================================
+# PROPIEDADES RENDICIONES Y CONVENIOS
+# =============================================================================
+
+gnub:requiresAccountability
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:GOREAgreement ;
+    rdfs:range gnub:AccountabilityProcess ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Convenio que requiere proceso de rendición de cuentas."@es ;
+    skos:prefLabel "requiere rendición"@es ;
+    .
+
+gnub:hasAccountabilityState
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:AccountabilityProcess ;
+    rdfs:range gnub:AccountabilityState ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Estado actual del proceso de rendición."@es ;
+    skos:prefLabel "tiene estado de rendición"@es ;
+    .
+
+gnub:isExecutedVia
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gnub:GOREAgreement ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Convenio a través del cual se ejecuta la IPR."@es ;
+    skos:prefLabel "se ejecuta mediante"@es ;
+    .
+
+gnub:hasBudgetaryAccount
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:IPR ;
+    rdfs:range gnub:BudgetaryAccount ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Cuenta presupuestaria asociada a la IPR para seguimiento de ejecución."@es ;
+    skos:prefLabel "tiene cuenta presupuestaria"@es ;
+    .
+
+gnub:affectsAccount
+    a owl:ObjectProperty ;
+    rdfs:domain gnub:BudgetaryTransaction ;
+    rdfs:range gnub:BudgetaryAccount ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Transacción que modifica el saldo de una cuenta presupuestaria."@es ;
+    skos:prefLabel "afecta cuenta"@es ;
+    .
+
+# =============================================================================
+# EXTENSIONES LOCALES PARA GIST 14.0 (Remediación Namespace Squatting)
+# =============================================================================
+
+gnub:FinancialInstrument
+    a owl:Class ;
+    rdfs:subClassOf gist:Content ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Instrumento financiero o presupuestario (ej. Línea Presupuestaria)."@es ;
+    skos:prefLabel "Instrumento Financiero"@es ;
+    skos:scopeNote "Creada localmente para reemplazar gist:FinancialInstrument que no existe en Gist 14 Core."@es ;
+    .
+
+
+gnub:isLocatedIn
+    a owl:ObjectProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range gist:GeoRegion ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Ubicación geográfica de una entidad."@es ;
+    skos:prefLabel "está ubicado en"@es ;
+    skos:scopeNote "Reemplazo local para gist:isLocatedIn (no existe en Gist Core)."@es ;
+    .
+
+gnub:hasURI
+    a owl:DatatypeProperty ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:anyURI ;
+    rdfs:isDefinedBy <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    skos:definition "Enlace a recurso web externo (URL)."@es ;
+    skos:prefLabel "tiene URI"@es ;
+    skos:scopeNote "Reemplazo local para gist:hasURI."@es ;
+    .
 
 # =============================================================================
 # FIN DEL DOCUMENTO TBOX (SOLO CLASES Y PROPIEDADES)

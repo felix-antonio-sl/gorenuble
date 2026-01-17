@@ -1115,8 +1115,8 @@ gnubd:_Assignment_Gobernador
     skos:prefLabel "Gobernador Regional de Ñuble"@es ;
     skos:definition "Asignación del cargo de Gobernador/a Regional de Ñuble."@es ;
     gist:atDateTime "2021-07-14T00:00:00"^^xsd:dateTime ;
-    gist:hasParty gnubd:_Person_OscarCrisostomo ;
-    gist:hasMember gnubd:_Org_GORE_Nuble ;
+    gist:isAssignmentOf gnubd:_Person_OscarCrisostomo ;
+    gist:isAssignmentTo gnubd:_Org_GORE_Nuble ;
     gist:isCategorizedBy gnubd:_PositionType_Gobernador ;
     .
 
@@ -1124,111 +1124,111 @@ gnubd:_Assignment_AdministradorRegional
     a gist:Assignment ;
     skos:prefLabel "Administrador/a Regional de Ñuble"@es ;
     skos:definition "Asignación del cargo de Administrador/a Regional."@es ;
-    gist:hasParty gnubd:_Person_AlejandroAguilera ;
-    gist:hasMember gnubd:_Org_GORE_Nuble ;
+    gist:isAssignmentOf gnubd:_Person_AlejandroAguilera ;
+    gist:isAssignmentTo gnubd:_Org_GORE_Nuble ;
     gist:isCategorizedBy gnubd:_PositionType_AdministradorRegional ;
     .
 
 gnubd:_Assignment_JefeDIPLADE
     a gist:Assignment ;
     skos:prefLabel "Jefe/a División DIPLADE"@es ;
-    gist:hasMember gnubd:_Div_DIPLADE ;
+    gist:isAssignmentTo gnubd:_Div_DIPLADE ;
     gist:isCategorizedBy gnubd:_PositionType_JefeDivision ;
     .
 
 gnubd:_Assignment_JefeDIPIR
     a gist:Assignment ;
     skos:prefLabel "Jefe/a División DIPIR"@es ;
-    gist:hasMember gnubd:_Div_DIPIR ;
+    gist:isAssignmentTo gnubd:_Div_DIPIR ;
     gist:isCategorizedBy gnubd:_PositionType_JefeDivision ;
     .
 
 gnubd:_Assignment_JefeDIDESO
     a gist:Assignment ;
     skos:prefLabel "Jefe/a División DIDESO"@es ;
-    gist:hasMember gnubd:_Div_DIDESO ;
+    gist:isAssignmentTo gnubd:_Div_DIDESO ;
     gist:isCategorizedBy gnubd:_PositionType_JefeDivision ;
     .
 
 gnubd:_Assignment_JefeDIFOI
     a gist:Assignment ;
     skos:prefLabel "Jefe/a División DIFOI"@es ;
-    gist:hasMember gnubd:_Div_DIFOI ;
+    gist:isAssignmentTo gnubd:_Div_DIFOI ;
     gist:isCategorizedBy gnubd:_PositionType_JefeDivision ;
     .
 
 gnubd:_Assignment_JefeDIINF
     a gist:Assignment ;
     skos:prefLabel "Jefe/a División DIINF"@es ;
-    gist:hasMember gnubd:_Div_DIINF ;
+    gist:isAssignmentTo gnubd:_Div_DIINF ;
     gist:isCategorizedBy gnubd:_PositionType_JefeDivision ;
     .
 
 gnubd:_Assignment_JefeDAF
     a gist:Assignment ;
     skos:prefLabel "Jefe/a División DAF"@es ;
-    gist:hasMember gnubd:_Div_DAF ;
+    gist:isAssignmentTo gnubd:_Div_DAF ;
     gist:isCategorizedBy gnubd:_PositionType_JefeDivision ;
     .
 
 gnubd:_Assignment_JefeGabinete
     a gist:Assignment ;
     skos:prefLabel "Jefe/a Gabinete Gobernador"@es ;
-    gist:hasMember gnubd:_Staff_Gabinete ;
+    gist:isAssignmentTo gnubd:_Staff_Gabinete ;
     .
 
 gnubd:_Assignment_JefeComunicaciones
     a gist:Assignment ;
     skos:prefLabel "Jefe/a Comunicaciones"@es ;
-    gist:hasMember gnubd:_Staff_Comunicaciones ;
+    gist:isAssignmentTo gnubd:_Staff_Comunicaciones ;
     .
 
 gnubd:_Assignment_JefeJuridica
     a gist:Assignment ;
     skos:prefLabel "Jefe/a Asesoría Jurídica"@es ;
-    gist:hasMember gnubd:_Staff_Juridica ;
+    gist:isAssignmentTo gnubd:_Staff_Juridica ;
     .
 
 gnubd:_Assignment_JefeAuditoria
     a gist:Assignment ;
     skos:prefLabel "Jefe/a Auditoría Interna"@es ;
-    gist:hasMember gnubd:_Staff_Auditoria ;
+    gist:isAssignmentTo gnubd:_Staff_Auditoria ;
     .
 
 gnubd:_Assignment_JefeCalidadGestion
     a gist:Assignment ;
     skos:prefLabel "Jefe/a Calidad y Gestión Institucional"@es ;
-    gist:hasMember gnubd:_Staff_CalidadGestion ;
+    gist:isAssignmentTo gnubd:_Staff_CalidadGestion ;
     .
 
 gnubd:_Assignment_JefeOficinaPartes
     a gist:Assignment ;
     skos:prefLabel "Jefe/a Oficina de Partes"@es ;
-    gist:hasMember gnubd:_Staff_OficinaPartes ;
+    gist:isAssignmentTo gnubd:_Staff_OficinaPartes ;
     .
 
 gnubd:_Assignment_JefeCorporacion
     a gist:Assignment ;
     skos:prefLabel "Jefe/a Corporación"@es ;
-    gist:hasMember gnubd:_Staff_Corporacion ;
+    gist:isAssignmentTo gnubd:_Staff_Corporacion ;
     .
 
 gnubd:_Assignment_JefeCIES
     a gist:Assignment ;
     skos:prefLabel "Jefe/a CIES"@es ;
-    gist:hasMember gnubd:_Staff_CIES ;
+    gist:isAssignmentTo gnubd:_Staff_CIES ;
     .
 
 gnubd:_Assignment_PresidenteCOSOC
     a gist:Assignment ;
     skos:prefLabel "Presidente/a COSOC"@es ;
-    gist:hasMember gnubd:_Advisory_COSOC ;
+    gist:isAssignmentTo gnubd:_Advisory_COSOC ;
     .
 
 gnubd:_Assignment_PresidenteCTCI
     a gist:Assignment ;
     skos:prefLabel "Presidente/a Comité CTCI"@es ;
-    gist:hasMember gnubd:_Advisory_ComiteCTCI ;
+    gist:isAssignmentTo gnubd:_Advisory_ComiteCTCI ;
     .
 
 # =============================================================================

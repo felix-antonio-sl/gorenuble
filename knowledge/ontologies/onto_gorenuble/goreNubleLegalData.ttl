@@ -27,7 +27,7 @@ gnubd:_LegalDoc_LOC_GORE
     skos:prefLabel "LOC GORE (DFL 1-19.175)"@es ;
     skos:altLabel "Ley Orgánica Constitucional de Gobiernos Regionales"@es ;
     skos:definition "Texto refundido, coordinado, sistematizado y actualizado de la Ley N° 19.175 sobre Gobierno y Administración Regional."@es ;
-    gist:hasURI "https://www.bcn.cl/leychile/navegar?idNorma=243771"^^xsd:anyURI ;
+    gnub:hasURI "https://www.bcn.cl/leychile/navegar?idNorma=243771"^^xsd:anyURI ;
     .
 
 gnubd:_LegalDoc_Ley21033
@@ -35,7 +35,7 @@ gnubd:_LegalDoc_Ley21033
     skos:prefLabel "Ley 21.033"@es ;
     skos:altLabel "Ley de Creación de la Región de Ñuble"@es ;
     skos:definition "Ley que crea la XVI Región de Ñuble y modifica otros cuerpos legales."@es ;
-    gist:hasURI "https://www.bcn.cl/leychile/navegar?idNorma=1108237"^^xsd:anyURI ;
+    gnub:hasURI "https://www.bcn.cl/leychile/navegar?idNorma=1108237"^^xsd:anyURI ;
     .
 
 gnubd:_LegalDoc_LeyPresupuestos2026

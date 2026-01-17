@@ -11,7 +11,7 @@ _manifest:
   provenance:
     created_by: "GORE Ñuble"
     created_at: "2025-11-25"
-    last_modified_at: "2025-12-23"
+    last_modified_at: "2026-01-05"
 
 Catalog:
   Core_Guides:
@@ -290,27 +290,27 @@ Catalog:
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:guia-idi-sni-sts:1.0.0"
       title: "Guía Formulación Iniciativas de Inversión (IDI) en SNI para GOREs"
-      file: "knowledge/domains/gn/guias/kb_gn_024_guia_idi_sni_koda.yml"
+      file: "knowledge/domains/gn/ipr/kb_gn_024_guia_idi_sni_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:guia-programas-directos-gore:1.0.0"
       title: "Guía de Formulación de Programas Públicos Regionales (PPR) de Ejecución Directa GORE"
-      file: "knowledge/domains/gn/guias/kb_gn_025_guia_programas_koda.yml"
+      file: "knowledge/domains/gn/ipr/kb_gn_025_guia_programas_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:guia-fril-2025-sts:1.0.0"
       title: "Instructivo FRIL 2025 GORE Ñuble"
-      file: "knowledge/domains/gn/guias/kb_gn_026_guia_fril_koda.yml"
+      file: "knowledge/domains/gn/ipr/kb_gn_026_guia_fril_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:guia-frpd-nuble:1.0.0"
       title: "Guía Operativa FRPD Ñuble 2025"
-      file: "knowledge/domains/gn/guias/kb_gn_027_guia_frpd_koda.yml"
+      file: "knowledge/domains/gn/ipr/kb_gn_027_guia_frpd_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:instructivo-subvencion-8-2025-sts:1.0.0"
       title: "Instructivo Concurso Vinculación con la Comunidad 8% 2025"
-      file: "knowledge/domains/gn/guias/kb_gn_028_instructivo_subvencion_8_koda.yml"
+      file: "knowledge/domains/gn/ipr/kb_gn_028_instructivo_subvencion_8_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:guia-circular-33-sts:1.0.0"
       title: "Guía Operativa para Formulación y Evaluación de Iniciativas Circular 33"
-      file: "knowledge/domains/gn/guias/kb_gn_029_guia_circ33_koda.yml"
+      file: "knowledge/domains/gn/ipr/kb_gn_029_guia_circ33_koda.yml"
       status: draft
 
     - urn: "urn:knowledge:gorenuble:gn:indicadores-nuble:1.0.0"
@@ -363,17 +363,22 @@ Catalog:
       file: "knowledge/domains/gn/tde/kb_gn_720_estrategia_td_ia_koda.yml"
       status: draft
 
-    - urn: "urn:knowledge:gorenuble:gn:estado-inicio-tics:1.0.0"
-      title: "Estado Inicial TICs GORE Ñuble (STS)"
-      file: "knowledge/domains/gn/tde/kb_gn_730_estado_inicio_tics_koda.yml"
-      status: draft
+    - urn: "urn:gorenuble:omega:ontology:ipr-gestion-fusion:1.0.0"
+      title: "Ontología Categorial Ω-IPR (Fusión Gestión + Selector)"
+      file: "knowledge/domains/gn/ipr/kb_omega_ipr_gestion_fusion.yml"
+      status: published
+
+    - urn: "urn:knowledge:gorenuble:gn:glosario-ipr-consolidado:1.0.0"
+      title: "Glosario Consolidado IPR - GORE Ñuble"
+      file: "knowledge/domains/gn/ipr/otroglosario.yml"
+      status: published
 
 Statistics:
-  total_artifacts: 63
+  total_artifacts: 64
   core_guides: 1
   agents: 10
   schemas: 0
-  domains: 61
-  last_updated: "2025-12-23"
+  domains: 63
+  last_updated: "2026-01-05"
   federation_status: "registered_in_koda"
-  notes: "Sincronización masiva: +1 organigrama institucional. +11 manuales, +Matriz Orgánica, +BPMN Index."
+  notes: "Saneo y actualización: Corregidas rutas IPPs, inyectadas LLM_Parsing_Instructions, agregados Ω-IPR y Glosario Consolidado."
