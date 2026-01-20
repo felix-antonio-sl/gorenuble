@@ -77,300 +77,300 @@ Catalog:
   Domains:
     - urn: "urn:knowledge:gorenuble:gn:intro-gores-nuble:1.0.0"
       title: "Guía Integral del Gobierno Regional de Ñuble"
-      file: "knowledge/domains/gn/intro/kb_gn_000_intro_gores_nuble_koda.yml"
+      file: "knowledge/domains/gn/01_fundamentos/intro/kb_gn_000_intro_gores_nuble_koda.yml"
       status: published
     - urn: "urn:knowledge:gorenuble:gn:organigrama:1.0.0"
       title: "Organigrama Institucional GORE Ñuble"
-      file: "knowledge/domains/gn/intro/kb_gn_002_organigrama_koda.yml"
+      file: "knowledge/domains/gn/01_fundamentos/intro/kb_gn_002_organigrama_koda.yml"
       status: published
     - urn: "urn:knowledge:gorenuble:gn:selector-ipr:1.0.0"
       title: "Selector de Vías de Financiamiento para IPR"
-      file: "knowledge/domains/gn/ipr/kb_gn_011_selector_ipr_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_011_selector_ipr_koda.yml"
       status: published
     - urn: "urn:knowledge:gorenuble:gn:vision-desarrollo-nuble:1.0.0"
       title: "Visión de Desarrollo GORE Ñuble"
-      file: "knowledge/domains/gn/intro/kb_gn_013_vision_desarrollo_nuble_koda.yml"
+      file: "knowledge/domains/gn/01_fundamentos/intro/kb_gn_013_vision_desarrollo_nuble_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:flujos-aprobacion-documentos:1.0.0"
       title: "Catálogo de Flujos de Aprobación de Documentos para el GORE Ñuble"
-      file: "knowledge/domains/gn/gestion/kb_gn_015_aprobaciones_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_015_aprobaciones_koda.yml"
       status: published
     - urn: "urn:knowledge:gorenuble:gn:manual-induccion-gore-nuble-2026:1.0.0"
       title: "Manual de Inducción del Gobierno Regional de Ñuble 2026"
-      file: "knowledge/domains/gn/gestion/kb_gn_017_manual_induccion_gore_nuble_2025_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_017_manual_induccion_gore_nuble_2025_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:manual-inventarios-bodegas:1.0.0"
       title: "Manual 2.2: Gestión de Inventarios y Bodegas"
-      file: "knowledge/domains/gn/gestion/kb_gn_040_manual_inventarios_bodegas_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_040_manual_inventarios_bodegas_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:manual-activo-fijo:1.0.0"
       title: "Manual 2.3: Gestión del Ciclo de Vida del Activo Fijo"
-      file: "knowledge/domains/gn/gestion/kb_gn_041_manual_activo_fijo_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_041_manual_activo_fijo_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:manual-desarrollo-organizacional:1.0.0"
       title: "Manual 3.4: Desarrollo Organizacional y Capacitación"
-      file: "knowledge/domains/gn/gestion/kb_gn_042_manual_desarrollo_organizacional_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_042_manual_desarrollo_organizacional_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:gestion-ipr:1.0.0"
       title: "Gestión Operacional de Intervenciones Públicas Regionales (IPR)"
-      file: "knowledge/domains/gn/ipr/kb_gn_019_gestion_ipr_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_019_gestion_ipr_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:gestion-rendiciones:1.0.0"
       title: "Gestión de Rendiciones de Cuentas en el GORE Ñuble"
-      file: "knowledge/domains/gn/gestion/kb_gn_020_gestion_rendiciones_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_020_gestion_rendiciones_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:estrategia-gestion:1.0.0"
       title: "Estrategia y Gestión del GORE en Chile"
-      file: "knowledge/domains/gn/gestion/kb_gn_035_estrategia_gestion_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_035_estrategia_gestion_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:loc-gore:1.0.0"
       title: "LOC Gobierno y Administración Regional (DFL 1-19.175)"
-      file: "knowledge/domains/gn/legal/kb_gn_031_loc_gore_koda.yml"
+      file: "knowledge/domains/gn/01_fundamentos/legal/kb_gn_031_loc_gore_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:gestion-prpto:1.0.0"
       title: "Gestión Financiera y Operativa del Presupuesto Regional"
-      file: "knowledge/domains/gn/presupuesto/kb_gn_018_gestion_prpto_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/presupuesto/kb_gn_018_gestion_prpto_koda.yml"
       status: published
     - urn: "urn:knowledge:gorenuble:gn:marco-legal-gores:1.0.0"
       title: "Compendio Jurídico para Gobiernos Regionales"
-      file: "knowledge/domains/gn/legal/kb_gn_200_marco_legal_gores_koda.yml"
+      file: "knowledge/domains/gn/01_fundamentos/legal/kb_gn_200_marco_legal_gores_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:ley-presupuestos-2026-partida-31:1.0.0"
       title: "Ley de Presupuestos 2026 - Partida 31: Financiamiento Gobiernos Regionales"
-      file: "knowledge/domains/gn/presupuesto/kb_gn_210_ley_presupuestos_2026_partida_31_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/presupuesto/kb_gn_210_ley_presupuestos_2026_partida_31_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:ley-presupuestos-2026-normas-generales:1.0.0"
       title: "Ley de Presupuestos 2026 - Normas Generales (Ley 21.796)"
-      file: "knowledge/domains/gn/presupuesto/kb_gn_211_ley_presupuestos_2026_normas_generales_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/presupuesto/kb_gn_211_ley_presupuestos_2026_normas_generales_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:matriz-integracion-organica:1.0.0"
       title: "Matriz de Integración Orgánica del Conocimiento GORE Ñuble"
-      file: "knowledge/domains/gn/kb_gn_999_matriz_integracion_organica_koda.yml"
+      file: "knowledge/domains/gn/00_meta/kb_gn_999_matriz_integracion_organica_koda.yml"
       status: published
     - urn: "urn:knowledge:gorenuble:gn:bpmn-index:1.0.0"
       title: "Índice de Procesos BPMN"
-      file: "knowledge/domains/gn/arquitectura/bpmn/_index.yml"
+      file: "knowledge/domains/gn/04_habilitadores/arquitectura/bpmn/_index.yml"
       status: published
     - urn: "urn:knowledge:gorenuble:gn:manual-presupuesto:1.0.0"
       title: "Manual 1.1: Gestión Presupuestaria (Formulación y Ejecución)"
-      file: "knowledge/domains/gn/gestion/kb_gn_043_manual_presupuesto_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_043_manual_presupuesto_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:manual-contabilidad:1.0.0"
       title: "Manual 1.2: Contabilidad e Información Financiera"
-      file: "knowledge/domains/gn/gestion/kb_gn_044_manual_contabilidad_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_044_manual_contabilidad_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:manual-tesoreria:1.0.0"
       title: "Manual 1.3: Tesorería y Gestión de Pagos"
-      file: "knowledge/domains/gn/gestion/kb_gn_045_manual_tesoreria_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_045_manual_tesoreria_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:manual-compras:1.0.0"
       title: "Manual 2.1: Compras y Contrataciones Públicas"
-      file: "knowledge/domains/gn/gestion/kb_gn_046_manual_compras_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_046_manual_compras_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:manual-flotas:1.0.0"
       title: "Manual 2.4: Gestión de Vehículos e Infraestructura"
-      file: "knowledge/domains/gn/gestion/kb_gn_047_manual_flotas_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_047_manual_flotas_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:manual-ciclo-vida:1.0.0"
       title: "Manual 3.1: Ciclo de Vida del Funcionario"
-      file: "knowledge/domains/gn/gestion/kb_gn_048_manual_ciclo_vida_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_048_manual_ciclo_vida_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:manual-remuneraciones:1.0.0"
       title: "Manual 3.2: Gestión de Remuneraciones"
-      file: "knowledge/domains/gn/gestion/kb_gn_049_manual_remuneraciones_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_049_manual_remuneraciones_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:manual-asistencia:1.0.0"
       title: "Manual 3.3: Control de Asistencia y Ausentismo"
-      file: "knowledge/domains/gn/gestion/kb_gn_051_manual_asistencia_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_051_manual_asistencia_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:manual-bienestar:1.0.0"
       title: "Manual 3.5: Programas de Bienestar al Personal"
-      file: "knowledge/domains/gn/gestion/kb_gn_052_manual_bienestar_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_052_manual_bienestar_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:cies-sitia:1.0.0"
       title: "Centro Integrado de Emergencia y Seguridad (CIES) de Ñuble con integración SITIA"
-      file: "knowledge/domains/gn/arquitectura/kb_gn_080_cies_sitia_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/arquitectura/kb_gn_080_cies_sitia_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:gore-ideal:1.0.0"
       title: "GORE Ñuble Ideal y GORE 4.0"
-      file: "knowledge/domains/gn/intro/kb_gn_900_gore_ideal_koda.yml"
+      file: "knowledge/domains/gn/01_fundamentos/intro/kb_gn_900_gore_ideal_koda.yml"
       status: draft
 
     - urn: "urn:knowledge:gorenuble:gn:gestion-info-geoespacial:1.0.0"
       title: "Gestión de Información Geoespacial en GORE Ñuble (Marco Integrado)"
-      file: "knowledge/domains/gn/arquitectura/kb_gn_090_gestion_informacion_geoespacial_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/arquitectura/kb_gn_090_gestion_informacion_geoespacial_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:bpmn-d01-actos-administrativos:1.0.0"
       title: "BPMN D01: Tramitación de Actos Administrativos"
-      file: "knowledge/domains/gn/arquitectura/bpmn/D01_actos_administrativos_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/arquitectura/bpmn/D01_actos_administrativos_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:bpmn-d02-ciclo-presupuestario:1.0.0"
       title: "BPMN D02: Ciclo Presupuestario Regional"
-      file: "knowledge/domains/gn/arquitectura/bpmn/D02_ciclo_presupuestario_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/arquitectura/bpmn/D02_ciclo_presupuestario_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:bpmn-d03-gestion-ipr:1.0.0"
       title: "BPMN D03: Gestión de Intervenciones Públicas Regionales (IPR)"
-      file: "knowledge/domains/gn/arquitectura/bpmn/D03_gestion_ipr_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/arquitectura/bpmn/D03_gestion_ipr_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:bpmn-d04-compras-contrataciones:1.0.0"
       title: "BPMN D04: Compras Públicas y Contrataciones"
-      file: "knowledge/domains/gn/arquitectura/bpmn/D04_compras_contrataciones_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/arquitectura/bpmn/D04_compras_contrataciones_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:bpmn-d05-inventarios-activo-fijo:1.0.0"
       title: "BPMN D05: Gestión de Inventarios y Activo Fijo"
-      file: "knowledge/domains/gn/arquitectura/bpmn/D05_inventarios_activo_fijo_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/arquitectura/bpmn/D05_inventarios_activo_fijo_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:bpmn-d06-flota-vehicular:1.0.0"
       title: "BPMN D06: Gestión de Flota Vehicular"
-      file: "knowledge/domains/gn/arquitectura/bpmn/D06_flota_vehicular_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/arquitectura/bpmn/D06_flota_vehicular_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:bpmn-d07-rrhh:1.0.0"
       title: "BPMN D07: Gestión de Personas (RRHH)"
-      file: "knowledge/domains/gn/arquitectura/bpmn/D07_rrhh_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/arquitectura/bpmn/D07_rrhh_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:bpmn-d08-rendiciones:1.0.0"
       title: "BPMN D08: Gestión de Rendiciones de Cuentas"
-      file: "knowledge/domains/gn/arquitectura/bpmn/D08_rendiciones_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/arquitectura/bpmn/D08_rendiciones_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:bpmn-d09-cies-sitia:1.0.0"
       title: "BPMN D09: Gestión Operativa CIES/SITIA"
-      file: "knowledge/domains/gn/arquitectura/bpmn/D09_cies_sitia_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/arquitectura/bpmn/D09_cies_sitia_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:bpmn-d10-geoespacial-ide:1.0.0"
       title: "BPMN D10: Gestión de Información Geoespacial (IDE/Geonodo)"
-      file: "knowledge/domains/gn/arquitectura/bpmn/D10_geoespacial_ide_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/arquitectura/bpmn/D10_geoespacial_ide_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:aceleracion-regional:1.0.0"
       title: "Aceleración Regional GORE Ñuble"
-      file: "knowledge/domains/gn/arquitectura/kb_gn_050_aceleracion_regional_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/arquitectura/kb_gn_050_aceleracion_regional_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:erd-nuble-2024-2030:1.0.0"
       title: "Estrategia Regional de Desarrollo Ñuble 2024-2030"
-      file: "knowledge/domains/gn/estrategia/kb_gn_006_erd_nuble_2024_2030_koda.yml"
+      file: "knowledge/domains/gn/02_estrategia/estrategia/kb_gn_006_erd_nuble_2024_2030_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:transferencia-ppr:1.0.0"
       title: "Transferencia de Programas Públicos Regionales (PPR) a Entidades Públicas"
-      file: "knowledge/domains/gn/ipr/kb_gn_001_transferencia_ppr_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_001_transferencia_ppr_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:ris-index:1.0.0"
       title: "Índice de Requisitos de Información Sectorial (RIS) SNI"
-      file: "knowledge/domains/gn/ipr/kb_gn_010_ris/kb_gn_010_ris_index_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_010_ris/kb_gn_010_ris_index_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:ris-proyinv:1.0.0"
       title: "RIS Genéricas para Proyectos de Inversión (SNI 2023)"
-      file: "knowledge/domains/gn/ipr/kb_gn_010_ris/kb_gn_010_ris_proyinv_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_010_ris/kb_gn_010_ris_proyinv_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:ris-proginv:1.0.0"
       title: "RIS Genéricas para Programas de Inversión (SNI 2025)"
-      file: "knowledge/domains/gn/ipr/kb_gn_010_ris/kb_gn_010_ris_proginv_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_010_ris/kb_gn_010_ris_proginv_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:ris-empub:1.0.0"
       title: "RIS para Estudios y Proyectos de Empresas del Estado (SNI 2024)"
-      file: "knowledge/domains/gn/ipr/kb_gn_010_ris/kb_gn_010_ris_empub_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_010_ris/kb_gn_010_ris_empub_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:ris-pmdt:1.0.0"
       title: "RIS para Estudio Básico PMDT (SNI 2024)"
-      file: "knowledge/domains/gn/ipr/kb_gn_010_ris/kb_gn_010_ris_pmdt_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_010_ris/kb_gn_010_ris_pmdt_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:ris-edpub:1.0.0"
       title: "RIS para Proyectos de Edificación Pública (SNI 2024)"
-      file: "knowledge/domains/gn/ipr/kb_gn_010_ris/kb_gn_010_ris_edpub_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_010_ris/kb_gn_010_ris_edpub_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:ris-artcult:1.0.0"
       title: "RIS para Proyectos de Arte y Cultura (SNI 2024)"
-      file: "knowledge/domains/gn/ipr/kb_gn_010_ris/kb_gn_010_ris_artcult_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_010_ris/kb_gn_010_ris_artcult_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:ris-patrimonio:1.0.0"
       title: "RIS para Proyectos Patrimoniales (SNI 2024)"
-      file: "knowledge/domains/gn/ipr/kb_gn_010_ris/kb_gn_010_ris_patrimonio_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_010_ris/kb_gn_010_ris_patrimonio_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:ris-deportes:1.0.0"
       title: "RIS para Proyectos de Infraestructura Deportiva (SNI 2024)"
-      file: "knowledge/domains/gn/ipr/kb_gn_010_ris/kb_gn_010_ris_deportes_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_010_ris/kb_gn_010_ris_deportes_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:guia-idi-sni-sts:1.0.0"
       title: "Guía Formulación Iniciativas de Inversión (IDI) en SNI para GOREs"
-      file: "knowledge/domains/gn/ipr/kb_gn_024_guia_idi_sni_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_024_guia_idi_sni_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:guia-programas-directos-gore:1.0.0"
       title: "Guía de Formulación de Programas Públicos Regionales (PPR) de Ejecución Directa GORE"
-      file: "knowledge/domains/gn/ipr/kb_gn_025_guia_programas_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_025_guia_programas_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:guia-fril-2025-sts:1.0.0"
       title: "Instructivo FRIL 2025 GORE Ñuble"
-      file: "knowledge/domains/gn/ipr/kb_gn_026_guia_fril_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_026_guia_fril_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:guia-frpd-nuble:1.0.0"
       title: "Guía Operativa FRPD Ñuble 2025"
-      file: "knowledge/domains/gn/ipr/kb_gn_027_guia_frpd_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_027_guia_frpd_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:instructivo-subvencion-8-2025-sts:1.0.0"
       title: "Instructivo Concurso Vinculación con la Comunidad 8% 2025"
-      file: "knowledge/domains/gn/ipr/kb_gn_028_instructivo_subvencion_8_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_028_instructivo_subvencion_8_koda.yml"
       status: draft
     - urn: "urn:knowledge:gorenuble:gn:guia-circular-33-sts:1.0.0"
       title: "Guía Operativa para Formulación y Evaluación de Iniciativas Circular 33"
-      file: "knowledge/domains/gn/ipr/kb_gn_029_guia_circ33_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_gn_029_guia_circ33_koda.yml"
       status: draft
 
     - urn: "urn:knowledge:gorenuble:gn:indicadores-nuble:1.0.0"
       title: "Indicadores regionales y comunales - Región de Ñuble (BCN junio 2025)"
-      file: "knowledge/domains/gn/estadisticas/kb_gn_005_indicadores_nuble_koda.yml"
+      file: "knowledge/domains/gn/02_estrategia/estadisticas/kb_gn_005_indicadores_nuble_koda.yml"
       status: draft
 
     - urn: "urn:knowledge:gorenuble:gn:comunicaciones-oc:1.0.0"
       title: "Comunicaciones Oscar Crisóstomo (compilado)"
-      file: "knowledge/domains/gn/comunicaciones/kb_gn_008_comunicaciones_oc_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/comunicaciones/kb_gn_008_comunicaciones_oc_koda.yml"
       status: draft
 
     - urn: "urn:knowledge:gorenuble:gn:cuentas-publicas-2021-2024:1.0.0"
       title: "Cuentas Públicas GORE Ñuble 2021-2024 (STS)"
-      file: "knowledge/domains/gn/gestion/kb_gn_009_cuentas_publicas_2021_2024_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_009_cuentas_publicas_2021_2024_koda.yml"
       status: draft
 
     - urn: "urn:knowledge:gorenuble:gn:glosario-gore-nuble:1.0.0"
       title: "Glosario Unificado Jurídico-Administrativo GORE Ñuble (STS)"
-      file: "knowledge/domains/gn/gestion/kb_gn_014_glosario_gore_nuble_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/gestion/kb_gn_014_glosario_gore_nuble_koda.yml"
       status: draft
 
     - urn: "urn:knowledge:gorenuble:gn:guia-comunicaciones:1.0.0"
       title: "Guía Integral de Comunicaciones GORE Ñuble (STS)"
-      file: "knowledge/domains/gn/comunicaciones/kb_gn_030_guia_comunicaciones_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/comunicaciones/kb_gn_030_guia_comunicaciones_koda.yml"
       status: draft
 
     - urn: "urn:knowledge:gorenuble:gn:nuble-250:1.0.0"
       title: 'Agenda Estratégica "Ñuble 250" (STS)'
-      file: "knowledge/domains/gn/estrategia/kb_gn_056_nuble250_koda.yml"
+      file: "knowledge/domains/gn/02_estrategia/estrategia/kb_gn_056_nuble250_koda.yml"
       status: draft
 
     - urn: "urn:knowledge:gorenuble:gn:problemas-sociales-cl:1.0.0"
       title: "Catálogo de Problemas Sociales de Chile (STS)"
-      file: "knowledge/domains/gn/social/kb_gn_004_problemas_sociales_cl_koda.yml"
+      file: "knowledge/domains/gn/02_estrategia/social/kb_gn_004_problemas_sociales_cl_koda.yml"
       status: draft
 
     - urn: "urn:knowledge:gorenuble:gn:modelos-actos-juridicos:1.0.0"
       title: "Modelos de Actos Jurídicos GORE Ñuble (SFD/STS)"
-      file: "knowledge/domains/gn/juridico/kb_gn_100_modelos_actos_juridicos_koda.yml"
+      file: "knowledge/domains/gn/03_operacion/juridico/kb_gn_100_modelos_actos_juridicos_koda.yml"
       status: draft
 
     - urn: "urn:knowledge:gorenuble:gn:informe-estado-inicial-gore-pre-td:1.0.0"
       title: "Informe Estado Inicial GORE Ñuble Pre-Transformación Digital (STS)"
-      file: "knowledge/domains/gn/tde/kb_gn_710_informe_estado_inicial_gore_pre_td_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/tde/kb_gn_710_informe_estado_inicial_gore_pre_td_koda.yml"
       status: draft
 
     - urn: "urn:knowledge:gorenuble:gn:estrategia-td-ia:1.0.0"
       title: "Estrategia de Transformación Digital e IA GORE Ñuble (STS)"
-      file: "knowledge/domains/gn/tde/kb_gn_720_estrategia_td_ia_koda.yml"
+      file: "knowledge/domains/gn/04_habilitadores/tde/kb_gn_720_estrategia_td_ia_koda.yml"
       status: draft
 
     - urn: "urn:gorenuble:omega:ontology:ipr-gestion-fusion:1.0.0"
       title: "Ontología Categorial Ω-IPR (Fusión Gestión + Selector)"
-      file: "knowledge/domains/gn/ipr/kb_omega_ipr_gestion_fusion.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/kb_omega_ipr_gestion_fusion.yml"
       status: published
 
     - urn: "urn:knowledge:gorenuble:gn:glosario-ipr-consolidado:1.0.0"
       title: "Glosario Consolidado IPR - GORE Ñuble"
-      file: "knowledge/domains/gn/ipr/otroglosario.yml"
+      file: "knowledge/domains/gn/03_operacion/ipr/otroglosario.yml"
       status: published
 
 Statistics:

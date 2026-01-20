@@ -150,7 +150,7 @@ Indice_Artefactos:
       - id: kb_core_007
         urn: "urn:knowledge:gorenuble:estadocl:estructura-estado-chile:1.0.0"
         titulo: "Estructura del Estado de Chile"
-        path: "../estadocl/kb_core_007_estructura_estado_chile_koda.yml"
+        path: "../../estadocl/kb_core_007_estructura_estado_chile_koda.yml"
         tipo: KODA
         resumen: "Organización general del Estado chileno: poderes, niveles, instituciones."
 
@@ -545,7 +545,7 @@ Indice_Artefactos:
         - id: D01
           titulo: "Actos Administrativos"
           urn: "urn:knowledge:gorenuble:gn:bpmn-d01-actos-administrativos:1.0.0"
-          path: "../../../sources/gn/arquitectura/bpmn/D01_actos_administrativos.md"
+          path: "../../../../sources/gn/arquitectura/bpmn/D01_actos_administrativos.md"
           koda_path: "arquitectura/bpmn/D01_actos_administrativos_koda.yml"
           tipo: BPMN
           resumen: "Proceso de emisión de actos administrativos."
@@ -674,7 +674,7 @@ Indice_Artefactos:
     Artefactos:
       - id: kb_gn_002
         titulo: "Noticias GORE"
-        path: "../../../sources/gn/data/kb_gn_002_noticias.csv"
+        path: "../../../../sources/gn/data/kb_gn_002_noticias.csv"
         tipo: CSV
         resumen: "Histórico de noticias institucionales."
 
@@ -751,6 +751,6 @@ Schema:
   Artefactos:
     - id: koda_schema
       titulo: "KODA Schema"
-      path: "../schemas/koda-schema.json"
+      path: "../../schemas/koda-schema.json"
       tipo: JSON
       resumen: "Esquema JSON para validación de artefactos KODA."
