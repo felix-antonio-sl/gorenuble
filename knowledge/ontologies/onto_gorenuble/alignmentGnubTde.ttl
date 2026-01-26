@@ -57,8 +57,8 @@ gnub:StaffUnit
     .
 
 gnub:AdvisoryBody
-    rdfs:subClassOf tde:OrganoAdministracionEstado ;
-    skos:scopeNote "Órgano Asesor GORE Ñuble es un tipo específico de OAE."@es ;
+    skos:relatedMatch tde:OrganoAdministracionEstado ;
+    skos:scopeNote "Órganos asesores (COSOC, comités) colaboran con OAEs pero no son OAEs según Ley 18.575."@es ;
     .
 
 # =============================================================================
@@ -78,13 +78,13 @@ gnub:PositionType
 
 # Estados y Transiciones
 gnub:RenditionState
-    skos:broadMatch tde:EstadoTramite ;
-    skos:scopeNote "Estado de Rendición GNUB es un tipo específico de Estado de Trámite TDE."@es ;
+    skos:relatedMatch tde:EstadoTramite ;
+    skos:scopeNote "Estados de rendición son análogos pero no subtipos de estados de trámite TDE."@es ;
     .
 
 gnub:AgreementState
-    skos:broadMatch tde:EstadoTramite ;
-    skos:scopeNote "Estado de Convenio GNUB es un tipo específico de Estado de Trámite TDE."@es ;
+    skos:relatedMatch tde:EstadoTramite ;
+    skos:scopeNote "Estados de convenio son análogos pero no subtipos de estados de trámite TDE."@es ;
     .
 
 gnub:ApprovalFlowStage
@@ -98,20 +98,30 @@ gnub:RenditionRole
     skos:scopeNote "Roles en rendición GNUB son tipos específicos de roles en procedimiento TDE."@es ;
     .
 
-# Documentos
-gnub:LegalDocument
-    skos:relatedMatch tde:TipoNorma ;
-    skos:scopeNote "Documentos legales GNUB se clasifican según TipoNorma TDE."@es ;
+# Documentos - Remediación v2.2
+# La clase gnub:Resolution ahora es gist:Agreement (Acto), 
+# los tipos de documento se alinean via gnub:AdministrativeDocumentType
+gnub:AdministrativeDocumentType
+    skos:broadMatch tde:TipoDocumentoElectronico ;
+    skos:scopeNote "Tipos de documento administrativo GNUB son subconjunto de tipos TDE."@es ;
     .
 
-gnub:Resolution
-    skos:closeMatch <https://datos.gob.cl/ns/data/tde/_TipoDocumentoElectronico_resolucion> ;
-    skos:scopeNote "Resolución GNUB es equivalente semántico a tipo documento resolución TDE."@es ;
+# =============================================================================
+# P3-GIST: Estados de Convenio → Estados de Expediente
+# =============================================================================
+
+gnub:AgreementState
+    skos:relatedMatch tde:EstadoExpediente ;
+    skos:scopeNote "Estados de convenio GNUB se relacionan con estados de expediente TDE. No son idénticos pero comparten semántica de ciclo de vida."@es ;
     .
 
-gnub:Decree
+# Mappings de instancias Reference Data (exactMatch)
+<https://gorenuble.gob.cl/ns/data/_DocType_Resolution>
+    skos:exactMatch <https://datos.gob.cl/ns/data/tde/_TipoDocumentoElectronico_resolucion> ;
+    .
+
+<https://gorenuble.gob.cl/ns/data/_DocType_Decree>
     skos:relatedMatch <https://datos.gob.cl/ns/data/tde/_TipoNorma_decreto_supremo> ;
-    skos:scopeNote "Decreto GNUB se relaciona con Decreto Supremo en TDE."@es ;
     .
 
 # =============================================================================

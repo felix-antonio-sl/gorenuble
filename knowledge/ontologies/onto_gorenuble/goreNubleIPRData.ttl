@@ -16,6 +16,7 @@
 <https://gorenuble.gob.cl/data/goreNubleIPRData>
     a owl:Ontology ;
     owl:imports <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    owl:imports <https://gorenuble.gob.cl/data/goreNubleOrgData> ;
     skos:prefLabel "Datos IPR GORE Ñuble"@es ;
     skos:definition "Componente de la base de conocimientos (ABox) especializado en el dominio de la Intervención Pública Regional (IPR), incluyendo mecanismos de financiamiento, estados de inversión y taxonomías de fondos."@es ;
     .
@@ -1355,14 +1356,14 @@ gnubd:_Milestone_30119286_InicioObras
     gist:hasGoal [ a gist:Intention ; skos:prefLabel "Acta de Entrega de Terreno"@es ] ;
     gist:plannedStartDateTime "2024-03-01T00:00:00"^^xsd:dateTime ;
     gist:actualStartDateTime "2024-03-01T00:00:00"^^xsd:dateTime ;
-    gist:isRecordedAt gnubd:_IPR_30119286 .
+    gist:isPartOf gnubd:_IPR_30119286 .
 
 gnubd:_Milestone_30119286_Termino
     a gnub:ProjectMilestone ;
     skos:prefLabel "H2: Término de Obras"@es ;
     gist:hasGoal [ a gist:Intention ; skos:prefLabel "Recepción Provisoria"@es ] ;
     gist:plannedStartDateTime "2026-06-30T00:00:00"^^xsd:dateTime ;
-    gist:isRecordedAt gnubd:_IPR_30119286 .
+    gist:isPartOf gnubd:_IPR_30119286 .
 
 gnubd:_Magnitude_PhysProg_30119286
     a gist:Magnitude ;

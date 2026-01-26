@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  NOTA DE PORTABILIDAD (REM-018)
+  ==============================
+  Este catálogo usa rutas relativas que asumen la siguiente estructura:
+  
+  Developer/
+  ├── gorenuble/knowledge/ontologies/onto_gorenuble/  (este directorio)
+  ├── tde/knowledge/ontologies/onto_tde/
+  └── fxsl/knowledge/domains/gist/ontologies/
+  
+  Si los repositorios se reorganizan, actualizar las rutas relativas.
+  Para usar con Protégé, abrir goreNubleBundle.ttl desde este directorio.
+-->
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <!-- =========================================================== -->
     <!-- Gist Core: Upper Ontology -->
@@ -51,4 +64,10 @@
         uri="goreNubleRenditionData.ttl" />
     <uri name="https://gorenuble.gob.cl/data/goreNubleApprovalData"
         uri="goreNubleApprovalData.ttl" />
+    <uri name="https://gorenuble.gob.cl/data/goreNubleReferenceData"
+        uri="goreNubleReferenceData.ttl" />
+    <uri name="https://gorenuble.gob.cl/ontology/goreNubleDipirOntology"
+        uri="goreNubleDipirOntology.ttl" />
+    <uri name="https://gorenuble.gob.cl/ontology/goreNubleDipirRules"
+        uri="goreNubleDipirRules.ttl" />
 </catalog>

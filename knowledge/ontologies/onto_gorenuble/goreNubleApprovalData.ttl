@@ -136,5 +136,31 @@ gnubd:ApprovalStage_Notificacion
     .
 
 # =============================================================================
+# TIPOS DE DOCUMENTO ADMINISTRATIVO (Reference Data - Remediación Gist v2.1)
+# Instanceas de gnub:AdministrativeDocumentType
+# =============================================================================
+
+# Tipos específicos vinculados a la taxonomía base en goreNubleReferenceData.ttl
+gnubd:_DocType_ResolutionExenta
+    a gnub:AdministrativeDocumentType ;
+    skos:prefLabel "Resolución Exenta"@es ;
+    skos:definition "Documento de resolución exenta de Toma de Razón por CGR."@es ;
+    skos:broader gnubd:_DocType_Resolution ;
+    .
+
+gnubd:_DocType_ResolutionAfecta
+    a gnub:AdministrativeDocumentType ;
+    skos:prefLabel "Resolución Afecta"@es ;
+    skos:definition "Documento de resolución sujeta a Toma de Razón por CGR."@es ;
+    skos:broader gnubd:_DocType_Resolution ;
+    .
+
+gnubd:_DocType_Oficio
+    a gnub:AdministrativeDocumentType ;
+    skos:prefLabel "Oficio"@es ;
+    skos:definition "Documento de correspondencia oficial."@es ;
+    .
+
+# =============================================================================
 # FIN DEL DOCUMENTO ABOX
 # =============================================================================

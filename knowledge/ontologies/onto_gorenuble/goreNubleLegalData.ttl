@@ -14,6 +14,7 @@
 <https://gorenuble.gob.cl/data/goreNubleLegalData>
     a owl:Ontology ;
     owl:imports <https://gorenuble.gob.cl/ontology/goreNubleOntology> ;
+    owl:imports <https://gorenuble.gob.cl/data/goreNubleOrgData> ;
     skos:prefLabel "Datos Legales GORE Ñuble"@es ;
     skos:definition "Componente de la base de conocimientos (ABox) que instancia el marco jurídico y normativo del GORE, incluyendo leyes, artículos y mandatos legales vinculantes."@es ;
     .
