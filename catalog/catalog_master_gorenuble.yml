@@ -26,6 +26,11 @@ Catalog:
       file: "agents/agent_goreologo.yaml"
       status: published
 
+    - urn: "urn:knowledge:gorenuble:agents:asesor-juridico:3.1.0"
+      title: "Asesor Jurídico - Garante de Legalidad Regional"
+      file: "agents/agent_asesor_juridico.yaml"
+      status: published
+
     - urn: "urn:knowledge:gorenuble:agents:gestor-ipr-360:1.0.0"
       title: "Gestor IPR 360 - Experto en Inversión Pública Regional"
       file: "agents/agent_gestor_ipr_360.yaml"
@@ -352,6 +357,11 @@ Catalog:
       title: "Modelos de Actos Jurídicos GORE Ñuble (SFD/STS)"
       file: "knowledge/domains/gn/03_operacion/juridico/kb_gn_100_modelos_actos_juridicos_koda.yml"
       status: draft
+
+    - urn: "urn:knowledge:gorenuble:gn:dictamenes-cgr-gore:1.0.0"
+      title: "Dictámenes CGR Relevantes para GOREs"
+      file: "knowledge/domains/gn/03_operacion/juridico/kb_gn_101_dictamenes_cgr_gore_koda.yml"
+      status: published
 
     - urn: "urn:knowledge:gorenuble:gn:informe-estado-inicial-gore-pre-td:1.0.0"
       title: "Informe Estado Inicial GORE Ñuble Pre-Transformación Digital (STS)"
