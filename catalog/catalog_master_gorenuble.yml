@@ -200,6 +200,10 @@ Catalog:
       title: "GORE Ñuble Ideal y GORE 4.0"
       file: "knowledge/domains/gn/01_fundamentos/intro/kb_gn_900_gore_ideal_koda.yml"
       status: draft
+    - urn: "urn:knowledge:gorenuble:core:gestion:mw-waissbluth:1.0.0"
+      title: "Introducción a la Gestión Pública (Waissbluth) - Versión ETE"
+      file: "knowledge/core/gestion/kb_gn_mw_waissbluth_koda.yml"
+      status: published
 
     - urn: "urn:knowledge:gorenuble:gn:gestion-info-geoespacial:1.0.0"
       title: "Gestión de Información Geoespacial en GORE Ñuble (Marco Integrado)"
@@ -384,11 +388,11 @@ Catalog:
       status: published
 
 Statistics:
-  total_artifacts: 64
+  total_artifacts: 65
   core_guides: 1
   agents: 10
   schemas: 0
-  domains: 63
-  last_updated: "2026-01-05"
+  domains: 64
+  last_updated: "2026-01-27"
   federation_status: "registered_in_koda"
   notes: "Saneo y actualización: Corregidas rutas IPPs, inyectadas LLM_Parsing_Instructions, agregados Ω-IPR y Glosario Consolidado."
