@@ -54,27 +54,6 @@ LLM_Parsing_Instructions:
 Purp: 'Refactorizar libro "Introducción a la Gestión Pública" de Waisbluth a formato ETE.'
 Obj: "Crear artefacto de conocimiento de alta densidad para consulta y razonamiento por agentes GORE Ñuble."
 
-Referencias_Internas:
-  ID: MW-REFS-INT-01
-  Purp: 'Anclas de IDs citados como "GP-*" en el contenido (refs internas).'
-  Entries:
-    - ID: GP-ESTRATEGIA-VALOR-PUBLICO-01
-      Ctx: "Ancla interna mencionada en el texto; artefacto/definición detallada pendiente."
-    - ID: GP-GESTION-STAKEHOLDERS-01
-      Ctx: "Ancla interna mencionada en el texto; artefacto/definición detallada pendiente."
-    - ID: GP-CAMBIO-ROOT-01
-      Ctx: "Ancla interna mencionada en el texto; artefacto/definición detallada pendiente."
-    - ID: GP-ESTADO-HERRAMIENTAS-01
-      Ctx: "Ancla interna mencionada en el texto; artefacto/definición detallada pendiente."
-    - ID: GP-DIRECTIVO-MOORE-TRIANGULO-01
-      Ctx: "Ancla interna mencionada en el texto; artefacto/definición detallada pendiente."
-    - ID: GP-DIAGNOSTICO-PASO3-01
-      Ctx: "Ancla interna mencionada en el texto; artefacto/definición detallada pendiente."
-    - ID: GP-DIRECTIVO-INTRAEMPRENDEDORES-01
-      Ctx: "Ancla interna mencionada en el texto; artefacto/definición detallada pendiente."
-    - ID: GP-GESTION-MAPA-STAKEHOLDERS-01
-      Ctx: "Ancla interna mencionada en el texto; artefacto/definición detallada pendiente."
-
 Documento:
   ID: MW-DOC-01
   Titulo: "Introducción a la Gestión Pública (Waissbluth) - Versión ETE"

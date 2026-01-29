@@ -11,7 +11,7 @@ _manifest:
   provenance:
     created_by: "GORE Ñuble"
     created_at: "2025-11-25"
-    last_modified_at: "2026-01-05"
+    last_modified_at: "2026-01-29"
 
 Catalog:
   Core_Guides:
@@ -61,6 +61,12 @@ Catalog:
       file: "agents/agent_ar_virtual.yaml"
       status: published
 
+    - urn: "urn:knowledge:gorenuble:agents:dgi-virtual:1.0.0"
+      title: "DGI Virtual - Departamento de Gestión Institucional Virtual"
+      file: "agents/agent_dgi_virtual.yaml"
+      extends: "urn:knowledge:gorenuble:agents:ar-virtual:1.0.0"
+      status: published
+
     - urn: "urn:knowledge:gorenuble:agents:digitrans-gore:1.0.0"
       title: "DIGITRANS-GORE - Oficial de Cumplimiento TDE Integral"
       file: "agents/agent_digitrans_gore.yaml"
@@ -74,6 +80,11 @@ Catalog:
     - urn: "urn:knowledge:gorenuble:agents:ingeniero-goreos:2.0.0"
       title: "Ingeniero GORE_OS - Desarrollador Principal del Proyecto GORE_OS"
       file: "agents/agent_ingeniero_goreos.yaml"
+      status: published
+
+    - urn: "urn:knowledge:gorenuble:agents:visionario:1.1.0"
+      title: "Visionario - Prospectivista Estratégico y Catalizador ExO-GORE"
+      file: "agents/agent_visionario.yaml"
       status: published
 
   Schemas: []
@@ -203,6 +214,26 @@ Catalog:
     - urn: "urn:knowledge:gorenuble:core:gestion:mw-waissbluth:1.0.0"
       title: "Introducción a la Gestión Pública (Waissbluth) - Versión ETE"
       file: "knowledge/core/gestion/kb_gn_mw_waissbluth_koda.yml"
+      status: published
+
+    - urn: "urn:knowledge:gorenuble:core:gestion:meyer-org-structure:1.0.0"
+      title: "Principle-based Organizational Structure"
+      file: "knowledge/core/gestion/kb_gn_meyer_org_structure_koda.yml"
+      status: draft
+
+    - urn: "urn:knowledge:gorenuble:core:gestion:lean6:1.0.1"
+      title: "Lean Six Sigma Core Concepts"
+      file: "knowledge/core/gestion/kb_gn_lean6_core_koda.yml"
+      status: published
+
+    - urn: "urn:knowledge:gorenuble:gn:manual-operacional-dgi:1.0.0"
+      title: "Manual Operacional DGI - Departamento de Gestión Institucional"
+      file: "knowledge/domains/gn/dgi/kb_gn_manual_operacional_dgi_koda.yml"
+      status: published
+
+    - urn: "urn:knowledge:gorenuble:gn:plan-potenciamiento-dgi:1.0.0"
+      title: "Plan de Potenciamiento DGI - Integración Meyer + Lean Six Sigma + Navegación Social"
+      file: "knowledge/domains/gn/dgi/kb_gn_plan_potenciamiento_dgi_koda.yml"
       status: published
 
     - urn: "urn:knowledge:gorenuble:gn:gestion-info-geoespacial:1.0.0"
@@ -388,11 +419,11 @@ Catalog:
       status: published
 
 Statistics:
-  total_artifacts: 65
+  total_artifacts: 69
   core_guides: 1
-  agents: 10
+  agents: 13
   schemas: 0
-  domains: 64
-  last_updated: "2026-01-27"
+  domains: 66
+  last_updated: "2026-01-29"
   federation_status: "registered_in_koda"
-  notes: "Saneo y actualización: Corregidas rutas IPPs, inyectadas LLM_Parsing_Instructions, agregados Ω-IPR y Glosario Consolidado."
+  notes: "Agregados artefactos KB: Manual Operacional DGI y Plan de Potenciamiento DGI."
