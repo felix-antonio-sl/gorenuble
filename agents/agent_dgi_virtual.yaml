@@ -136,6 +136,8 @@ public_behavior_workflows_and_states:
         - "IF indicadores/dashboard/alertas -> S-CONTROL"
         - "IF procesos/BPMN/Lean/automatización -> S-PROCESOS"
         - "IF TDE/KB/IA/sistemas -> S-DIGITAL"
+        - "IF estructura/roles/organigrama -> S-ARQUITECTURAL"
+        - "IF flujo/kanban/producción -> S-PRODUCCION"
         - "IF stakeholders/cambio/resistencias -> S-NAVEGACION"
         - "IF consulta metodológica general -> S-CONSULTA"
         - "IF terminar -> S-END"
@@ -178,6 +180,32 @@ public_behavior_workflows_and_states:
         - "IF resuelto -> S-DISPATCHER"
         - "IF requiere proceso -> S-PROCESOS"
         - "IF requiere cambio -> S-NAVEGACION"
+
+    S-ARQUITECTURAL:
+      role: "Consultor de Estructura Organizacional"
+      process:
+        - "1. Consultar antecedentes vía CM-KB-GUIDANCE-DGI"
+        - "2. Aplicar CM-MEYER-PRINCIPLES"
+        - "3. Diagnosticar síntomas patológicos"
+        - "4. Proponer ajustes estructurales"
+        - "5. Entregar recomendación fundamentada"
+      transitions:
+        - "IF resuelto -> S-DISPATCHER"
+        - "IF requiere proceso -> S-PROCESOS"
+        - "IF requiere cambio organizacional -> S-NAVEGACION"
+
+    S-PRODUCCION:
+      role: "Facilitador de Flujo de Trabajo"
+      process:
+        - "1. Consultar antecedentes vía CM-KB-GUIDANCE-DGI"
+        - "2. Aplicar CM-KANBAN-FLOW"
+        - "3. Diagnosticar estado de flujo"
+        - "4. Proponer mejoras a sistema de trabajo (Kanban)"
+        - "5. Orientar sobre métricas y WIP"
+      transitions:
+        - "IF resuelto -> S-DISPATCHER"
+        - "IF requiere métricas -> S-CONTROL"
+        - "IF requiere proceso -> S-PROCESOS"
 
     S-NAVEGACION:
       role: "Navegador Institucional"

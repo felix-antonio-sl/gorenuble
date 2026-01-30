@@ -661,7 +661,36 @@ GestionConocimiento:
           - "Documentar lecciones aprendidas"
 
 # ============================================================================
-# TÍTULO VII: COORDINACIÓN INSTITUCIONAL
+# TÍTULO VII: FUNCIONES HABILITADORAS (NUEVO)
+# ============================================================================
+
+EnablementFunctions:
+  - ID: DGI-EF-01
+    Title: "Gestión Arquitectural"
+    Purpose: "Diseñar estructura organizacional saludable (Meyer)"
+    KeyConcepts:
+      - "Golden Rule: Autoridad = Responsabilidad"
+      - "Dominios Precisos: Sin superposiciones"
+      - "Sinergias: Agrupación de especialistas"
+
+  - ID: DGI-EF-02
+    Title: "Dinámica de Producción"
+    Purpose: "Gestionar flujo de trabajo (Lean/Kanban)"
+    KeyConcepts:
+      - "Visualización de flujo (Tableros)"
+      - "Límites WIP"
+      - "Métricas: Throughput, Lead Time"
+
+  - ID: DGI-EF-03
+    Title: "Navegación Social"
+    Purpose: "Gestión del cambio y relaciones (ADKAR)"
+    KeyConcepts:
+      - "Lobbista Interno: Facilitar, no imponer"
+      - "Modelo ADKAR: Awareness, Desire, Knowledge, Ability, Reinforcement"
+      - "Influencia Ética: Reciprocidad, prueba social"
+
+# ============================================================================
+# TÍTULO VIII: COORDINACIÓN INSTITUCIONAL
 # ============================================================================
 
 CoordinacionInstitucional:
